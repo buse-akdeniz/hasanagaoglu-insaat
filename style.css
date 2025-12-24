@@ -16,7 +16,7 @@
 
   --line: rgba(15,20,22,.12);
 
-  --accent:#2f5d57;       /* düğme/çizgi */
+  --accent:#c7a45a;       /* düğme/çizgi */
 
   --accent-2:#1f4742;     /* hover */
 
@@ -24,16 +24,16 @@
 
   --shadow: 0 18px 45px rgba(0,0,0,.22);
 
-  --primary: #0f5132;   /* Çam Yeşili */
-  --primary-dark: #0a3b25;
+  --primary: #111111;   /* Çam Yeşili */
+  --primary-dark: #0b0b0b;
   --secondary: #354f52; /* Taş Grisi */
   --text-dark: #1e293b;
   --text-light: #f1f5f9;
   --bg-light: #f8fafc;
 
-  --bg-main: #1f2a2e;
+  --bg-main: #111111;
   --bg-secondary: #26363b;
-  --bg-card: #2e4046;
+  --bg-card: #f5f2ea;
 
   --text-heading: #f5f4ef;
   --text-body: #cfd6d2;
@@ -348,11 +348,11 @@ p, li, span, input, textarea, button {
 
 .btn:hover, a.button:hover {
   background-color: var(--accent);
-  color: #1f2a2e;
+  color: #111111;
 }
 
 header, nav {
-  background-color: rgba(31,42,46,.85);
+  background-color: rgba(245,242,234,0.92);
   backdrop-filter: blur(6px);
 }
 
@@ -1169,7 +1169,7 @@ nav a:hover {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(31, 42, 46, 0.88);
+  background: rgba(0,0,0,0.55);
   z-index: 0;
 }
 
@@ -1196,7 +1196,7 @@ nav a:hover {
   align-items: center;
   padding: 22px 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-  background: rgba(46, 64, 70, 0.85);
+  background: #d8d2c7;
   border: 1px solid rgba(255,255,255,0.08);
   backdrop-filter: blur(4px);
 }
@@ -1206,7 +1206,7 @@ nav a:hover {
 }
 
 .fp-row {
-  background: rgba(46, 64, 70, 0.85);
+  background: #d8d2c7;
   border: 1px solid rgba(255,255,255,0.08);
   backdrop-filter: blur(4px);
 }
@@ -1242,19 +1242,20 @@ nav a:hover {
 
 .fp-content {
   flex: 1;
+  color: #111;
 }
 
 .fp-content h3 {
   font-size: 24px;
   margin: 0 0 10px;
-  color: #ffffff !important;
+  color: #111;
 }
 
 .fp-content p {
   margin: 0 0 14px;
   opacity: 0.9;
   line-height: 1.55;
-  color: #ffffff !important;
+  color: rgba(0,0,0,0.75);
 }
 
 .fp-link {
@@ -1262,15 +1263,16 @@ nav a:hover {
   padding: 10px 14px;
   border-radius: 999px;
   text-decoration: none;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  color: #ffffff !important;
+  border: 1px solid rgba(0,0,0,0.25);
+  color: #111;
   transition: transform 0.2s ease, background 0.2s ease;
 }
 
 .fp-link:hover {
   transform: translateY(-1px);
   background: rgba(255, 255, 255, 0.15);
-  color: #ffffff !important;
+  color: #000;
+  border-color: rgba(0,0,0,0.45);
 }
 
 @media (max-width: 860px) {
@@ -1715,7 +1717,7 @@ nav a:hover {
   outline: none;
   border-color: #7A8F7B;
   background: #FFFFFF;
-  box-shadow: 0 0 0 3px rgba(122, 143, 123, 0.1);
+  box-shadow: 0 0 0 3px rgba(0,0,0,0.1);
 }
 
 .contact-form-box button {
@@ -1860,7 +1862,7 @@ nav a:hover {
   border: 2px solid rgba(255, 255, 255, 0.3);
   letter-spacing: 1px;
   text-transform: uppercase;
-  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.35);
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
@@ -1869,7 +1871,7 @@ nav a:hover {
   background: linear-gradient(135deg, #20BA5A 0%, #0E7A6F 100%);
   border-color: rgba(255, 255, 255, 0.5);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.45);
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
@@ -1878,7 +1880,7 @@ nav a:hover {
   margin-top: 60px;
   color: #cfd6d2;
   background:
-    linear-gradient(180deg, rgba(31,42,46,.75), rgba(31,42,46,.92)),
+    linear-gradient(180deg, rgba(245,242,234,0.90), rgba(245,242,234,0.94)),
     url("assets/img/footer-bg.jpg");
   background-size: cover;
   background-position: center;
@@ -1997,7 +1999,7 @@ nav a:hover {
 .ft-form button:active {
   background: #d3a254 !important;
   border-color: #d3a254;
-  color: #1f2a2e !important;
+  color: #111111 !important;
 }
 
 /* MAIN GRID */
@@ -2040,7 +2042,7 @@ nav a:hover {
   align-items: center;
   justify-content: center;
   font-weight: 900;
-  color: #1f2a2e;
+  color: #111111;
   background: rgba(199,164,90,.95);
   box-shadow: 0 18px 45px rgba(0,0,0,.35);
 }
@@ -2095,7 +2097,7 @@ nav a:hover {
 
 .footer-call:hover {
   background: rgba(199,164,90,.92);
-  color: #1f2a2e;
+  color: #111111;
 }
 
 .footer-call.wa {
@@ -2105,7 +2107,7 @@ nav a:hover {
 
 .footer-call.wa:hover {
   background: rgba(147,197,166,.90);
-  color: #1f2a2e;
+  color: #111111;
 }
 
 .footer-mini {
@@ -2137,7 +2139,7 @@ nav a:hover {
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  background: rgba(31,42,46,.65);
+  background: rgba(245,242,234,0.88);
   border: 1px solid rgba(255,255,255,.10);
   color: rgba(245,244,239,.9);
   transition: transform .2s ease, border-color .2s ease;
@@ -2167,7 +2169,7 @@ nav a:hover {
   width: 100%;
   padding: 24px 0;
   text-align: center;
-  background: var(--bg-main, #1f2a2e);
+  background: var(--bg-main, #111111);
   color: #e6e6e6 !important;
   font-size: 14px;
 }
@@ -3731,14 +3733,14 @@ nav a:hover {
   width: 60px;
   height: 60px;
   padding: 0;
-  background: #22c55e;
+  background: #c7a45a;
   color: #ffffff;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  box-shadow: 0 10px 20px rgba(22, 163, 74, 0.4);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.35);
   z-index: 999;
   transition: all 0.3s ease;
 }
@@ -3750,7 +3752,7 @@ nav a:hover {
 
 .whatsapp-fab:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 24px rgba(22, 163, 74, 0.55);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.45);
 }
 
 /* CTA POPUP */
@@ -3949,7 +3951,7 @@ nav a:hover {
 .form-group textarea:focus {
   outline: none;
   border-color: #7A8F7B;
-  box-shadow: 0 0 0 3px rgba(122, 143, 123, 0.1);
+  box-shadow: 0 0 0 3px rgba(0,0,0,0.1);
 }
 
 .form-group textarea {
@@ -3974,7 +3976,7 @@ nav a:hover {
 .btn-primary:hover {
   background: #7A8F7B;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(122, 143, 123, 0.3);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
 /* Form Mesaj Gösterimi */
@@ -5344,7 +5346,7 @@ textarea:focus {
 .project-hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(10,20,18,0.60), rgba(10,20,18,0.15));
+  background: linear-gradient(90deg, rgba(0,0,0,0.60), rgba(0,0,0,0.15));
 }
 
 .project-hero-text {
@@ -5804,7 +5806,7 @@ textarea:focus {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(10,20,18,0.45);
+  background: rgba(0,0,0,0.45);
 }
 
 /* içerik */
@@ -6905,7 +6907,7 @@ body.projects-page .projects {
 .projects-hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(10, 20, 18, 0.55);
+  background: rgba(0,0,0,0.55);
 }
 
 .projects-hero-content {
@@ -7583,7 +7585,7 @@ body.corp-theme .top-bar .container,
 
 body.corp-theme .header-inner{
 
-  background: rgba(15,42,46,.55);
+  background: rgba(245,242,234,0.92);
 
   backdrop-filter: blur(10px);
 
@@ -7615,7 +7617,7 @@ body.corp-theme .footer-main,
 
 body.corp-theme .footer-topbar{
 
-  background: rgba(15,42,46,.78);
+  background: rgba(245,242,234,0.92);
 
   border: 1px solid rgba(255,255,255,.10);
 
@@ -7647,7 +7649,7 @@ body.corp-theme .footer-links a{
 
   padding: 14px 18px;
 
-  background: rgba(18, 32, 32, 0.55);
+  background: rgba(0, 0, 0, 0.25);
 
   backdrop-filter: blur(10px);
 
@@ -7957,7 +7959,7 @@ body.corp-theme .footer-links a{
 
   background: #d3a254 !important;
 
-  color: #1f2a2e !important;
+  color: #111111 !important;
 
 }
 
@@ -8007,7 +8009,7 @@ body.corp-theme .footer-links a{
 
 .site-footer {
 
-  background: #1f2a2e; /* koyu zemin – kurumsal */
+  background: #111111; /* koyu zemin – kurumsal */
 
   padding: 20px 15px;
 
@@ -8091,7 +8093,7 @@ body.corp-theme .footer-links a{
 
   height: 40px;
 
-  background: linear-gradient(to bottom, transparent, #1f2a2e);
+  background: linear-gradient(to bottom, transparent, #111111);
 
   pointer-events: none;
 
@@ -8664,7 +8666,7 @@ section,
 }
 
 .glass-panel--dark{
-  background: rgba(18,47,48,0.55);
+  background: rgba(245,242,234,0.92);
   border: 1px solid rgba(255,255,255,0.10);
   backdrop-filter: blur(12px);
 }
@@ -8768,7 +8770,7 @@ section,
     radial-gradient(900px 600px at 50% 80%, rgba(120,140,145,.12), rgba(0,0,0,0) 60%),
     radial-gradient(1200px 800px at 10% 50%, rgba(0,0,0,.55), rgba(0,0,0,0) 55%),
     radial-gradient(1200px 800px at 90% 50%, rgba(0,0,0,.55), rgba(0,0,0,0) 55%),
-    linear-gradient(180deg, #1f2c2f 0%, #1a2528 100%);
+    linear-gradient(180deg, #0f0f0f 0%, #0b0b0b 100%);
 }
 
 /* İstersen 1. görseli arka plan dokusu gibi kullan (dosya adı örnek) */
@@ -9187,7 +9189,7 @@ section,
   height: 80px;
   background: linear-gradient(
     to bottom,
-    rgba(15, 35, 40, 0.8),
+    rgba(245,242,234,0.92),
     transparent
   );
 }
@@ -9351,5 +9353,390 @@ section,
   .contact-bottom {
     padding-top: 60px;
   }
+}
+
+
+/* ===== ABOUT: EDITORIAL LAYOUT ===== */
+.about-editorial{
+  background:#f5f2ec;
+  color:#111;
+}
+
+.about-hero-editorial{
+  padding: 90px 6vw 40px;
+}
+
+.about-hero-copy .kicker{
+  letter-spacing:.18em;
+  font-size:12px;
+  opacity:.65;
+  margin:0 0 14px;
+}
+
+.about-hero-copy h1{
+  font-size: clamp(44px, 5.5vw, 86px);
+  line-height: .95;
+  margin: 0 0 18px;
+}
+
+.about-hero-copy .lead{
+  font-size: 18px;
+  line-height: 1.9;
+  opacity: .75;
+  max-width: 70ch;
+  margin: 0;
+}
+
+/* 3-column editorial block */
+.about-editorial-3col{
+  display:grid;
+  grid-template-columns: 1fr 1.2fr 1fr;
+  gap: 40px;
+  align-items: center;
+  padding: 40px 6vw 90px;
+}
+
+.about-3col-left img{
+  width:100%;
+  height:auto;
+  display:block;
+  opacity:.85;
+  filter:grayscale(100%);
+}
+
+.about-3col-center .kicker2{
+  letter-spacing:.14em;
+  font-size:11px;
+  opacity:.55;
+  margin:0 0 12px;
+}
+
+.about-3col-center h2{
+  font-size: clamp(26px, 2.4vw, 40px);
+  line-height: 1.08;
+  margin:0 0 16px;
+}
+
+.about-3col-center p{
+  font-size:16px;
+  line-height:1.9;
+  opacity:.78;
+  margin:0 0 14px;
+  max-width: 52ch;
+}
+
+.about-link{
+  display:inline-block;
+  margin-top: 10px;
+  text-decoration:none;
+  border-bottom: 1px solid rgba(0,0,0,.25);
+  padding-bottom: 4px;
+  color: inherit;
+  opacity: .85;
+}
+
+.about-3col-right img{
+  width:100%;
+  height: 520px;
+  object-fit: cover;
+  display:block;
+  border-radius: 18px;
+}
+
+/* Responsive */
+@media (max-width: 980px){
+  .about-editorial-3col{
+    grid-template-columns: 1fr;
+    padding: 30px 6vw 70px;
+  }
+  .about-3col-right img{
+    height: 360px;
+  }
+  .about-hero-editorial{
+    padding: 70px 6vw 20px;
+  }
+}
+
+/* ===== FORCE DARK THEME (HOME) ===== */
+html, body{
+  background: #0f0f0f;
+  color: #ffffff;
+}
+
+/* HOME – Projelerimiz başlığını gizle */
+#one-cikanlar .section-title,
+#one-cikanlar h2 {
+  display: none !important;
+}
+
+/* HOME – Why section (clean & corporate) */
+.why-section.why-pale {
+  background: #f5f2ea !important;
+  padding: 90px 0;
+}
+
+.why-wrap {
+  max-width: 820px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.why-title {
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  margin-bottom: 22px;
+}
+
+.why-sub {
+  font-size: 15px;
+  line-height: 1.8;
+  color: rgba(0,0,0,0.75);
+  margin-bottom: 16px;
+}
+
+/* HEADER – yeşil arka planı kaldır */
+header,
+.site-header,
+.main-header,
+nav {
+  background: transparent !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+
+/* ===== PALETTE OVERRIDE: remove green dominance ===== */
+:root{
+  /* genel zeminler */
+  --bg: #f5f2ea;
+  --bg-2: #f5f2ea;
+  --bg-main: #f5f2ea;
+  --bg-secondary: #f5f2ea;
+  --bg-card: #f5f2ea;
+
+  /* kurumsal açık tema */
+  --bg-light: #f5f2ea;
+  --corp-bg: #f5f2ea;
+  --corp-bg-2: #f5f2ea;
+
+  /* yeşil değişkenleri (tamamen nötrleştir) */
+  --primary: #111111;
+  --primary-dark: #0b0b0b;
+
+  --green-dark: #111111;
+  --green-soft: #2b2e2c;
+  --green-light: #f5f2ea;
+
+  /* vurgu renkleri: yeşil yerine sıcak altın kalsın (istersen sonra değiştiririz) */
+  --corp-accent: #c7a45a;
+  --corp-accent-dark: #b08c45;
+}
+
+/* genel zemin güvenliği (var kullanan yerler için) */
+body{
+  background: var(--bg-main);
+}
+
+/* ===== OVERRIDE: remove green palette globally ===== */
+:root{
+  --accent: #c7a45a;   /* yeşil yerine kurumsal altın */
+  --primary: #111111;  /* yeşil yerine siyah */
+  --bg-main: #0f0f0f;  /* site genel koyu zemin */
+  --bg-card: rgba(255,255,255,0.06); /* cam kart */
+}
+
+/* About (light editorial) */
+body.about-page-arch,
+body.about-page,
+body.theme-light{
+  --bg-main: #f5f2ea;
+  --bg-card: #ffffff;
+  --primary: #111111;
+  --accent: #c7a45a;
+}
+
+/* ===== PALETTE RESET ===== */
+:root{
+  --accent:#c7a45a;
+  --primary:#111111;
+  --bg-main:#0f0f0f;
+  --bg-card:rgba(255,255,255,0.06);
+}
+
+/* ===== FINAL OVERRIDE: kill teal/green bars ===== */
+
+/* Header bar */
+.topbar,
+header.top-bar,
+.site-header,
+.header-inner,
+.navbar{
+  background: #0f0f0f !important;
+  background-image: none !important;
+}
+
+/* Header iç kapsüller (menü kapsülü vs.) */
+.topbar-nav,
+.topbar-pill,
+.topbar-actions,
+.header-right{
+  background: rgba(255,255,255,0.06) !important;
+  background-image: none !important;
+}
+
+/* Footer bar */
+.footer-topbar,
+.footer-topbar-inner{
+  background: #0f0f0f !important;
+  background-image: none !important;
+}
+
+/* Genel: teal gradient varsa sök */
+.topbar::before, .topbar::after,
+.footer-topbar::before, .footer-topbar::after,
+.site-header::before, .site-header::after{
+  background: transparent !important;
+  background-image: none !important;
+}
+
+
+/* ===== FOOTER: remove teal/green cast ===== */
+.footer-topbar,
+.footer-topbar-inner,
+footer,
+.site-footer{
+  background: #0f0f0f !important;
+  background-image: none !important;
+}
+
+/* Footer iç bloklar */
+.footer-wrap,
+.footer-col,
+.footer-card,
+.footer-grid{
+  background: transparent !important;
+}
+
+/* Üstteki "Teklif & Bilgilendirme" bandı (CTA strip) */
+.cta-strip{
+  background: rgba(0,0,0,0.55) !important;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+
+.footer-topbar::before,
+.footer-topbar::after,
+.footer-topbar-inner::before,
+.footer-topbar-inner::after{
+  background: transparent !important;
+  background-image: none !important;
+}
+
+
+/* ===== HARD KILL (footer+cta area) ===== */
+.cta-strip,
+.footer-topbar,
+.footer-topbar-inner,
+.footer-wrap,
+.footer,
+footer{
+  background-color: #0f0f0f !important;
+  background: #0f0f0f !important;
+  background-image: none !important;
+}
+
+.cta-strip * ,
+.footer-topbar * ,
+.footer-topbar-inner *{
+  background-image: none !important;
+}
+
+
+/* ===== FIX: contact/map/footer area background (kills green cast) ===== */
+
+/* İletişim & Konum bölümü */
+#contact, .contact, .contact-section, .contact-wrap, .contact-grid,
+.map-wrap, .map-card, .map-area, .contact-map{
+  background: #0f0f0f !important;
+  background-image: none !important;
+}
+
+/* ÜST BAR: Teklif / Newsletter */
+.newsletter, .newsletter-bar, .footer-newsletter, .upper-bar, .ust-bar,
+.cta-strip, .offer-strip, .offer-bar{
+  background: rgba(0,0,0,0.55) !important;
+  background-image: none !important;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Footer alanı */
+footer, .footer, .site-footer, .footer-wrap, .footer-inner, .footer-topbar, .footer-bar{
+  background: #0f0f0f !important;
+  background-image: none !important;
+}
+
+
+/* ===== FOOTER FINAL FIX (kills green/teal cast) ===== */
+.site-footer{
+  background: #0f0f0f !important;
+  background-image: none !important;
+}
+
+/* Üst bar (Teklif & Bilgilendirme) */
+.site-footer .footer-topbar{
+  background: rgba(0,0,0,0.55) !important;
+  background-image: none !important;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Alt ana alanlar */
+.site-footer .footer-main,
+.site-footer .footer-bottom{
+  background: #0f0f0f !important;
+  background-image: none !important;
+}
+
+/* İç grid/wrap */
+.site-footer .footer-wrap,
+.site-footer .footer-grid,
+.site-footer .footer-col{
+  background: transparent !important;
+}
+
+/* Form input/button arka planı (yeşil tonu kır) */
+.site-footer .ft-form input{
+  background: rgba(255,255,255,0.06) !important;
+  border: 1px solid rgba(199,164,90,0.35) !important;
+  color: #fff !important;
+}
+.site-footer .ft-form button{
+  background: rgba(255,255,255,0.08) !important;
+  border: 1px solid rgba(199,164,90,0.45) !important;
+  color: #fff !important;
+}
+
+/* Footer çizgileri */
+.site-footer hr,
+.site-footer .footer-grid{
+  border-color: rgba(255,255,255,0.08) !important;
+}
+
+
+/* ===== TOPBAR FIX (remove teal) ===== */
+.topbar, header.top-bar, .site-header, .navbar{
+  background: rgba(0,0,0,0.55) !important;
+  background-image: none !important;
+  border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
