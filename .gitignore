@@ -1,2 +1,6 @@
-.DS_Store
-.cursor/
+backups/
+!assets/css/
+assets/css/*
+!assets/css/app.css
+*.bak_*
+*.before-*
