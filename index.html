@@ -185,33 +185,7 @@
 
 
   <!-- İLETİŞİM -->
-  <section id="iletisim" class="contact hide-home">
-    <div class="container">
-      <h2 data-key="contact.title">İletişim & Konum</h2>
-      <div class="contact-grid">
-        <div class="contact-info-box">
-          <h3 data-key="contact.officeInfo">Ofis Bilgilerimiz</h3>
-          <p><strong data-key="contact.company">Firma:</strong> Hasanağaoğlu İnşaat Fethiye</p>
-          <p><strong data-key="contact.phone">Telefon:</strong> <a href="tel:+905530141218">0553 014 12 18</a></p>
-          <p><strong data-key="contact.email">E-posta:</strong> <a href="mailto:hasanagaogulariinsaat@gmail.com">hasanagaogulariinsaat@gmail.com</a></p>
-          <p><strong data-key="contact.address">Adres:</strong> Fethiye / Muğla</p>
-          <a class="btn primary" href="https://wa.me/905530141218" target="_blank" rel="noopener" data-key="contact.whatsappQuick">WhatsApp ile Hızlı İletişim</a>
-        </div>
-        <div class="contact-form-box">
-          <h3 data-key="contact.formTitle">Bilgi ve Teklif Formu</h3>
-          <form>
-            <label for="name" data-key="contact.formName">Ad Soyad</label>
-            <input id="name" type="text" placeholder="Adınızı Soyadınızı Yazın" data-key="contact.formNamePlaceholder" />
-            <label for="phone" data-key="contact.formPhone">Telefon</label>
-            <input id="phone" type="tel" placeholder="+90 ___ ___ __ __" data-key="contact.formPhonePlaceholder" />
-            <label for="message" data-key="contact.formMessage">Mesajınız</label>
-            <textarea id="message" rows="4" placeholder="Projeniz ya da araziniz ile ilgili kısaca bilgi verin" data-key="contact.formMessagePlaceholder"></textarea>
-            <button type="submit" class="btn primary" data-key="contact.formSubmit">Gönder</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
+  
 
   <!-- KONUM -->
   <section id="konum" class="hide-home">
@@ -226,9 +200,7 @@
   </section>
 
   <!-- WHATSAPP FAB -->
-  <a href="https://wa.me/905530141218" target="_blank" rel="noopener" class="whatsapp-fab" aria-label="WhatsApp ile hızlı iletişim">
-    WhatsApp
-  </a>
+  
 
   <!-- CTA POPUP -->
   <div class="cta-popup" id="ctaPopup">
@@ -245,124 +217,5 @@
   <!-- FOOTER / İLETİŞİM -->
   <footer class="site-footer" id="iletisim-footer">
 
-    <!-- ÜST BAR: Teklif / Newsletter -->
-    <div class="footer-topbar">
-      <div class="footer-wrap footer-topbar-inner">
-        <div class="ft-left">
-          <h3>Teklif & Bilgilendirme</h3>
-          <p>Projeniz için hızlı teklif alın. E-posta bırakın, size dönüş yapalım.</p>
-        </div>
-
-        <form class="ft-form" action="mailto:hasanagaogullariinsaat@gmail.com" method="post" enctype="text/plain">
-          <input type="email" name="email" placeholder="E-posta adresiniz" required>
-          <button type="submit">Gönder</button>
-        </form>
-      </div>
-    </div>
-
-    <!-- ALT: İçerik -->
-    <div class="footer-main">
-      <div class="footer-wrap footer-grid">
-
-        <!-- Sol: Logo/Firma -->
-        <div class="footer-col">
-          <div class="footer-brand">
-            <div class="brand-mark">H</div>
-            <div>
-              <div class="brand-name">Hasanağaoğlu İnşaat</div>
-              <div class="brand-sub">Fethiye • Premium Projeler</div>
-            </div>
-          </div>
-
-          <p class="footer-text">
-            Villa, toplu konut ve anahtar teslim projelerde; mimari, mühendislik ve uygulamayı tek merkezden yönetiriz.
-          </p>
-        </div>
-
-        <!-- Orta: Navigasyon -->
-        <div class="footer-col">
-          <h4>Navigasyon</h4>
-          <ul class="footer-links">
-            <li><a href="index.html">Ana Sayfa</a></li>
-            <li><a href="hakkimizda.html">Kurumsal</a></li>
-            <li><a href="hizmetler.html">Hizmetler</a></li>
-            <li><a href="projeler.html">Projeler</a></li>
-            <li><a href="iletisim.html">İletişim</a></li>
-          </ul>
-        </div>
-
-        <!-- Sağ: Çalışma Saatleri + Hızlı arama -->
-        <div class="footer-col">
-          <h4>Çalışma Saatleri</h4>
-          <p class="footer-text">Hafta içi: 09:00 – 18:00<br>Hafta sonu: Randevu ile</p>
-
-          <a class="footer-call"
-             href="tel:+905530141218"
-             aria-label="Telefon ile ara">
-            📞 Hemen Ara
-          </a>
-
-          <a class="footer-call wa"
-             href="https://wa.me/905530141218"
-             target="_blank" rel="noopener"
-             aria-label="WhatsApp ile yaz">
-            💬 WhatsApp
-          </a>
-
-          <p class="footer-mini">
-            E-posta: <a href="mailto:hasanagaogullariinsaat@gmail.com">hasanagaogullariinsaat@gmail.com</a>
-          </p>
-        </div>
-
-      </div>
-
-      <div class="footer-bottom">
-        <div class="footer-wrap">
-          <p>© 2025 Hasanağaoğlu İnşaat Fethiye (1935'ten beri) | Tüm Hakları Saklıdır</p>
-        </div>
-      </div>
-    </div>
-
-  </footer>
-<script>
-(function(){
-  var btn=document.getElementById("mobileMenuToggle");
-  var nav=document.getElementById("navLinks");
-  if(!btn||!nav) return;
-  btn.addEventListener("click", function(){
-    nav.classList.toggle("is-open");
-  });
-})();
-</script>
-</body>
-</html>
-
-<section class="why-us" id="neden">
-  <div class="container">
-    <h2 class="why-title">Neden Hasanağaoğlu İnşaat?</h2>
-    <p class="why-lead">
-      Fethiye’de villa, konut ve anahtar teslim projelerde; planlı süreç yönetimi,
-      şeffaf iletişim ve zamanında teslim odağıyla çalışıyoruz.
-    </p>
-
-    <div class="why-grid">
-      <div class="why-item">
-        <h3>Planlı Süreç & Kontrol</h3>
-        <p>İş programı, keşif ve uygulama adımlarını baştan netleştirir; sürprizleri minimuma indiririz.</p>
-      </div>
-      <div class="why-item">
-        <h3>Kaliteli Malzeme & İşçilik</h3>
-        <p>Uzun ömürlü yapı standartlarıyla; detaylarda titiz, uygulamada disiplinliyiz.</p>
-      </div>
-      <div class="why-item">
-        <h3>Şeffaf İletişim</h3>
-        <p>Süreç boyunca düzenli bilgilendirir; kararları birlikte ve net şekilde alırız.</p>
-      </div>
-      <div class="why-item">
-        <h3>Zamanında Teslim</h3>
-        <p>Plan–bütçe–termin dengesini koruyarak projeyi taahhüt edilen zamanda bitirmeyi hedefleriz.</p>
-      </div>
-    </div>
-  </div>
-</section>
+    
 
