@@ -246,3 +246,8 @@ a{ color:inherit; text-decoration:none; }
 .home-page .hero-dots{
   display: none !important;
 }
+
+/* Home page: remove "Projelerimiz" title */
+.home-page .section-title{
+  display: none !important;
+}
