@@ -322,3 +322,22 @@ a{ color:inherit; text-decoration:none; }
     max-width: none;
   }
 }
+
+/* Home projects: normalize image height */
+.home-page .fp-media{
+  max-height: 420px;
+}
+
+.home-page .fp-media img{
+  height: 420px;
+  object-fit: cover;
+}
+
+@media (max-width: 900px){
+  .home-page .fp-media{
+    max-height: 300px;
+  }
+  .home-page .fp-media img{
+    height: 300px;
+  }
+}
