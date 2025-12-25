@@ -362,5 +362,15 @@
     </div>
 
   </footer>
+<script>
+(function(){
+  var btn=document.getElementById("mobileMenuToggle");
+  var nav=document.getElementById("navLinks");
+  if(!btn||!nav) return;
+  btn.addEventListener("click", function(){
+    nav.classList.toggle("is-open");
+  });
+})();
+</script>
 </body>
 </html>
