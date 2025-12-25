@@ -241,3 +241,8 @@ a{ color:inherit; text-decoration:none; }
 .home-page .hero-overlay{
   display: none !important;
 }
+
+/* Home hero: remove slider dots */
+.home-page .hero-dots{
+  display: none !important;
+}
