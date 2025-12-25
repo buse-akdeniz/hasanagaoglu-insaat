@@ -1,6 +1,6 @@
 /* Hasanağoğlu İnşaat - Clean Rebuild CSS */
 :root{
-  --bg:#0f1f1a;
+  --bg:#f2f3f5;
   --text:#e9eee9;
   --muted:rgba(233,238,233,.78);
   --line:rgba(233,238,233,.12);
@@ -44,7 +44,7 @@ a{ color:inherit; text-decoration:none; }
 
 .site-header{
   position:sticky; top:0; z-index:50;
-  background: rgba(15,31,26,.78);
+  background:rgba(25,28,32,.92);
   backdrop-filter: blur(10px);
   border-bottom:1px solid var(--line);
 }
@@ -101,7 +101,7 @@ a{ color:inherit; text-decoration:none; }
 /* ===== Compatibility: existing header markup ===== */
 .top-bar{ /* eski header */
   position:sticky; top:0; z-index:60;
-  background: rgba(15,31,26,.78);
+  background:rgba(25,28,32,.92);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line);
 }
@@ -176,7 +176,7 @@ a{ color:inherit; text-decoration:none; }
   position:absolute;
   right:0; top: calc(100% + 10px);
   min-width: 180px;
-  background: rgba(15,31,26,.96);
+  background:rgba(25,28,32,.92);
   border:1px solid var(--line);
   border-radius: 14px;
   overflow:hidden;
@@ -218,7 +218,7 @@ a{ color:inherit; text-decoration:none; }
     left:4vw; right:4vw;
     top:68px;
     padding:12px;
-    background: rgba(15,31,26,.96);
+    background:rgba(25,28,32,.92);
     border:1px solid var(--line);
     border-radius: 16px;
   }
