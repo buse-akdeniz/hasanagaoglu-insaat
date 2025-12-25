@@ -286,7 +286,7 @@ a{ color:inherit; text-decoration:none; }
   transition: transform .6s ease;
 }
 .home-page .fp-media:hover img{
-  transform: scale(1.04);
+  transform: scale(1.02);
 }
 
 /* Content */
@@ -357,7 +357,7 @@ a{ color:inherit; text-decoration:none; }
   background-position: center;
   opacity: 0.06;
   filter: blur(6px) grayscale(20%);
-  transform: scale(1.1);
+  transform: scale(1.02);
   z-index: 0;
 }
 
@@ -387,7 +387,7 @@ a{ color:inherit; text-decoration:none; }
   background-position: center;
   opacity: 0.12;
   filter: blur(2px);
-  transform: scale(1.08);
+  transform: scale(1.02);
   z-index: 0;
 }
 
@@ -426,7 +426,7 @@ a{ color:inherit; text-decoration:none; }
   background-position: center;
   opacity: 0.12;
   filter: blur(2px);
-  transform: scale(1.08);
+  transform: scale(1.02);
   z-index: 0;
 }
 
@@ -460,8 +460,8 @@ a{ color:inherit; text-decoration:none; }
   position:absolute;
   inset:0;
   background: url("../img/villa.jpg") center/cover no-repeat;
-  opacity: .18;
-  transform: scale(1.06);
+  opacity: .10;
+  transform: scale(1.02);
   z-index: 0;
   pointer-events:none;
 }
