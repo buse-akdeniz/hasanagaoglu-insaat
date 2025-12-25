@@ -369,4 +369,121 @@ a{ color:inherit; text-decoration:none; }
 
 /* Ensure background layer is visible */
 .home-page .featured-projects{ background: transparent !important; }
-.home-page .featured-projects::before{ pointer-events:none; }
+
+
+/* Home featured projects – flowing villa background */
+.home-page .featured-projects{
+  position: relative;
+  overflow: hidden;
+  background: #f2f3f5;
+}
+
+.home-page .featured-projects::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../img/villa.jpg");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.12;
+  filter: blur(2px);
+  transform: scale(1.08);
+  z-index: 0;
+}
+
+/* soft light layer for readability */
+.home-page .featured-projects::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(242,243,245,.92),
+    rgba(242,243,245,.85),
+    rgba(242,243,245,.92)
+  );
+  z-index: 0;
+}
+
+.home-page .featured-projects .container{
+  position: relative;
+  z-index: 1;
+}
+
+/* Home featured projects – flowing villa background */
+.home-page .featured-projects{
+  position: relative;
+  overflow: hidden;
+  background: #f2f3f5;
+}
+
+.home-page .featured-projects::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../img/villa.jpg");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.12;
+  filter: blur(2px);
+  transform: scale(1.08);
+  z-index: 0;
+}
+
+/* soft light layer for readability */
+.home-page .featured-projects::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(242,243,245,.92),
+    rgba(242,243,245,.85),
+    rgba(242,243,245,.92)
+  );
+  z-index: 0;
+}
+
+.home-page .featured-projects .container{
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== Home featured projects: flowing villa background (use existing villa.jpg) ===== */
+.home-page .featured-projects{
+  position: relative;
+  overflow: hidden;
+}
+
+.home-page .featured-projects::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: url("../img/villa.jpg") center/cover no-repeat;
+  opacity: .18;
+  transform: scale(1.06);
+  z-index: 0;
+  pointer-events:none;
+}
+
+.home-page .featured-projects::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: rgba(242,243,245,.55);
+  z-index: 0;
+  pointer-events:none;
+}
+
+.home-page .featured-projects .container{
+  position: relative;
+  z-index: 1;
+}
+
+/* NO cards */
+.home-page .fp-content{
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
