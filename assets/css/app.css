@@ -487,3 +487,38 @@ a{ color:inherit; text-decoration:none; }
   box-shadow: none !important;
   padding: 0 !important;
 }
+
+/* ===== Home page: global flowing background (villa) ===== */
+body.home-page{
+  position: relative;
+}
+
+/* Background image layer */
+body.home-page::before{
+  content:"";
+  position: fixed;
+  inset: 0;
+  background: url("../img/villa.jpg") center/cover no-repeat;
+  opacity: .16;
+  filter: blur(2px);
+  transform: scale(1.03);
+  z-index: -2;
+  pointer-events: none;
+}
+
+/* Soft veil so content stays readable */
+body.home-page::after{
+  content:"";
+  position: fixed;
+  inset: 0;
+  background: rgba(242,243,245,.55);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Disable section background layers if they exist */
+.home-page .featured-projects::before,
+.home-page .featured-projects::after{
+  content: none !important;
+  display: none !important;
+}
