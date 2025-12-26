@@ -40,49 +40,105 @@
     </div>
   </header>
 
-  <main>
-    <section class="about-page">
-      <!-- HAKKIMIZDA -->
-      <div class="about-main">
-        <h1>Hakkımızda</h1>
+  <main class="about-page">
 
-        <p>
-          Hasanağaoğlu İnşaat, 1935 yılından bu yana edindiği köklü tecrübe ile
-          Fethiye'de nitelikli ve uzun ömürlü yapılar üretmektedir.
-        </p>
+    <!-- ABOUT INTRO -->
+    <section class="about-intro">
+      <div class="about-intro__inner">
+        <div class="about-intro__top">
+          <div class="about-intro__crumb">Hasanağaoğlu İnşaat • Fethiye</div>
 
-        <p>
-          Modern mimari anlayışını güçlü mühendislik çözümleri ve disiplinli iş
-          planı ile birleştirerek, yaşam kalitesini öncelik alan projeler hayata geçirir.
-        </p>
+          <h2 class="about-intro__title">
+            Güveni ve kalıcı yapıları<br>
+            90 yıldır birlikte inşa ediyoruz.
+          </h2>
 
-        <p>
-          Tüm projelerinde şeffaf süreç yönetimi, doğru malzeme seçimi ve
-          zamanında teslim ilkelerini esas alır.
-        </p>
-      </div>
-
-      <!-- ALT BOŞLUK -->
-      <div class="about-divider"></div>
-
-      <!-- VİZYON & MİSYON -->
-      <div class="about-bottom">
-        <div>
-          <h2>Vizyon</h2>
-          <p>
-            Fethiye'de kalite, estetik ve güvenin referans noktası haline gelmek.
+          <p class="about-intro__lead">
+            Modern mimari anlayışını güçlü mühendislikle birleştiriyor; planlı süreç yönetimi,
+            doğru malzeme seçimi ve zamanında teslim ilkeleriyle projeler üretiyoruz.
           </p>
         </div>
 
-        <div>
-          <h2>Misyon</h2>
+        <div class="about-intro__bottom">
+          <div class="about-intro__sketch">
+            <img class="about-sketch" src="assets/images/about-sketch.svg" alt="Mimari çizim">
+          </div>
+
+          <div class="about-intro__note">
+            <div class="about-intro__kicker">BÖYLE BAŞLADIK</div>
+            <p>Sağlam mühendislik, doğru planlama ve şeffaf iletişimle uzun ömürlü yapılar üretmek.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDITORIAL / 2 KOLON -->
+    <section class="about-editorial">
+      <div class="about-editorial__grid">
+        <div class="about-editorial__left">
+          <div class="about-kicker">Nasıl başladık</div>
+          <h2>Disiplin, detay ve uzun ömür.</h2>
           <p>
-            Şeffaf süreç, güçlü mühendislik ve yüksek kalite standartlarıyla
-            anahtar teslim projeler sunmak.
+            Proje yönetiminden malzeme kalitesine, işçilikten teslim sonrası desteğe kadar tüm süreci tek elden yönetiriz.
+          </p>
+          <a class="text-link" href="hizmetler.html">Hizmetleri incele →</a>
+        </div>
+
+        <div class="about-editorial__right">
+          <!-- 3. görseli burada büyük "editoryal" görsel yapalım -->
+          <figure class="about-figure">
+            <img src="assets/images/about-hero-3.jpg" alt="Modern betonarme yapı" loading="lazy">
+            <figcaption>Modern mimari, net çizgiler, güçlü uygulama.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- BÜYÜK GÖRSEL + QUOTE PANEL -->
+    <section class="about-quote">
+      <div class="about-quote__grid">
+        <div class="about-quote__media">
+          <!-- İstersen burada başka bir proje görseli veya aynı görselin farklı crop'u -->
+          <img src="assets/images/about-quote.jpg" alt="Mimari iç mekan / detay" loading="lazy">
+        </div>
+
+        <aside class="about-quote__panel">
+          <div class="about-kicker">Ekibimiz</div>
+          <blockquote>
+            "Mimarlık sadece bugünü yansıtmaz; yaşam biçimini de şekillendirir.
+            Biz, güvenli ve estetik yapılarla kalıcı değer üretiriz."
+          </blockquote>
+          <div class="about-quote__meta">
+            <div class="name">Hasanağaoğlu İnşaat</div>
+            <div class="role">Fethiye • 1935'ten beri</div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- VİZYON - MİSYON -->
+    <section class="vision-mission">
+      <div class="vision-mission-inner">
+        <div class="vm-block">
+          <h3>Vizyon</h3>
+          <p>
+            Bölgede referans gösterilen; modern mimariyi sağlam mühendislikle
+            birleştiren, müşterileriyle güven ilişkisi kuran, sürdürülebilir
+            ve estetik projeleriyle öne çıkan bir marka olmak.
+          </p>
+        </div>
+
+        <div class="vm-block">
+          <h3>Misyon</h3>
+          <p>
+            Güvenilir malzeme ve temiz işçilikle, süreç boyunca şeffaf iletişim
+            kurarak; planlı ilerleyen, uzun ömürlü ve kaliteli yapılar
+            teslim etmek.
           </p>
         </div>
       </div>
     </section>
+
   </main>
 
   <!-- WHATSAPP FAB - Sabit Sağ Altta -->
@@ -92,40 +148,13 @@
     </svg>
   </a>
 
-  <footer class="site-footer">
-    <div class="footer-copyright">
-      <p>© 2025 Hasanağaoğlu İnşaat Fethiye (1935'ten beri) | Tüm Hakları Saklıdır</p>
+  <footer class="site-footer" id="iletisim-footer">
+    <div class="footer-bottom">
+      © 2025 Hasanağaoğlu İnşaat Fethiye (1935'ten beri) | Tüm Hakları Saklıdır
     </div>
   </footer>
 
   <script src="assets/js/main.js" defer></script>
-<main class="about-editorial">
-  <section class="about-hero-editorial">
-    <div class="about-hero-copy">
-      <p class="kicker">HASANAĞAOĞLU İNŞAAT • FETHİYE</p>
-      <h1>Güveni ve kalıcı yapıları<br/>birlikte inşa ediyoruz.</h1>
-      <p class="lead">Modern mimari anlayışını güçlü mühendislikle birleştiriyor; planlı süreç yönetimi, doğru malzeme seçimi ve zamanında teslim ilkeleriyle projeler üretiyoruz.</p>
-    </div>
-  </section>
-
-  <section class="about-editorial-3col">
-    <div class="about-3col-left">
-      <img src="assets/images/vaziyet.png" alt="Vaziyet planı" />
-    </div>
-
-    <div class="about-3col-center">
-      <p class="kicker2">This is how we started</p>
-      <h2>Planlı süreç, temiz işçilik, zamanında teslim.</h2>
-      <p>Keşiften anahtar teslimine kadar her adımda ölçülebilir kalite standardı ve kontrollü saha yönetimiyle ilerleriz.</p>
-      <p>Şantiye disiplini, doğru metraj, doğru ekip ve şeffaf iletişim: bizim sistemimiz bu.</p>
-      <a class="about-link" href="projeler.html">Projeleri incele →</a>
-    </div>
-
-    <div class="about-3col-right">
-      <img src="assets/images/about-hero.jpg" alt="Mimari detay" />
-    </div>
-  </section>
-</main>
 
 </body>
 </html>
