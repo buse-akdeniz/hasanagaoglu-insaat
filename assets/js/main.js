@@ -816,6 +816,26 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
+  // Önceki/Sonraki butonları
+  const prevBtn = heroSlider.querySelector('.hero-slider-prev');
+  const nextBtn = heroSlider.querySelector('.hero-slider-next');
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', function() {
+      stopAutoSlide();
+      prevSlide();
+      startAutoSlide();
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', function() {
+      stopAutoSlide();
+      nextSlide();
+      startAutoSlide();
+    });
+  }
+
   // Dot'lara tıklama (Manuel kontrol)
   dots.forEach((dot, index) => {
     dot.addEventListener('click', function() {
