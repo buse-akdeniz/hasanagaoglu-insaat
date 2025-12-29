@@ -1570,3 +1570,388 @@ body.home-page::after{
   margin:18px auto 32px auto;
 }
 
+/* HOME - footer intro koyu bant (override garantili) */
+
+body.theme-dark.home-page .site-footer .footer-intro{
+  background: #2f3236 !important;
+  padding: 96px 0 !important;
+}
+
+body.theme-dark.home-page .site-footer .footer-intro *{
+  color: rgba(233,238,233,0.92);
+}
+
+/* üst-alt çizgi hissi */
+body.theme-dark.home-page .site-footer .footer-intro{
+  position: relative !important;
+}
+
+body.theme-dark.home-page .site-footer .footer-intro::before,
+body.theme-dark.home-page .site-footer .footer-intro::after{
+  content:"" !important;
+  position:absolute !important;
+  left:0 !important; right:0 !important;
+  height:1px !important;
+  background: rgba(255,255,255,0.10) !important;
+}
+
+body.theme-dark.home-page .site-footer .footer-intro::before{ top:0 !important; }
+body.theme-dark.home-page .site-footer .footer-intro::after{ bottom:0 !important; }
+
+/* HOME - slider görsel kırpılmasını düzelt */
+
+body.theme-dark.home-page .hero-slide img{
+  object-fit: cover !important;
+  object-position: 50% 10% !important;
+}
+
+/* SERVICES ONLY: buradan aşağı sadece hizmetler */
+
+.page-services{
+
+}
+
+/* Hizmetler Hero Bölümü */
+.services-hero{
+  position: relative;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.services-hero-bg{
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.services-hero-bg img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(8px);
+  transform: scale(1.1);
+}
+
+.services-hero .container{
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 20px;
+}
+
+.services-hero-content{
+  background: #fff;
+  padding: 60px 50px;
+  max-width: 560px;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+}
+
+.services-hero-label{
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(25, 28, 32, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+  font-family: 'Playfair Display', serif;
+}
+
+.services-hero-content h1{
+  font-size: 48px;
+  font-weight: 700;
+  color: #191C20;
+  margin: 0 0 24px;
+  line-height: 1.2;
+  font-family: 'Playfair Display', serif;
+  letter-spacing: -0.5px;
+}
+
+.services-hero-content p{
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(25, 28, 32, 0.8);
+  margin: 0 0 32px;
+}
+
+.services-hero-btn{
+  display: inline-block;
+  padding: 14px 28px;
+  background: rgba(199,162,88,0.9);
+  color: #fff;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.services-hero-btn:hover{
+  background: rgba(199,162,88,1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(199,162,88,0.3);
+}
+
+/* Mobil için hero düzenlemesi */
+@media (max-width: 768px){
+  .services-hero{
+    min-height: 500px;
+  }
+
+  .services-hero .container{
+    padding: 60px 20px;
+  }
+
+  .services-hero-content{
+    padding: 40px 32px;
+    max-width: 100%;
+  }
+
+  .services-hero-content h1{
+    font-size: 36px;
+  }
+
+  .services-hero-content p{
+    font-size: 15px;
+  }
+}
+
+/* Hizmetler Sayfası Stilleri */
+.services-section{
+  padding: 80px 20px;
+  color: #191C20;
+  min-height: calc(100vh - 72px);
+}
+
+.services-grid{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.service-card{
+  background: transparent;
+  padding: 40px 32px;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover{
+  transform: translateY(-4px);
+}
+
+.service-icon{
+  width: 64px;
+  height: 64px;
+  margin-bottom: 24px;
+  color: #191C20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.service-icon svg{
+  width: 100%;
+  height: 100%;
+}
+
+.service-card h3{
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 16px;
+  color: #191C20;
+  letter-spacing: -0.3px;
+}
+
+.service-card p{
+  font-size: 15px;
+  line-height: 1.7;
+  margin: 0 0 24px;
+  color: rgba(25, 28, 32, 0.8);
+}
+
+.service-link{
+  display: inline-block;
+  color: #191C20;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.service-link:hover{
+  color: rgba(25, 28, 32, 0.7);
+  text-decoration: underline;
+}
+
+/* Mobil için tek sütun */
+@media (max-width: 768px){
+  .services-section{
+    padding: 60px 20px;
+  }
+
+  .services-grid{
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .service-card{
+    padding: 32px 24px;
+  }
+
+  .service-card h3{
+    font-size: 22px;
+  }
+}
+
+/* İletişim Bölümü - Hizmetler Sayfası */
+.contact-section{
+  padding: 80px 20px;
+}
+
+.contact-layout{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+.contact-info h2{
+  font-size: 36px;
+  font-weight: 700;
+  margin: 0 0 24px;
+  color: #191C20;
+  letter-spacing: -0.5px;
+}
+
+.contact-info p{
+  font-size: 16px;
+  line-height: 1.7;
+  margin: 0 0 40px;
+  color: rgba(25, 28, 32, 0.8);
+}
+
+.contact-details{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-item{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.contact-item strong{
+  font-size: 14px;
+  font-weight: 600;
+  color: #191C20;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.contact-item span{
+  font-size: 16px;
+  color: rgba(25, 28, 32, 0.75);
+}
+
+.contact-form-wrapper{
+  width: 100%;
+}
+
+.contact-form-simple{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contact-form-simple input,
+.contact-form-simple textarea{
+  width: 100%;
+  padding: 16px 18px;
+  border: 1px solid rgba(25, 28, 32, 0.2);
+  border-radius: 8px;
+  font-size: 15px;
+  color: #191C20;
+  background: #fff;
+  transition: border-color 0.3s ease;
+}
+
+.contact-form-simple input:focus,
+.contact-form-simple textarea:focus{
+  outline: none;
+  border-color: rgba(25, 28, 32, 0.4);
+}
+
+.contact-form-simple input::placeholder,
+.contact-form-simple textarea::placeholder{
+  color: rgba(25, 28, 32, 0.5);
+}
+
+.contact-form-simple textarea{
+  resize: vertical;
+  min-height: 120px;
+}
+
+.contact-form-simple button{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 24px;
+  border: 1px solid rgba(199,162,88,.55);
+  border-radius: 8px;
+  background: transparent;
+  color: #191C20;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  align-self: flex-end;
+}
+
+.contact-form-simple button:hover{
+  background: rgba(199,162,88,.1);
+  border-color: rgba(199,162,88,.75);
+}
+
+.contact-form-simple button svg{
+  width: 16px;
+  height: 16px;
+}
+
+/* Mobil için tek sütun */
+@media (max-width: 968px){
+  .contact-layout{
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  .contact-info h2{
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 768px){
+  .contact-section{
+    padding: 60px 20px;
+  }
+
+  .contact-layout{
+    gap: 40px;
+  }
+
+  .contact-info h2{
+    font-size: 28px;
+  }
+}
+
