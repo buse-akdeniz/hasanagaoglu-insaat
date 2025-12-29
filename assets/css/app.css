@@ -1525,3 +1525,48 @@ body.home-page::after{
   }
 }
 
+/* Küçük dekoratif nokta/ayırıcı */
+
+.section-dot{
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(233,238,233,.75);
+  margin: 14px auto 18px;
+  box-shadow: 0 0 0 6px rgba(233,238,233,.06);
+}
+
+/* ===============================
+   HOME – Footer Intro Dark Band
+   =============================== */
+
+.home-page .footer-intro{
+  background:#2f3236;          /* koyu bant */
+  padding:96px 0;
+  position:relative;
+  text-align:center;
+}
+
+/* üst-alt ince çizgiler */
+.home-page .footer-intro::before,
+.home-page .footer-intro::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  height:1px;
+  background:rgba(255,255,255,.10);
+}
+
+.home-page .footer-intro::before{ top:0; }
+.home-page .footer-intro::after{ bottom:0; }
+
+/* ORTADAKİ NOKTA */
+.home-page .footer-intro .intro-dot{
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:rgba(255,255,255,.35);
+  margin:18px auto 32px auto;
+}
+
