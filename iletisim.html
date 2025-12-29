@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>İletişim | Hasanağaoğlu İnşaat Fethiye</title>
   <meta name="description" content="Hasanağaoğlu İnşaat Fethiye iletişim bilgileri, adres ve harita.">
+  <link rel="preconnect" href="https://maps.googleapis.com" />
+  <link rel="preconnect" href="https://maps.gstatic.com" />
+  <link rel="dns-prefetch" href="https://maps.googleapis.com" />
   <link rel="stylesheet" href="assets/css/app.css" />
 </head>
 <body class="corp-theme">
@@ -38,92 +41,167 @@
     </div>
   </header>
 
-  <section class="contact-hero">
-    <div class="container">
-      <h1>İletişime Geçin</h1>
-      <p>
-        Projelerimiz ve hizmetlerimiz hakkında bilgi almak için bizimle iletişime geçebilirsiniz.
-      </p>
-    </div>
-  </section>
-
-  <section class="contact-form-section split-vertical">
-    <div class="container">
-      <form class="contact-form">
-        <div class="form-row">
-          <div>
-            <label>Ad Soyad</label>
-            <input type="text" required>
+  <main class="contact-page-main">
+    <!-- Parallax Header -->
+    <section class="contact-hero-parallax">
+      <div class="contact-hero-overlay">
+        <div class="contact-hero-content-wrapper">
+          <div class="contact-hero-title-overlay">
+            <span class="contact-hero-title-main">İletişim</span>
+            <span class="contact-hero-title-overlay-text">TASARIM</span>
           </div>
-          <div>
-            <label>E-posta</label>
-            <input type="email" required>
+          <div class="contact-hero-banner">
+            <a href="tel:+905530141218" class="contact-hero-banner-frame">
+              <h1>BİZE ULAŞIN</h1>
+            </a>
           </div>
         </div>
-
-        <div class="form-row">
-          <div>
-            <label>Telefon</label>
-            <input type="tel">
-          </div>
-          <div>
-            <label>Konu</label>
-            <input type="text">
-          </div>
+        <div class="contact-hero-side-labels">
+          <span class="side-label-left">PARALLAX BAŞLIK</span>
+          <span class="side-label-right">İLETİŞİM SAYFASI</span>
         </div>
-
-        <div>
-          <label>Mesaj</label>
-          <textarea rows="5" required></textarea>
-        </div>
-
-        <button type="submit">Mesaj Gönder</button>
-      </form>
-    </div>
-  </section>
-
-  <section class="contact-location split-horizontal">
-    <div class="container location-grid">
-      <div class="location-info">
-        <h2>Konum</h2>
-        <p>
-          Hasanağaoğlu İnşaat<br>
-          Fethiye / Muğla
-        </p>
       </div>
+    </section>
 
-      <div class="location-map">
-        <iframe
-          src="https://www.google.com/maps?q=Fethiye&output=embed"
-          loading="lazy">
-        </iframe>
+    <!-- Get in Touch Section -->
+    <section class="contact-get-in-touch">
+      <div class="container">
+        <h2 class="contact-section-heading">Bizimle iletişime geçin!</h2>
+        <div class="contact-info-columns">
+          <div class="contact-info-column">
+            <div class="contact-icon-gold">📞</div>
+            <div class="contact-info-details">
+              <p><strong>Telefon:</strong> <a href="tel:+905530141218" style="color: inherit; text-decoration: none;">+90 (553) 014 12 18</a></p>
+            </div>
+          </div>
+          <div class="contact-info-column">
+            <div class="contact-icon-gold">📍</div>
+            <div class="contact-info-details">
+              <p><a href="https://www.google.com/maps?q=Fethiye,+Muğla,+Türkiye" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">Fethiye, Muğla, Türkiye</a></p>
+            </div>
+          </div>
+          <div class="contact-info-column">
+            <div class="contact-icon-gold">✉️</div>
+            <div class="contact-info-details">
+              <p><a href="mailto:info@hasanagaogluinsaat.com" style="color: inherit; text-decoration: none;">info@hasanagaogluinsaat.com</a></p>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="contact-faq split-vertical-reverse">
+    <!-- Contact Form Section -->
+    <section class="contact-form-section-dark">
+      <div class="container">
+        <div class="contact-form-wrapper-dark">
+          <p class="contact-form-intro-text">SORULARINIZ İÇİN BİZE MESAJ GÖNDERMEKTEN ÇEKİNMEYİN.</p>
+          <form class="contact-form-dark" id="contactForm">
+            <input type="text" name="name" id="contactName" placeholder="Adınız" required>
+            <input type="email" name="email" id="contactEmail" placeholder="E-posta Adresiniz" required>
+            <input type="text" name="subject" id="contactSubject" placeholder="Konu" required>
+            <textarea name="message" id="contactMessage" placeholder="Mesajınız" rows="6" required></textarea>
+            <button type="submit" class="contact-submit-btn-gold">
+              MESAJ GÖNDER
+            </button>
+          </form>
+        </div>
+        <span class="side-label-left">MODERN FORM</span>
+      </div>
+    </section>
+
+    <!-- Connect with us Section -->
+    <section class="contact-social-section">
+      <div class="container">
+        <h2 class="contact-section-heading">Bizi takip edin!</h2>
+        <div class="social-icons-grid-dark">
+          <a href="https://wa.me/905530141218?text=Merhaba%2C%20Hasanağaoğlu%20İnşaat%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="social-icon-dark" aria-label="WhatsApp">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" fill="currentColor"/>
+            </svg>
+          </a>
+        </div>
+        <span class="side-label-right">SOSYAL MEDYA</span>
+      </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="contact-map-section-dark">
+      <div class="container">
+        <div class="contact-map-wrapper-dark">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3125.5!2d29.1161!3d36.6214!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14c8b8b8b8b8b8b%3A0x8b8b8b8b8b8b8b8b!2sFethiye%2C%20Muğla!5e0!3m2!1str!2str!4v1699999999999!5m2!1str!2str" 
+            width="100%" 
+            height="450" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Hasanağaoğlu İnşaat Fethiye Konum">
+          </iframe>
+        </div>
+        <span class="side-label-left">ÖZEL HARİTA</span>
+      </div>
+    </section>
+  </main>
+
+  <!-- WHATSAPP FAB - Sabit Sağ Altta -->
+  <a href="https://wa.me/905530141218?text=Merhaba%2C%20Hasanağaoğlu%20İnşaat%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="whatsapp-fab" aria-label="WhatsApp ile hızlı iletişim">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" fill="currentColor"/>
+    </svg>
+  </a>
+
+  <footer class="site-footer contact-footer-dark">
     <div class="container">
-      <h2>Sık Sorulan Sorular</h2>
-
-      <details>
-        <summary>Projeleriniz anahtar teslim mi?</summary>
-        <p>Evet, projelerimizi anahtar teslim olarak sunuyoruz.</p>
-      </details>
-
-      <details>
-        <summary>Fiyatlandırma nasıl yapılıyor?</summary>
-        <p>Proje kapsamına ve taleplere göre özel olarak belirlenir.</p>
-      </details>
-    </div>
-  </section>
-
-  <footer class="site-footer">
-    <div class="container">
-      <p>© 2025 Hasanağaoğlu İnşaat Fethiye | Tüm Hakları Saklıdır</p>
+      <div class="contact-footer-content">
+        <div class="contact-footer-logo">
+          <div class="footer-logo-main">Hasanağaoğlu</div>
+          <div class="footer-logo-sub">İnşaat & Yapı</div>
+        </div>
+        <div class="contact-footer-social">
+          <a href="#" class="footer-social-link">TWITTER</a>
+          <a href="#" class="footer-social-link">FACEBOOK</a>
+          <a href="#" class="footer-social-link">INSTAGRAM</a>
+          <a href="#" class="footer-social-link">LINKEDIN</a>
+        </div>
+      </div>
+      <span class="side-label-right">MİNİMAL ALT BİLGİ</span>
     </div>
   </footer>
 
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/main.js" defer></script>
+  <script>
+    // Form handler - Gmail'e bağlama
+    document.addEventListener('DOMContentLoaded', function() {
+      const contactForm = document.getElementById('contactForm');
+      if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          const name = document.getElementById('contactName').value;
+          const email = document.getElementById('contactEmail').value;
+          const subject = document.getElementById('contactSubject').value;
+          const message = document.getElementById('contactMessage').value;
+          
+          // Gmail compose URL oluştur
+          const gmailSubject = encodeURIComponent(subject);
+          const gmailBody = encodeURIComponent(
+            `Ad Soyad: ${name}\nE-posta: ${email}\n\nMesaj:\n${message}`
+          );
+          const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=info@hasanagaogluinsaat.com&su=${gmailSubject}&body=${gmailBody}`;
+          
+          // Gmail'i yeni sekmede aç
+          window.open(gmailUrl, '_blank');
+          
+          // Formu temizle
+          contactForm.reset();
+          
+          // Başarı mesajı
+          alert('Gmail açılıyor... Mesajınızı gönderebilirsiniz.');
+        });
+      }
+    });
+  </script>
 </body>
 </html>
 
