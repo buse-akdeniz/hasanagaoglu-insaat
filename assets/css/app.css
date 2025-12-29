@@ -1369,7 +1369,11 @@ body.home-page::after{
   .home-page .fp-media img{
     height: 200px;
   }
-}
+
+  .home-page .fp-media{
+    /* burası boş kalabilir */
+  }
+} /* <-- @media (max-width: 360px) kapanışı */
 
 /* blur dolgu katmanı */
 .hero-slide::before{
@@ -1401,11 +1405,13 @@ body.home-page::after{
 
 
 /* HERO: tam görünsün (crop yok) */
+/* KALDIRILDI: IMG tabanlı slider için background kuralları gerekmiyor
 .hero-slide{
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
 }
+*/
 
 
 /* ===== HERO SLIDER (CLEAN & STABLE) ===== */
@@ -1424,9 +1430,11 @@ body.home-page::after{
   opacity: 0;
   visibility: hidden;
   transition: opacity .6s ease, visibility .6s ease;
+  /* KALDIRILDI: IMG tabanlı slider için background kuralları gerekmiyor
   background-repeat: no-repeat;
   background-position: center;
-  background-size: contain; /* TAM GÖRÜNSÜN */
+  background-size: contain;
+  */
 }
 
 .hero-slide.active{
@@ -1440,7 +1448,7 @@ body.home-page::after{
 
 /* HERO: boşluk yok, blur yok, saydamlık yok */
 .hero-slide::before{ display:none !important; }
-.hero-slide .hero-media{ display:none !important; }
+/* .hero-slide .hero-media{ display:none !important; } */ /* KALDIRILDI: IMG tabanlı slider için */
 .hero-slide .hero-overlay{ display:none !important; }
 
 .hero-slider{ 
@@ -1450,13 +1458,15 @@ body.home-page::after{
   min-height: 650px !important;
   max-height: 900px !important;
 }
+/* KALDIRILDI: IMG tabanlı slider için background kuralları gerekmiyor
 .hero-slide{
-  background-size: cover !important;   /* boşluk kalmaz */
-  background-position: center bottom !important;  /* alt boşluk kalmaz */
+  background-size: cover !important;
+  background-position: center bottom !important;
   background-repeat: no-repeat !important;
   filter:none !important;
   opacity:1 !important;
 }
+*/
 
 /* Hero Slider Manuel Kontrol Butonları */
 .hero-slider-prev,
@@ -1954,4 +1964,500 @@ body.theme-dark.home-page .hero-slide img{
     font-size: 28px;
   }
 }
+
+/* ===== FINAL: HERO SLIDER (IMG-BASED, NO WHITE GAP, TOP VISIBLE) ===== */
+
+/* HERO SLIDER – gerçek tam ekran */
+body.theme-dark.home-page .hero-slider{
+  position: relative;
+  height: calc(100vh - 84px); /* header yüksekliği */
+  min-height: 600px;
+  overflow: hidden;
+}
+
+body.theme-dark.home-page .hero-slide{
+  height: 100%;
+}
+
+body.theme-dark.home-page .hero-slide.active{
+  opacity: 1;
+  z-index: 1;
+}
+
+body.theme-dark.home-page .hero-slide img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center; /* görselin tamamı görünsün, alt kısım kesilmesin */
+}
+
+/* KALDIRILDI: Yeni kurallar aşağıda
+body.theme-dark.home-page .hero-slider + section{
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+*/
+
+body.theme-dark.home-page{
+  background:#0e1012;
+}
+
+/* Slider ile sonraki bölümün birbirine girmesini engelle */
+body.theme-dark.home-page .hero-slider{
+  position: relative;
+  z-index: 10;
+  background: #0e1012;
+}
+
+/* Slider'ın altına koyu bir bant/ayırıcı (birleşme hissini bitirir) */
+body.theme-dark.home-page .hero-slider::after{
+  content:"";
+  position:absolute;
+  left:0; right:0; bottom:0;
+  height: 90px;
+  background: linear-gradient(to bottom, rgba(14,16,18,0) 0%, rgba(14,16,18,1) 100%);
+  pointer-events:none;
+}
+
+/* Slider sonrası bölüm: araya boşluk + koyu zemin */
+body.theme-dark.home-page .hero-slider + section{
+  position: relative;
+  z-index: 1;
+  padding-top: 56px !important;   /* araya nefes */
+  margin-top: 0 !important;
+  background: #0e1012;            /* sliderla aynı koyu ton */
+}
+
+/* Hakkımızda Sayfası Stilleri */
+.about-page{
+  padding: 100px 20px 80px;
+  min-height: calc(100vh - 72px);
+}
+
+.about-page .container{
+  max-width: 1200px;
+    margin: 0 auto;
+  }
+
+.about-layout{
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 64px;
+}
+
+.about-content{
+  padding: 20px 0;
+}
+
+.about-kicker{
+  font-size: 14px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(25, 28, 32, 0.6);
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+
+.about-title{
+  font-size: clamp(32px, 4vw, 48px);
+  line-height: 1.3;
+  font-weight: 700;
+  color: #191C20;
+  margin-bottom: 32px;
+  letter-spacing: -0.5px;
+}
+
+.about-text{
+  font-size: 17px;
+  line-height: 1.8;
+  color: rgba(25, 28, 32, 0.8);
+  margin: 0;
+}
+
+.about-image{
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.about-secondary-image{
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 18px 60px rgba(0,0,0,0.15);
+}
+
+.about-secondary-image img{
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.about-image-caption{
+  padding: 0 10px;
+}
+
+.about-image-title{
+  font-size: 22px;
+  font-weight: 600;
+  color: #191C20;
+  margin: 0 0 12px;
+  line-height: 1.3;
+}
+
+.about-image-text{
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(25, 28, 32, 0.75);
+  margin: 0;
+}
+
+/* Vizyon ve Misyon Bölümü */
+.vision-mission-section{
+  padding: 80px 20px;
+}
+
+.vision-mission-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.vision-mission-item h2{
+  font-size: clamp(32px, 3vw, 48px);
+  font-weight: 700;
+  color: #191C20;
+  margin: 0 0 28px;
+  letter-spacing: -0.4px;
+  line-height: 1.2;
+}
+
+.vision-mission-item p{
+  font-size: 17px;
+  line-height: 2.2; /* daha alt alta, daha okunabilir */
+  color: rgba(25, 28, 32, 0.8);
+  margin: 0;
+}
+
+/* Mobil için tek sütun */
+@media (max-width: 980px){
+  .about-layout{
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  .about-image{
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .about-title{
+    font-size: 32px;
+  }
+
+  .vision-mission-grid{
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .vision-mission-item h2{
+    font-size: 24px;
+  }
+}
+
+/* GLOBAL BACKGROUND */
+body{
+  background-image: url("../images/global-blueprint.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center right;
+  background-color: #f3f4f6;
+}
+
+/* GLOBAL OVERLAY (okunurluk) */
+body::before{
+  content:"";
+  position: fixed;
+  inset: 0;
+  background: rgba(243,244,246,0.88);
+  z-index: -1;
+}
+
+/* GLOBAL SITE BACKGROUND (wrapper üzerinden) */
+.site-wrapper,
+.page-wrapper,
+.main-wrapper,
+#page,
+#app,
+main{
+  background-image: url("../images/global-blueprint.jpg") !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-position: center right !important;
+  background-color: #f3f4f6 !important;
+}
+
+.about-image img{
+  width: 100%;
+  height: auto;
+  filter: grayscale(100%) contrast(1.08) brightness(0.95);
+  transform: scale(1.04);
+  border-radius: 6px;
+}
+
+/* ABOUT — split layout (sol görsel / sağ tipografi) - Diyagonal Tasarım */
+.about-split{
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-split__media{
+  background-image: url("../images/about.jpg");
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(100%) contrast(1.1) brightness(0.65);
+  position: relative;
+  background-color: #000000;
+  clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
+  height: 100%;
+}
+
+.about-split__content{
+  display: block;
+  padding: 90px 70px;
+  background: #ffffff;
+  position: relative;
+}
+
+.about-split__inner{
+  max-width: 600px;
+  position: relative;
+  z-index: 2;
+  margin-left: -80px;
+}
+
+.about-title-split{
+  font-size: clamp(32px, 3.5vw, 48px);
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 0 0 32px 0;
+  letter-spacing: -0.01em;
+  position: relative;
+  display: block;
+}
+
+.about-title-left{
+  display: block;
+  color: #ffffff;
+  background: #000000;
+  padding: 6px 14px 6px 0;
+  margin-right: 0;
+  width: fit-content;
+}
+
+.about-title-right{
+  display: block;
+  color: #000000;
+  background: #ffffff;
+  padding: 6px 0 6px 14px;
+  width: fit-content;
+  margin-top: 4px;
+}
+
+.about-title-split::after{
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: rgba(0,0,0,0.15);
+}
+
+.about-copy{
+  margin: 0 0 32px 0;
+  shape-outside: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.about-copy p{
+  margin: 0 0 20px 0;
+  line-height: 1.9;
+  color: rgba(0,0,0,0.75);
+  font-size: 16px;
+}
+
+.about-tag{
+  font-family: 'Didact Gothic', sans-serif;
+  font-size: clamp(36px, 4.5vw, 56px);
+  line-height: 1.15;
+  font-weight: 400;
+  font-style: italic;
+  margin: 0 0 36px 0;
+  color: #000000;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+.about-tag::after{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 2px;
+  background: #000000;
+}
+
+/* ABOUT - Vizyon/Misyon (sağ panel) */
+.about-vm{
+  margin-top: 0;
+  padding-top: 28px;
+  border-top: 1px solid rgba(0,0,0,0.10);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.about-vm .vm-row{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.about-vm .vm-title{
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 300;
+  color: rgba(0,0,0,0.55);
+  letter-spacing: 0.12em;
+  text-transform: lowercase;
+  font-style: italic;
+}
+
+.about-vm .vm-text{
+  line-height: 1.85;
+  color: rgba(0,0,0,0.72);
+  max-width: 520px;
+}
+
+/* Mobil */
+@media (max-width: 900px){
+  .about-vm{
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .about-vm .vm-row{
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .about-vm .vm-title{
+    font-size: 13px;
+    color: rgba(0,0,0,0.55);
+    letter-spacing: 0.1em;
+  }
+}
+
+/* mobile */
+@media (max-width: 900px){
+  .about-split{
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .about-split__media{
+    height: 50vh;
+    min-height: 400px;
+  }
+
+  .about-split__content{
+    padding: 52px 22px;
+  }
+
+  .about-split__media{
+    height: 46vh;
+    clip-path: none;
+  }
+
+  .about-split__content{
+    padding: 52px 22px;
+  }
+
+  .about-split__inner{
+    margin-left: 0;
+  }
+
+  .about-title-split{
+    font-size: clamp(28px, 5vw, 40px);
+    margin-bottom: 24px;
+  }
+
+  .about-title-left{
+    background: transparent;
+    color: #000000;
+  }
+
+  .about-tag{
+    font-size: clamp(28px, 5vw, 40px);
+    margin-bottom: 28px;
+    letter-spacing: 0.04em;
+  }
+  
+  .about-tag::after{
+    width: 50px;
+    height: 1.5px;
+  }
+}
+
+/* ABOUT — Vision & Mission */
+.about-vm{
+  padding: 110px 0;
+  background: #ffffff;
+}
+
+.about-vm__inner{
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.about-vm__box h3{
+  font-size: 28px;
+  margin-bottom: 18px;
+}
+
+.about-vm__box p{
+  line-height: 1.85;
+  color: rgba(0,0,0,0.72);
+  max-width: 420px;
+}
+
+.about-vm__divider{
+  width: 1px;
+  height: 100%;
+  background: rgba(0,0,0,0.1);
+}
+
+/* mobile */
+@media (max-width: 900px){
+  .about-vm__inner{
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .about-vm__divider{
+    display: none;
+  }
+}
+
 
