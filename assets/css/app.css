@@ -574,12 +574,18 @@ body.home-page::after{
   pointer-events: none;
 }
 
-/* Disable section background layers if they exist */
-.home-page .featured-projects::before,
+/* theme-dark için overlay'i kaldır - villa görseli görünsün */
+body.theme-dark.home-page::after{
+  display: none !important;
+  content: none !important;
+}
+
+/* Disable section background layers if they exist - KALDIRILDI */
+/* .home-page .featured-projects::before,
 .home-page .featured-projects::after{
   content: none !important;
   display: none !important;
-}
+} */
 
 /* Home: Why Us */
 .home-page .why-us{
@@ -2696,14 +2702,58 @@ body.theme-dark.home-page .hero-slider + section{
 */
 
 body.theme-dark.home-page{
-  background:#0e1012;
+  background-color: #0e1012 !important;
+  background-image: url("../img/villa.jpg") !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
+  position: relative;
 }
+
+body.theme-dark.home-page::before{
+  content: "" !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background-image: url("../img/villa.jpg") !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
+  opacity: 0.2 !important;
+  filter: blur(1px) !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
+  display: block !important;
+}
+
+/* Koyu overlay - içeriğin okunabilirliği için */
+body.theme-dark.home-page::after{
+  content: "" !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: rgba(14, 16, 18, 0.75) !important;
+  z-index: 1 !important;
+  pointer-events: none !important;
+  display: block !important;
+}
+
 
 /* Slider ile sonraki bölümün birbirine girmesini engelle */
 body.theme-dark.home-page .hero-slider{
   position: relative;
   z-index: 10;
-  background: #0e1012;
+  background: transparent;
 }
 
 /* Slider'ın altına koyu bir bant/ayırıcı (birleşme hissini bitirir) */
@@ -2867,10 +2917,6 @@ body.theme-dark.home-page .hero-slider + section{
 
 /* GLOBAL BACKGROUND */
 body{
-  background-image: url("../images/global-blueprint.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center right;
   background-color: #f3f4f6;
 }
 
@@ -2890,10 +2936,6 @@ body::before{
 #page,
 #app,
 main{
-  background-image: url("../images/global-blueprint.jpg") !important;
-  background-repeat: no-repeat !important;
-  background-size: cover !important;
-  background-position: center right !important;
   background-color: #f3f4f6 !important;
 }
 
@@ -4605,22 +4647,56 @@ body.corp-theme.contact-page .contact-page-main{
   background: transparent;
 }
 
-.services-hero-bg{
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  display: block;
-  background: #000;
-  background-image: url("../images/hizmetler-hero.jpg");
+/* Hizmetler hero arka planını sakinleştir */
+.services-hero{
+  position: relative;
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
-  filter: grayscale(100%) contrast(1.3) brightness(1.1);
-  opacity: 0.85;
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
+}
+
+/* Arka planı koyulaştıran katman */
+.services-hero::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35); /* kritik satır */
+}
+
+.services-hero::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(2px);
+}
+
+/* Kart üstte kalsın */
+.services-hero > *{
+  position: relative;
+  z-index: 1;
+}
+
+.services-hero-bg{
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 0 !important;
+  display: block !important;
+  background: #000 !important;
+  background-image: url("../images/hizmetler-hero.jpg") !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  opacity: 1 !important;
+  filter: grayscale(100%) !important;
+}
+
+.services-hero-premium{
+  background-image: url("../images/hizmetler-hero.jpg") !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  filter: grayscale(100%) !important;
 }
 
 .services-hero-premium .container{
@@ -4632,7 +4708,8 @@ body.corp-theme.contact-page .contact-page-main{
   padding: 0 24px;
 }
 
-.services-hero-card{
+.services-hero-card,
+.hero-card{
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   padding: 48px 42px;
@@ -4640,6 +4717,13 @@ body.corp-theme.contact-page .contact-page-main{
   border-radius: 4px;
   box-shadow: 0 24px 64px rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.hero-card{
+  max-width: 680px;
+  padding: 48px 52px;
+  border-radius: 18px;
+  box-shadow: 0 18px 60px rgba(0,0,0,.18);
 }
 
 .services-kicker{
@@ -5176,7 +5260,7 @@ body.corp-theme.contact-page .contact-page-main{
 }
 
 .projects-hero-bg::before{
-  display: none;
+  background: rgba(255,255,255,0.6) !important;
 }
 
 .projects-hero-overlay{
@@ -6312,9 +6396,9 @@ body.corp-theme.contact-page .contact-page-main{
 }
 
 /* ===== Projects Editorial Layout ===== */
-.projects-page{
-  background:#f2f2f0;
-  color:#111;
+.projects-page {
+  background: #0f1114;
+  color: rgba(255,255,255,.92);
 }
 
 .projects-hero{
@@ -6623,3 +6707,1354 @@ body.corp-theme.contact-page .contact-page-main{
   .p-compact-grid{grid-template-columns:repeat(2,1fr);}
 }
 
+/* ===== New Projects Page Layout ===== */
+.projects-hero {
+  padding: 84px 0 44px;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  background: linear-gradient(180deg, rgba(255,255,255,.03), transparent);
+}
+
+.projects-hero .kicker {
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: rgba(255,255,255,.55);
+  margin-bottom: 10px;
+}
+
+.projects-hero h1 {
+  font-size: 44px;
+  margin: 0 0 10px;
+}
+
+.projects-hero .lead {
+  max-width: 720px;
+  color: rgba(255,255,255,.72);
+}
+
+.projects-section {
+  padding: 44px 0 14px;
+}
+
+.projects-section.subtle {
+  padding: 34px 0 70px;
+  background: rgba(255,255,255,.02);
+}
+
+.section-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+
+.section-head h2 {
+  margin: 0;
+  font-size: 20px;
+  letter-spacing: .02em;
+}
+
+.section-head .lead.small {
+  margin: 0;
+  font-size: 14px;
+  color: rgba(255,255,255,.65);
+}
+
+.tabs {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.06);
+  padding: 8px;
+  border-radius: 999px;
+}
+
+.tab {
+  appearance: none;
+  border: 0;
+  cursor: pointer;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: transparent;
+  color: rgba(255,255,255,.75);
+  font-weight: 600;
+  font-size: 13px;
+  transition: .2s ease;
+}
+
+.tab:hover {
+  background: rgba(255,255,255,.05);
+}
+
+.tab.is-active {
+  background: rgba(255,255,255,.10);
+  color: rgba(255,255,255,.95);
+}
+
+.tab-panels {
+  padding-top: 10px;
+}
+
+.panel {
+  display: none;
+}
+
+.panel.is-active {
+  display: block;
+}
+
+.mosaic {
+  display: grid;
+  grid-template-columns: 1.4fr .8fr .8fr;
+  grid-auto-rows: 240px;
+  gap: 14px;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,.08);
+  background: rgba(255,255,255,.03);
+  box-shadow: 0 18px 60px rgba(0,0,0,.35);
+  transform: translateZ(0);
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(.95) contrast(1.02);
+  transition: transform .35s ease, filter .35s ease;
+}
+
+.card:hover img {
+  transform: scale(1.04);
+  filter: saturate(1.05) contrast(1.05);
+}
+
+.card.big {
+  grid-row: span 2;
+}
+
+.card.wide {
+  grid-column: span 2;
+}
+
+.cap {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(0,0,0,.45);
+  border: 1px solid rgba(255,255,255,.10);
+  backdrop-filter: blur(10px);
+}
+
+.cap span {
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  opacity: .85;
+}
+
+.cap strong {
+  font-size: 14px;
+}
+
+.cap.mini {
+  left: 12px;
+  bottom: 12px;
+  padding: 8px 10px;
+}
+
+.cap.mini strong {
+  font-size: 13px;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  padding-top: 10px;
+}
+
+.card.simple {
+  height: 240px;
+}
+
+.card.simple .meta {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(0,0,0,.45);
+  border: 1px solid rgba(255,255,255,.10);
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.card.simple .meta strong {
+  font-size: 14px;
+}
+
+.card.simple .meta span {
+  font-size: 12px;
+  color: rgba(255,255,255,.70);
+}
+
+@media (max-width: 980px) {
+  .mosaic {
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 220px;
+  }
+  .card.wide {
+    grid-column: span 2;
+  }
+  .grid-3 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 620px) {
+  .projects-hero {
+    padding: 64px 0 36px;
+  }
+  .projects-hero h1 {
+    font-size: 34px;
+  }
+  .mosaic {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 220px;
+  }
+  .card.big {
+    grid-row: span 1;
+  }
+  .card.wide {
+    grid-column: span 1;
+  }
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== Contact Page - New Design ===== */
+body.corp-theme.contact-page {
+  background: #f5f5f5;
+  color: #111;
+}
+
+body.corp-theme.contact-page .contact-page-main {
+  background: #f5f5f5;
+  color: #111;
+  padding: 0;
+}
+
+/* Contacts Hero */
+.contacts-hero {
+  padding: 80px 20px 60px;
+  text-align: center;
+  background: #f5f5f5;
+}
+
+.contacts-title {
+  font-size: 72px;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  margin: 0 0 16px;
+  color: #111;
+}
+
+.contacts-subtitle {
+  font-size: 14px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.6);
+  margin: 0;
+}
+
+/* Offices Section */
+.offices-section {
+  padding: 60px 20px 100px;
+  background: #f5f5f5;
+}
+
+.offices-grid {
+  display: grid;
+  grid-template-columns: 240px 1fr 380px;
+  gap: 60px;
+  align-items: start;
+}
+
+/* Office List */
+.offices-list {
+  padding-top: 20px;
+}
+
+.region-title {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.8);
+  margin: 0 0 20px;
+}
+
+.office-cities {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.office-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  transition: color 0.2s ease;
+  color: rgba(0,0,0,0.7);
+}
+
+.office-item:hover {
+  color: #111;
+}
+
+.office-item.active {
+  color: #111;
+  font-weight: 600;
+}
+
+.city-name {
+  font-size: 15px;
+}
+
+.city-number {
+  font-size: 13px;
+  color: rgba(0,0,0,0.5);
+  font-weight: normal;
+}
+
+.office-item.active .city-number {
+  color: rgba(0,0,0,0.7);
+}
+
+/* Map Area */
+.map-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+}
+
+.simple-map {
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+}
+
+.simple-map svg {
+  width: 100%;
+  height: 100%;
+  max-height: 500px;
+}
+
+/* Office Details */
+.office-details {
+  padding-top: 20px;
+}
+
+.office-detail-card {
+  background: #2a2a2a;
+  color: #fff;
+  padding: 32px;
+  border-radius: 4px;
+  display: none;
+}
+
+.office-detail-card.active {
+  display: block;
+}
+
+.detail-city {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0 0 24px;
+  color: #fff;
+}
+
+.detail-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.detail-item {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.9);
+}
+
+.detail-item strong {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #fff;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.detail-item a {
+  color: rgba(255,255,255,0.9);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.detail-item a:hover {
+  color: #fff;
+}
+
+/* Contact Form Section */
+.contact-form-section {
+  padding: 100px 20px 120px;
+  background: #f5f5f5;
+  border-top: 1px solid rgba(0,0,0,0.08);
+}
+
+.form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  margin-bottom: 50px;
+}
+
+.form-label {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.6);
+  margin: 0;
+  padding-top: 4px;
+}
+
+.form-intro {
+  flex: 1;
+  max-width: 600px;
+}
+
+.form-question {
+  font-size: 32px;
+  font-weight: 300;
+  line-height: 1.4;
+  margin: 0;
+  color: #111;
+  font-family: Georgia, serif;
+}
+
+.form-wrapper {
+  max-width: 700px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(0,0,0,0.8);
+  letter-spacing: 0.02em;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 4px;
+  background: #fff;
+  color: #111;
+  font-size: 15px;
+  font-family: inherit;
+  transition: border-color 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #111;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.checkbox-group {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: rgba(0,0,0,0.7);
+  cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: auto;
+  margin-top: 2px;
+  cursor: pointer;
+}
+
+.checkbox-label a {
+  color: #111;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.checkbox-label a:hover {
+  text-decoration: none;
+}
+
+.submit-btn {
+  align-self: flex-start;
+  padding: 14px 32px;
+  background: #2a2a2a;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  transition: background 0.2s ease;
+  font-family: inherit;
+}
+
+.submit-btn:hover {
+  background: #1a1a1a;
+}
+
+.submit-btn .arrow {
+  font-size: 16px;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .offices-grid {
+    grid-template-columns: 200px 1fr 320px;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 980px) {
+  .contacts-title {
+    font-size: 56px;
+  }
+  
+  .offices-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .offices-list {
+    padding-top: 0;
+  }
+  
+  .office-details {
+    padding-top: 0;
+  }
+  
+  .form-header {
+    flex-direction: column;
+    gap: 24px;
+  }
+  
+  .form-question {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 620px) {
+  .contacts-hero {
+    padding: 60px 0 40px;
+  }
+  
+  .contacts-title {
+    font-size: 42px;
+  }
+  
+  .offices-section {
+    padding: 40px 0 60px;
+  }
+  
+  .contact-form-section {
+    padding: 60px 0 80px;
+  }
+  
+  .form-question {
+    font-size: 24px;
+  }
+  
+  .map-area {
+    min-height: 300px;
+  }
+  
+  .simple-map svg {
+    max-height: 300px;
+  }
+}
+
+/* Contact Page Footer */
+body.corp-theme.contact-page .site-footer {
+  background: #f5f5f5;
+  color: #333;
+  padding: 40px 20px;
+  margin-top: 0;
+  border-top: 1px solid rgba(0,0,0,0.08);
+}
+
+body.corp-theme.contact-page .footer-inner {
+  text-align: center;
+  font-size: 14px;
+  color: #333;
+  margin: 0;
+}
+
+/* ===== Home Page Footer - New Design ===== */
+.home-footer {
+  position: relative;
+  background: #1a1a1a;
+  color: #fff;
+  padding: 60px 20px 30px;
+  margin-top: 80px;
+  overflow: hidden;
+}
+
+.home-footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../images/footer-wireframe-city.jpg");
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  opacity: 0.15;
+  z-index: 0;
+}
+
+.home-footer > * {
+  position: relative;
+  z-index: 1;
+}
+
+.home-footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.home-footer .footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.home-footer .footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.home-footer .footer-company {
+  max-width: 300px;
+}
+
+.home-footer .footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.home-footer .footer-logo-icon {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 2px solid #d4af37;
+  border-radius: 8px;
+  color: #d4af37;
+  font-size: 28px;
+  font-weight: bold;
+  font-family: serif;
+}
+
+.home-footer .footer-logo-text {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+  letter-spacing: 0.5px;
+}
+
+.home-footer .footer-description {
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.7);
+  margin: 0;
+}
+
+.home-footer .footer-location {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.home-footer .footer-location svg {
+  width: 16px;
+  height: 16px;
+  color: #d4af37;
+  flex-shrink: 0;
+}
+
+.home-footer .footer-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  margin: 0 0 16px;
+  letter-spacing: 0.5px;
+}
+
+.home-footer .footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.home-footer .footer-links a {
+  color: rgba(255,255,255,0.7);
+  font-size: 14px;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.home-footer .footer-links a:hover {
+  color: #d4af37;
+}
+
+.home-footer .footer-contact-section {
+  padding: 30px 0;
+  border-top: 1px solid rgba(212,175,55,0.3);
+  border-bottom: 1px solid rgba(212,175,55,0.3);
+  margin-bottom: 30px;
+}
+
+.home-footer .footer-contact {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+.home-footer .footer-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+}
+
+.home-footer .footer-contact-item svg {
+  width: 16px;
+  height: 16px;
+  color: #d4af37;
+  flex-shrink: 0;
+}
+
+.home-footer .footer-contact-item a {
+  color: #fff;
+  font-size: 14px;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.home-footer .footer-contact-item a:hover {
+  color: #d4af37;
+}
+
+.home-footer .footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+}
+
+.home-footer .footer-website {
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 15px;
+  letter-spacing: 0.5px;
+}
+
+.home-footer .footer-copyright {
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+}
+
+@media (max-width: 980px) {
+  .home-footer .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+  
+  .home-footer .footer-contact-section {
+    padding: 20px 0;
+  }
+  
+  .home-footer .footer-contact {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 620px) {
+  .home-footer {
+    padding: 40px 20px 20px;
+  }
+  
+  .home-footer .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .home-footer .footer-company {
+    max-width: 100%;
+  }
+}
+
+footer, .footer, .site-footer {
+  height: auto !important;
+  min-height: unset !important;
+  padding: 18px 0 !important;
+  margin: 0 !important;
+}
+
+footer .copyright,
+footer .footer-bottom,
+footer .footer-copy {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 14px 18px;
+  line-height: 1.4;
+}
+
+/* ============================= */
+/* GLOBAL COPYRIGHT – TEK STİL   */
+/* ============================= */
+
+.global-copyright{
+  width: 100%;
+  padding: 14px 16px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.4;
+  color: rgba(255,255,255,0.75);
+  background: #191C20; /* senin ana footer tonun */
+  border-top: 1px solid rgba(255,255,255,0.08);
+  box-sizing: border-box;
+  margin: 0;
+  max-width: 100%;
+}
+
+/* Açık temalı sayfalar için bile aynı kalsın */
+body:not(.theme-dark) .global-copyright{
+  color: rgba(255,255,255,0.75);
+  background: #191C20;
+}
+
+/* Footer'daki DEV BOŞLUĞU KES (kritik) */
+.site-footer,
+.footer,
+.home-footer,
+#iletisim-footer,
+.contact-footer{
+  min-height: unset !important;
+  height: auto !important;
+}
+
+/* === FIX: footer altındaki gri bant tamamen kaldırılsın === */
+
+.site-footer::before,
+.site-footer::after,
+.footer::before,
+.footer::after,
+.home-footer::before,
+.home-footer::after,
+.footer-topbar,
+.footer-divider {
+  display: none !important;
+  content: none !important;
+}
+
+.site-footer,
+.footer,
+.home-footer {
+  box-shadow: none !important;
+  background-image: none !important;
+}
+
+/* === PERFORMANCE OPTIMIZATIONS === */
+/* Image rendering optimization */
+img {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+/* Will-change hints for animations */
+.hero-slide,
+.fp-row,
+.service-card {
+  will-change: transform;
+}
+
+/* GPU acceleration for transforms */
+.fp-row,
+.service-card,
+.project-card {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Reduce repaints */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* === GLOBAL HEADER COLOR LOCK === */
+
+.site-header,
+header {
+  background: rgba(25,28,32,0.92) !important;
+}
+
+.site-header a,
+.site-header .nav-link,
+header a {
+  color: rgba(255,255,255,0.85) !important;
+}
+
+.site-header a.active,
+.site-header a:hover,
+header a:hover {
+  color: #ffffff !important;
+}
+
+/* Dil butonu + Hemen Ara */
+.site-header button,
+.site-header .btn {
+  color: #ffffff !important;
+  border-color: rgba(255,255,255,0.25) !important;
+}
+
+/* === FOOTER RENK YUMUŞATMA === */
+
+/* Ana footer alanı */
+.site-footer,
+.footer,
+.home-footer,
+#iletisim-footer {
+  background: #1E2227 !important; /* copyright'a yakın */
+}
+
+/* Footer içindeki yazılar biraz daha yumuşak */
+.site-footer p,
+.site-footer li,
+.site-footer a {
+  color: rgba(255,255,255,0.82) !important;
+}
+
+/* Başlıklar biraz daha net kalsın */
+.site-footer h3,
+.site-footer h4,
+.site-footer .footer-title {
+  color: rgba(255,255,255,0.92) !important;
+}
+
+/* Ayraç çizgileri */
+.site-footer hr,
+.site-footer .footer-divider {
+  border-color: rgba(255,255,255,0.08) !important;
+}
+
+/* Copyright bar (aynı kalsın ama garantiye alalım) */
+.global-copyright,
+.footer-copyright {
+  background: #191C20 !important;
+  color: rgba(255,255,255,0.7) !important;
+}
+
+/* ===== SCROLLBAR (FORCE) ===== */
+
+html, body {
+  scrollbar-color: #2A2F35 #121417; /* Firefox */
+  scrollbar-width: thin;
+}
+
+/* WebKit (Chrome/Safari/Edge) */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: 10px !important;
+}
+
+html::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track {
+  background: #121417 !important;
+}
+
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
+  background: #2A2F35 !important;
+  border-radius: 10px !important;
+  border: 2px solid #121417 !important;
+}
+
+html::-webkit-scrollbar-thumb:hover,
+body::-webkit-scrollbar-thumb:hover {
+  background: #3A4048 !important;
+}
+
+/* =========================
+   FOOTER GOLD STANDARD
+   ========================= */
+:root{
+  --gold: #C9A24D;
+  --gold-hover: #E0C37A;
+}
+
+/* Footer içindeki ikonlar / vurgu */
+.site-footer .gold,
+.site-footer .accent,
+.site-footer .footer-accent,
+.site-footer svg,
+.site-footer .icon,
+.site-footer i {
+  color: var(--gold) !important;
+  fill: var(--gold) !important;
+}
+
+/* Footer linkleri */
+.site-footer a{
+  color: rgba(255,255,255,0.84) !important;
+  text-decoration: none;
+}
+.site-footer a:hover{
+  color: #fff !important;
+}
+
+/* Sadece vurgulu link/ikon hover */
+.site-footer a:hover svg,
+.site-footer a:hover .icon{
+  color: var(--gold-hover) !important;
+  fill: var(--gold-hover) !important;
+}
+
+/* =========================
+   FOOTER COMPACT (PREMIUM)
+   ========================= */
+.site-footer{
+  padding-top: 44px !important;
+  padding-bottom: 18px !important;
+}
+
+.site-footer .footer-wrap,
+.site-footer .footer-inner,
+.site-footer .container{
+  padding-left: 18px;
+  padding-right: 18px;
+}
+
+.site-footer .footer-grid{
+  gap: 28px !important;   /* kolon arası */
+}
+
+.site-footer .footer-title,
+.site-footer h3,
+.site-footer h4{
+  margin: 0 0 10px 0 !important;
+  font-size: 15px !important;
+  letter-spacing: 1.6px;
+}
+
+.site-footer p{
+  margin: 0 0 12px 0 !important;
+  line-height: 1.55 !important;
+  opacity: .9;
+}
+
+.site-footer .footer-links li,
+.site-footer .footer-hours li{
+  margin: 0 0 10px 0 !important;
+}
+
+/* Divider çizgileri daha ince ve az boşluk */
+.site-footer .footer-divider,
+.site-footer hr{
+  margin: 18px 0 !important;
+  border-color: rgba(255,255,255,0.08) !important;
+}
+
+/* Copyright bar biraz daha ince */
+.global-copyright,
+.footer-copyright{
+  padding: 12px 14px !important;
+  font-size: 13px !important;
+}
+
+/* Footer website satırını küçült */
+.site-footer .footer-website{
+  margin: 10px 0 0 !important;
+  font-size: 14px !important;
+  opacity: .75;
+  letter-spacing: .6px;
+}
+
+/* === GLOBAL ALT GRİ BANT KALDIR === */
+/* html, body background kuralı kaldırıldı - yerine sayfa bazlı kurallar eklendi */
+
+body::before,
+body::after {
+  display: none !important;
+}
+
+/* === HEADER BAŞLIK RENKLERİNİ SABİTLE === */
+
+.site-header,
+.site-header a,
+.site-header h1,
+.site-header h2,
+.site-header h3 {
+  color: #ffffff !important;
+}
+
+/* === FOOTER UPDATE === */
+
+.site-footer {
+  background: #191C20 !important;
+  padding: 60px 0 30px; /* biraz kısalttık */
+}
+
+.site-footer .copyright,
+.site-footer-bottom {
+  background: #1E2227 !important;
+  color: rgba(255,255,255,0.65);
+  padding: 14px 0;
+  font-size: 13px;
+}
+
+.site-footer h4,
+.site-footer .footer-title {
+  color: #C9A24D;
+}
+
+.site-footer a:hover {
+  color: #C9A24D;
+}
+
+/* === GLOBAL SCROLLBAR === */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #191C20;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C9A24D;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #b8923f;
+}
+
+/* === HOME PAGE: AÇIK ZEMİN (VİLLA AKIŞI) === */
+/* theme-dark için villa görseli ::before pseudo-elementinde, koyu background korunuyor */
+
+body.home-page:not(.theme-dark) {
+  background: #ffffff !important;
+}
+
+body.theme-dark.home-page {
+  background: #0e1012 !important;
+}
+
+/* === İÇ SAYFALAR: NÖTR ZEMİN === */
+
+body:not(.home-page) {
+  background: #ffffff !important;
+}
+
+/* === HOME: villa arka plan karanlığını azalt === */
+
+body.home-page .home-hero,
+body.home-page .hero,
+body.home-page .page-hero{
+  position: relative;
+}
+
+/* Eğer overlay pseudo-element ile yapılıyorsa */
+body.home-page .home-hero::before,
+body.home-page .hero::before,
+body.home-page .page-hero::before{
+  background: rgba(0,0,0,0.18) !important; /* önce 0.18 dene */
+}
+
+/* Bazı tasarımlarda ::after kullanılıyor */
+body.home-page .home-hero::after,
+body.home-page .hero::after,
+body.home-page .page-hero::after{
+  background: rgba(0,0,0,0.18) !important;
+}
+
+/* === HOME: sayfa genel zemin açık kalsın === */
+
+body.home-page{
+  background: #ffffff !important;
+  color: #111;
+}
+
+/* HOME'da footer üstü alanlar beyaz */
+body.home-page main{
+  background: transparent !important;
+}
+
+/* ============================
+   HOME: Koyu akışı kır (kesin)
+   ============================ */
+
+/* Home sayfa zemini açık kalsın */
+body.home-page{
+  background: #fff !important;
+  color: #111 !important;
+}
+
+/* Home hero arka plan görseli (sende assets/img/villa.jpg) */
+body.home-page .home-hero,
+body.home-page .hero,
+body.home-page .page-hero{
+  background-image: url("../img/villa.jpg") !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  position: relative !important;
+}
+
+/* HERO'yu karartan katmanları AÇ (en kritik kısım) */
+body.home-page .home-hero::before,
+body.home-page .home-hero::after,
+body.home-page .hero::before,
+body.home-page .hero::after,
+body.home-page .page-hero::before,
+body.home-page .page-hero::after{
+  background: rgba(0,0,0,0.10) !important; /* 0.10 = çok hafif */
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+/* Eğer overlay ayrı bir div ise, onu da hafiflet */
+body.home-page .overlay,
+body.home-page .hero-overlay,
+body.home-page .bg-overlay{
+  background: rgba(0,0,0,0.10) !important;
+}
+
+/* Home'da main/section yanlışlıkla koyuya çekildiyse geri al */
+body.home-page main,
+body.home-page section{
+  background: transparent !important;
+}
+
+/* HOME: villa arka plan */
+body.home-page .home-hero{
+  background-image: url("../img/villa.jpg") !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  min-height: 92vh;
+}
+
+/* Hero class'ın farklıysa (en garanti "yakala") */
+body.home-page .hero,
+body.home-page .hero-section,
+body.home-page .page-hero{
+  background-image: url("../img/villa.jpg") !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
+
+/* Home featured projects - açık zemin */
+.home-page .featured-projects {
+  position: relative;
+  background: transparent;
+}
+
+.home-page .featured-projects::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("../img/villa.jpg") center/cover no-repeat;
+  z-index: -2;
+}
+
+.home-page .featured-projects::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.55); /* AÇIKLIK */
+  z-index: -1;
+}
