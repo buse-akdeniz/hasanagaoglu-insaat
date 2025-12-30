@@ -943,3 +943,104 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   });
 });
 
+// Footer Quote Form Handler
+document.addEventListener('DOMContentLoaded', function() {
+  const footerQuoteForm = document.getElementById('footerQuoteForm');
+  if (footerQuoteForm) {
+    footerQuoteForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const name = footerQuoteForm.querySelector('input[name="name"]').value;
+      const phone = footerQuoteForm.querySelector('input[name="phone"]').value;
+      const email = footerQuoteForm.querySelector('input[name="email"]').value;
+      const message = footerQuoteForm.querySelector('textarea[name="message"]').value;
+      
+      // Gmail compose URL oluştur
+      const gmailSubject = encodeURIComponent('Teklif Talebi');
+      const gmailBody = encodeURIComponent(
+        `Ad Soyad: ${name}\nTelefon: ${phone}\nE-posta: ${email}\n\nProje Bilgisi:\n${message}`
+      );
+      const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=info@hasanagaogluinsaat.com&su=${gmailSubject}&body=${gmailBody}`;
+      
+      // Gmail'i yeni sekmede aç
+      window.open(gmailUrl, '_blank');
+      
+      // Formu temizle
+      footerQuoteForm.reset();
+      
+      // Başarı mesajı
+      alert('Gmail açılıyor... Teklif talebinizi gönderebilirsiniz.');
+    });
+  }
+});
+
+// Projects Page Tab Switcher
+document.addEventListener('DOMContentLoaded', function() {
+  const tabs = document.querySelectorAll('.tab[data-tab]');
+  const panels = document.querySelectorAll('.panel[id^="tab-"]');
+  
+  if (tabs.length === 0 || panels.length === 0) return;
+  
+  tabs.forEach(tab => {
+    tab.addEventListener('click', function() {
+      const targetTab = this.getAttribute('data-tab');
+      
+      // Tüm tab'ları deaktif et
+      tabs.forEach(t => {
+        t.classList.remove('is-active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      
+      // Tüm panel'leri gizle
+      panels.forEach(p => {
+        p.classList.remove('is-active');
+        p.setAttribute('hidden', '');
+      });
+      
+      // Aktif tab'ı işaretle
+      this.classList.add('is-active');
+      this.setAttribute('aria-selected', 'true');
+      
+      // İlgili panel'i göster
+      const targetPanel = document.getElementById(targetTab);
+      if (targetPanel) {
+        targetPanel.classList.add('is-active');
+        targetPanel.removeAttribute('hidden');
+      }
+    });
+  });
+});
+
+// Contact Page Office Selector
+document.addEventListener('DOMContentLoaded', function() {
+  const officeItems = document.querySelectorAll('.office-item[data-office]');
+  const officeDetailCards = document.querySelectorAll('.office-detail-card');
+  
+  if (officeItems.length === 0) return;
+  
+  officeItems.forEach(item => {
+    item.addEventListener('click', function() {
+      const officeId = this.getAttribute('data-office');
+      
+      // Tüm office item'ları deaktif et
+      officeItems.forEach(i => {
+        i.classList.remove('active');
+      });
+      
+      // Tüm detail card'ları gizle
+      officeDetailCards.forEach(card => {
+        card.classList.remove('active');
+      });
+      
+      // Aktif office item'ı işaretle
+      this.classList.add('active');
+      
+      // İlgili detail card'ı göster
+      const targetCard = document.getElementById('detail-' + officeId);
+      if (targetCard) {
+        targetCard.classList.add('active');
+      }
+    });
+  });
+});
+

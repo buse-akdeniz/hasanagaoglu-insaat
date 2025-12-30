@@ -7,8 +7,13 @@
   <link rel="stylesheet" href="assets/css/app.css" />
   <link rel="stylesheet" href="assets/css/projects.css" />
 </head>
-<body class="theme-dark">
-  <header class="top-bar">
+<body class="theme-dark portfolio-presentation">
+  <header class="top-bar portfolio-header">
+    <div class="portfolio-header-bar">
+      <div class="portfolio-header-item">ARCHITECTURE</div>
+      <div class="portfolio-header-item">PORTFOLIO</div>
+      <div class="portfolio-header-item">DESIGN</div>
+    </div>
     <div class="container">
       <div class="logo">Hasanağaoğlu İnşaat Fethiye</div>
       <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menü">
@@ -38,242 +43,221 @@
     </div>
   </header>
 
-  <!-- HERO / INDEX (referanstaki giriş ekranı) -->
-  <section class="p-hero">
-    <div class="p-wrap p-hero__grid">
-      <div class="p-hero__title">
-        <div class="p-kicker">Premium Projeler • Fethiye</div>
-        <h1 class="p-h1">PROJECTS</h1>
-        <p class="p-lead">
-          Villa, toplu konut ve anahtar teslim uygulamalarımızdan seçilmiş örnekler.
-          Aşağıdan kategoriye göre filtreleyebilirsin.
-        </p>
+  <main class="portfolio-main">
+    <!-- Slide 1: Title Slide -->
+    <section class="portfolio-slide portfolio-slide-title">
+      <div class="portfolio-slide-content">
+        <div class="portfolio-title-left">
+          <div class="portfolio-brand">Hasanağaoğlu İnşaat</div>
+          <h1 class="portfolio-main-title">İNŞAAT<br>PROJELERİ</h1>
+          <div class="portfolio-subtitle">000 CLEAN PRESENTATION TEMPLATE 2025</div>
+        </div>
+        <div class="portfolio-title-right">
+          <img src="assets/images/projects-bg.jpg" alt="Projeler" loading="lazy">
+        </div>
+      </div>
+    </section>
 
-        <div class="p-index">
-          <div class="p-index__title">Index / Content</div>
-          <div class="p-index__grid">
-            <div class="p-index__item" data-index-target="teslim" data-index-tab="villa">
-              <div class="p-index__no">01.</div>
-              <div class="p-index__name">Teslim Edilen — Villa</div>
+    <!-- Slide 2: Index/Content -->
+    <section class="portfolio-slide portfolio-slide-index">
+      <div class="portfolio-slide-content">
+        <div class="portfolio-index-wrapper">
+          <h2 class="portfolio-index-title">Index / Content</h2>
+          <div class="portfolio-index-subtitle">Presentation Template</div>
+          <div class="portfolio-index-list">
+            <div class="portfolio-index-item">
+              <span class="portfolio-index-number">01.</span>
+              <span class="portfolio-index-name">Villa Projeleri</span>
             </div>
-            <div class="p-index__item" data-index-target="teslim" data-index-tab="havuz">
-              <div class="p-index__no">02.</div>
-              <div class="p-index__name">Teslim Edilen — Havuz</div>
+            <div class="portfolio-index-item">
+              <span class="portfolio-index-number">02.</span>
+              <span class="portfolio-index-name">Toplu Konut</span>
             </div>
-            <div class="p-index__item" data-index-target="teslim" data-index-tab="toplu">
-              <div class="p-index__no">03.</div>
-              <div class="p-index__name">Teslim Edilen — Toplu Konut</div>
+            <div class="portfolio-index-item">
+              <span class="portfolio-index-number">03.</span>
+              <span class="portfolio-index-name">Havuz Uygulamaları</span>
             </div>
-            <div class="p-index__item" data-index-target="gelecek" data-index-tab="villa-gelecek">
-              <div class="p-index__no">04.</div>
-              <div class="p-index__name">Teslim Edilecek — Villa</div>
+            <div class="portfolio-index-item">
+              <span class="portfolio-index-number">04.</span>
+              <span class="portfolio-index-name">Gelecek Villa Projeleri</span>
             </div>
-            <div class="p-index__item" data-index-target="gelecek" data-index-tab="toplu-gelecek">
-              <div class="p-index__no">05.</div>
-              <div class="p-index__name">Teslim Edilecek — Toplu Konut</div>
+            <div class="portfolio-index-item">
+              <span class="portfolio-index-number">05.</span>
+              <span class="portfolio-index-name">Gelecek Toplu Konut</span>
             </div>
-            <div class="p-index__item" data-index-target="malikane">
-              <div class="p-index__no">06.</div>
-              <div class="p-index__name">Malikane</div>
+            <div class="portfolio-index-item">
+              <span class="portfolio-index-number">06.</span>
+              <span class="portfolio-index-name">Malikane Projeleri</span>
             </div>
           </div>
         </div>
       </div>
+    </section>
 
-      <!-- hero görsel -->
-      <figure class="p-hero__media">
-        <img src="assets/images/projects-bg.jpg" alt="Projeler arka plan görseli" loading="lazy">
-      </figure>
-    </div>
-  </section>
-
-  <!-- PROJECT STREAM (referanstaki Project_01, Project_02… akışı) -->
-  <main class="p-stream">
-
-    <!-- TESLİM EDİLEN (sekme sistemi ile) -->
-    <article class="p-project p-project--tabs" data-filter="teslim">
-      <div class="p-wrap">
-        <div class="p-project__header">
-          <div class="p-project__meta">TESLİM EDİLEN</div>
-          <div class="p-tabs">
-            <button class="p-tab is-active" data-tab="villa" data-filter-tab="teslim-villa">Villa</button>
-            <button class="p-tab" data-tab="toplu" data-filter-tab="teslim-toplu">Toplu Konut</button>
-            <button class="p-tab" data-tab="havuz" data-filter-tab="teslim-havuz">Havuz</button>
-          </div>
+    <!-- Slide 3: Project_01 - Villa Projeleri -->
+    <section class="portfolio-slide portfolio-slide-project">
+      <div class="portfolio-slide-content">
+        <div class="portfolio-project-header">
+          <h2 class="portfolio-project-title">Project_01</h2>
+          <h3 class="portfolio-project-subtitle">Villa Projeleri</h3>
         </div>
-
-        <!-- Villa Sekmesi -->
-        <div class="p-tab-content is-active" data-tab-content="villa">
-          <div class="p-project__grid">
-            <div class="p-project__content">
-              <h2 class="p-h2">Villa Projeleri</h2>
-              <div class="p-details">
-                <div class="p-details__title">Details:</div>
-                <ul>
-                  <li>Anahtar teslim uygulama</li>
-                  <li>Dış cephe + çevre düzeni</li>
-                  <li>Modern mimari çizgi</li>
-                </ul>
-              </div>
-              <div class="p-tags">
-                <span>Villa</span><span>Teslim</span><span>Premium</span>
-              </div>
-            </div>
-            <div class="p-project__media p-collage">
-              <img src="assets/images/proje-villa-1.jpg" alt="Teslim edilen villa 1" loading="lazy">
-              <img src="assets/images/proje-villa-2.jpg" alt="Teslim edilen villa 2" loading="lazy">
-              <img src="assets/images/proje-villa-3.jpg" alt="Teslim edilen villa 3" loading="lazy">
-              <img src="assets/images/proje-villa-4.jpg" alt="Teslim edilen villa 4" loading="lazy">
-            </div>
+        <div class="portfolio-project-body portfolio-project-01">
+          <div class="portfolio-project-text">
+            <p>Modern mimari çizgi ile tasarlanmış lüks villa projeleri. Anahtar teslim uygulama, dış cephe ve çevre düzeni dahil. Her proje müşterinin özel ihtiyaçlarına göre tasarlanır ve uygulanır.</p>
           </div>
-        </div>
-
-        <!-- Toplu Konut Sekmesi -->
-        <div class="p-tab-content" data-tab-content="toplu">
-          <div class="p-project__grid p-project--dark">
-            <div class="p-project__content">
-              <h2 class="p-h2">Toplu Konut</h2>
-              <div class="p-details">
-                <div class="p-details__title">Details:</div>
-                <ul>
-                  <li>Planlı saha organizasyonu</li>
-                  <li>Kalite standartları</li>
-                  <li>Metraj & teslim takibi</li>
-                </ul>
-              </div>
-              <div class="p-tags">
-                <span>Toplu Konut</span><span>Teslim</span><span>Organizasyon</span>
-              </div>
+          <div class="portfolio-project-gallery portfolio-gallery-01">
+            <div class="portfolio-gallery-grid-2">
+              <img src="assets/images/proje-villa-1.jpg" alt="Villa 1" loading="lazy">
+              <img src="assets/images/proje-villa-2.jpg" alt="Villa 2" loading="lazy">
             </div>
-            <div class="p-project__media p-collage p-collage--tall">
-              <img src="assets/images/teslim-toplu-konut-1.jpg" alt="Toplu konut 1" loading="lazy">
-              <img src="assets/images/teslim-toplu-konut-2.jpg" alt="Toplu konut 2" loading="lazy">
-              <img src="assets/images/teslim-toplu-konut-3.jpg" alt="Toplu konut 3" loading="lazy">
-              <img src="assets/images/teslim-toplu-konut-4.jpg" alt="Toplu konut 4" loading="lazy">
-            </div>
-          </div>
-        </div>
-
-        <!-- Havuz Sekmesi -->
-        <div class="p-tab-content" data-tab-content="havuz">
-          <div class="p-project__grid p-project--compact">
-            <div class="p-project__content">
-              <h2 class="p-h2">Havuz Uygulamaları</h2>
-              <div class="p-details">
-                <div class="p-details__title">Details:</div>
-                <ul>
-                  <li>Betonarme + kaplama uygulama</li>
-                  <li>Çevre zemin & peyzaj uyumu</li>
-                  <li>Modern, temiz hatlar</li>
-                </ul>
-              </div>
-              <div class="p-tags">
-                <span>Havuz</span><span>Teslim</span>
-              </div>
-            </div>
-            <div class="p-project__media p-collage p-collage--mini">
-              <img src="assets/images/teslim-havuz-1.jpg" alt="Teslim havuz 1" loading="lazy">
-              <img src="assets/images/teslim-havuz-2.jpg" alt="Teslim havuz 2" loading="lazy">
-              <img src="assets/images/teslim-havuz-3.jpg" alt="Teslim havuz 3" loading="lazy">
-              <img src="assets/images/teslim-havuz-4.jpg" alt="Teslim havuz 4" loading="lazy">
-              <img src="assets/images/teslim-havuz-5.jpg" alt="Teslim havuz 5" loading="lazy">
+            <div class="portfolio-gallery-large">
+              <img src="assets/images/proje-villa-3.jpg" alt="Villa 3" loading="lazy">
             </div>
           </div>
         </div>
       </div>
-    </article>
+    </section>
 
-    <!-- TESLİM EDİLECEK (sekme sistemi ile) -->
-    <article class="p-project p-project--tabs" data-filter="gelecek">
-      <div class="p-wrap">
-        <div class="p-project__header">
-          <div class="p-project__meta">TESLİM EDİLECEK</div>
-          <div class="p-tabs">
-            <button class="p-tab is-active" data-tab="villa-gelecek">Villa</button>
-            <button class="p-tab" data-tab="toplu-gelecek">Toplu Konut</button>
-          </div>
+    <!-- Slide 4: Project_02 - Toplu Konut -->
+    <section class="portfolio-slide portfolio-slide-project">
+      <div class="portfolio-slide-content">
+        <div class="portfolio-project-header">
+          <h2 class="portfolio-project-title">Project_02</h2>
         </div>
-
-        <!-- Villa Sekmesi -->
-        <div class="p-tab-content is-active" data-tab-content="villa-gelecek">
-          <div class="p-project__grid">
-            <div class="p-project__content">
-              <h2 class="p-h2">Gelecek Villa Projeleri</h2>
-              <div class="p-details">
-                <div class="p-details__title">Details:</div>
-                <ul>
-                  <li>Planlama & tasarım aşaması</li>
-                  <li>Uygulama takvimi</li>
-                  <li>Proje yönetimi</li>
-                </ul>
-              </div>
-              <div class="p-tags">
-                <span>Gelecek</span><span>Villa</span>
-              </div>
+        <div class="portfolio-project-body portfolio-project-02">
+          <div class="portfolio-project-left">
+            <div class="portfolio-details">
+              <h4 class="portfolio-details-title">Details:</h4>
+              <ul class="portfolio-details-list">
+                <li>Planlı saha organizasyonu</li>
+                <li>Kalite standartları</li>
+                <li>Metraj & teslim takibi</li>
+              </ul>
             </div>
-            <div class="p-project__media p-collage">
-              <img src="assets/images/gelecek-villa-1.JPG" alt="Gelecek villa 1" loading="lazy">
-              <img src="assets/images/gelecek-villa-2.JPG" alt="Gelecek villa 2" loading="lazy">
-              <img src="assets/images/gelecek-villa-3.JPG" alt="Gelecek villa 3" loading="lazy">
-              <img src="assets/images/gelecek-villa-4.JPG" alt="Gelecek villa 4" loading="lazy">
+            <div class="portfolio-project-text">
+              <h3 class="portfolio-project-subtitle">Toplu Konut Projeleri</h3>
+              <p>Planlı saha organizasyonu ve kalite standartları ile geliştirilen toplu konut projeleri. Metraj ve teslim takibi ile yönetilir.</p>
             </div>
           </div>
+          <div class="portfolio-project-right portfolio-gallery-vertical">
+            <img src="assets/images/teslim-toplu-konut-1.jpg" alt="Toplu Konut 1" loading="lazy">
+            <img src="assets/images/teslim-toplu-konut-2.jpg" alt="Toplu Konut 2" loading="lazy">
+            <img src="assets/images/teslim-toplu-konut-3.jpg" alt="Toplu Konut 3" loading="lazy">
+          </div>
         </div>
+      </div>
+    </section>
 
-        <!-- Toplu Konut Sekmesi -->
-        <div class="p-tab-content" data-tab-content="toplu-gelecek">
-          <div class="p-project__grid p-project--dark">
-            <div class="p-project__content">
-              <h2 class="p-h2">Gelecek Toplu Konut Projeleri</h2>
-              <div class="p-details">
-                <div class="p-details__title">Details:</div>
-                <ul>
-                  <li>Planlama & tasarım aşaması</li>
-                  <li>Uygulama takvimi</li>
-                  <li>Proje yönetimi</li>
-                </ul>
-              </div>
-              <div class="p-tags">
-                <span>Gelecek</span><span>Toplu Konut</span>
-              </div>
+    <!-- Slide 5: Project_03 - Havuz Uygulamaları -->
+    <section class="portfolio-slide portfolio-slide-project">
+      <div class="portfolio-slide-content">
+        <div class="portfolio-project-header">
+          <h2 class="portfolio-project-title">Project_03</h2>
+        </div>
+        <div class="portfolio-project-body portfolio-project-03">
+          <div class="portfolio-project-left">
+            <div class="portfolio-details">
+              <h4 class="portfolio-details-title">Details:</h4>
+              <ul class="portfolio-details-list">
+                <li>Betonarme + kaplama uygulama</li>
+                <li>Çevre zemin & peyzaj uyumu</li>
+                <li>Modern, temiz hatlar</li>
+              </ul>
             </div>
-            <div class="p-project__media p-collage">
-              <img src="assets/images/gelecek-toplu-konut-2.jpg" alt="Gelecek toplu konut projesi" loading="lazy">
+            <div class="portfolio-gallery-small">
+              <img src="assets/images/teslim-havuz-1.jpg" alt="Havuz 1" loading="lazy">
+              <img src="assets/images/teslim-havuz-2.jpg" alt="Havuz 2" loading="lazy">
+            </div>
+          </div>
+          <div class="portfolio-project-right">
+            <div class="portfolio-image-overlay">
+              <img src="assets/images/teslim-havuz-3.jpg" alt="Havuz Projesi" loading="lazy">
+              <div class="portfolio-overlay-text">
+                <h3>Havuz Uygulamaları</h3>
+                <p>Betonarme ve kaplama uygulamaları ile modern, temiz hatlı havuz tasarımları. Çevre zemin ve peyzaj uyumu sağlanır.</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </article>
+    </section>
 
-    <!-- MALİKANE -->
-    <article class="p-project p-project--compact" data-filter="malikane" data-sub="none">
-      <div class="p-wrap p-project__grid">
-        <div class="p-project__content">
-          <div class="p-project__meta">MALİKANE</div>
-          <h2 class="p-h2">Malikane Projeleri</h2>
-
-          <div class="p-details">
-            <div class="p-details__title">Details:</div>
-            <ul>
-              <li>Özel mimari çözümler</li>
-              <li>Yüksek malzeme standardı</li>
-              <li>Detay işçiligi</li>
-            </ul>
-          </div>
-
-
-          <div class="p-tags">
-            <span>Malikane</span><span>Premium</span>
-          </div>
+    <!-- Slide 6: Project_04 - Gelecek Villa Projeleri -->
+    <section class="portfolio-slide portfolio-slide-project">
+      <div class="portfolio-slide-content">
+        <div class="portfolio-project-header">
+          <h2 class="portfolio-project-title">Project_04</h2>
         </div>
-
-        <div class="p-project__media p-collage p-collage--triple">
-          <img src="assets/images/malikane-1.JPG" alt="Malikane 1" loading="lazy">
-          <img src="assets/images/malikane-2.JPG" alt="Malikane 2" loading="lazy">
-          <img src="assets/images/malikane-3.JPG" alt="Malikane 3" loading="lazy">
+        <div class="portfolio-project-body portfolio-project-04">
+          <div class="portfolio-project-left">
+            <div class="portfolio-image-large">
+              <img src="assets/images/gelecek-villa-1.JPG" alt="Gelecek Villa" loading="lazy">
+            </div>
+            <div class="portfolio-details">
+              <h4 class="portfolio-details-title">Details:</h4>
+              <ul class="portfolio-details-list">
+                <li>Planlama & tasarım aşaması</li>
+                <li>Uygulama takvimi</li>
+                <li>Proje yönetimi</li>
+              </ul>
+            </div>
+          </div>
+          <div class="portfolio-project-right portfolio-gallery-vertical">
+            <img src="assets/images/gelecek-villa-2.JPG" alt="Gelecek Villa 2" loading="lazy">
+            <img src="assets/images/gelecek-villa-3.JPG" alt="Gelecek Villa 3" loading="lazy">
+          </div>
         </div>
       </div>
-    </article>
+    </section>
+
+    <!-- Slide 7: Project_05 - Gelecek Toplu Konut -->
+    <section class="portfolio-slide portfolio-slide-project">
+      <div class="portfolio-slide-content">
+        <div class="portfolio-project-header">
+          <h2 class="portfolio-project-title">Project_05</h2>
+        </div>
+        <div class="portfolio-project-body portfolio-project-05">
+          <div class="portfolio-project-left">
+            <div class="portfolio-image-large">
+              <img src="assets/images/gelecek-toplu-konut-2.jpg" alt="Gelecek Toplu Konut" loading="lazy">
+            </div>
+          </div>
+          <div class="portfolio-project-right">
+            <div class="portfolio-details">
+              <h4 class="portfolio-details-title">Details:</h4>
+              <p>Geliştirme aşamasında olan toplu konut projeleri. Planlama ve tasarım süreçleri devam ediyor. Modern mimari çözümler ve yüksek kalite standartları ile geliştirilmektedir.</p>
+            </div>
+            <div class="portfolio-image-small">
+              <img src="assets/images/gelecek-toplu-konut.jpg" alt="Gelecek Toplu Konut 2" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 8: Project_06 - Malikane Projeleri -->
+    <section class="portfolio-slide portfolio-slide-project">
+      <div class="portfolio-slide-content">
+        <div class="portfolio-project-header">
+          <h2 class="portfolio-project-title">Project_06</h2>
+        </div>
+        <div class="portfolio-project-body portfolio-project-06">
+          <div class="portfolio-project-text">
+            <p>Özel mimari çözümler ile yüksek malzeme standardı ve detay işçiliği gerektiren premium malikane projeleri. Her proje özel olarak tasarlanır ve uygulanır.</p>
+            <p>Malikane projelerimiz, lüks yaşam alanları için en yüksek kalite standartlarını sağlar. Modern mimari ve klasik detayların mükemmel birleşimi.</p>
+          </div>
+          <div class="portfolio-project-gallery portfolio-gallery-06">
+            <div class="portfolio-image-large">
+              <img src="assets/images/malikane-1.JPG" alt="Malikane 1" loading="lazy">
+            </div>
+            <div class="portfolio-gallery-grid-2">
+              <img src="assets/images/malikane-2.JPG" alt="Malikane 2" loading="lazy">
+              <img src="assets/images/malikane-3.JPG" alt="Malikane 3" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
   </main>
 
@@ -283,134 +267,23 @@
     </svg>
   </a>
 
-  <script>
-    // Tab switcher for all tab systems (Teslim Edilen and Teslim Edilecek)
-    const tabArticles = document.querySelectorAll('.p-project--tabs');
-
-    tabArticles.forEach(article => {
-      const tabs = article.querySelectorAll('.p-tab');
-      const tabContents = article.querySelectorAll('.p-tab-content');
-
-      tabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-          const targetTab = tab.dataset.tab;
-
-          // Remove active class from all tabs and contents in this article only
-          tabs.forEach(t => t.classList.remove('is-active'));
-          tabContents.forEach(c => c.classList.remove('is-active'));
-
-          // Add active class to clicked tab and corresponding content
-          tab.classList.add('is-active');
-          const targetContent = article.querySelector(`.p-tab-content[data-tab-content="${targetTab}"]`);
-          if (targetContent) {
-            targetContent.classList.add('is-active');
-          }
-        });
-      });
-    });
-
-    // Main filter (simplified since we no longer have separate teslim articles)
-    const chips = document.querySelectorAll('.p-filter[data-filter]');
-    const projects = document.querySelectorAll('.p-project');
-
-    let activeMain = 'all';
-
-    function applyFilters() {
-      projects.forEach(p => {
-        const f = p.dataset.filter;
-        let mainOK = false;
-
-        if (activeMain === 'all') {
-          mainOK = true;
-        } else {
-          mainOK = (f === activeMain);
-        }
-
-        p.style.display = mainOK ? '' : 'none';
-      });
-    }
-
-    chips.forEach(btn => {
-      btn.addEventListener('click', () => {
-        chips.forEach(b => b.classList.remove('is-active'));
-        btn.classList.add('is-active');
-        activeMain = btn.dataset.filter || 'all';
-        applyFilters();
-        
-        // If a teslim sub-filter is selected, activate the corresponding tab
-        if (activeMain === 'teslim-villa' || activeMain === 'teslim-toplu' || activeMain === 'teslim-havuz') {
-          const teslimArticle = document.querySelector('.p-project--tabs[data-filter="teslim"]');
-          if (teslimArticle) {
-            const targetTabName = activeMain.replace('teslim-', '');
-            const targetTab = teslimArticle.querySelector(`.p-tab[data-tab="${targetTabName}"]`);
-            const targetContent = teslimArticle.querySelector(`.p-tab-content[data-tab-content="${targetTabName}"]`);
-            const allTabs = teslimArticle.querySelectorAll('.p-tab');
-            const allContents = teslimArticle.querySelectorAll('.p-tab-content');
-            
-            allTabs.forEach(t => t.classList.remove('is-active'));
-            allContents.forEach(c => c.classList.remove('is-active'));
-            
-            if (targetTab && targetContent) {
-              targetTab.classList.add('is-active');
-              targetContent.classList.add('is-active');
-            }
-          }
-        }
-      });
-    });
-
-    // Tab buttons also trigger filter if they have data-filter-tab
-    document.querySelectorAll('.p-tab[data-filter-tab]').forEach(tab => {
-      tab.addEventListener('click', () => {
-        const filterValue = tab.dataset.filterTab;
-        const filterBtn = document.querySelector(`.p-filter[data-filter="${filterValue}"]`);
-        if (filterBtn) {
-          filterBtn.click();
-        }
-      });
-    });
-
-    // Index items click handler - scroll to section and activate tab
-    document.querySelectorAll('.p-index__item').forEach(item => {
-      item.addEventListener('click', () => {
-        const targetFilter = item.dataset.indexTarget;
-        const targetTab = item.dataset.indexTab;
-
-        // Find the target article
-        const targetArticle = document.querySelector(`.p-project[data-filter="${targetFilter}"]`);
-        
-        if (targetArticle) {
-          // Scroll to the article
-          targetArticle.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-          // If it has tabs, activate the correct tab
-          if (targetTab && targetArticle.classList.contains('p-project--tabs')) {
-            const tabs = targetArticle.querySelectorAll('.p-tab');
-            const tabContents = targetArticle.querySelectorAll('.p-tab-content');
-
-            tabs.forEach(t => t.classList.remove('is-active'));
-            tabContents.forEach(c => c.classList.remove('is-active'));
-
-            const targetTabBtn = targetArticle.querySelector(`.p-tab[data-tab="${targetTab}"]`);
-            const targetTabContent = targetArticle.querySelector(`.p-tab-content[data-tab-content="${targetTab}"]`);
-
-            if (targetTabBtn && targetTabContent) {
-              targetTabBtn.classList.add('is-active');
-              targetTabContent.classList.add('is-active');
-            }
-          }
-        }
-      });
-    });
-
-    applyFilters();
-  </script>
-
   <footer class="site-footer">
     <div class="global-copyright">
       © 2025 Hasanağaoğlu İnşaat Fethiye (1935'ten beri) | Tüm Hakları Saklıdır
     </div>
   </footer>
+
+  <script>
+    // Mobile menu toggle
+    (function(){
+      var btn = document.getElementById("mobileMenuToggle");
+      var nav = document.getElementById("navLinks");
+      if(!btn || !nav) return;
+      btn.addEventListener("click", function(){
+        nav.classList.toggle("is-open");
+      });
+    })();
+  </script>
 
 </body>
 </html>
