@@ -1,16 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Projelerimiz | Hasanağaoğlu İnşaat Fethiye</title>
-  <meta name="description" content="Hasanağaoğlu İnşaat Fethiye'nin tamamlanan ve devam eden villa, toplu konut ve ticari projeleri.">
-  <link rel="preconnect" href="https://www.google.com">
-  <link rel="dns-prefetch" href="https://www.google.com">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Projeler | Hasanağaoğlu İnşaat</title>
   <link rel="stylesheet" href="assets/css/app.css" />
+  <link rel="stylesheet" href="assets/css/projects.css" />
 </head>
-<body class="projects-page">
-
+<body class="theme-dark">
   <header class="top-bar">
     <div class="container">
       <div class="logo">Hasanağaoğlu İnşaat Fethiye</div>
@@ -41,50 +38,379 @@
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="projects-hero">
-    <img src="assets/img/proje-villa-1.jpg" alt="Projelerimiz">
-    <div class="projects-hero-overlay"></div>
-    <div class="projects-hero-content">
-      <h1>Projelerimiz</h1>
-      <p>Tamamlanan ve devam eden modern konut projelerimiz</p>
+  <!-- HERO / INDEX (referanstaki giriş ekranı) -->
+  <section class="p-hero">
+    <div class="p-wrap p-hero__grid">
+      <div class="p-hero__title">
+        <div class="p-kicker">Premium Projeler • Fethiye</div>
+        <h1 class="p-h1">PROJECTS</h1>
+        <p class="p-lead">
+          Villa, toplu konut ve anahtar teslim uygulamalarımızdan seçilmiş örnekler.
+          Aşağıdan kategoriye göre filtreleyebilirsin.
+        </p>
+
+        <div class="p-index">
+          <div class="p-index__title">Index / Content</div>
+          <div class="p-index__grid">
+            <div class="p-index__item" data-index-target="teslim" data-index-tab="villa">
+              <div class="p-index__no">01.</div>
+              <div class="p-index__name">Teslim Edilen — Villa</div>
+            </div>
+            <div class="p-index__item" data-index-target="teslim" data-index-tab="havuz">
+              <div class="p-index__no">02.</div>
+              <div class="p-index__name">Teslim Edilen — Havuz</div>
+            </div>
+            <div class="p-index__item" data-index-target="teslim" data-index-tab="toplu">
+              <div class="p-index__no">03.</div>
+              <div class="p-index__name">Teslim Edilen — Toplu Konut</div>
+            </div>
+            <div class="p-index__item" data-index-target="gelecek" data-index-tab="villa-gelecek">
+              <div class="p-index__no">04.</div>
+              <div class="p-index__name">Teslim Edilecek — Villa</div>
+            </div>
+            <div class="p-index__item" data-index-target="gelecek" data-index-tab="toplu-gelecek">
+              <div class="p-index__no">05.</div>
+              <div class="p-index__name">Teslim Edilecek — Toplu Konut</div>
+            </div>
+            <div class="p-index__item" data-index-target="malikane">
+              <div class="p-index__no">06.</div>
+              <div class="p-index__name">Malikane</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- hero görsel -->
+      <figure class="p-hero__media">
+        <img src="assets/images/projects-bg.jpg" alt="Projeler arka plan görseli" loading="lazy">
+      </figure>
     </div>
   </section>
 
-  <section class="projects-villas container">
-    <h1 class="page-title">Projeler</h1>
+  <!-- PROJECT STREAM (referanstaki Project_01, Project_02… akışı) -->
+  <main class="p-stream">
 
-    <h2 class="section-title">Villalar</h2>
-    <p class="section-desc">
-      Anahtar teslim villa projelerinde mimari, mühendislik ve uygulamayı
-      tek merkezden yönetiyoruz.
-    </p>
+    <!-- TESLİM EDİLEN (sekme sistemi ile) -->
+    <article class="p-project p-project--tabs" data-filter="teslim">
+      <div class="p-wrap">
+        <div class="p-project__header">
+          <div class="p-project__meta">TESLİM EDİLEN</div>
+          <div class="p-tabs">
+            <button class="p-tab is-active" data-tab="villa" data-filter-tab="teslim-villa">Villa</button>
+            <button class="p-tab" data-tab="toplu" data-filter-tab="teslim-toplu">Toplu Konut</button>
+            <button class="p-tab" data-tab="havuz" data-filter-tab="teslim-havuz">Havuz</button>
+          </div>
+        </div>
 
-    <div class="villa-grid">
-      <figure class="villa-item">
-        <img src="images/projects/villalar/villa-1.jpg" alt="Villa Projesi">
-      </figure>
+        <!-- Villa Sekmesi -->
+        <div class="p-tab-content is-active" data-tab-content="villa">
+          <div class="p-project__grid">
+            <div class="p-project__content">
+              <h2 class="p-h2">Villa Projeleri</h2>
+              <div class="p-details">
+                <div class="p-details__title">Details:</div>
+                <ul>
+                  <li>Anahtar teslim uygulama</li>
+                  <li>Dış cephe + çevre düzeni</li>
+                  <li>Modern mimari çizgi</li>
+                </ul>
+              </div>
+              <div class="p-tags">
+                <span>Villa</span><span>Teslim</span><span>Premium</span>
+              </div>
+            </div>
+            <div class="p-project__media p-collage">
+              <img src="assets/images/proje-villa-1.jpg" alt="Teslim edilen villa 1" loading="lazy">
+              <img src="assets/images/proje-villa-2.jpg" alt="Teslim edilen villa 2" loading="lazy">
+              <img src="assets/images/proje-villa-3.jpg" alt="Teslim edilen villa 3" loading="lazy">
+              <img src="assets/images/proje-villa-4.jpg" alt="Teslim edilen villa 4" loading="lazy">
+            </div>
+          </div>
+        </div>
 
-      <figure class="villa-item">
-        <img src="images/projects/villalar/villa-2.jpg" alt="Villa Projesi">
-      </figure>
-    </div>
-  </section>
+        <!-- Toplu Konut Sekmesi -->
+        <div class="p-tab-content" data-tab-content="toplu">
+          <div class="p-project__grid p-project--dark">
+            <div class="p-project__content">
+              <h2 class="p-h2">Toplu Konut</h2>
+              <div class="p-details">
+                <div class="p-details__title">Details:</div>
+                <ul>
+                  <li>Planlı saha organizasyonu</li>
+                  <li>Kalite standartları</li>
+                  <li>Metraj & teslim takibi</li>
+                </ul>
+              </div>
+              <div class="p-tags">
+                <span>Toplu Konut</span><span>Teslim</span><span>Organizasyon</span>
+              </div>
+            </div>
+            <div class="p-project__media p-collage p-collage--tall">
+              <img src="assets/images/teslim-toplu-konut-1.jpg" alt="Toplu konut 1" loading="lazy">
+              <img src="assets/images/teslim-toplu-konut-2.jpg" alt="Toplu konut 2" loading="lazy">
+              <img src="assets/images/teslim-toplu-konut-3.jpg" alt="Toplu konut 3" loading="lazy">
+              <img src="assets/images/teslim-toplu-konut-4.jpg" alt="Toplu konut 4" loading="lazy">
+            </div>
+          </div>
+        </div>
 
-  <!-- WHATSAPP FAB - Sabit Sağ Altta -->
-  <a href="https://wa.me/905530141218?text=Merhaba%2C%20Hasanağaoğlu%20İnşaat%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="whatsapp-fab" aria-label="WhatsApp ile hızlı iletişim">
+        <!-- Havuz Sekmesi -->
+        <div class="p-tab-content" data-tab-content="havuz">
+          <div class="p-project__grid p-project--compact">
+            <div class="p-project__content">
+              <h2 class="p-h2">Havuz Uygulamaları</h2>
+              <div class="p-details">
+                <div class="p-details__title">Details:</div>
+                <ul>
+                  <li>Betonarme + kaplama uygulama</li>
+                  <li>Çevre zemin & peyzaj uyumu</li>
+                  <li>Modern, temiz hatlar</li>
+                </ul>
+              </div>
+              <div class="p-tags">
+                <span>Havuz</span><span>Teslim</span>
+              </div>
+            </div>
+            <div class="p-project__media p-collage p-collage--mini">
+              <img src="assets/images/teslim-havuz-1.jpg" alt="Teslim havuz 1" loading="lazy">
+              <img src="assets/images/teslim-havuz-2.jpg" alt="Teslim havuz 2" loading="lazy">
+              <img src="assets/images/teslim-havuz-3.jpg" alt="Teslim havuz 3" loading="lazy">
+              <img src="assets/images/teslim-havuz-4.jpg" alt="Teslim havuz 4" loading="lazy">
+              <img src="assets/images/teslim-havuz-5.jpg" alt="Teslim havuz 5" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- TESLİM EDİLECEK (sekme sistemi ile) -->
+    <article class="p-project p-project--tabs" data-filter="gelecek">
+      <div class="p-wrap">
+        <div class="p-project__header">
+          <div class="p-project__meta">TESLİM EDİLECEK</div>
+          <div class="p-tabs">
+            <button class="p-tab is-active" data-tab="villa-gelecek">Villa</button>
+            <button class="p-tab" data-tab="toplu-gelecek">Toplu Konut</button>
+          </div>
+        </div>
+
+        <!-- Villa Sekmesi -->
+        <div class="p-tab-content is-active" data-tab-content="villa-gelecek">
+          <div class="p-project__grid">
+            <div class="p-project__content">
+              <h2 class="p-h2">Gelecek Villa Projeleri</h2>
+              <div class="p-details">
+                <div class="p-details__title">Details:</div>
+                <ul>
+                  <li>Planlama & tasarım aşaması</li>
+                  <li>Uygulama takvimi</li>
+                  <li>Proje yönetimi</li>
+                </ul>
+              </div>
+              <div class="p-tags">
+                <span>Gelecek</span><span>Villa</span>
+              </div>
+            </div>
+            <div class="p-project__media p-collage">
+              <img src="assets/images/gelecek-villa-1.JPG" alt="Gelecek villa 1" loading="lazy">
+              <img src="assets/images/gelecek-villa-2.JPG" alt="Gelecek villa 2" loading="lazy">
+              <img src="assets/images/gelecek-villa-3.JPG" alt="Gelecek villa 3" loading="lazy">
+              <img src="assets/images/gelecek-villa-4.JPG" alt="Gelecek villa 4" loading="lazy">
+            </div>
+          </div>
+        </div>
+
+        <!-- Toplu Konut Sekmesi -->
+        <div class="p-tab-content" data-tab-content="toplu-gelecek">
+          <div class="p-project__grid p-project--dark">
+            <div class="p-project__content">
+              <h2 class="p-h2">Gelecek Toplu Konut Projeleri</h2>
+              <div class="p-details">
+                <div class="p-details__title">Details:</div>
+                <ul>
+                  <li>Planlama & tasarım aşaması</li>
+                  <li>Uygulama takvimi</li>
+                  <li>Proje yönetimi</li>
+                </ul>
+              </div>
+              <div class="p-tags">
+                <span>Gelecek</span><span>Toplu Konut</span>
+              </div>
+            </div>
+            <div class="p-project__media p-collage">
+              <img src="assets/images/gelecek-toplu-konut-2.jpg" alt="Gelecek toplu konut projesi" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- MALİKANE -->
+    <article class="p-project p-project--compact" data-filter="malikane" data-sub="none">
+      <div class="p-wrap p-project__grid">
+        <div class="p-project__content">
+          <div class="p-project__meta">MALİKANE</div>
+          <h2 class="p-h2">Malikane Projeleri</h2>
+
+          <div class="p-details">
+            <div class="p-details__title">Details:</div>
+            <ul>
+              <li>Özel mimari çözümler</li>
+              <li>Yüksek malzeme standardı</li>
+              <li>Detay işçiligi</li>
+            </ul>
+          </div>
+
+
+          <div class="p-tags">
+            <span>Malikane</span><span>Premium</span>
+          </div>
+        </div>
+
+        <div class="p-project__media p-collage p-collage--triple">
+          <img src="assets/images/malikane-1.JPG" alt="Malikane 1" loading="lazy">
+          <img src="assets/images/malikane-2.JPG" alt="Malikane 2" loading="lazy">
+          <img src="assets/images/malikane-3.JPG" alt="Malikane 3" loading="lazy">
+        </div>
+      </div>
+    </article>
+
+  </main>
+
+  <a href="https://wa.me/905530141218" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" fill="currentColor"/>
     </svg>
   </a>
 
+  <script>
+    // Tab switcher for all tab systems (Teslim Edilen and Teslim Edilecek)
+    const tabArticles = document.querySelectorAll('.p-project--tabs');
+
+    tabArticles.forEach(article => {
+      const tabs = article.querySelectorAll('.p-tab');
+      const tabContents = article.querySelectorAll('.p-tab-content');
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          const targetTab = tab.dataset.tab;
+
+          // Remove active class from all tabs and contents in this article only
+          tabs.forEach(t => t.classList.remove('is-active'));
+          tabContents.forEach(c => c.classList.remove('is-active'));
+
+          // Add active class to clicked tab and corresponding content
+          tab.classList.add('is-active');
+          const targetContent = article.querySelector(`.p-tab-content[data-tab-content="${targetTab}"]`);
+          if (targetContent) {
+            targetContent.classList.add('is-active');
+          }
+        });
+      });
+    });
+
+    // Main filter (simplified since we no longer have separate teslim articles)
+    const chips = document.querySelectorAll('.p-filter[data-filter]');
+    const projects = document.querySelectorAll('.p-project');
+
+    let activeMain = 'all';
+
+    function applyFilters() {
+      projects.forEach(p => {
+        const f = p.dataset.filter;
+        let mainOK = false;
+
+        if (activeMain === 'all') {
+          mainOK = true;
+        } else {
+          mainOK = (f === activeMain);
+        }
+
+        p.style.display = mainOK ? '' : 'none';
+      });
+    }
+
+    chips.forEach(btn => {
+      btn.addEventListener('click', () => {
+        chips.forEach(b => b.classList.remove('is-active'));
+        btn.classList.add('is-active');
+        activeMain = btn.dataset.filter || 'all';
+        applyFilters();
+        
+        // If a teslim sub-filter is selected, activate the corresponding tab
+        if (activeMain === 'teslim-villa' || activeMain === 'teslim-toplu' || activeMain === 'teslim-havuz') {
+          const teslimArticle = document.querySelector('.p-project--tabs[data-filter="teslim"]');
+          if (teslimArticle) {
+            const targetTabName = activeMain.replace('teslim-', '');
+            const targetTab = teslimArticle.querySelector(`.p-tab[data-tab="${targetTabName}"]`);
+            const targetContent = teslimArticle.querySelector(`.p-tab-content[data-tab-content="${targetTabName}"]`);
+            const allTabs = teslimArticle.querySelectorAll('.p-tab');
+            const allContents = teslimArticle.querySelectorAll('.p-tab-content');
+            
+            allTabs.forEach(t => t.classList.remove('is-active'));
+            allContents.forEach(c => c.classList.remove('is-active'));
+            
+            if (targetTab && targetContent) {
+              targetTab.classList.add('is-active');
+              targetContent.classList.add('is-active');
+            }
+          }
+        }
+      });
+    });
+
+    // Tab buttons also trigger filter if they have data-filter-tab
+    document.querySelectorAll('.p-tab[data-filter-tab]').forEach(tab => {
+      tab.addEventListener('click', () => {
+        const filterValue = tab.dataset.filterTab;
+        const filterBtn = document.querySelector(`.p-filter[data-filter="${filterValue}"]`);
+        if (filterBtn) {
+          filterBtn.click();
+        }
+      });
+    });
+
+    // Index items click handler - scroll to section and activate tab
+    document.querySelectorAll('.p-index__item').forEach(item => {
+      item.addEventListener('click', () => {
+        const targetFilter = item.dataset.indexTarget;
+        const targetTab = item.dataset.indexTab;
+
+        // Find the target article
+        const targetArticle = document.querySelector(`.p-project[data-filter="${targetFilter}"]`);
+        
+        if (targetArticle) {
+          // Scroll to the article
+          targetArticle.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+          // If it has tabs, activate the correct tab
+          if (targetTab && targetArticle.classList.contains('p-project--tabs')) {
+            const tabs = targetArticle.querySelectorAll('.p-tab');
+            const tabContents = targetArticle.querySelectorAll('.p-tab-content');
+
+            tabs.forEach(t => t.classList.remove('is-active'));
+            tabContents.forEach(c => c.classList.remove('is-active'));
+
+            const targetTabBtn = targetArticle.querySelector(`.p-tab[data-tab="${targetTab}"]`);
+            const targetTabContent = targetArticle.querySelector(`.p-tab-content[data-tab-content="${targetTab}"]`);
+
+            if (targetTabBtn && targetTabContent) {
+              targetTabBtn.classList.add('is-active');
+              targetTabContent.classList.add('is-active');
+            }
+          }
+        }
+      });
+    });
+
+    applyFilters();
+  </script>
+
   <footer class="site-footer">
-    <div class="footer-copyright">
-      <p>© 2025 Hasanağaoğlu İnşaat Fethiye (1935'ten beri) | Tüm Hakları Saklıdır</p>
+    <div class="global-copyright">
+      © 2025 Hasanağaoğlu İnşaat Fethiye (1935'ten beri) | Tüm Hakları Saklıdır
     </div>
   </footer>
 
-  <script src="assets/js/main.js" defer></script>
 </body>
 </html>
-
