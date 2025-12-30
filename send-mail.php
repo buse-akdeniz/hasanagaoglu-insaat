@@ -45,7 +45,8 @@ try {
   $mail->AltBody = "Ad Soyad: $name\nE-posta: $email\nTelefon: $phone\n\nMesaj:\n$message";
 
   $mail->send();
-  echo 'OK';
+  header("Location: tesekkurler.html");
+  exit;
 } catch (Exception $e) {
   http_response_code(500);
   echo 'HATA';

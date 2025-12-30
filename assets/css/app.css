@@ -4682,21 +4682,34 @@ body.corp-theme.contact-page .contact-page-main{
   height: 100% !important;
   z-index: 0 !important;
   display: block !important;
-  background: #000 !important;
-  background-image: url("../images/hizmetler-hero.jpg") !important;
+  background: #1a1d21 !important;
+  background-image: url("../img/hizmetler-hero.jpg") !important;
   background-size: cover !important;
   background-position: center !important;
   background-repeat: no-repeat !important;
   opacity: 1 !important;
-  filter: grayscale(100%) !important;
+}
+
+.services-hero-bg::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(26, 29, 33, 0.4),
+    rgba(26, 29, 33, 0.7)
+  );
+  z-index: 1;
 }
 
 .services-hero-premium{
-  background-image: url("../images/hizmetler-hero.jpg") !important;
-  background-size: cover !important;
-  background-position: center !important;
-  background-repeat: no-repeat !important;
-  filter: grayscale(100%) !important;
+  position: relative;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 60px 0;
+  background: #1a1d21;
 }
 
 .services-hero-premium .container{
@@ -4710,13 +4723,14 @@ body.corp-theme.contact-page .contact-page-main{
 
 .services-hero-card,
 .hero-card{
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  padding: 48px 42px;
+  background: #ffffff;
+  padding: 36px 32px;
   max-width: 520px;
-  border-radius: 4px;
-  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  border: none;
+  position: relative;
+  z-index: 2;
 }
 
 .hero-card{
@@ -4727,53 +4741,55 @@ body.corp-theme.contact-page .contact-page-main{
 }
 
 .services-kicker{
-  font-size: 10px;
-  letter-spacing: 0.16em;
+  font-size: 11px;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: #8b7355;
+  color: #C9A24D;
   display: block;
-  margin-bottom: 16px;
-  font-weight: 500;
+  margin-bottom: 20px;
+  font-weight: 600;
 }
 
 .services-hero-title{
-  font-size: clamp(28px, 3.5vw, 40px);
-  font-weight: 600;
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 700;
   line-height: 1.2;
-  margin: 0 0 20px 0;
+  margin: 0 0 24px 0;
   color: #191C20;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
 }
 
 .services-hero-text{
-  margin-bottom: 28px;
+  margin-bottom: 32px;
 }
 
 .services-hero-text p{
-  font-size: 14px;
-  line-height: 1.7;
-  color: rgba(25, 28, 32, 0.7);
-  margin: 0 0 14px 0;
+  font-size: 15px;
+  line-height: 1.75;
+  color: rgba(25, 28, 32, 0.75);
+  margin: 0 0 16px 0;
 }
 
 .services-hero-btn{
   display: inline-block;
-  padding: 12px 28px;
+  padding: 14px 32px;
   background: #191C20;
   color: #ffffff;
   text-decoration: none;
   font-size: 12px;
   font-weight: 600;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   transition: all 0.3s ease;
   border-radius: 4px;
+  border: 1px solid #191C20;
 }
 
 .services-hero-btn:hover{
-  background: #8b7355;
+  background: #C9A24D;
+  border-color: #C9A24D;
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 24px rgba(201, 162, 77, 0.25);
 }
 
 /* Services Grid Section */
@@ -8057,4 +8073,62 @@ body.home-page .page-hero{
   inset: 0;
   background: rgba(255,255,255,0.55); /* AÇIKLIK */
   z-index: -1;
+}
+
+
+/* =========================
+   HOME PAGE – VILLA BACKGROUND (LIGHT)
+   ========================= */
+
+/* HOME: villa arka planı (net) */
+body.home-page{
+  background-image: url("../img/villa.jpg") !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed;
+}
+
+/* silik yapan beyaz perdeyi azalt + daha premium kontrast */
+body.home-page::before{
+  content:"";
+  position: fixed;
+  inset: 0;
+  /* beyaz yerine çok hafif koyu overlay: görseli öldürmez, yazıyı okutur */
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.08),
+    rgba(0,0,0,0.02)
+  );
+  z-index: -1;
+}
+
+body.home-page{
+  filter: none;
+}
+
+.site-footer{
+  background:#191C20 !important;
+}
+
+/* GLOBAL: sayfa altındaki gizli griyi öldür */
+
+html{
+  background:#fff !important;
+}
+
+body{
+  background:#fff !important;
+  min-height: 100vh;
+}
+
+/* bazı sayfalarda body::after gibi overlay kaldıysa kapat */
+body::after{
+  background: transparent !important;
+}
+
+/* footer altında ekstra boşluk / şerit varsa */
+.site-footer,
+.copyright-bar{
+  margin-bottom: 0 !important;
 }
