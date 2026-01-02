@@ -1,3 +1,7 @@
+// CTA Popup güvenli kapatma
+const cta = document.getElementById('ctaPopup');
+if (cta) cta.remove();
+
 // Dil çevirileri
 const translations = {
   tr: {

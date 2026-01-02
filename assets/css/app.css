@@ -2,7 +2,8 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
-  background: #0f1115; /* sitenin koyu ana tonu */
+  background: #f2f3f5;
+  overflow-x: hidden;
 }
 
 footer {
@@ -54,7 +55,7 @@ html,body{ height:100%; }
 body{
   margin:0;
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Arial,sans-serif;
-  background:#0f1115; /* Koyu arka plan - beyaz şerit sorununu çözer */
+  background: #f2f3f5;
   color:var(--text);
   line-height:1.6;
 }
@@ -107,6 +108,7 @@ a{ color:inherit; text-decoration:none; }
   align-items:center !important;
   gap:6px !important;
   flex-wrap:wrap !important;
+  margin-left: 18px;
 }
 .site-header .header-right{
   display:flex !important;
@@ -120,7 +122,9 @@ a{ color:inherit; text-decoration:none; }
   padding:14px 0;
 }
 .brand{
-  display:block;
+  display: flex;
+  align-items: center;
+  gap: 12px;
   text-decoration: none;
   line-height: 0;
 }
@@ -204,10 +208,17 @@ a{ color:inherit; text-decoration:none; }
   visibility: visible !important;
 }
 
-.brand__logo {
-  height: 44px;
+.brand__logo,
+.brand-logo {
+  height: 52px;
   width: auto;
   display: block;
+  object-fit: contain;
+  filter: contrast(1.08) saturate(1.05);
+}
+
+header .brand-logo {
+  height: 52px !important;
 }
 .logo:hover .logo-img{
   transform: scale(1.02);
@@ -632,26 +643,23 @@ a{ color:inherit; text-decoration:none; }
 }
 
 /* ===== Home page: global flowing background (villa) ===== */
-body.home-page{
-  position: relative;
-}
+/* body.home-page position: relative KALDIRILDI */
 
-/* Background image layer */
-body.home-page::before{
-  content:"";
-  position: fixed;
-  inset: 0;
-  background: url("../img/villa.jpg") center/cover no-repeat;
-  opacity: .16;
-  filter: blur(2px);
-  transform: scale(1.03);
-  z-index: -2;
-  pointer-events: none;
-}
-
-/* Soft veil so content stays readable */
+/* SAFARI FIX – body pseudo element TAMAMEN KALDIRILDI */
+body.home-page::before,
 body.home-page::after{
-  display: none !important; /* Beyaz şerit sorununu çözer */
+  content: none !important;
+  display: none !important;
+  visibility: hidden !important;
+  position: static !important;
+  opacity: 0 !important;
+  height: 0 !important;
+  width: 0 !important;
+  background: none !important;
+  filter: none !important;
+  transform: none !important;
+  z-index: -9999 !important;
+  pointer-events: none !important;
 }
 
 /* theme-dark için overlay'i kaldır - villa görseli görünsün */
@@ -7548,11 +7556,89 @@ body.corp-theme.contact-page .footer-inner {
   display: block;
 }
 
+.footer-logo {
+  height: 90px;
+  width: auto;
+  display: block;
+  opacity: 0.95;
+  filter: contrast(1.08) saturate(1.05);
+}
+
+.home-footer .footer-brand {
+  margin-bottom: 32px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.home-footer .footer-brand a {
+  display: block;
+  line-height: 0;
+}
+
+.home-footer .footer-brand__logo {
+  height: 50px;
+}
+
+.home-footer .footer-logo {
+  height: 90px;
+}
+
 .home-footer .footer-description {
   font-size: 14px;
   line-height: 1.6;
   color: rgba(255,255,255,0.7);
   margin: 0;
+}
+
+.home-footer .footer-working-hours {
+  margin: 0;
+  margin-top: 0;
+}
+
+.home-footer .working-hours-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.95);
+  margin: 0 0 16px;
+  letter-spacing: 0.3px;
+}
+
+.home-footer .working-hours-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+}
+
+.home-footer .working-hours-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.home-footer .working-hours-item:last-child {
+  border-bottom: none;
+}
+
+.home-footer .working-hours-day {
+  font-size: 14px;
+  color: rgba(255,255,255,0.75);
+  font-weight: 400;
+}
+
+.home-footer .working-hours-time {
+  font-size: 14px;
+  color: rgba(255,255,255,0.9);
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+
+.home-footer .working-hours-time.closed {
+  color: rgba(255,255,255,0.5);
+  font-style: italic;
 }
 
 .home-footer .footer-location {
@@ -8160,20 +8246,15 @@ body.home-page .page-hero{
   background: transparent;
 }
 
-.home-page .featured-projects::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: url("../img/villa.jpg") center/cover no-repeat;
-  z-index: -2;
+/* Featured projects – net arka plan */
+.home-page .featured-projects{
+  background: #f2f3f5 !important;
 }
 
-.home-page .featured-projects::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(255,255,255,0.55); /* AÇIKLIK */
-  z-index: -1;
+.home-page .featured-projects::before,
+.home-page .featured-projects::after{
+  content: none !important;
+  display: none !important;
 }
 
 
@@ -8182,26 +8263,24 @@ body.home-page .page-hero{
    ========================= */
 
 /* HOME: villa arka planı (net) */
-body.home-page{
-  background-image: url("../img/villa.jpg") !important;
-  background-size: cover !important;
-  background-position: center !important;
-  background-repeat: no-repeat !important;
-  background-attachment: fixed;
-}
+/* body.home-page villa arka planı KALDIRILDI */
 
 /* silik yapan beyaz perdeyi azalt + daha premium kontrast */
-body.home-page::before{
-  content:"";
-  position: fixed;
-  inset: 0;
-  /* beyaz yerine çok hafif koyu overlay: görseli öldürmez, yazıyı okutur */
-  background: linear-gradient(
-    to bottom,
-    rgba(0,0,0,0.08),
-    rgba(0,0,0,0.02)
-  );
-  z-index: -1;
+/* SAFARI FIX – body pseudo element TAMAMEN KALDIRILDI (duplicate) */
+body.home-page::before,
+body.home-page::after{
+  content: none !important;
+  display: none !important;
+  visibility: hidden !important;
+  position: static !important;
+  opacity: 0 !important;
+  height: 0 !important;
+  width: 0 !important;
+  background: none !important;
+  filter: none !important;
+  transform: none !important;
+  z-index: -9999 !important;
+  pointer-events: none !important;
 }
 
 body.home-page{
@@ -8368,4 +8447,259 @@ body.projects-page .card{
   padding:0;
   border-radius:0;
   object-fit:contain;
+}
+
+/* === FORCE LOGO SIZE (HEADER) === */
+
+header .brand,
+header .logo,
+header .navbar-brand{
+  display:flex !important;
+  align-items:center !important;
+}
+
+header img.brand-logo,
+header .brand img,
+header .logo img{
+  height: 54px !important;
+  width: auto !important;
+  max-height: none !important;
+  max-width: none !important;
+  display:block !important;
+  object-fit: contain !important;
+}
+
+header .brand .brand__logo,
+header .brand img.brand__logo{
+  height: 56px !important;
+}
+
+/* === HEADER HEIGHT FIX === */
+
+header{
+  height: auto !important;
+  min-height: 72px !important;
+  overflow: visible !important;
+  padding-top: 12px !important;
+  padding-bottom: 12px !important;
+}
+
+/* ===== LOGO FIX (HEADER + FOOTER) ===== */
+
+/* Header logo */
+.brand__logo,
+header .brand__logo,
+header .brand .brand__logo,
+header .brand img.brand__logo{
+  height: 56px !important;
+  width: auto !important;
+  display: block !important;
+  object-fit: contain !important;
+  max-height: none !important;
+  max-width: none !important;
+}
+
+/* Header içinde logo kesilmesin */
+header, .header, .site-header{
+  overflow: visible !important;
+}
+
+/* Footer logo - EN GÜÇLÜ KURAL */
+.footer-logo,
+footer .footer-logo,
+.home-footer .footer-logo,
+.footer-brand .footer-logo,
+footer .footer-brand .footer-logo,
+footer img.footer-logo{
+  height: 90px !important;
+  width: auto !important;
+  max-height: none !important;
+  max-width: none !important;
+  display: block !important;
+  object-fit: contain !important;
+  opacity: 0.95 !important;
+  filter: contrast(1.08) saturate(1.05) !important;
+}
+
+/* Header logo - EN GÜÇLÜ KURAL */
+.brand__logo,
+header .brand__logo,
+header .brand .brand__logo,
+header .brand img.brand__logo,
+.site-header .brand__logo,
+.site-header .brand .brand__logo,
+.site-header .brand img.brand__logo{
+  height: 56px !important;
+  width: auto !important;
+  max-height: none !important;
+  max-width: none !important;
+  display: block !important;
+  object-fit: contain !important;
+  filter: contrast(1.08) saturate(1.05) !important;
+}
+
+/* === CTA POPUP SON SİGORTA === */
+.cta-popup,
+.cta-popup.show {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+}
+
+/* Proje kartları – görsel canlı olsun */
+.projects-hero-overlay,
+.project-hero-overlay,
+.hero-overlay {
+  background: transparent !important;
+  opacity: 1 !important;
+  display: none !important;
+}
+
+/* Featured projects – net arka plan (SON KURAL) */
+.home-page .featured-projects{
+  background: #f2f3f5 !important;
+}
+
+.home-page .featured-projects::before,
+.home-page .featured-projects::after{
+  content: none !important;
+  display: none !important;
+}
+
+/* === SAFARI FIX - BODY PSEUDO ELEMENT TAMAMEN KALDIRILDI (SON KURAL) === */
+body.home-page::before,
+body.home-page::after{
+  content: none !important;
+  display: none !important;
+  visibility: hidden !important;
+  position: static !important;
+  opacity: 0 !important;
+  height: 0 !important;
+  width: 0 !important;
+  background: none !important;
+  filter: none !important;
+  transform: none !important;
+  z-index: -9999 !important;
+  pointer-events: none !important;
+  inset: auto !important;
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+}
+
+/* === HARD RESET: HOME BACKGROUNDS === */
+/* villa-bg hariç tüm featured-projects için */
+.home-page .featured-projects:not(.villa-bg),
+.home-page .featured-projects:not(.villa-bg) *{
+  background: none !important;
+}
+
+.home-page .featured-projects::before,
+.home-page .featured-projects::after{
+  content: none !important;
+  display: none !important;
+}
+
+/* ===== FIX: Copyright bar arka planını kaldır ===== */
+.site-footer-bottom,
+.site-footer .copyright,
+.global-copyright,
+.footer-copyright{
+  background: transparent !important;
+}
+
+/* DEBUG - bunu görünce doğru dosyayı editlediğin kesinleşir */
+html { outline: 10px solid magenta !important; }
+
+/* === GLOBAL OVERLAY KAPATMA (kesin çözüm) === */
+html::before,
+html::after,
+body::before,
+body::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* üstten gelen hayalet bar ihtimali */
+* {
+  outline: none !important;
+}
+
+/* === HOME / PROJELER OVERLAY TEMİZ === */
+.home-page .featured-projects::before,
+.home-page .featured-projects::after,
+.projects-page .projects-hero::before,
+.projects-page .projects-hero::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* villa-bg hariç */
+.home-page .featured-projects:not(.villa-bg),
+.projects-page .projects-hero {
+  background: #f2f3f5 !important;
+}
+
+/* === HOME HERO VILLA BACKGROUND (DOĞRU YER) === */
+.home-page .featured-projects{
+  position: relative;
+  background-image: url("../img/villa.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Hafif okunabilirlik overlay */
+.home-page .featured-projects::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: rgba(255,255,255,0.35); /* çok hafif */
+  pointer-events:none;
+}
+
+/* === HOME: VILLA ARKA PLAN (GERİ YÜKLE) === */
+.home-page .villa-bg{
+  position: relative;
+  background-image: url("../img/villa.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* HOME: villa arka plan (EN GÜÇLÜ KURAL) */
+.home-page .featured-projects.villa-bg{
+  position: relative;
+  min-height: 80vh;
+  background: url("../img/villa.jpg") center/cover no-repeat !important;
+  background-color: transparent !important;
+}
+
+/* Villa görselini hafif yapmak için overlay */
+.home-page .featured-projects.villa-bg::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.70); /* hafif beyaz overlay - görseli hafif yapar */
+  pointer-events: none;
+  z-index: 0;
+}
+
+.home-page .featured-projects.villa-bg .container{
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== FIX: Copyright üstü katmanı globalde kaldır ===== */
+footer .copyright,
+footer .footer-bottom,
+.site-footer-bottom,
+.site-footer .copyright,
+.global-copyright,
+.footer-copyright,
+.copyright-bar{
+  background: transparent !important;
+  box-shadow: none !important;
+  border-top: 0 !important;
 }
