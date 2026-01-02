@@ -1044,3 +1044,283 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
+// ===== Teslim Villa mini zoom =====
+document.addEventListener('DOMContentLoaded', function() {
+  const mini = document.getElementById('teslim-villa-mini');
+  if (!mini) return;
+
+  let modal = document.querySelector('.mini-zoom');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.className = 'mini-zoom';
+    modal.innerHTML = `
+      <div class="mini-zoom-backdrop"></div>
+      <div class="mini-zoom-panel" role="dialog" aria-modal="true">
+        <button class="mini-zoom-close" aria-label="Kapat">✕</button>
+        <img class="mini-zoom-img" alt="">
+      </div>
+    `;
+    document.body.appendChild(modal);
+  }
+
+  const imgEl = modal.querySelector('.mini-zoom-img');
+  const closeBtn = modal.querySelector('.mini-zoom-close');
+
+  const open = (src, alt) => {
+    imgEl.src = src;
+    imgEl.alt = alt || '';
+    modal.classList.add('is-open');
+    document.body.style.overflow = 'hidden'; // Scroll'u engelle
+  };
+  const close = () => {
+    modal.classList.remove('is-open');
+    imgEl.src = '';
+    document.body.style.overflow = ''; // Scroll'u geri aç
+  };
+
+  mini.addEventListener('click', (e) => {
+    const a = e.target.closest('a.zoomable');
+    if (!a) return;
+    e.preventDefault();
+    e.stopPropagation();
+    const img = a.querySelector('img');
+    open(a.getAttribute('href'), img ? img.alt : '');
+  });
+
+  closeBtn.addEventListener('click', close);
+  modal.addEventListener('click', (e) => {
+    if (e.target.classList.contains('mini-zoom-backdrop')) close();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('is-open')) close();
+  });
+});
+
+// ===== Havuz mini zoom (only #havuz-mini) =====
+document.addEventListener('DOMContentLoaded', function() {
+  const mini = document.getElementById('havuz-mini');
+  if (!mini) return;
+
+  let modal = document.querySelector('.mini-zoom');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.className = 'mini-zoom';
+    modal.innerHTML = `
+      <div class="mini-zoom-backdrop"></div>
+      <div class="mini-zoom-panel" role="dialog" aria-modal="true">
+        <button class="mini-zoom-close" aria-label="Kapat">✕</button>
+        <img class="mini-zoom-img" alt="">
+      </div>
+    `;
+    document.body.appendChild(modal);
+  }
+
+  const imgEl = modal.querySelector('.mini-zoom-img');
+  const closeBtn = modal.querySelector('.mini-zoom-close');
+
+  const open = (src, alt) => {
+    imgEl.src = src;
+    imgEl.alt = alt || '';
+    modal.classList.add('is-open');
+    document.body.style.overflow = 'hidden'; // Scroll'u engelle
+  };
+  const close = () => {
+    modal.classList.remove('is-open');
+    imgEl.src = '';
+    document.body.style.overflow = ''; // Scroll'u geri aç
+  };
+
+  mini.addEventListener('click', (e) => {
+    const a = e.target.closest('a.zoomable');
+    if (!a) return;
+    e.preventDefault();
+    e.stopPropagation();
+    const img = a.querySelector('img');
+    open(a.getAttribute('href'), img ? img.alt : '');
+  });
+
+  closeBtn.addEventListener('click', close);
+  modal.addEventListener('click', (e) => {
+    if (e.target.classList.contains('mini-zoom-backdrop')) close();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('is-open')) close();
+  });
+});
+
+// ===== Gelecek Villa mini zoom =====
+document.addEventListener('DOMContentLoaded', function() {
+  const mini = document.getElementById('gelecek-villa-mini');
+  if (!mini) return;
+
+  let modal = document.querySelector('.mini-zoom');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.className = 'mini-zoom';
+    modal.innerHTML = `
+      <div class="mini-zoom-backdrop"></div>
+      <div class="mini-zoom-panel" role="dialog" aria-modal="true">
+        <button class="mini-zoom-close" aria-label="Kapat">✕</button>
+        <img class="mini-zoom-img" alt="">
+      </div>
+    `;
+    document.body.appendChild(modal);
+  }
+
+  const imgEl = modal.querySelector('.mini-zoom-img');
+  const closeBtn = modal.querySelector('.mini-zoom-close');
+
+  const open = (src, alt) => {
+    imgEl.src = src;
+    imgEl.alt = alt || '';
+    modal.classList.add('is-open');
+    document.body.style.overflow = 'hidden'; // Scroll'u engelle
+  };
+  const close = () => {
+    modal.classList.remove('is-open');
+    imgEl.src = '';
+    document.body.style.overflow = ''; // Scroll'u geri aç
+  };
+
+  mini.addEventListener('click', (e) => {
+    const a = e.target.closest('a.zoomable');
+    if (!a) return;
+    e.preventDefault();
+    e.stopPropagation();
+    const img = a.querySelector('img');
+    open(a.getAttribute('href'), img ? img.alt : '');
+  });
+
+  closeBtn.addEventListener('click', close);
+  modal.addEventListener('click', (e) => {
+    if (e.target.classList.contains('mini-zoom-backdrop')) close();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('is-open')) close();
+  });
+});
+
+// ===== Genel Project Thumbs Zoom (Tüm hero card thumbnails için) =====
+document.addEventListener('DOMContentLoaded', function() {
+  // Modal zaten varsa onu kullan, yoksa oluştur
+  let modal = document.querySelector('.mini-zoom');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.className = 'mini-zoom';
+    modal.innerHTML = `
+      <div class="mini-zoom-backdrop"></div>
+      <div class="mini-zoom-panel" role="dialog" aria-modal="true">
+        <button class="mini-zoom-close" aria-label="Kapat">✕</button>
+        <img class="mini-zoom-img" alt="">
+      </div>
+    `;
+    document.body.appendChild(modal);
+  }
+
+  const imgEl = modal.querySelector('.mini-zoom-img');
+  const closeBtn = modal.querySelector('.mini-zoom-close');
+
+  const open = (src, alt) => {
+    imgEl.src = src;
+    imgEl.alt = alt || '';
+    modal.classList.add('is-open');
+    document.body.style.overflow = 'hidden'; // Scroll'u engelle
+  };
+  const close = () => {
+    modal.classList.remove('is-open');
+    imgEl.src = '';
+    document.body.style.overflow = ''; // Scroll'u geri aç
+  };
+
+  // Tüm project-thumbs, project-image ve mini grid içindeki zoomable linkler için event listener
+  // Hem event delegation hem de direkt listener ekle (daha güvenilir)
+  function attachZoomListeners() {
+    // Project-image içindeki linkler (hero card'lardaki büyük görseller)
+    document.querySelectorAll('.project-image a.zoomable').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        const img = this.querySelector('img');
+        open(this.getAttribute('href'), img ? img.alt : '');
+      });
+    });
+    
+    // Project-thumbs içindeki linkler (thumbnail'ler)
+    document.querySelectorAll('.project-thumbs a.zoomable').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        const img = this.querySelector('img');
+        open(this.getAttribute('href'), img ? img.alt : '');
+      });
+    });
+    
+    // Mini grid içindeki linkler (projects-mini-grid içindeki zoomable linkler)
+    // Bu linkler .project-image'in parent'ı, child'ı değil
+    document.querySelectorAll('.projects-mini-grid a.zoomable').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        const img = this.querySelector('img');
+        open(this.getAttribute('href'), img ? img.alt : '');
+      });
+    });
+  }
+  
+  // İlk yüklemede ekle
+  attachZoomListeners();
+  
+  // Event delegation de ekle (dinamik içerik için)
+  // Mini grid'lerdeki linkler için de çalışsın
+  // Capture phase'de çalıştır ki mini grid handler'larından önce çalışsın
+  document.addEventListener('click', function(e) {
+    // Sadece a.zoomable linklerine veya içindeki img'lere tıklanmışsa
+    const target = e.target;
+    let zoomableLink = null;
+    
+    // Eğer direkt link'e tıklandıysa
+    if (target.tagName === 'A' && target.classList.contains('zoomable')) {
+      zoomableLink = target;
+    }
+    // Eğer img'e tıklandıysa, parent'ındaki a.zoomable'ı bul
+    else if (target.tagName === 'IMG') {
+      zoomableLink = target.closest('a.zoomable');
+    }
+    // Eğer başka bir element'e tıklandıysa
+    else {
+      zoomableLink = target.closest('a.zoomable');
+    }
+    
+    if (zoomableLink) {
+      // Project-image içindeki linkler (hero card büyük görseller)
+      const isInProjectImage = zoomableLink.closest('.project-image');
+      // Project-thumbs içindeki linkler (thumbnail'ler)
+      const isInProjectThumbs = zoomableLink.closest('.project-thumbs');
+      // Projects-mini-grid içindeki linkler (mini grid görselleri)
+      const isInMiniGrid = zoomableLink.closest('.projects-mini-grid');
+      // Mini grid'deki linkler .project-image içinde değil, parent'ı
+      const hasProjectImageChild = zoomableLink.querySelector('.project-image');
+      
+      if (isInProjectImage || isInProjectThumbs || isInMiniGrid || hasProjectImageChild) {
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation(); // Diğer handler'ları durdur
+        const img = zoomableLink.querySelector('img');
+        open(zoomableLink.getAttribute('href'), img ? img.alt : '');
+      }
+    }
+  }, true); // Capture phase kullan
+
+  // Close butonu ve backdrop için event listener (sadece bir kez ekle)
+  if (!closeBtn.hasAttribute('data-listener-added')) {
+    closeBtn.setAttribute('data-listener-added', 'true');
+    closeBtn.addEventListener('click', close);
+    modal.addEventListener('click', (e) => {
+      if (e.target.classList.contains('mini-zoom-backdrop')) close();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('is-open')) close();
+    });
+  }
+});
+

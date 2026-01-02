@@ -35,10 +35,15 @@
   }
   </script>
 </head>
-<body class="projects-page premium-architecture">
-  <header class="top-bar">
+<body class="projects-page">
+  <header class="site-header">
     <div class="container">
-      <div class="logo">Hasanağaoğlu İnşaat Fethiye</div>
+      <a href="index.html" class="brand" aria-label="Hasanağoğlu İnşaat">
+        <img
+          src="assets/images/logo-hasanagaoglu-dark.svg"
+          alt="Hasanağoğlu İnşaat"
+          class="brand__logo">
+      </a>
       <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menü">
         <span></span>
         <span></span>
@@ -69,10 +74,28 @@
   <main class="projects-main">
     <!-- HERO -->
     <section class="projects-hero">
-      <div class="container">
-        <h1 class="projects-hero-title">Projelerimiz</h1>
-        <p class="projects-hero-subtitle">TESLİM EDİLEN VE DEVAM EDEN PROJELER</p>
-        <p class="projects-hero-text">1935'ten beri Fethiye'de kaliteli inşaat hizmetleri sunuyoruz. Villa, toplu konut, havuz ve malikane projelerimizden seçkiler.</p>
+      <div class="projects-hero__bg"></div>
+
+      <div class="container projects-hero__inner">
+        <div class="projects-hero__left">
+          <div class="projects-hero__kicker">PROJECTS</div>
+          <h1 class="projects-hero__title">Projeler</h1>
+          <p class="projects-hero__desc">
+            Hasanağaoğlu İnşaat'ın teslim edilen ve planlanan projeleri. Modern mimari, sağlam mühendislik, temiz işçilik.
+          </p>
+
+          <div class="projects-hero__meta">
+            <span>Fethiye</span>
+            <span class="dot"></span>
+            <span>1935'ten beri</span>
+          </div>
+        </div>
+
+        <div class="projects-hero__right">
+          <div class="projects-hero__frame">
+            <img src="assets/images/projects-bg.jpg" alt="Projeler" />
+          </div>
+        </div>
       </div>
     </section>
 
@@ -84,84 +107,146 @@
         <!-- Villa -->
         <article class="project-subsection" id="teslim-villa">
           <h3 class="subsection-title">Villa</h3>
-          <div class="projects-grid projects-grid-alternating">
-            <div class="project-item">
-              <div class="project-image">
-                <img src="assets/images/proje-villa-1.jpg" alt="Hasanağaoğlu İnşaat Fethiye Villa Projesi - Modern Mimari" loading="lazy">
+          <div class="projects-portfolio">
+
+            <!-- Project_01 (senin mevcut) -->
+            <div class="project-item project-card01">
+              <div class="project-left">
+                <div class="project-kicker">ARCHITECTURE</div>
+                <h4 class="project-title">Project_01</h4>
+                <p class="project-desc">
+                  Fethiye'de modern mimari yaklaşım ile tasarlanan özel villa projesi.
+                  Malzeme, ışık ve oran odaklı.
+                </p>
+
+                <div class="project-thumbs">
+                  <a href="assets/images/proje-villa-2.jpg" class="zoomable"><img src="assets/images/proje-villa-2.jpg" alt="Detay 1" loading="lazy"></a>
+                  <a href="assets/images/proje-villa-3.jpg" class="zoomable"><img src="assets/images/proje-villa-3.jpg" alt="Detay 2" loading="lazy"></a>
+                  <a href="assets/images/proje-villa-4.jpg" class="zoomable"><img src="assets/images/proje-villa-4.jpg" alt="Detay 3" loading="lazy"></a>
+                </div>
+              </div>
+
+              <div class="project-right">
+                <div class="project-image">
+                  <a href="assets/images/proje-villa-1.jpg" class="zoomable"><img src="assets/images/proje-villa-1.jpg" alt="Villa Projesi" loading="lazy"></a>
+                </div>
               </div>
             </div>
-            <div class="project-item">
-              <div class="project-image">
-                <img src="assets/images/proje-villa-2.jpg" alt="Hasanağaoğlu İnşaat Fethiye Villa Projesi - Dış Cephe Detayı" loading="lazy">
+
+            <!-- Project_02 (reverse) -->
+            <div class="project-item project-card02 project-card--reverse">
+              <div class="project-left">
+                <div class="project-kicker">ARCHITECTURE</div>
+                <h4 class="project-title">Project_02</h4>
+                <p class="project-desc">
+                  Dış cephe oranları ve detay işçilik odaklı modern villa uygulaması.
+                  Malzeme sürekliliği ve ışık dengesi.
+                </p>
+
+                <div class="project-thumbs">
+                  <a href="assets/images/proje-villa-1.jpg" class="zoomable"><img src="assets/images/proje-villa-1.jpg" alt="Detay 1" loading="lazy"></a>
+                  <a href="assets/images/proje-villa-3.jpg" class="zoomable"><img src="assets/images/proje-villa-3.jpg" alt="Detay 2" loading="lazy"></a>
+                  <a href="assets/images/proje-villa-4.jpg" class="zoomable"><img src="assets/images/proje-villa-4.jpg" alt="Detay 3" loading="lazy"></a>
+                </div>
+              </div>
+
+              <div class="project-right">
+                <div class="project-image">
+                  <a href="assets/images/proje-villa-2.jpg" class="zoomable"><img src="assets/images/proje-villa-2.jpg" alt="Villa Projesi 2" loading="lazy"></a>
+                </div>
               </div>
             </div>
-            <div class="project-item">
-              <div class="project-image">
-                <img src="assets/images/proje-villa-3.jpg" alt="Hasanağaoğlu İnşaat Fethiye Villa Projesi - Bahçe ve Peyzaj" loading="lazy">
-              </div>
+
+            <!-- Mini grid: Project_03 + Project_04 -->
+            <div class="projects-mini-grid js-mini-zoom" id="teslim-villa-mini">
+              <a class="project-item project-mini zoomable" href="assets/images/proje-villa-3.jpg">
+                <div class="project-image">
+                  <img src="assets/images/proje-villa-3.jpg" alt="Villa Projesi 3" loading="lazy">
+                </div>
+              </a>
+
+              <a class="project-item project-mini zoomable" href="assets/images/proje-villa-4.jpg">
+                <div class="project-image">
+                  <img src="assets/images/proje-villa-4.jpg" alt="Villa Projesi 4" loading="lazy">
+                </div>
+              </a>
+
             </div>
-            <div class="project-item">
-              <div class="project-image">
-                <img src="assets/images/proje-villa-4.jpg" alt="Hasanağaoğlu İnşaat Fethiye Villa Projesi - Genel Görünüm" loading="lazy">
-              </div>
-            </div>
+
           </div>
         </article>
 
         <!-- Havuz -->
         <article class="project-subsection" id="teslim-havuz">
           <h3 class="subsection-title">Havuz</h3>
-          <div class="projects-grid projects-grid-alternating">
-            <div class="project-item">
-              <div class="project-image">
-                <img src="assets/images/teslim-havuz-1.jpg" alt="Hasanağaoğlu İnşaat Fethiye Havuz Projesi - Modern Havuz Tasarımı" loading="lazy">
+
+          <div class="projects-portfolio">
+
+            <!-- HERO -->
+            <div class="project-item project-hero-card">
+              <div class="project-left">
+                <div class="project-kicker">ARCHITECTURE</div>
+                <h4 class="project-title">Project_03</h4>
+                <p class="project-desc">
+                  Modern havuz uygulaması: çevre düzeni, kaplama detayları ve çizgisel mimari uyum.
+                </p>
+
+                <div class="project-thumbs">
+                  <a href="assets/images/teslim-havuz-3.jpg" class="zoomable"><img src="assets/images/teslim-havuz-3.jpg" alt="Detay 1" loading="lazy"></a>
+                  <a href="assets/images/teslim-havuz-1.jpg" class="zoomable"><img src="assets/images/teslim-havuz-1.jpg" alt="Detay 2" loading="lazy"></a>
+                </div>
+              </div>
+
+              <div class="project-right">
+                <div class="project-image">
+                  <img src="assets/images/teslim-havuz-2.jpg" alt="Havuz Projesi" loading="lazy">
+                </div>
               </div>
             </div>
-            <div class="project-item">
-              <div class="project-image">
-                <img src="assets/images/teslim-havuz-2.jpg" alt="Hasanağaoğlu İnşaat Fethiye Havuz Projesi - Havuz ve Çevre Düzeni" loading="lazy">
-              </div>
+
+            <!-- HAVUZ: sadece thumbnail DIŞINDA kalan 2 görsel -->
+            <div class="projects-mini-grid js-mini-zoom" id="havuz-mini">
+              <a class="project-item project-mini zoomable" href="assets/images/teslim-havuz-4.jpg">
+                <div class="project-image">
+                  <img src="assets/images/teslim-havuz-4.jpg" alt="Havuz Detay 2" loading="lazy">
+                </div>
+              </a>
+
+              <a class="project-item project-mini zoomable" href="assets/images/teslim-havuz-5.jpg">
+                <div class="project-image">
+                  <img src="assets/images/teslim-havuz-5.jpg" alt="Havuz Detay 3" loading="lazy">
+                </div>
+              </a>
             </div>
-            <div class="project-item">
-              <div class="project-image">
-                <img src="assets/images/teslim-havuz-3.jpg" alt="Hasanağaoğlu İnşaat Fethiye Havuz Projesi - Peyzaj Uygulaması" loading="lazy">
-              </div>
-            </div>
-            <div class="project-item">
-              <div class="project-image">
-                <img src="assets/images/teslim-havuz-4.jpg" alt="Hasanağaoğlu İnşaat Fethiye Havuz Projesi - Detay Çalışma" loading="lazy">
-              </div>
-            </div>
-            <div class="project-item">
-              <div class="project-image">
-                <img src="assets/images/teslim-havuz-5.jpg" alt="Hasanağaoğlu İnşaat Fethiye Havuz Projesi - Tamamlanmış Proje" loading="lazy">
-              </div>
-            </div>
+
           </div>
         </article>
 
         <!-- Toplu Konut -->
         <article class="project-subsection" id="teslim-toplu-konut">
           <h3 class="subsection-title">Toplu Konut</h3>
-          <div class="projects-grid projects-grid-alternating">
-            <div class="project-item">
-              <div class="project-image">
-                <img src="assets/images/teslim-toplu-konut-1.jpg" alt="Hasanağaoğlu İnşaat Fethiye Toplu Konut Projesi - Bina Dış Görünümü" loading="lazy">
+          <div class="projects-portfolio">
+            <div class="project-item project-hero-card">
+              <div class="project-left">
+                <div class="project-kicker">ARCHITECTURE</div>
+                <h4 class="project-title">Project_04</h4>
+                <p class="project-desc">
+                  Toplu konut projelerinde planlama, ölçek ve sürdürülebilir mimari yaklaşım.
+                </p>
+
+                <!-- HERO thumbnails -->
+                <div class="project-thumbs">
+                  <a href="assets/images/teslim-toplu-konut-2.jpg" class="zoomable"><img src="assets/images/teslim-toplu-konut-2.jpg" alt="Toplu Konut Detay 1" loading="lazy"></a>
+                  <a href="assets/images/teslim-toplu-konut-3.jpg" class="zoomable"><img src="assets/images/teslim-toplu-konut-3.jpg" alt="Toplu Konut Detay 2" loading="lazy"></a>
+                  <a href="assets/images/teslim-toplu-konut-4.jpg" class="zoomable"><img src="assets/images/teslim-toplu-konut-4.jpg" alt="Toplu Konut Detay 3" loading="lazy"></a>
+                </div>
               </div>
-            </div>
-            <div class="project-item">
-              <div class="project-image">
-                <img src="assets/images/teslim-toplu-konut-2.jpg" alt="Hasanağaoğlu İnşaat Fethiye Toplu Konut Projesi - Çevre Düzeni" loading="lazy">
-              </div>
-            </div>
-            <div class="project-item">
-              <div class="project-image">
-                <img src="assets/images/teslim-toplu-konut-3.jpg" alt="Hasanağaoğlu İnşaat Fethiye Toplu Konut Projesi - Mimari Detay" loading="lazy">
-              </div>
-            </div>
-            <div class="project-item">
-              <div class="project-image">
-                <img src="assets/images/teslim-toplu-konut-4.jpg" alt="Hasanağaoğlu İnşaat Fethiye Toplu Konut Projesi - Genel Görünüm" loading="lazy">
+
+              <div class="project-right">
+                <div class="project-image">
+                  <!-- HERO büyük görsel (mevcut olan hangisiyse o kalsın) -->
+                  <img src="assets/images/teslim-toplu-konut-1.jpg" alt="Toplu Konut Projesi" loading="lazy">
+                </div>
               </div>
             </div>
           </div>
@@ -177,26 +262,41 @@
         <!-- Villa -->
         <article class="project-subsection" id="gelecek-villa">
           <h3 class="subsection-title">Villa</h3>
-          <div class="projects-grid projects-grid-alternating">
-            <div class="project-item">
-              <div class="project-image">
-                <img src="assets/images/gelecek-villa-1.JPG" alt="Hasanağaoğlu İnşaat Fethiye Gelecek Villa Projesi - Planlama Aşaması" loading="lazy">
+          <div class="projects-portfolio">
+            <div class="project-item project-hero-card">
+              <div class="project-left">
+                <div class="project-kicker">ARCHITECTURE</div>
+                <h4 class="project-title">Project_05</h4>
+                <p class="project-desc">
+                  Devam eden villa projelerinde modern mimari ve detay odaklı yaklaşım.
+                </p>
+
+                <!-- HERO thumbnails -->
+                <div class="project-thumbs">
+                  <a href="assets/images/gelecek-villa-2.JPG" class="zoomable"><img src="assets/images/gelecek-villa-2.JPG" alt="Villa Detay 1" loading="lazy"></a>
+                  <a href="assets/images/gelecek-villa-3.JPG" class="zoomable"><img src="assets/images/gelecek-villa-3.JPG" alt="Villa Detay 2" loading="lazy"></a>
+                  <a href="assets/images/gelecek-villa-4.JPG" class="zoomable"><img src="assets/images/gelecek-villa-4.JPG" alt="Villa Detay 3" loading="lazy"></a>
+                </div>
+              </div>
+
+              <div class="project-right">
+                <div class="project-image">
+                  <a href="assets/images/gelecek-villa-1.JPG" class="zoomable"><img src="assets/images/gelecek-villa-1.JPG" alt="Villa Projesi" loading="lazy"></a>
+                </div>
               </div>
             </div>
-            <div class="project-item">
-              <div class="project-image">
-                <img src="assets/images/gelecek-villa-2.JPG" alt="Hasanağaoğlu İnşaat Fethiye Gelecek Villa Projesi - Tasarım Çalışması" loading="lazy">
-              </div>
-            </div>
-            <div class="project-item">
-              <div class="project-image">
-                <img src="assets/images/gelecek-villa-3.JPG" alt="Hasanağaoğlu İnşaat Fethiye Gelecek Villa Projesi - İnşaat Aşaması" loading="lazy">
-              </div>
-            </div>
-            <div class="project-item">
-              <div class="project-image">
-                <img src="assets/images/gelecek-villa-4.JPG" alt="Hasanağaoğlu İnşaat Fethiye Gelecek Villa Projesi - Proje Gelişimi" loading="lazy">
-              </div>
+
+            <!-- Mini grid: tıklanabilir -->
+            <div class="projects-mini-grid js-mini-zoom" id="gelecek-villa-mini">
+              <a class="project-item project-mini zoomable" href="assets/images/gelecek-villa-1.JPG">
+                <div class="mini-head">
+                  <div class="project-kicker">ARCHITECTURE</div>
+                  <div class="mini-title">Villa_01</div>
+                </div>
+                <div class="project-image">
+                  <img src="assets/images/gelecek-villa-1.JPG" alt="Villa Görsel 1" loading="lazy">
+                </div>
+              </a>
             </div>
           </div>
         </article>
@@ -204,15 +304,26 @@
         <!-- Toplu Konut -->
         <article class="project-subsection" id="gelecek-toplu-konut">
           <h3 class="subsection-title">Toplu Konut</h3>
-          <div class="projects-grid projects-grid-alternating">
-            <div class="project-item">
-              <div class="project-image">
-                <img src="assets/images/gelecek-toplu-konut-2.jpg" alt="Hasanağaoğlu İnşaat Fethiye Gelecek Toplu Konut Projesi - Planlama" loading="lazy">
+          <div class="projects-portfolio">
+            <div class="project-item project-hero-card">
+              <div class="project-left">
+                <div class="project-kicker">ARCHITECTURE</div>
+                <h4 class="project-title">Project_06</h4>
+                <p class="project-desc">
+                  Devam eden toplu konut projelerinde planlama, ölçek ve sürdürülebilir mimari yaklaşım.
+                </p>
+
+                <!-- HERO thumbnails -->
+                <div class="project-thumbs">
+                  <a href="assets/images/gelecek-toplu-konut.jpg" class="zoomable"><img src="assets/images/gelecek-toplu-konut.jpg" alt="Toplu Konut Detay 1" loading="lazy"></a>
+                  <a href="assets/images/gelecek-toplu-konut-2.jpg" class="zoomable"><img src="assets/images/gelecek-toplu-konut-2.jpg" alt="Toplu Konut Detay 2" loading="lazy"></a>
+                </div>
               </div>
-            </div>
-            <div class="project-item">
-              <div class="project-image">
-                <img src="assets/images/gelecek-toplu-konut.jpg" alt="Hasanağaoğlu İnşaat Fethiye Gelecek Toplu Konut Projesi - Tasarım" loading="lazy">
+
+              <div class="project-right">
+                <div class="project-image">
+                  <a href="assets/images/gelecek-toplu-konut.jpg" class="zoomable"><img src="assets/images/gelecek-toplu-konut.jpg" alt="Toplu Konut Projesi" loading="lazy"></a>
+                </div>
               </div>
             </div>
           </div>
@@ -224,20 +335,26 @@
     <section class="projects-section projects-malikane" id="malikane">
       <div class="container">
         <h2 class="section-main-title">Malikane Projeleri</h2>
-        <div class="projects-grid projects-grid-alternating">
-          <div class="project-item">
-            <div class="project-image">
-              <img src="assets/images/malikane-1.JPG" alt="Hasanağaoğlu İnşaat Fethiye Malikane Projesi - Premium Mimari Tasarım" loading="lazy">
+        <div class="projects-portfolio">
+          <div class="project-item project-hero-card">
+            <div class="project-left">
+              <div class="project-kicker">ARCHITECTURE</div>
+              <h4 class="project-title">Project_07</h4>
+              <p class="project-desc">
+                Premium malikane projelerinde lüks detaylar, özel işçilik ve mimari mükemmellik.
+              </p>
+
+              <!-- HERO thumbnails -->
+              <div class="project-thumbs">
+                <a href="assets/images/malikane-2.JPG" class="zoomable"><img src="assets/images/malikane-2.JPG" alt="Malikane Detay 1" loading="lazy"></a>
+                <a href="assets/images/malikane-3.JPG" class="zoomable"><img src="assets/images/malikane-3.JPG" alt="Malikane Detay 2" loading="lazy"></a>
+              </div>
             </div>
-          </div>
-          <div class="project-item">
-            <div class="project-image">
-              <img src="assets/images/malikane-2.JPG" alt="Hasanağaoğlu İnşaat Fethiye Malikane Projesi - Lüks Detaylar" loading="lazy">
-            </div>
-          </div>
-          <div class="project-item">
-            <div class="project-image">
-              <img src="assets/images/malikane-3.JPG" alt="Hasanağaoğlu İnşaat Fethiye Malikane Projesi - Özel İşçilik" loading="lazy">
+
+            <div class="project-right">
+              <div class="project-image">
+                <a href="assets/images/malikane-1.JPG" class="zoomable"><img src="assets/images/malikane-1.JPG" alt="Malikane Projesi" loading="lazy"></a>
+              </div>
             </div>
           </div>
         </div>
@@ -269,6 +386,8 @@
       });
     })();
   </script>
+
+  <script src="assets/js/main.js" defer></script>
 
 </body>
 </html>

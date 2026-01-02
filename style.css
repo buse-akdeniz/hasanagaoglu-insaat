@@ -2912,7 +2912,7 @@ nav a:hover {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.4);
+  background: rgba(0,0,0,0.35);
   z-index: 2;
 }
 
@@ -2938,12 +2938,9 @@ nav a:hover {
   opacity: 1;
 }
 
-/* Koyu overlay tıklamayı engellemesin */
+/* Koyu overlay tıklamayı engellemesin - kaldırıldı, görseller canlı olsun */
 .hero-slider .overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.15));
-  pointer-events: none;
+  display: none !important;
 }
 
 /* Metin alanı */
@@ -6104,7 +6101,7 @@ textarea:focus {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.45);
+  background: rgba(0,0,0,0.35);
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -9794,5 +9791,29 @@ footer, .footer, .site-footer, .footer-wrap, .footer-inner, .footer-topbar, .foo
 
   z-index: 2;
 
+}
+
+/* Havuz mini grid click fix */
+#havuz-mini a {
+  pointer-events: auto;
+  position: relative;
+  z-index: 5;
+  cursor: zoom-in;
+}
+
+#havuz-mini img {
+  display: block;
+}
+
+/* Gelecek Villa mini grid click fix */
+#gelecek-villa-mini a {
+  pointer-events: auto;
+  position: relative;
+  z-index: 5;
+  cursor: zoom-in;
+}
+
+#gelecek-villa-mini img {
+  display: block;
 }
 

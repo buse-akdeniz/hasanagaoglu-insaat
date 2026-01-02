@@ -1,4 +1,17 @@
-/* Hasanağoğlu İnşaat - Clean Rebuild CSS */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: #0f1115; /* sitenin koyu ana tonu */
+}
+
+footer {
+  margin: 0;
+  padding-bottom: 0;
+  background: #0f1115;
+}
+
+/* Hasanağaoğlu İnşaat - Clean Rebuild CSS */
 :root{
   --bg:#f2f3f5;
   --text:#e9eee9;
@@ -8,7 +21,7 @@
   --brand:#36c37a;
   --shadow: 0 18px 40px rgba(0,0,0,.35);
   --radius: 18px;
-  --container: min(1200px, 92vw);
+  --container: min(1320px, 92vw);
 }
 *{ box-sizing:border-box; }
 html,body{ height:100%; }
@@ -41,7 +54,7 @@ html,body{ height:100%; }
 body{
   margin:0;
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Arial,sans-serif;
-  background:var(--bg);
+  background:#0f1115; /* Koyu arka plan - beyaz şerit sorununu çözer */
   color:var(--text);
   line-height:1.6;
 }
@@ -74,15 +87,42 @@ a{ color:inherit; text-decoration:none; }
   backdrop-filter: blur(10px);
   border-bottom:1px solid var(--line);
 }
+.site-header .container{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:space-between !important;
+  gap:16px !important;
+  padding:14px 0 !important;
+}
+.site-header .logo{
+  display:flex !important;
+  align-items:center !important;
+  gap:10px !important;
+  font-weight:800 !important;
+  letter-spacing:.02em !important;
+  white-space:nowrap !important;
+}
+.site-header .nav-links{
+  display:flex !important;
+  align-items:center !important;
+  gap:6px !important;
+  flex-wrap:wrap !important;
+}
+.site-header .header-right{
+  display:flex !important;
+  align-items:center !important;
+  gap:8px !important;
+  flex-shrink:0 !important;
+}
 .nav{
   display:flex; align-items:center; justify-content:space-between;
   gap:16px;
   padding:14px 0;
 }
 .brand{
-  display:flex; align-items:center; gap:10px;
-  font-weight:700;
-  letter-spacing:.02em;
+  display:block;
+  text-decoration: none;
+  line-height: 0;
 }
 .brand .dot{
   width:10px; height:10px; border-radius:999px;
@@ -141,15 +181,56 @@ a{ color:inherit; text-decoration:none; }
 
 /* Logo */
 .logo{
-  display:flex; align-items:center; gap:10px;
+  display:flex; align-items:center; gap:14px;
   font-weight:800;
   letter-spacing:.02em;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+.logo:hover{
+  opacity: 0.9;
 }
 .logo::before{
-  content:"";
-  width:10px; height:10px; border-radius:999px;
-  background: var(--brand);
-  box-shadow: 0 0 0 6px rgba(54,195,122,.12);
+  display:none; /* Logo görseli kullanıldığı için kaldırıldı */
+}
+.logo-img{
+  height: 48px;
+  width: auto;
+  max-width: 200px;
+  object-fit: contain;
+  display: block !important;
+  transition: transform 0.2s ease;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.brand__logo {
+  height: 44px;
+  width: auto;
+  display: block;
+}
+.logo:hover .logo-img{
+  transform: scale(1.02);
+}
+.logo-text{
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text);
+  white-space: nowrap;
+  letter-spacing: 0.01em;
+}
+/* Logo görseli için filter kaldırıldı - orijinal renklerle görünsün */
+.site-header .logo-img{
+  filter: none !important;
+  opacity: 1 !important;
+}
+@media (max-width: 768px){
+  .logo-img{
+    height: 40px;
+  }
+  .logo-text{
+    font-size: 1rem;
+  }
 }
 
 /* Nav */
@@ -274,6 +355,10 @@ a{ color:inherit; text-decoration:none; }
 /* ===== Global header lock (all pages) ===== */
 .top-bar{
   background: rgba(25, 28, 32, 0.82) !important;
+}
+
+.site-header{
+  background: rgba(25, 28, 32, 0.92) !important;
 }
 
 /* Home hero: remove caption strips */
@@ -566,12 +651,7 @@ body.home-page::before{
 
 /* Soft veil so content stays readable */
 body.home-page::after{
-  content:"";
-  position: fixed;
-  inset: 0;
-  background: rgba(242,243,245,.55);
-  z-index: -1;
-  pointer-events: none;
+  display: none !important; /* Beyaz şerit sorununu çözer */
 }
 
 /* theme-dark için overlay'i kaldır - villa görseli görünsün */
@@ -1583,6 +1663,14 @@ body.theme-dark.home-page::after{
   inset: 0;
   opacity: 0;
   transition: opacity 1s ease-in-out;
+  filter: none !important; /* Görselleri canlı tut, brightness filter kaldır */
+}
+
+/* Hero görselleri için tüm filter'ları kaldır - görseller canlı olsun */
+.hero-slide img,
+.hero-slider img,
+.hero-slide[style*="background-image"] {
+  filter: none !important;
 }
 
 .hero-slide.active{
@@ -2068,10 +2156,17 @@ body.theme-dark.home-page::after{
 */
 
 .hero-slide.pool-slide{
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
   background-color: #191C20; /* boşluk kalırsa şık dursun */
+  object-fit: cover !important;
+}
+
+/* teslim-havuz-3.jpg için özel ayar */
+.hero-slide.pool-slide[style*="teslim-havuz-3"]{
+  background-size: cover !important;
+  background-position: center 30% !important;
 }
 
 /* Hero Slider Manuel Kontrol Butonları */
@@ -7447,6 +7542,12 @@ body.corp-theme.contact-page .footer-inner {
   letter-spacing: 0.5px;
 }
 
+.footer-brand__logo {
+  height: 40px;
+  width: auto;
+  display: block;
+}
+
 .home-footer .footer-description {
   font-size: 14px;
   line-height: 1.6;
@@ -7940,7 +8041,7 @@ body::after {
 /* theme-dark için villa görseli ::before pseudo-elementinde, koyu background korunuyor */
 
 body.home-page:not(.theme-dark) {
-  background: #ffffff !important;
+  background: #0f1115 !important; /* Koyu arka plan - beyaz şerit sorununu çözer */
 }
 
 body.theme-dark.home-page {
@@ -7961,25 +8062,25 @@ body.home-page .page-hero{
   position: relative;
 }
 
-/* Eğer overlay pseudo-element ile yapılıyorsa */
+/* Eğer overlay pseudo-element ile yapılıyorsa - hafif overlay */
 body.home-page .home-hero::before,
 body.home-page .hero::before,
 body.home-page .page-hero::before{
-  background: rgba(0,0,0,0.18) !important; /* önce 0.18 dene */
+  background: rgba(0,0,0,0.12) !important; /* çok hafif overlay */
 }
 
 /* Bazı tasarımlarda ::after kullanılıyor */
 body.home-page .home-hero::after,
 body.home-page .hero::after,
 body.home-page .page-hero::after{
-  background: rgba(0,0,0,0.18) !important;
+  background: rgba(0,0,0,0.12) !important; /* çok hafif overlay */
 }
 
 /* === HOME: sayfa genel zemin açık kalsın === */
 
 body.home-page{
-  background: #ffffff !important;
-  color: #111;
+  background: #0f1115 !important; /* Koyu arka plan - beyaz şerit sorununu çözer */
+  color: #ffffff;
 }
 
 /* HOME'da footer üstü alanlar beyaz */
@@ -7993,8 +8094,8 @@ body.home-page main{
 
 /* Home sayfa zemini açık kalsın */
 body.home-page{
-  background: #fff !important;
-  color: #111 !important;
+  background: #0f1115 !important; /* Koyu arka plan - beyaz şerit sorununu çözer */
+  color: #ffffff !important;
 }
 
 /* Home hero arka plan görseli (sende assets/img/villa.jpg) */
@@ -8131,4 +8232,140 @@ body::after{
 .site-footer,
 .copyright-bar{
   margin-bottom: 0 !important;
+}
+
+/* ==== PROJELER: ARCH PORTFOLIO LIGHT THEME OVERRIDE ==== */
+
+body.projects-page{
+  --bg: #f6f5f2;
+  --text: #191C20;
+  --muted: rgba(25, 28, 32, .72);
+  --line: rgba(0,0,0,.10);
+  --card: transparent;
+  --shadow: none;
+  --radius: 0px;
+  --container: min(1320px, 92vw);
+}
+
+body.projects-page{
+  background: var(--bg);
+  color: var(--text);
+}
+
+body.projects-page .card{
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+/* ANASAYFA HERO GÖRSEL NETLEŞTİRME */
+.home-hero img,
+.hero img,
+.home-hero .hero-image img {
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+/* Overlay'i kapat */
+.home-hero::after,
+.hero::after {
+  display: none !important;
+}
+
+.hero-overlay {
+  background: transparent !important;
+}
+
+/* mix-blend-mode ve backdrop-filter'ı kapat */
+.hero-image {
+  mix-blend-mode: normal !important;
+  backdrop-filter: none !important;
+}
+
+/* İdeal final ayar */
+.home-hero {
+  background: #f6f7f8; /* arka plan açık kalsın */
+}
+
+.home-hero {
+  position: relative;
+}
+
+.home-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 1 !important;
+  filter: brightness(1) contrast(1.05) !important;
+  border-radius: 18px;
+}
+
+/* overlay varsa - hafif */
+.home-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.12);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Ana sayfa hero slider görsel netleştirme */
+.hero-slide {
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+.hero-slide::before {
+  display: none !important;
+}
+
+.hero-slide .hero-overlay {
+  display: none !important;
+  background: transparent !important;
+}
+
+.hero-slide[style*="background-image"] {
+  background-size: cover !important;
+  background-position: center !important;
+  opacity: 1 !important;
+  filter: none !important; /* Görselleri canlı tut, filter kaldır */
+}
+
+/* Hero slider overlay - kaldırıldı, görseller canlı olsun */
+.hero-slider::before,
+.hero-slide::after {
+  display: none !important;
+}
+
+/* Villa görsellerini netleştir */
+.hero-slide[style*="villa-completed"] {
+  opacity: 1 !important;
+  filter: none !important; /* Görselleri canlı tut, filter kaldır */
+  background-size: cover !important;
+  background-position: center center !important;
+}
+
+.hero-slide[style*="villa-completed"]::before,
+.hero-slide[style*="villa-completed"]::after {
+  display: none !important;
+  background: none !important;
+}
+
+/* HEADER LOGO FIX */
+.site-header .logo{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.site-header .logo img{
+  width:auto;
+  height:32px;          /* ideal: 28–34 */
+  display:block;
+  background: transparent !important;
+  padding:0;
+  border-radius:0;
+  object-fit:contain;
 }
