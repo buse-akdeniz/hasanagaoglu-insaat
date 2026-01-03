@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://maps.googleapis.com" />
   <link rel="preconnect" href="https://maps.gstatic.com" />
   <link rel="dns-prefetch" href="https://maps.googleapis.com" />
-  <link rel="stylesheet" href="assets/css/app.css?v=20260102?v=20260102" />
+  <link rel="stylesheet" href="assets/css/app.css?v=20260103-7" />
 </head>
 <body class="corp-theme contact-page">
   <header class="site-header">
@@ -52,8 +52,8 @@
     <!-- Contacts Hero -->
     <section class="contacts-hero">
       <div class="container">
-        <h1 class="contacts-title">İletişim</h1>
-        <p class="contacts-subtitle">HASANAĞAOĞLU İNŞAAT OFİSLERİ</p>
+        <h1 class="contacts-title" data-key="contact.hero.title">İletişim</h1>
+        <p class="contacts-subtitle" data-key="contact.hero.subtitle">HASANAĞAOĞLU İNŞAAT OFİSLERİ</p>
       </div>
     </section>
 
@@ -64,10 +64,10 @@
           <!-- Left: Office List -->
           <div class="offices-list">
             <div class="office-region">
-              <h3 class="region-title">TÜRKİYE</h3>
+              <h3 class="region-title" data-key="contact.region.turkey">TÜRKİYE</h3>
               <ul class="office-cities">
                 <li class="office-item active" data-office="fethiye">
-                  <span class="city-name">Fethiye</span>
+                  <span class="city-name" data-key="contact.city.fethiye">Fethiye</span>
                 </li>
               </ul>
             </div>
@@ -106,18 +106,18 @@
           <!-- Right: Office Details -->
           <div class="office-details">
             <div class="office-detail-card active" id="detail-fethiye">
-              <h4 class="detail-city">FETHIYE</h4>
+              <h4 class="detail-city" data-key="contact.city.fethiye">FETHIYE</h4>
               <div class="detail-info">
                 <p class="detail-item">
-                  <strong>ADRES:</strong><br>
+                  <strong data-key="contact.detail.address">ADRES:</strong><br>
                   Fethiye, Muğla, Türkiye
                 </p>
                 <p class="detail-item">
-                  <strong>TELEFON:</strong><br>
+                  <strong data-key="contact.detail.phone">TELEFON:</strong><br>
                   <a href="tel:+905530141218">+90 553 014 12 18</a>
                 </p>
                 <p class="detail-item">
-                  <strong>E-POSTA:</strong><br>
+                  <strong data-key="contact.detail.email">E-POSTA:</strong><br>
                   <a href="mailto:info@hasanagaogluinsaat.com">info@hasanagaogluinsaat.com</a>
                 </p>
               </div>
@@ -131,37 +131,37 @@
     <section class="contact-form-section">
       <div class="container">
         <div class="form-header">
-          <p class="form-label">BİZE ULAŞIN</p>
+          <p class="form-label" data-key="contact.form.label">BİZE ULAŞIN</p>
           <div class="form-intro">
-            <h2 class="form-question">İnşaat projeniz için teklif almak veya danışmanlık hizmeti ister misiniz?</h2>
+            <h2 class="form-question" data-key="contact.form.question">İnşaat projeniz için teklif almak veya danışmanlık hizmeti ister misiniz?</h2>
           </div>
         </div>
         
         <div class="form-wrapper">
           <form class="contact-form" action="send-mail.php" method="POST" id="contactForm">
             <div class="form-group">
-              <label for="fullname">Ad Soyad</label>
+              <label for="fullname" data-key="contact.form.name.label">Ad Soyad</label>
               <input type="text" id="fullname" name="name" required>
             </div>
             
             <div class="form-group">
-              <label for="email">E-posta</label>
+              <label for="email" data-key="contact.form.email.label">E-posta</label>
               <input type="email" id="email" name="email" required>
             </div>
             
             <div class="form-group">
-              <label for="message">Mesajınız</label>
+              <label for="message" data-key="contact.form.message.label">Mesajınız</label>
               <textarea id="message" name="message" rows="6" required></textarea>
             </div>
             
             <div class="form-group checkbox-group">
               <label class="checkbox-label">
                 <input type="checkbox" name="privacy" required>
-                <span>Bu formu göndererek <a href="#" target="_blank">Gizlilik Politikası</a>'nı okuduğumu ve kabul ettiğimi onaylıyorum.</span>
+                <span data-key="contact.form.privacy">Bu formu göndererek <a href="#" target="_blank">Gizlilik Politikası</a>'nı okuduğumu ve kabul ettiğimi onaylıyorum.</span>
               </label>
             </div>
             
-            <button type="submit" class="submit-btn">
+            <button type="submit" class="submit-btn" data-key="contact.form.submit">
               Gönder
               <span class="arrow">→</span>
             </button>
@@ -174,8 +174,11 @@
   <footer class="site-footer">
     <div class="footer-inner">
     </div>
-    <div class="global-copyright">
-      © 2025 Hasanağaoğlu İnşaat Fethiye (1935'ten beri) | Tüm Hakları Saklıdır
+    <div class="footer-bottom">
+      <div class="footer-website" data-key="footer.website">www.hasanagaogluinsaat.com</div>
+      <div class="footer-copy" data-key="footer.copyright">
+        © 2025 Hasanağaoğlu İnşaat Fethiye (1935'ten beri) | Tüm Hakları Saklıdır
+      </div>
     </div>
     <a href="https://wa.me/905530141218" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
