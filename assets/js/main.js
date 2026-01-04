@@ -821,89 +821,116 @@ document.addEventListener('DOMContentLoaded', function() {
     translatePage(currentLang);
   });
   
-  // Dil dropdown açma/kapama
+  // Dil dropdown açma/kapama - BASİT VE ÇALIŞAN VERSİYON
   const langBtn = document.getElementById('langBtn');
   const langDropdowns = document.querySelectorAll('.lang-dropdown');
-  const languageSelectors = document.querySelectorAll('.language-selector');
   
   // Debug: Butonların bulunup bulunmadığını kontrol et
   if (!langBtn) {
-    console.warn('langBtn bulunamadı!');
+    console.error('langBtn bulunamadı!');
+  } else {
+    console.log('langBtn bulundu:', langBtn);
   }
   
-  // Dil butonuna tıklama
+  // Dil butonuna tıklama - BASİT VERSİYON
   if (langBtn) {
-    langBtn.addEventListener('click', function(e) {
+    // Önce mevcut event listener'ları temizle
+    const newLangBtn = langBtn.cloneNode(true);
+    langBtn.parentNode.replaceChild(newLangBtn, langBtn);
+    
+    newLangBtn.addEventListener('click', function(e) {
       e.preventDefault();
       e.stopPropagation();
-      e.stopImmediatePropagation();
       
-      console.log('Dil butonu tıklandı'); // Debug
+      console.log('Dil butonu tıklandı!'); // Debug
       
-      // Tüm dropdown'ları kontrol et
-      const currentDropdowns = document.querySelectorAll('.lang-dropdown');
-      const currentSelectors = document.querySelectorAll('.language-selector');
+      // Dropdown'ı bul
+      const dropdown = newLangBtn.parentElement.querySelector('.lang-dropdown');
+      if (!dropdown) {
+        console.error('Dropdown bulunamadı!');
+        return;
+      }
       
-      currentSelectors.forEach(selector => {
-        const dropdown = selector.querySelector('.lang-dropdown');
-        if (dropdown) {
-          const isActive = dropdown.classList.contains('active');
-          
-          // Önce tüm dropdown'ları kapat
-          currentDropdowns.forEach(d => {
-            d.classList.remove('active');
-            d.style.display = 'none';
-          });
-          
-          // Eğer bu dropdown aktif değilse, aç
-          if (!isActive) {
-            dropdown.classList.add('active');
-            dropdown.style.display = 'block';
-            dropdown.style.visibility = 'visible';
-            dropdown.style.opacity = '1';
-            dropdown.style.zIndex = '99999';
-            
-            // Mobilde konumu ayarla
-            if (window.innerWidth < 769) {
-              const rect = langBtn.getBoundingClientRect();
-              dropdown.style.position = 'fixed';
-              dropdown.style.right = '20px';
-              dropdown.style.top = (rect.bottom + 10) + 'px';
-              dropdown.style.left = 'auto';
-            }
-            
-            console.log('Dropdown açıldı'); // Debug
-          }
-        }
+      const isActive = dropdown.classList.contains('active');
+      
+      // Tüm dropdown'ları kapat
+      document.querySelectorAll('.lang-dropdown').forEach(d => {
+        d.classList.remove('active');
+        d.style.display = 'none';
+        d.style.visibility = 'hidden';
+        d.style.opacity = '0';
       });
-    }, true); // Capture phase'de çalışsın
-  } else {
-    console.error('langBtn element bulunamadı!');
+      
+      // Eğer kapalıysa aç
+      if (!isActive) {
+        dropdown.classList.add('active');
+        dropdown.style.display = 'block';
+        dropdown.style.visibility = 'visible';
+        dropdown.style.opacity = '1';
+        dropdown.style.zIndex = '100004';
+        
+        // Mobilde konumu ayarla
+        if (window.innerWidth < 769) {
+          const rect = newLangBtn.getBoundingClientRect();
+          dropdown.style.position = 'fixed';
+          dropdown.style.right = '20px';
+          dropdown.style.top = (rect.bottom + 10) + 'px';
+          dropdown.style.left = 'auto';
+          dropdown.style.minWidth = '200px';
+        } else {
+          // Desktop'ta absolute positioning
+          dropdown.style.position = 'absolute';
+          dropdown.style.right = '0';
+          dropdown.style.top = 'calc(100% + 10px)';
+          dropdown.style.left = 'auto';
+        }
+        
+        console.log('Dropdown açıldı!'); // Debug
+      } else {
+        console.log('Dropdown kapatıldı!'); // Debug
+      }
+    });
   }
   
-  // Dropdown içindeki linklere tıklama - propagation'ı durdur
+  // Dropdown içindeki linklere tıklama
   langDropdowns.forEach(dropdown => {
-    dropdown.addEventListener('click', function(e) {
-      e.stopPropagation();
+    dropdown.querySelectorAll('a[data-lang]').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        const lang = this.getAttribute('data-lang');
+        console.log('Dil seçildi:', lang); // Debug
+        translatePage(lang);
+        
+        // Dropdown'ı kapat
+        dropdown.classList.remove('active');
+        dropdown.style.display = 'none';
+        dropdown.style.visibility = 'hidden';
+        dropdown.style.opacity = '0';
+      });
     });
   });
   
-  // Dışarı tıklandığında dropdown'ı kapat (biraz gecikme ile)
-  document.addEventListener('click', function(e) {
-    // Language selector içinde değilse kapat
-    if (!e.target.closest('.language-selector') && !e.target.closest('.lang-dropdown')) {
-      setTimeout(function() {
-        langDropdowns.forEach(dropdown => {
-          dropdown.classList.remove('active');
-          dropdown.style.display = 'none';
-        });
-      }, 100);
-    }
-  });
+  // Dışarı tıklandığında dropdown'ı kapat - GECİKMELİ
+  setTimeout(function() {
+    document.addEventListener('click', function(e) {
+      // Language selector içinde değilse kapat
+      if (!e.target.closest('.language-selector') && !e.target.closest('.lang-dropdown')) {
+        setTimeout(function() {
+          document.querySelectorAll('.lang-dropdown').forEach(dropdown => {
+            dropdown.classList.remove('active');
+            dropdown.style.display = 'none';
+            dropdown.style.visibility = 'hidden';
+            dropdown.style.opacity = '0';
+          });
+        }, 200); // 200ms gecikme
+      }
+    });
+  }, 500); // 500ms sonra ekle - dil butonu tıklaması önce işlensin
   
   // Window resize'da dropdown konumunu güncelle
   window.addEventListener('resize', function() {
-    langDropdowns.forEach(dropdown => {
+    document.querySelectorAll('.lang-dropdown').forEach(dropdown => {
       if (dropdown.classList.contains('active') && window.innerWidth < 769) {
         const langBtn = document.getElementById('langBtn');
         if (langBtn) {
@@ -914,19 +941,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
   
-  // Dil dropdown linklerine tıklama eventi
-  document.querySelectorAll('[data-lang]').forEach(link => {
-    link.addEventListener('click', function(e) {
-      e.preventDefault();
-      e.stopPropagation();
-      const lang = this.getAttribute('data-lang');
-      translatePage(lang);
-      // Dropdown'ı kapat
-      langDropdowns.forEach(dropdown => {
-        dropdown.classList.remove('active');
-      });
-    });
-  });
+  // Dil dropdown linklerine tıklama eventi - YUKARIDA ZATEN EKLENDİ, TEKRAR EKLEME
 });
 
 function openPopup() {
@@ -1032,6 +1047,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   if (mobileMenuToggle && navLinks) {
+    // Desktop'ta da çalışması için tüm ekran boyutlarında event listener ekle
     mobileMenuToggle.addEventListener('click', function(e) {
       e.preventDefault();
       e.stopPropagation();
@@ -1073,6 +1089,10 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('Mobil menü kapatıldı'); // Debug
       }
     }, true); // Capture phase'de çalışsın
+    
+    // Desktop'ta da butonun tıklanabilir olduğundan emin ol
+    mobileMenuToggle.style.pointerEvents = 'auto';
+    mobileMenuToggle.style.zIndex = '100003';
     
     // Menü linklerine tıklandığında menüyü kapat
     navLinks.addEventListener('click', function(e) {

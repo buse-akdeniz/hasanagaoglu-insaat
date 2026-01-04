@@ -130,6 +130,37 @@ a{ color:inherit; text-decoration:none; }
   position: relative;
   z-index: 100002 !important;
   margin-left: auto;
+  pointer-events: auto !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Desktop'ta da butonların üstte olmasını garanti et */
+@media (min-width: 769px) {
+  .site-header {
+    z-index: 100000 !important;
+  }
+  
+  .site-header .container {
+    z-index: 100001 !important;
+  }
+  
+  .lang-btn,
+  .language-selector,
+  .mobile-menu-toggle {
+    z-index: 100003 !important;
+    position: relative !important;
+    pointer-events: auto !important;
+  }
+  
+  .lang-dropdown {
+    z-index: 100004 !important;
+  }
+  
+  .header-right {
+    z-index: 100002 !important;
+    pointer-events: auto !important;
+  }
 }
 .nav{
   display:flex; align-items:center; justify-content:space-between;
@@ -342,9 +373,14 @@ header .brand-logo {
   position:relative; 
   z-index: 100001 !important;
   pointer-events: auto !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 .lang-btn{
-  display:inline-flex; align-items:center; justify-content:center;
+  display:inline-flex !important;
+  align-items:center;
+  justify-content:center;
   padding:10px 12px;
   border:1px solid var(--line);
   background: rgba(255,255,255,.06);
@@ -353,6 +389,8 @@ header .brand-logo {
   position: relative;
   z-index: 100001 !important;
   pointer-events: auto !important;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 .lang-dropdown{
   display:none;
@@ -391,12 +429,7 @@ header .brand-logo {
   opacity: 1 !important;
 }
 
-/* Hover desteği (opsiyonel - desktop için) */
-@media (min-width: 769px) {
-  .language-selector:hover .lang-dropdown {
-    display: block !important;
-  }
-}
+/* Hover desteği kaldırıldı - sadece tıklama ile çalışsın */
 
 .lang-dropdown a{
   display:block;
@@ -1871,7 +1904,21 @@ body.theme-dark.home-page::after{
   min-height: 500px;
   max-height: 800px;
   overflow: hidden;
-  z-index: 1;
+  z-index: 1 !important;
+}
+
+/* Hero slider'ın içindeki slide'ları header'ın altında tut - ama görünür olsun */
+.hero-slider .hero-slide {
+  z-index: 1 !important;
+}
+
+/* Slider içindeki butonlar ve kontroller görünür olsun - header'ın üstünde */
+.hero-slider-prev,
+.hero-slider-next,
+.hero-dots {
+  z-index: 10 !important;
+  position: relative;
+  pointer-events: auto !important;
 }
 
 /* Hero Content Overlay - Çevrilebilir metinler için */
@@ -1881,7 +1928,7 @@ body.theme-dark.home-page::after{
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 5;
+  z-index: 5 !important;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1984,7 +2031,7 @@ body.theme-dark.home-page::after{
   opacity: 0;
   transition: opacity 1s ease-in-out;
   filter: none !important; /* Görselleri canlı tut, brightness filter kaldır */
-  z-index: 1;
+  z-index: 1 !important; /* Header'ın altında kalması için */
 }
 
 /* Hero görselleri için tüm filter'ları kaldır - görseller canlı olsun */
@@ -2410,8 +2457,13 @@ body.theme-dark.home-page::after{
   z-index: 1;
 }
 
-.hero-slide .hero-overlay{ z-index: 2; }
-.hero-slide .hero-caption{ z-index: 3; }
+.hero-slide .hero-overlay{ z-index: 2 !important; }
+.hero-slide .hero-caption{ z-index: 3 !important; }
+
+/* Hero slide'ların z-index'ini header'ın altında tut */
+.hero-slide {
+  z-index: 1 !important;
+}
 
 
 /* HERO: tam görünsün (crop yok) */
@@ -2443,11 +2495,19 @@ body.theme-dark.home-page::after{
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  z-index: 1 !important; /* Header'ın altında ama görünür */
+}
+
+.hero-slide.active {
+  opacity: 1 !important;
+  visibility: visible !important;
+  z-index: 2 !important; /* Aktif slide görünür olsun */
 }
 
 .hero-slide.active{
-  opacity: 1;
-  visibility: visible;
+  opacity: 1 !important;
+  visibility: visible !important;
+  z-index: 2 !important; /* Aktif slide görünür olsun */
 }
 
 .hero-overlay{
@@ -10801,4 +10861,165 @@ body.home-page::before {
 
   }
 
+}
+
+/* Desktop'ta ana sayfada header ve butonların slider'ın üstünde olmasını garanti et */
+@media (min-width: 769px) {
+  .home-page .site-header {
+    z-index: 100000 !important;
+  }
+  
+  .home-page .site-header .container {
+    z-index: 100001 !important;
+  }
+  
+  .home-page .lang-btn,
+  .home-page .language-selector {
+    z-index: 100003 !important;
+    position: relative !important;
+    pointer-events: auto !important;
+  }
+  
+  .home-page .lang-dropdown {
+    z-index: 100004 !important;
+  }
+  
+  .home-page .header-right {
+    z-index: 100002 !important;
+    pointer-events: auto !important;
+  }
+  
+  /* Hero slider'ın desktop'ta da header'ın altında kalmasını garanti et */
+  .home-page .hero-slider {
+    z-index: 1 !important;
+  }
+  
+  .home-page .hero-slide {
+    z-index: 1 !important;
+  }
+  
+  /* Mobil menü butonu desktop'ta görünmez ama z-index'i yüksek tut */
+  .home-page .mobile-menu-toggle {
+    z-index: 100003 !important;
+    pointer-events: auto !important;
+  }
+}
+
+/* Dil menüsü hover yerine tıkla ile çalışsın - sadece gtranslate için */
+.gtranslate_wrapper:hover .gt_float_switcher {
+  display: none;
+}
+
+.gtranslate_wrapper:focus-within .gt_float_switcher {
+  display: block !important;
+}
+
+/* Kendi dil butonumuz için hover'ı kaldır */
+.language-selector:hover .lang-dropdown {
+  display: none !important;
+}
+
+/* Tıklanınca açık kalsın - JavaScript ile yönetiliyor */
+.language-selector .lang-dropdown.active {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  z-index: 100004 !important;
+  pointer-events: auto !important;
+}
+
+/* Mobil uyum */
+@media (max-width: 991px){
+  .language-selector,
+  .lang-btn {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    cursor: pointer !important;
+    pointer-events: auto !important;
+    z-index: 100003 !important;
+    position: relative !important;
+  }
+  
+  .lang-btn {
+    display: inline-flex !important;
+  }
+  
+  .lang-dropdown.active {
+    z-index: 100004 !important;
+    pointer-events: auto !important;
+  }
+}
+
+/* Desktop'ta da görünür olsun */
+@media (min-width: 992px){
+  .language-selector,
+  .lang-btn {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+  
+  .lang-btn {
+    display: inline-flex !important;
+  }
+}
+
+/* DİL BUTONU ZORLA GÖRÜNÜR - TÜM EKRAN BOYUTLARI İÇİN */
+.language-selector {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  position: relative !important;
+  z-index: 100003 !important;
+}
+
+#langBtn,
+.lang-btn {
+  display: inline-flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  position: relative !important;
+  z-index: 100003 !important;
+  cursor: pointer !important;
+}
+
+.header-right {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+/* Mobilde de görünür */
+@media (max-width: 991px) {
+  .language-selector {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    position: relative !important;
+    z-index: 100003 !important;
+  }
+  
+  #langBtn,
+  .lang-btn {
+    display: inline-flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    position: relative !important;
+    z-index: 100003 !important;
+    cursor: pointer !important;
+  }
+  
+  .header-right {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
 }
