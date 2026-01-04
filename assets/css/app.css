@@ -6888,16 +6888,8 @@ body.corp-theme.contact-page .contact-page-main{
 }
 
 /* ===== Projects Editorial Layout ===== */
-.projects-page {
-  background: #0f1114;
-  color: rgba(255,255,255,.92);
-}
-
-.projects-hero{
-  max-width:1200px;
-  margin:0 auto;
-  padding:64px 20px 28px;
-}
+/* Projeler sayfası için projects.css kullanılıyor, bu stiller çakışmaması için kaldırıldı */
+/* .projects-page ve .projects-hero stilleri projects.css'de tanımlı */
 
 .projects-hero-top{
   display:flex;
@@ -8708,28 +8700,8 @@ body::after{
 
 /* ==== PROJELER: ARCH PORTFOLIO LIGHT THEME OVERRIDE ==== */
 
-body.projects-page{
-  --bg: #f6f5f2;
-  --text: #191C20;
-  --muted: rgba(25, 28, 32, .72);
-  --line: rgba(0,0,0,.10);
-  --card: transparent;
-  --shadow: none;
-  --radius: 0px;
-  --container: min(1320px, 92vw);
-}
-
-body.projects-page{
-  background: var(--bg);
-  color: var(--text);
-}
-
-body.projects-page .card{
-  background: transparent;
-  border: 0;
-  box-shadow: none;
-  border-radius: 0;
-}
+/* Projeler sayfası için projects.css kullanılıyor, bu stiller çakışmaması için kaldırıldı */
+/* body.projects-page stilleri projects.css'de tanımlı */
 
 /* ANASAYFA HERO GÖRSEL NETLEŞTİRME */
 .home-hero img,
@@ -9803,12 +9775,11 @@ body:not(.home-page) .footer-bottom .footer-copy{
 
 /* === DİĞER SAYFALAR: copyright renklerini kaldır === */
 body:not(.home-page) .footer-bottom,
-body.projects-page .footer-bottom,
+/* body.projects-page stilleri projects.css'de tanımlı */
 body.services-page .footer-bottom,
 body.contact-page .footer-bottom,
 body.corp-theme .footer-bottom,
 body:not(.home-page) .site-footer .copyright,
-body.projects-page .site-footer .copyright,
 body.services-page .site-footer .copyright,
 body.contact-page .site-footer .copyright,
 body.corp-theme .site-footer .copyright,
@@ -9823,7 +9794,7 @@ body.services-page .global-copyright,
 body.contact-page .global-copyright,
 body.corp-theme .global-copyright,
 body:not(.home-page) .footer-copyright,
-body.projects-page .footer-copyright,
+/* body.projects-page stilleri projects.css'de tanımlı */
 body.services-page .footer-copyright,
 body.contact-page .footer-copyright,
 body.corp-theme .footer-copyright{
@@ -9834,12 +9805,11 @@ body.corp-theme .footer-copyright{
 
 /* === DİĞER SAYFALAR: copyright tek çizgi (yükseklik düşür) === */
 body:not(.home-page) .footer-bottom,
-body.projects-page .footer-bottom,
+/* body.projects-page stilleri projects.css'de tanımlı */
 body.services-page .footer-bottom,
 body.contact-page .footer-bottom,
 body.corp-theme .footer-bottom,
 body:not(.home-page) .site-footer .footer-bottom,
-body.projects-page .site-footer .footer-bottom,
 body.services-page .site-footer .footer-bottom,
 body.contact-page .site-footer .footer-bottom,
 body.corp-theme .site-footer .footer-bottom{
@@ -9866,12 +9836,11 @@ body.corp-theme .site-footer .footer-bottom{
 }
 
 body:not(.home-page) .footer-bottom .footer-website,
-body.projects-page .footer-bottom .footer-website,
+/* body.projects-page stilleri projects.css'de tanımlı */
 body.services-page .footer-bottom .footer-website,
 body.contact-page .footer-bottom .footer-website,
 body.corp-theme .footer-bottom .footer-website,
 body:not(.home-page) .footer-bottom .footer-copy,
-body.projects-page .footer-bottom .footer-copy,
 body.services-page .footer-bottom .footer-copy,
 body.contact-page .footer-bottom .footer-copy,
 body.corp-theme .footer-bottom .footer-copy{
@@ -9884,7 +9853,7 @@ body.corp-theme .footer-bottom .footer-copy{
 }
 
 body:not(.home-page) .footer-bottom .footer-copy,
-body.projects-page .footer-bottom .footer-copy,
+/* body.projects-page stilleri projects.css'de tanımlı */
 body.services-page .footer-bottom .footer-copy,
 body.contact-page .footer-bottom .footer-copy,
 body.corp-theme .footer-bottom .footer-copy{
@@ -10410,20 +10379,19 @@ body.home-page{
 
 body:not(.home-page),
 
-body.projects-page,
-
+/* Projeler sayfası için projects.css kullanılıyor, bu stiller çakışmaması için kaldırıldı */
 body.services-page,
-
+ 
 body.contact-page,
-
+ 
 body.corp-theme{
-
+ 
   background: #0f1115 !important;
-
+ 
   background-color: #0f1115 !important;
-
+ 
   background-image: none !important;
-
+ 
 }
 
 /* Footer altındaki beyaz şeridi kaldır */
@@ -10432,9 +10400,7 @@ body:not(.home-page) footer,
 
 body:not(.home-page) .site-footer,
 
-body.projects-page footer,
-
-body.projects-page .site-footer,
+/* body.projects-page footer stilleri projects.css'de tanımlı */
 
 body.services-page footer,
 
@@ -10468,7 +10434,7 @@ body:not(.home-page) footer::before,
 
 body:not(.home-page) .site-footer::before,
 
-body.projects-page footer::after,
+/* body.projects-page footer::after stilleri projects.css'de tanımlı */
 
 body.services-page footer::after,
 
@@ -10488,7 +10454,7 @@ body.corp-theme footer::after{
 
 html:has(body:not(.home-page)),
 
-html:has(body.projects-page),
+/* html:has(body.projects-page) stilleri projects.css'de tanımlı */
 
 html:has(body.services-page),
 
