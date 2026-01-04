@@ -11,8 +11,8 @@ const translations = {
     'nav.projects': 'Projeler',
     'nav.contact': 'İletişim',
     'header.call': 'Hemen Ara',
-    'hero.title': 'Fethiye Bölgesinde Temelden Çatıya Anahtar Teslim',
-    'hero.description': 'Köklü Şirketimizin hizmetleriyle sizlere temelden çatıya konut, villa, özel hastane, peyzaj, havuz ve daha birçok yapı projelerimiz ile anahtar teslim fırsatları sunuyoruz.',
+    'hero.title': 'Hasanağaoğlu İnşaat Fethiye | Fethiye Havuz, Fethiye İnşaat, Fethiye Villa, Fethiye Lüks Villa',
+    'hero.description': 'Hasanağaoğlu İnşaat Fethiye - Fethiye havuz, fethiye inşaat, fethiye villa, fethiye lüks villa, fethiye özel hastane, fethiye otel, fethiye yapı, fethiye toplu konut, fethiye peyzaj, fethiye mülk. Hasanağaoğlu inşaat, hasanağaoğlu mühendislik, hasanağaoğlu villa, hasanağaoğlu otel, hasanağaoğlu özel hastane, hasanağaoğlu peyzaj, hasanağaoğlu havuz. 1935\'ten beri kaliteli inşaat hizmetleri.',
     'hero.viewProjects': 'Projeleri Gör',
     'hero.getQuote': 'Teklif Al',
     'services.title': 'Hizmetlerimiz',
@@ -36,17 +36,17 @@ const translations = {
     'home.projects.title': 'Projelerimiz',
     'home.projects.villa.title': 'Villa Projeleri',
     'home.projects.villa.desc': 'Modern mimari, geniş yaşam alanları, yüksek kalite malzeme ve Fethiye\'ye uygun tasarımlar.',
-    'home.projects.pool.title': 'Havuz & Dış Mekan',
-    'home.projects.pool.desc': 'Modern havuz tasarımları, dayanıklı zemin çözümleri ve konfor odaklı dış mekan uygulamaları ile projelerimize estetik ve değer katıyoruz.',
-    'home.projects.housing.title': 'Toplu Konut Projeleri',
+    'home.projects.pool.title': 'Fethiye Havuz Yapımı & Dış Mekan',
+    'home.projects.pool.desc': 'Fethiye havuz yapımı, fethiye havuz tasarımı ve fethiye havuz inşaatı konusunda uzmanız. Modern fethiye havuz projeleri, dayanıklı zemin çözümleri ve konfor odaklı dış mekan uygulamaları ile fethiye havuzlu villa projelerimize estetik ve değer katıyoruz.',
+    'home.projects.housing.title': 'Fethiye Toplu Konut & Hasanağaoğlu Fethiye Toplu Konut',
     'home.projects.housing.desc': 'Planlı yerleşim, güçlü altyapı, modern cephe ve uzun ömürlü yapı standartları.',
     'home.projects.landscape.title': 'Peyzaj & Çevre Düzenleme',
     'home.projects.landscape.desc': 'Yeşil alan planlama, modern bahçe çizgileri ve bakımı kolay çevre çözümleri.',
     'home.projects.hotel.title': 'Otel Projeleri',
     'home.projects.hotel.desc': 'Prestijli cephe, güçlü aydınlatma dili ve konaklama odaklı fonksiyonel planlama.',
-    'home.projects.seaView.title': 'Deniz Manzaralı Arsa',
+    'home.projects.seaView.title': 'Fethiye Mülk & Deniz Manzaralı Arsa',
     'home.projects.seaView.desc': 'Arsa analizi, proje fizibilitesi ve manzarayı maksimum kullanan yerleşim çözümleri.',
-    'home.projects.hospital.title': 'Özel Hastane Projeleri',
+    'home.projects.hospital.title': 'Fethiye Özel Hastane & Hasanağaoğlu Özel Hastane',
     'home.projects.hospital.desc': 'Modern sağlık altyapısı, güçlü mühendislik çözümleri ve hasta odaklı tasarım ile özel hastane projelerinde uzman hizmet.',
     'home.projects.viewProjects': 'Projeleri Gör →',
     'footer.workingHours.title': 'Çalışma Saatleri',
@@ -106,17 +106,17 @@ const translations = {
     'home.projects.title': 'Projelerimiz',
     'home.projects.villa.title': 'Villa Projeleri',
     'home.projects.villa.desc': 'Modern mimari, geniş yaşam alanları, yüksek kalite malzeme ve Fethiye\'ye uygun tasarımlar.',
-    'home.projects.pool.title': 'Havuz & Dış Mekan',
-    'home.projects.pool.desc': 'Modern havuz tasarımları, dayanıklı zemin çözümleri ve konfor odaklı dış mekan uygulamaları ile projelerimize estetik ve değer katıyoruz.',
-    'home.projects.housing.title': 'Toplu Konut Projeleri',
+    'home.projects.pool.title': 'Fethiye Havuz Yapımı & Dış Mekan',
+    'home.projects.pool.desc': 'Fethiye havuz yapımı, fethiye havuz tasarımı ve fethiye havuz inşaatı konusunda uzmanız. Modern fethiye havuz projeleri, dayanıklı zemin çözümleri ve konfor odaklı dış mekan uygulamaları ile fethiye havuzlu villa projelerimize estetik ve değer katıyoruz.',
+    'home.projects.housing.title': 'Fethiye Toplu Konut & Hasanağaoğlu Fethiye Toplu Konut',
     'home.projects.housing.desc': 'Planlı yerleşim, güçlü altyapı, modern cephe ve uzun ömürlü yapı standartları.',
     'home.projects.landscape.title': 'Peyzaj & Çevre Düzenleme',
     'home.projects.landscape.desc': 'Yeşil alan planlama, modern bahçe çizgileri ve bakımı kolay çevre çözümleri.',
     'home.projects.hotel.title': 'Otel Projeleri',
     'home.projects.hotel.desc': 'Prestijli cephe, güçlü aydınlatma dili ve konaklama odaklı fonksiyonel planlama.',
-    'home.projects.seaView.title': 'Deniz Manzaralı Arsa',
+    'home.projects.seaView.title': 'Fethiye Mülk & Deniz Manzaralı Arsa',
     'home.projects.seaView.desc': 'Arsa analizi, proje fizibilitesi ve manzarayı maksimum kullanan yerleşim çözümleri.',
-    'home.projects.hospital.title': 'Özel Hastane Projeleri',
+    'home.projects.hospital.title': 'Fethiye Özel Hastane & Hasanağaoğlu Özel Hastane',
     'home.projects.hospital.desc': 'Modern sağlık altyapısı, güçlü mühendislik çözümleri ve hasta odaklı tasarım ile özel hastane projelerinde uzman hizmet.',
     'home.projects.viewProjects': 'Projeleri Gör →',
     'footer.workingHours.title': 'Çalışma Saatleri',
@@ -248,6 +248,22 @@ const translations = {
     'services.turnkey.desc': 'Turnkey projects where the entire process from foundation to roof is managed.',
     'services.largeScale.title': 'Large-Scale Structures',
     'services.largeScale.desc': 'Strong engineering in private hospitals, public buildings, and complex projects.',
+    'home.projects.title': 'Our Projects',
+    'home.projects.villa.title': 'Fethiye Villa & Fethiye Luxury Villa Projects',
+    'home.projects.villa.desc': 'Fethiye villa, fethiye luxury villa and Hasanağaoğlu villa projects. Modern architecture, spacious living areas, high quality materials and designs suitable for Fethiye.',
+    'home.projects.pool.title': 'Fethiye Pool Construction & Outdoor Spaces',
+    'home.projects.pool.desc': 'We are experts in fethiye pool construction, fethiye pool design and fethiye pool building. We add aesthetic and value to our fethiye pool villa projects with modern fethiye pool projects, durable flooring solutions and comfort-oriented outdoor applications.',
+    'home.projects.housing.title': 'Fethiye Mass Housing & Hasanağaoğlu Fethiye Mass Housing',
+    'home.projects.housing.desc': 'Fethiye mass housing and Hasanağaoğlu fethiye mass housing projects. Planned settlement, strong infrastructure, modern facade and long-lasting building standards.',
+    'home.projects.landscape.title': 'Fethiye Landscape & Hasanağaoğlu Landscape',
+    'home.projects.landscape.desc': 'Fethiye landscape and Hasanağaoğlu landscape services. Green space planning, modern garden lines and easy-to-maintain environmental solutions.',
+    'home.projects.hotel.title': 'Fethiye Hotel & Hasanağaoğlu Hotel Projects',
+    'home.projects.hotel.desc': 'Fethiye hotel and Hasanağaoğlu hotel projects. Prestigious facade, strong lighting language and accommodation-focused functional planning.',
+    'home.projects.seaView.title': 'Fethiye Property & Sea View Land',
+    'home.projects.seaView.desc': 'Fethiye property and sea view land projects. Land analysis, project feasibility and settlement solutions that maximize the view.',
+    'home.projects.hospital.title': 'Fethiye Private Hospital & Hasanağaoğlu Private Hospital',
+    'home.projects.hospital.desc': 'Fethiye private hospital and Hasanağaoğlu private hospital projects. Expert service in private hospital projects with modern health infrastructure, strong engineering solutions and patient-focused design.',
+    'home.projects.viewProjects': 'View Projects →',
     'projects.title': 'Featured Projects',
     'about.title': 'About Us',
     'about.description.p1': 'Hasanağaoğlu Construction has built its established history in the sector with solid foundations laid in Sakarya; today, it has expanded its service area by bringing its experience and expertise to Fethiye.',
@@ -578,6 +594,22 @@ const translations = {
     'services.largeScale.title': 'الهياكل واسعة النطاق',
     'services.largeScale.desc': 'هندسة قوية في المستشفيات الخاصة والمباني العامة والمشاريع المعقدة.',
     'projects.title': 'المشاريع المميزة',
+    'home.projects.title': 'مشاريعنا',
+    'home.projects.villa.title': 'مشاريع الفيلات في فتحية & فيلات فتحية الفاخرة',
+    'home.projects.villa.desc': 'مشاريع فيلات فتحية وفيلات فتحية الفاخرة وفيلات حسن أغلو. عمارة حديثة، مساحات معيشة واسعة، مواد عالية الجودة وتصاميم مناسبة لفتحية.',
+    'home.projects.pool.title': 'بناء المسابح في فتحية & المساحات الخارجية',
+    'home.projects.pool.desc': 'نحن خبراء في بناء المسابح في فتحية وتصميم المسابح في فتحية وبناء المسابح في فتحية. نضيف قيمة جمالية لمشاريع فيلاتنا مع المسابح في فتحية من خلال مشاريع المسابح الحديثة في فتحية وحلول الأرضيات المتينة وتطبيقات المساحات الخارجية الموجهة للراحة.',
+    'home.projects.housing.title': 'الإسكان الجماعي في فتحية & حسن أغلو الإسكان الجماعي في فتحية',
+    'home.projects.housing.desc': 'مشاريع الإسكان الجماعي في فتحية وحسن أغلو الإسكان الجماعي في فتحية. مستوطنة مخططة، بنية تحتية قوية، واجهة حديثة ومعايير بناء طويلة الأمد.',
+    'home.projects.landscape.title': 'تنسيق الحدائق في فتحية & حسن أغلو تنسيق الحدائق',
+    'home.projects.landscape.desc': 'خدمات تنسيق الحدائق في فتحية وحسن أغلو تنسيق الحدائق. تخطيط المساحات الخضراء، خطوط الحدائق الحديثة وحلول بيئية سهلة الصيانة.',
+    'home.projects.hotel.title': 'مشاريع الفنادق في فتحية & حسن أغلو الفنادق',
+    'home.projects.hotel.desc': 'مشاريع الفنادق في فتحية وحسن أغلو الفنادق. واجهة مرموقة، لغة إضاءة قوية وتخطيط وظيفي موجه للإقامة.',
+    'home.projects.seaView.title': 'العقارات في فتحية & الأراضي المطلة على البحر',
+    'home.projects.seaView.desc': 'مشاريع العقارات في فتحية والأراضي المطلة على البحر. تحليل الأرض، جدوى المشروع وحلول الاستيطان التي تستفيد إلى أقصى حد من الإطلالة.',
+    'home.projects.hospital.title': 'المستشفى الخاص في فتحية & حسن أغلو المستشفى الخاص',
+    'home.projects.hospital.desc': 'مشاريع المستشفى الخاص في فتحية وحسن أغلو المستشفى الخاص. خدمة خبيرة في مشاريع المستشفيات الخاصة مع بنية صحية حديثة وحلول هندسية قوية وتصميم موجه للمريض.',
+    'home.projects.viewProjects': 'عرض المشاريع →',
     'about.title': 'من نحن',
     'about.description.p1': 'أنشأت شركة حسن أغلو للإنشاءات تاريخها الراسخ في القطاع بأساسات قوية وضعت في ساكاريا؛ اليوم، وسعت منطقة خدماتها من خلال نقل خبرتها وخبرتها إلى فتحية.',
     'about.description.p2': 'كشركة تعمل في فتحية والمناطق المحيطة بها، وتتعرف عن كثب على ديناميكيات واحتياجات المنطقة، نهدف إلى إنتاج مشاريع تبعث على الثقة وجمالية وطويلة الأمد.',
@@ -614,6 +646,25 @@ const translations = {
     'contact.formSubmit': 'إرسال',
     'contact.mapTitle': 'موقع المكتب',
     'footer.rights': 'جميع الحقوق محفوظة',
+    'footer.workingHours.title': 'ساعات العمل',
+    'footer.workingHours.weekdays': 'الاثنين - السبت',
+    'footer.workingHours.weekdaysTime': '09:00 - 18:00',
+    'footer.workingHours.sunday': 'الأحد',
+    'footer.workingHours.closed': 'مغلق',
+    'footer.location': 'فتحية، موغلا، تركيا',
+    'footer.navigation.title': 'التنقل',
+    'footer.quickLinks.title': 'روابط سريعة',
+    'footer.services.title': 'الخدمات',
+    'footer.services.villa': 'بناء الفيلات',
+    'footer.services.housing': 'الإسكان الجماعي',
+    'footer.services.turnkey': 'تسليم المفتاح',
+    'footer.services.landscape': 'تنسيق الحدائق & المسابح',
+    'footer.quickLinks.contact': 'اتصل بنا',
+    'footer.quickLinks.projects': 'مشاريعنا',
+    'footer.quickLinks.services': 'خدماتنا',
+    'footer.quickLinks.quote': 'احصل على عرض سعر',
+    'footer.copyright': '© 2025 حسن أغلو للإنشاءات فتحية (منذ 1935) | جميع الحقوق محفوظة',
+    'footer.website': 'www.hasanagaogluinsaat.com',
     // About page
     'about.title.split.left': 'البناء',
     'about.title.split.right': 'الخدمات',
@@ -715,7 +766,11 @@ function translatePage(lang) {
   localStorage.setItem('language', lang);
   
   // Tüm data-key özellikli elementleri bul ve çevir
-  document.querySelectorAll('[data-key]').forEach(element => {
+  const elements = document.querySelectorAll('[data-key]');
+  let translatedCount = 0;
+  let missingCount = 0;
+  
+  elements.forEach(element => {
     const key = element.getAttribute('data-key');
     if (translations[lang] && translations[lang][key]) {
       // Input ve textarea için placeholder, diğerleri için textContent
@@ -724,8 +779,20 @@ function translatePage(lang) {
       } else {
         element.textContent = translations[lang][key];
       }
+      translatedCount++;
+    } else {
+      // Eksik çeviri uyarısı (sadece geliştirme için)
+      if (lang !== 'tr') {
+        console.warn(`Çeviri eksik: [${lang}] ${key}`);
+        missingCount++;
+      }
     }
   });
+  
+  // Debug bilgisi
+  if (lang === 'ar' && (translatedCount > 0 || missingCount > 0)) {
+    console.log(`Arapça çeviri: ${translatedCount} çevrildi, ${missingCount} eksik`);
+  }
   
   // Dil butonunu güncelle
   const langBtn = document.getElementById('langBtn');
@@ -749,37 +816,109 @@ document.addEventListener('DOMContentLoaded', function() {
   // Mevcut dili yükle
   translatePage(currentLang);
   
+  // Sayfa tamamen yüklendikten sonra tekrar çevir (dinamik içerik için)
+  window.addEventListener('load', function() {
+    translatePage(currentLang);
+  });
+  
   // Dil dropdown açma/kapama
   const langBtn = document.getElementById('langBtn');
   const langDropdowns = document.querySelectorAll('.lang-dropdown');
   const languageSelectors = document.querySelectorAll('.language-selector');
   
+  // Debug: Butonların bulunup bulunmadığını kontrol et
+  if (!langBtn) {
+    console.warn('langBtn bulunamadı!');
+  }
+  
   // Dil butonuna tıklama
   if (langBtn) {
     langBtn.addEventListener('click', function(e) {
+      e.preventDefault();
       e.stopPropagation();
-      languageSelectors.forEach(selector => {
+      e.stopImmediatePropagation();
+      
+      console.log('Dil butonu tıklandı'); // Debug
+      
+      // Tüm dropdown'ları kontrol et
+      const currentDropdowns = document.querySelectorAll('.lang-dropdown');
+      const currentSelectors = document.querySelectorAll('.language-selector');
+      
+      currentSelectors.forEach(selector => {
         const dropdown = selector.querySelector('.lang-dropdown');
         if (dropdown) {
-          dropdown.classList.toggle('active');
+          const isActive = dropdown.classList.contains('active');
+          
+          // Önce tüm dropdown'ları kapat
+          currentDropdowns.forEach(d => {
+            d.classList.remove('active');
+            d.style.display = 'none';
+          });
+          
+          // Eğer bu dropdown aktif değilse, aç
+          if (!isActive) {
+            dropdown.classList.add('active');
+            dropdown.style.display = 'block';
+            dropdown.style.visibility = 'visible';
+            dropdown.style.opacity = '1';
+            dropdown.style.zIndex = '99999';
+            
+            // Mobilde konumu ayarla
+            if (window.innerWidth < 769) {
+              const rect = langBtn.getBoundingClientRect();
+              dropdown.style.position = 'fixed';
+              dropdown.style.right = '20px';
+              dropdown.style.top = (rect.bottom + 10) + 'px';
+              dropdown.style.left = 'auto';
+            }
+            
+            console.log('Dropdown açıldı'); // Debug
+          }
         }
       });
-    });
+    }, true); // Capture phase'de çalışsın
+  } else {
+    console.error('langBtn element bulunamadı!');
   }
   
-  // Dışarı tıklandığında dropdown'ı kapat
+  // Dropdown içindeki linklere tıklama - propagation'ı durdur
+  langDropdowns.forEach(dropdown => {
+    dropdown.addEventListener('click', function(e) {
+      e.stopPropagation();
+    });
+  });
+  
+  // Dışarı tıklandığında dropdown'ı kapat (biraz gecikme ile)
   document.addEventListener('click', function(e) {
-    if (!e.target.closest('.language-selector')) {
-      langDropdowns.forEach(dropdown => {
-        dropdown.classList.remove('active');
-      });
+    // Language selector içinde değilse kapat
+    if (!e.target.closest('.language-selector') && !e.target.closest('.lang-dropdown')) {
+      setTimeout(function() {
+        langDropdowns.forEach(dropdown => {
+          dropdown.classList.remove('active');
+          dropdown.style.display = 'none';
+        });
+      }, 100);
     }
+  });
+  
+  // Window resize'da dropdown konumunu güncelle
+  window.addEventListener('resize', function() {
+    langDropdowns.forEach(dropdown => {
+      if (dropdown.classList.contains('active') && window.innerWidth < 769) {
+        const langBtn = document.getElementById('langBtn');
+        if (langBtn) {
+          const rect = langBtn.getBoundingClientRect();
+          dropdown.style.top = (rect.bottom + 10) + 'px';
+        }
+      }
+    });
   });
   
   // Dil dropdown linklerine tıklama eventi
   document.querySelectorAll('[data-lang]').forEach(link => {
     link.addEventListener('click', function(e) {
       e.preventDefault();
+      e.stopPropagation();
       const lang = this.getAttribute('data-lang');
       translatePage(lang);
       // Dropdown'ı kapat
@@ -884,27 +1023,76 @@ document.addEventListener('DOMContentLoaded', function() {
   const mobileMenuToggle = document.getElementById('mobileMenuToggle');
   const navLinks = document.getElementById('navLinks');
   
+  // Debug: Butonların bulunup bulunmadığını kontrol et
+  if (!mobileMenuToggle) {
+    console.warn('mobileMenuToggle bulunamadı!');
+  }
+  if (!navLinks) {
+    console.warn('navLinks bulunamadı!');
+  }
+  
   if (mobileMenuToggle && navLinks) {
-    mobileMenuToggle.addEventListener('click', function() {
-      navLinks.classList.toggle('active');
+    mobileMenuToggle.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      e.stopImmediatePropagation();
       
-      // Hamburger animasyonu
+      console.log('Mobil menü butonu tıklandı'); // Debug
+      
+      const isActive = navLinks.classList.contains('active');
+      
+      // Tüm menüleri kapat
+      navLinks.classList.remove('active');
+      navLinks.classList.remove('is-open');
+      mobileMenuToggle.classList.remove('active');
+      
+      // Hamburger animasyonu sıfırla
       const spans = mobileMenuToggle.querySelectorAll('span');
-      if (navLinks.classList.contains('active')) {
+      spans[0].style.transform = 'none';
+      spans[1].style.opacity = '1';
+      spans[2].style.transform = 'none';
+      
+      // Eğer kapalıysa aç
+      if (!isActive) {
+        navLinks.classList.add('active');
+        navLinks.classList.add('is-open');
+        mobileMenuToggle.classList.add('active');
+        navLinks.style.display = 'flex';
+        navLinks.style.visibility = 'visible';
+        navLinks.style.opacity = '1';
+        navLinks.style.zIndex = '100000';
+        
+        // Hamburger animasyonu
         spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
         spans[1].style.opacity = '0';
         spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+        
+        console.log('Mobil menü açıldı'); // Debug
       } else {
+        navLinks.style.display = 'none';
+        console.log('Mobil menü kapatıldı'); // Debug
+      }
+    }, true); // Capture phase'de çalışsın
+    
+    // Menü linklerine tıklandığında menüyü kapat
+    navLinks.addEventListener('click', function(e) {
+      if (e.target.tagName === 'A') {
+        navLinks.classList.remove('active');
+        navLinks.classList.remove('is-open');
+        mobileMenuToggle.classList.remove('active');
+        const spans = mobileMenuToggle.querySelectorAll('span');
         spans[0].style.transform = 'none';
         spans[1].style.opacity = '1';
         spans[2].style.transform = 'none';
       }
     });
     
-    // Menü linklerine tıklandığında menüyü kapat
-    navLinks.addEventListener('click', function(e) {
-      if (e.target.tagName === 'A') {
+    // Dışarı tıklandığında menüyü kapat
+    document.addEventListener('click', function(e) {
+      if (!navLinks.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
         navLinks.classList.remove('active');
+        navLinks.classList.remove('is-open');
+        mobileMenuToggle.classList.remove('active');
         const spans = mobileMenuToggle.querySelectorAll('span');
         spans[0].style.transform = 'none';
         spans[1].style.opacity = '1';
@@ -1278,9 +1466,11 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // Mouse slider üzerindeyken otomatik geçişi durdur
-  heroSlider.addEventListener('mouseenter', stopAutoSlide);
-  heroSlider.addEventListener('mouseleave', startAutoSlide);
+  // Mouse slider üzerindeyken otomatik geçişi durdur (sadece desktop)
+  if (window.matchMedia('(min-width: 769px)').matches) {
+    heroSlider.addEventListener('mouseenter', stopAutoSlide);
+    heroSlider.addEventListener('mouseleave', startAutoSlide);
+  }
 
   // Touch/swipe desteği (mobil için)
   let touchStartX = 0;
@@ -1288,17 +1478,25 @@ document.addEventListener('DOMContentLoaded', function() {
   let mouseStartX = 0;
   let mouseEndX = 0;
   let isDragging = false;
+  let touchTimeout;
 
   // Touch events (mobil)
   heroSlider.addEventListener('touchstart', function(e) {
     touchStartX = e.changedTouches[0].screenX;
     stopAutoSlide();
+    // Timeout'u temizle
+    if (touchTimeout) {
+      clearTimeout(touchTimeout);
+    }
   });
 
   heroSlider.addEventListener('touchend', function(e) {
     touchEndX = e.changedTouches[0].screenX;
     handleSwipe(touchStartX, touchEndX);
-    startAutoSlide();
+    // Touch sonrası 3 saniye bekle, sonra otomatik geçişe devam et
+    touchTimeout = setTimeout(function() {
+      startAutoSlide();
+    }, 3000);
   });
 
   // Mouse drag events (masaüstü)
@@ -1360,7 +1558,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // İlk slide'ı göster ve otomatik kaydırmayı başlat
   showSlide(0);
+  
+  // Mobilde de otomatik geçişi başlat
   startAutoSlide();
+  
+  // Mobil cihazlarda otomatik geçişi garanti et
+  if (window.matchMedia('(max-width: 768px)').matches) {
+    // Mobilde 5 saniyede bir otomatik geçiş
+    setInterval(function() {
+      if (!isDragging) {
+        nextSlide();
+      }
+    }, 5000);
+  }
 });
 
 
