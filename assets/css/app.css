@@ -3430,6 +3430,8 @@ main{
   grid-template-columns: 1fr 1fr;
   position: relative;
   overflow: hidden;
+  /* Performans optimizasyonu */
+  contain: layout style;
 }
 
 .about-split__media{
@@ -3441,6 +3443,10 @@ main{
   background-color: #000000;
   clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
   height: 100%;
+  /* GPU hızlandırması */
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
 .about-split__content{
@@ -3585,28 +3591,45 @@ main{
   .about-split{
     grid-template-columns: 1fr;
     min-height: auto;
-  }
-
-  .about-split__media{
-    height: 50vh;
-    min-height: 400px;
-  }
-
-  .about-split__content{
-    padding: 52px 22px;
+    /* Mobilde performans için */
+    contain: layout style paint;
   }
 
   .about-split__media{
     height: 46vh;
+    min-height: 350px;
+    max-height: 500px;
     clip-path: none;
+    /* Mobilde filter'ları kaldır veya azalt - performans için */
+    filter: grayscale(80%) contrast(1.05) brightness(0.7);
+    /* Mobilde GPU hızlandırması */
+    transform: translateZ(0);
+    will-change: auto;
+    /* Arka plan optimizasyonu */
+    background-attachment: scroll;
+    background-size: cover;
+    background-position: center center;
+    /* Lazy loading için başlangıçta arka plan yok */
+    background-image: none;
+    background-color: #1a1a1a;
+  }
+  
+  /* Lazy loading sonrası resim yüklendiğinde */
+  .about-split__media.loaded{
+    background-image: url("../images/about.jpg");
+    transition: opacity 0.3s ease;
   }
 
   .about-split__content{
-    padding: 52px 22px;
+    padding: 40px 20px;
+    /* Mobilde içerik için de optimizasyon */
+    contain: layout style;
   }
 
   .about-split__inner{
     margin-left: 0;
+    /* Mobilde transform kullanma */
+    transform: none;
   }
 
   .about-title-split{

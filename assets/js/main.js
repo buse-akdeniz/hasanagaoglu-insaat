@@ -1,5 +1,5 @@
-// CTA Popup güvenli kapatma
-const cta = document.getElementById('ctaPopup');
+// CTA  güvenli kapatma
+const cta = documePopupnt.getElementById('ctaPopup');
 if (cta) cta.remove();
 
 // Dil çevirileri
@@ -548,7 +548,7 @@ const translations = {
     'projects.project06.desc': 'Планирование, масштаб и устойчивый архитектурный подход в текущих проектах массового жилья.',
     'projects.project07.title': 'Проект_07',
     'projects.project07.desc': 'Роскошные детали, специальная работа и архитектурное совершенство в премиальных проектах особняков.',
-    'projects.villa01.title': 'Вилла_01',
+    'projects.villa01.title': 'Villa_01',
     // Contact page
     'contact.hero.title': 'Контакты',
     'contact.hero.subtitle': 'ОФИСЫ HASANAĞAOĞLU CONSTRUCTION',
@@ -730,7 +730,7 @@ const translations = {
     'projects.project06.desc': 'التخطيط والمقياس والنهج المعماري المستدام في مشاريع الإسكان الجماعي الجارية.',
     'projects.project07.title': 'المشروع_07',
     'projects.project07.desc': 'تفاصيل فاخرة وعمل خاص والتميز المعماري في مشاريع القصور المميزة.',
-    'projects.villa01.title': 'فيلا_01',
+    'projects.villa01.title': 'Villa_01',
     // Contact page
     'contact.hero.title': 'اتصل بنا',
     'contact.hero.subtitle': 'مكاتب شركة حسن أغلو للإنشاءات',
@@ -1603,6 +1603,18 @@ document.addEventListener('DOMContentLoaded', function() {
   function smoothScrollTo(element) {
     if (!element || isScrolling) return;
     
+    // Mobilde native smooth scroll kullan - daha performanslı
+    const isMobile = window.innerWidth <= 900 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    if (isMobile) {
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+      const offset = 80;
+      const targetPosition = elementPosition - offset;
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // Native scroll kullanıldığı için isScrolling'i hemen false yap
+      setTimeout(() => { isScrolling = false; }, 100);
+      return;
+    }
+    
     isScrolling = true;
     
     // Önceki timeout'u temizle
@@ -1675,6 +1687,12 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Sayfa yüklendiğinde otomatik scroll
   function autoScrollOnLoad() {
+    // Mobilde otomatik scroll'u devre dışı bırak - performans için
+    const isMobile = window.innerWidth <= 900 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    if (isMobile) {
+      return; // Mobilde otomatik scroll yapma
+    }
+    
     // Önce hash kontrolü yap
     if (window.location.hash) {
       const target = document.querySelector(window.location.hash);
@@ -2101,4 +2119,41 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 });
+
+// === LAZY LOADING: About sayfası arka plan resmi (Mobil performans optimizasyonu) ===
+(function() {
+  // Mobilde lazy loading için Intersection Observer kullan
+  const isMobile = window.innerWidth <= 900 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  
+  if (!isMobile) {
+    // Desktop'ta hemen yükle
+    return;
+  }
+  
+  const aboutMedia = document.querySelector('.about-split__media[data-bg-image]');
+  if (!aboutMedia) return;
+  
+  const bgImage = aboutMedia.getAttribute('data-bg-image');
+  if (!bgImage) return;
+  
+  // Intersection Observer ile lazy loading
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Resmi yükle
+        const img = new Image();
+        img.onload = function() {
+          aboutMedia.style.backgroundImage = `url(${bgImage})`;
+          aboutMedia.classList.add('loaded');
+        };
+        img.src = bgImage;
+        observer.unobserve(aboutMedia);
+      }
+    });
+  }, {
+    rootMargin: '50px' // 50px önceden yükle
+  });
+  
+  observer.observe(aboutMedia);
+})();
 
