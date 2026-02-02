@@ -1,0 +1,57 @@
+# HTTPS Yönlendirme - HTTP'den HTTPS'e yönlendir
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# WWW Yönlendirme (www olmadan versiyona yönlendir - veya tam tersi)
+# Eğer www.hasanagaogluinsaat.com kullanmak istiyorsanız, aşağıdaki satırları kullanın:
+# <IfModule mod_rewrite.c>
+# RewriteEngine On
+# RewriteCond %{HTTP_HOST} !^www\. [NC]
+# RewriteRule ^(.*)$ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# </IfModule>
+
+# Güvenlik Headers
+<IfModule mod_headers.c>
+    # XSS Protection
+    Header set X-XSS-Protection "1; mode=block"
+    # Clickjacking Protection
+    Header set X-Frame-Options "SAMEORIGIN"
+    # MIME Type Sniffing Protection
+    Header set X-Content-Type-Options "nosniff"
+    # Referrer Policy
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# Gzip Compression (Performans için)
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
+</IfModule>
+
+# Browser Caching (Performans için)
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+# PHP Ayarları (Eğer gerekirse)
+<IfModule mod_php7.c>
+    php_value upload_max_filesize 10M
+    php_value post_max_size 10M
+</IfModule>
+
+
+
+
+
+
+

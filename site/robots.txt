@@ -1,0 +1,30 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.hasanagaogluinsaat.com/sitemap.xml
+
+# Önemli sayfaları önceliklendir
+Allow: /index.html
+Allow: /hakkimizda.html
+Allow: /hizmetler.html
+Allow: /projeler.html
+Allow: /iletisim.html
+
+# Yüklenmemesi gerekenler
+Disallow: /backups/
+Disallow: /*.bak*
+Disallow: /PHPMailer/
+Disallow: /send-mail.php
+Disallow: /sendmail.php
+
+# Arama motorları için
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Yandex
+Allow: /
+

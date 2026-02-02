@@ -171,3 +171,9 @@ Veya **Hard Refresh:**
 
 **Not:** Eğer yedek almak isterseniz, eski dosyaları silmeden önce yedekleyin!
 
+
+
+
+
+
+

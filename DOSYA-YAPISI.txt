@@ -1,0 +1,80 @@
+DOĞRU KLASÖR YAPISI
+====================
+
+public_html/ (veya root dizin)
+│
+├── index.html
+├── hakkimizda.html
+├── hizmetler.html
+├── projeler.html
+├── iletisim.html
+├── tesekkurler.html
+├── proje-detay.html
+├── .htaccess
+├── robots.txt
+├── sitemap.xml
+├── send-mail.php
+├── sendmail.php
+│
+├── assets/
+│   ├── css/
+│   │   ├── app.css
+│   │   └── projects.css
+│   ├── images/
+│   │   ├── logo.png
+│   │   ├── about.jpg
+│   │   ├── footer-wireframe-city.jpg
+│   │   ├── gelecek-toplu-konut-2.jpg
+│   │   ├── gelecek-toplu-konut.jpg
+│   │   ├── gelecek-villa-1.JPG
+│   │   ├── gelecek-villa-2.JPG
+│   │   ├── gelecek-villa-3.JPG
+│   │   ├── gelecek-villa-4.JPG
+│   │   ├── malikane-1.JPG
+│   │   ├── malikane-2.JPG
+│   │   ├── malikane-3.JPG
+│   │   ├── ozel-hastane.jpg
+│   │   ├── proje-villa-1.jpg
+│   │   ├── proje-villa-2.jpg
+│   │   ├── proje-villa-3.jpg
+│   │   ├── proje-villa-4.jpg
+│   │   ├── projects/
+│   │   │   └── villalar/
+│   │   │       ├── villa-1.jpg
+│   │   │       └── villa-2.jpg
+│   │   ├── teslim-havuz-1.jpg
+│   │   ├── teslim-havuz-2.jpg
+│   │   ├── teslim-havuz-3.jpg
+│   │   ├── teslim-havuz-4.jpg
+│   │   ├── teslim-havuz-5.jpg
+│   │   ├── teslim-toplu-konut-1.jpg
+│   │   ├── teslim-toplu-konut-2.jpg
+│   │   ├── teslim-toplu-konut-3.jpg
+│   │   ├── teslim-toplu-konut-4.jpg
+│   │   ├── toplu-konut-1.jpg
+│   │   ├── toplu-konut-2.jpg
+│   │   ├── villa-completed-1.jpg
+│   │   ├── villa-completed-2.jpg
+│   │   ├── villa-completed-3.jpg
+│   │   └── villa-completed-4.jpg
+│   ├── img/
+│   │   ├── arkaplan.jpg
+│   │   ├── deniz-manzarali-arsa.jpg
+│   │   ├── havuz.jpg
+│   │   ├── hizmetler-hero.jpg
+│   │   ├── otel.jpg
+│   │   ├── peyzaj.jpg
+│   │   ├── toplu-konut.jpg
+│   │   └── villa.jpg
+│   └── js/
+│       └── main.js
+│
+├── PHPMailer/
+│   └── src/
+│       ├── Exception.php
+│       ├── PHPMailer.php
+│       └── SMTP.php
+│
+└── img/
+    └── whatsapp.svg
+

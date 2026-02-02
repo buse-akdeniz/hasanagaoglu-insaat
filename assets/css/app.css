@@ -83,7 +83,7 @@ a{ color:inherit; text-decoration:none; }
 .btn.primary{ background: rgba(54,195,122,.18); border-color: rgba(54,195,122,.35); }
 
 .site-header{
-  position:sticky; top:0; z-index:100000 !important;
+  position:sticky; top:0; z-index:50;
   background:rgba(25,28,32,.92);
   backdrop-filter: blur(10px);
   border-bottom:1px solid var(--line);
@@ -93,10 +93,7 @@ a{ color:inherit; text-decoration:none; }
   align-items:center !important;
   justify-content:space-between !important;
   gap:16px !important;
-  padding:14px 20px !important;
-  flex-wrap: wrap;
-  position: relative;
-  z-index: 100001 !important;
+  padding:14px 0 !important;
 }
 .site-header .logo{
   display:flex !important;
@@ -112,55 +109,12 @@ a{ color:inherit; text-decoration:none; }
   gap:6px !important;
   flex-wrap:wrap !important;
   margin-left: 18px;
-  flex: 1;
-  justify-content: center;
-}
-
-@media (max-width: 980px) {
-  .site-header .nav-links {
-    margin-left: 0;
-    justify-content: flex-start;
-  }
 }
 .site-header .header-right{
   display:flex !important;
   align-items:center !important;
   gap:8px !important;
   flex-shrink:0 !important;
-  position: relative;
-  z-index: 100002 !important;
-  margin-left: auto;
-  pointer-events: auto !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-}
-
-/* Desktop'ta da butonların üstte olmasını garanti et */
-@media (min-width: 769px) {
-  .site-header {
-    z-index: 100000 !important;
-  }
-  
-  .site-header .container {
-    z-index: 100001 !important;
-  }
-  
-  .lang-btn,
-  .language-selector,
-  .mobile-menu-toggle {
-    z-index: 100003 !important;
-    position: relative !important;
-    pointer-events: auto !important;
-  }
-  
-  .lang-dropdown {
-    z-index: 100004 !important;
-  }
-  
-  .header-right {
-    z-index: 100002 !important;
-    pointer-events: auto !important;
-  }
 }
 .nav{
   display:flex; align-items:center; justify-content:space-between;
@@ -172,23 +126,7 @@ a{ color:inherit; text-decoration:none; }
   align-items: center;
   gap: 12px;
   text-decoration: none;
-  line-height: 1.2;
-  flex-shrink: 0;
-}
-
-.brand-text {
-  font-size: 16px;
-  font-weight: 700;
-  color: #ffffff;
-  white-space: nowrap;
-  letter-spacing: 0.02em;
-  display: block;
-}
-
-.brand__logo {
-  height: 40px;
-  width: auto;
-  object-fit: contain;
+  line-height: 0;
 }
 .brand .dot{
   width:10px; height:10px; border-radius:999px;
@@ -369,76 +307,32 @@ header .brand-logo {
 }
 
 /* Language dropdown (minimal) */
-.language-selector{ 
-  position:relative; 
-  z-index: 100001 !important;
-  pointer-events: auto !important;
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-}
+.language-selector{ position:relative; }
 .lang-btn{
-  display:inline-flex !important;
-  align-items:center;
-  justify-content:center;
+  display:inline-flex; align-items:center; justify-content:center;
   padding:10px 12px;
+
   border:1px solid var(--line);
   background: rgba(255,255,255,.06);
   color: var(--text);
   cursor:pointer;
-  position: relative;
-  z-index: 100001 !important;
-  pointer-events: auto !important;
-  visibility: visible !important;
-  opacity: 1 !important;
 }
 .lang-dropdown{
   display:none;
-  position:fixed;
-  right:20px;
-  top: auto;
-  bottom: auto;
+  position:absolute;
+  right:0; top: calc(100% + 10px);
   min-width: 180px;
-  background:rgba(25,28,32,.98);
+  background:rgba(25,28,32,.92);
   border:1px solid var(--line);
   border-radius: 14px;
   overflow:hidden;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-  z-index: 99999;
-  backdrop-filter: blur(10px);
-  pointer-events: auto;
-  max-height: 90vh;
-  overflow-y: auto;
+  box-shadow: var(--shadow);
 }
-
-/* Desktop için absolute positioning */
-@media (min-width: 769px) {
-  .lang-dropdown {
-    position: absolute;
-    right: 0;
-    top: calc(100% + 10px);
-    bottom: auto;
-  }
-}
-
-.language-selector .lang-dropdown.active{ 
-  display:block !important; 
-  z-index: 99999 !important;
-  pointer-events: auto !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-}
-
-/* Hover desteği kaldırıldı - sadece tıklama ile çalışsın */
-
+.language-selector:hover .lang-dropdown{ display:block; }
 .lang-dropdown a{
   display:block;
   padding:10px 12px;
   color: var(--muted);
-  position: relative;
-  z-index: 10000;
-  cursor: pointer;
-  pointer-events: auto;
 }
 .lang-dropdown a:hover{
   background: rgba(255,255,255,.06);
@@ -449,20 +343,9 @@ header .brand-logo {
 .mobile-menu-toggle{
   display:none;
   width:44px; height:44px;
+
   border:1px solid var(--line);
   background: rgba(255,255,255,.06);
-  cursor: pointer;
-  position: relative;
-  z-index: 100001 !important;
-  border-radius: 6px;
-  flex-shrink: 0;
-  -webkit-tap-highlight-color: transparent;
-  touch-action: manipulation;
-  pointer-events: auto !important;
-}
-
-.mobile-menu-toggle.active {
-  background: rgba(255,255,255,.12);
 }
 .mobile-menu-toggle span{
   display:block;
@@ -477,144 +360,17 @@ header .brand-logo {
   .mobile-menu-toggle{ display:inline-block; }
   #navLinks.nav-links{
     display:none;
-    position:fixed;
-    left:4vw; 
-    right:4vw;
-    top:70px;
+    position:absolute;
+    left:4vw; right:4vw;
+    top:68px;
     padding:12px;
-    background:rgba(25,28,32,.98);
+    background:rgba(25,28,32,.92);
     border:1px solid var(--line);
     border-radius: 16px;
-    z-index: 10000;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(10px);
-    max-height: calc(100vh - 100px);
-    overflow-y: auto;
   }
-  #navLinks.nav-links.is-open,
-  #navLinks.nav-links.active{ 
-    display:flex !important; 
-    flex-direction:column; 
-    align-items:stretch; 
-    z-index: 1000 !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-  }
+  #navLinks.nav-links.is-open{ display:flex; flex-direction:column; align-items:stretch; }
   .header-right{ gap:8px; }
   .call-btn{ padding:7px 12px; font-size: 13px; }
-  
-  /* Brand text mobile'da küçült */
-  .brand-text {
-    font-size: 14px;
-  }
-  
-  .brand__logo {
-    height: 35px;
-  }
-}
-
-/* Mobile - Küçük ekranlar */
-@media (max-width: 768px){
-  .site-header .container {
-    padding: 10px 16px !important;
-    gap: 12px !important;
-  }
-  
-  /* Brand text mobile'da küçült */
-  .brand-text {
-    font-size: 11px;
-    max-width: 100px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  
-  .brand__logo {
-    height: 32px;
-  }
-  
-  .brand {
-    gap: 8px;
-  }
-  
-  .header-right {
-    gap: 6px !important;
-  }
-  
-  .lang-btn {
-    padding: 8px 10px;
-    font-size: 12px;
-    z-index: 100001 !important;
-    pointer-events: auto !important;
-    position: relative !important;
-  }
-  
-  .call-btn {
-    padding: 6px 10px;
-    font-size: 12px;
-  }
-  
-  .mobile-menu-toggle {
-    width: 40px;
-    height: 40px;
-    z-index: 100001 !important;
-    pointer-events: auto !important;
-    position: relative !important;
-  }
-  
-  /* Mobilde dil dropdown'ı daha görünür yap */
-  .lang-dropdown {
-    position: fixed !important;
-    right: 20px !important;
-    top: auto !important;
-    z-index: 99999 !important;
-    min-width: 160px;
-    max-width: calc(100vw - 40px);
-  }
-  
-  .lang-dropdown.active {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-  }
-  
-  /* Mobil menü z-index */
-  #navLinks.nav-links {
-    z-index: 10000 !important;
-  }
-  
-  #navLinks.nav-links.active {
-    z-index: 10000 !important;
-  }
-}
-
-/* Mobile - Çok küçük ekranlar */
-@media (max-width: 480px){
-  .brand-text {
-    display: none; /* Çok küçük ekranlarda tamamen gizle - sadece logo */
-  }
-  
-  .brand__logo {
-    height: 28px;
-  }
-  
-  .site-header .container {
-    padding: 8px 12px !important;
-  }
-  
-  .header-right {
-    gap: 4px !important;
-  }
-  
-  .lang-btn {
-    padding: 6px 8px;
-    font-size: 11px;
-  }
-  
-  .call-btn {
-    padding: 6px 8px;
-    font-size: 11px;
-    white-space: nowrap;
-  }
 }
 
 /* ===== Global header lock (all pages) ===== */
@@ -1904,124 +1660,6 @@ body.theme-dark.home-page::after{
   min-height: 500px;
   max-height: 800px;
   overflow: hidden;
-  z-index: 1 !important;
-}
-
-/* Hero slider'ın içindeki slide'ları header'ın altında tut - ama görünür olsun */
-.hero-slider .hero-slide {
-  z-index: 1 !important;
-}
-
-/* Slider içindeki butonlar ve kontroller görünür olsun - header'ın üstünde */
-.hero-slider-prev,
-.hero-slider-next,
-.hero-dots {
-  z-index: 10 !important;
-  position: relative;
-  pointer-events: auto !important;
-}
-
-/* Hero Content Overlay - Çevrilebilir metinler için */
-.hero-content-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 5 !important;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: none;
-}
-
-.hero-content {
-  max-width: 900px;
-  padding: 0 40px;
-  text-align: center;
-  color: #ffffff;
-  pointer-events: auto;
-}
-
-.hero-title {
-  font-size: clamp(32px, 5vw, 56px);
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 20px;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-  color: #ffffff;
-}
-
-.hero-description {
-  font-size: clamp(16px, 2vw, 20px);
-  line-height: 1.6;
-  margin-bottom: 32px;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-  color: rgba(255, 255, 255, 0.95);
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.hero-buttons {
-  display: flex;
-  gap: 16px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.hero-btn {
-  display: inline-block;
-  padding: 14px 32px;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 16px;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  text-shadow: none;
-}
-
-.hero-btn.primary {
-  background: #36c37a;
-  color: #ffffff;
-  border: 2px solid #36c37a;
-}
-
-.hero-btn.primary:hover {
-  background: #2ea866;
-  border-color: #2ea866;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(54, 195, 122, 0.4);
-}
-
-.hero-btn.secondary {
-  background: rgba(255, 255, 255, 0.15);
-  color: #ffffff;
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(10px);
-}
-
-.hero-btn.secondary:hover {
-  background: rgba(255, 255, 255, 0.25);
-  border-color: rgba(255, 255, 255, 0.5);
-  transform: translateY(-2px);
-}
-
-/* Mobil için hero content düzenlemeleri */
-@media (max-width: 768px) {
-  .hero-content {
-    padding: 0 20px;
-  }
-  
-  .hero-buttons {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  
-  .hero-btn {
-    width: 100%;
-    text-align: center;
-  }
 }
 
 /* Slider görselleri – tam görünüm (eski stil - yeni stil en altta) */
@@ -2031,7 +1669,6 @@ body.theme-dark.home-page::after{
   opacity: 0;
   transition: opacity 1s ease-in-out;
   filter: none !important; /* Görselleri canlı tut, brightness filter kaldır */
-  z-index: 1 !important; /* Header'ın altında kalması için */
 }
 
 /* Hero görselleri için tüm filter'ları kaldır - görseller canlı olsun */
@@ -2457,13 +2094,8 @@ body.theme-dark.home-page::after{
   z-index: 1;
 }
 
-.hero-slide .hero-overlay{ z-index: 2 !important; }
-.hero-slide .hero-caption{ z-index: 3 !important; }
-
-/* Hero slide'ların z-index'ini header'ın altında tut */
-.hero-slide {
-  z-index: 1 !important;
-}
+.hero-slide .hero-overlay{ z-index: 2; }
+.hero-slide .hero-caption{ z-index: 3; }
 
 
 /* HERO: tam görünsün (crop yok) */
@@ -2495,19 +2127,11 @@ body.theme-dark.home-page::after{
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  z-index: 1 !important; /* Header'ın altında ama görünür */
-}
-
-.hero-slide.active {
-  opacity: 1 !important;
-  visibility: visible !important;
-  z-index: 2 !important; /* Aktif slide görünür olsun */
 }
 
 .hero-slide.active{
-  opacity: 1 !important;
-  visibility: visible !important;
-  z-index: 2 !important; /* Aktif slide görünür olsun */
+  opacity: 1;
+  visibility: visible;
 }
 
 .hero-overlay{
@@ -3228,7 +2852,7 @@ body.theme-dark.home-page::after{
 /* Slider ile sonraki bölümün birbirine girmesini engelle */
 body.theme-dark.home-page .hero-slider{
   position: relative;
-  z-index: 1;
+  z-index: 10;
   background: transparent;
 }
 
@@ -3430,8 +3054,6 @@ main{
   grid-template-columns: 1fr 1fr;
   position: relative;
   overflow: hidden;
-  /* Performans optimizasyonu */
-  contain: layout style;
 }
 
 .about-split__media{
@@ -3443,10 +3065,6 @@ main{
   background-color: #000000;
   clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
   height: 100%;
-  /* GPU hızlandırması */
-  transform: translateZ(0);
-  will-change: transform;
-  backface-visibility: hidden;
 }
 
 .about-split__content{
@@ -3591,45 +3209,28 @@ main{
   .about-split{
     grid-template-columns: 1fr;
     min-height: auto;
-    /* Mobilde performans için */
-    contain: layout style paint;
+  }
+
+  .about-split__media{
+    height: 50vh;
+    min-height: 400px;
+  }
+
+  .about-split__content{
+    padding: 52px 22px;
   }
 
   .about-split__media{
     height: 46vh;
-    min-height: 350px;
-    max-height: 500px;
     clip-path: none;
-    /* Mobilde filter'ları kaldır veya azalt - performans için */
-    filter: grayscale(80%) contrast(1.05) brightness(0.7);
-    /* Mobilde GPU hızlandırması */
-    transform: translateZ(0);
-    will-change: auto;
-    /* Arka plan optimizasyonu */
-    background-attachment: scroll;
-    background-size: cover;
-    background-position: center center;
-    /* Lazy loading için başlangıçta arka plan yok */
-    background-image: none;
-    background-color: #1a1a1a;
-  }
-  
-  /* Lazy loading sonrası resim yüklendiğinde */
-  .about-split__media.loaded{
-    background-image: url("../images/about.jpg");
-    transition: opacity 0.3s ease;
   }
 
   .about-split__content{
-    padding: 40px 20px;
-    /* Mobilde içerik için de optimizasyon */
-    contain: layout style;
+    padding: 52px 22px;
   }
 
   .about-split__inner{
     margin-left: 0;
-    /* Mobilde transform kullanma */
-    transform: none;
   }
 
   .about-title-split{
@@ -6911,8 +6512,16 @@ body.corp-theme.contact-page .contact-page-main{
 }
 
 /* ===== Projects Editorial Layout ===== */
-/* Projeler sayfası için projects.css kullanılıyor, bu stiller çakışmaması için kaldırıldı */
-/* .projects-page ve .projects-hero stilleri projects.css'de tanımlı */
+.projects-page {
+  background: #0f1114;
+  color: rgba(255,255,255,.92);
+}
+
+.projects-hero{
+  max-width:1200px;
+  margin:0 auto;
+  padding:64px 20px 28px;
+}
 
 .projects-hero-top{
   display:flex;
@@ -8723,8 +8332,28 @@ body::after{
 
 /* ==== PROJELER: ARCH PORTFOLIO LIGHT THEME OVERRIDE ==== */
 
-/* Projeler sayfası için projects.css kullanılıyor, bu stiller çakışmaması için kaldırıldı */
-/* body.projects-page stilleri projects.css'de tanımlı */
+body.projects-page{
+  --bg: #f6f5f2;
+  --text: #191C20;
+  --muted: rgba(25, 28, 32, .72);
+  --line: rgba(0,0,0,.10);
+  --card: transparent;
+  --shadow: none;
+  --radius: 0px;
+  --container: min(1320px, 92vw);
+}
+
+body.projects-page{
+  background: var(--bg);
+  color: var(--text);
+}
+
+body.projects-page .card{
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  border-radius: 0;
+}
 
 /* ANASAYFA HERO GÖRSEL NETLEŞTİRME */
 .home-hero img,
@@ -9425,15 +9054,89 @@ header .container,
 
 }
 
+.seo-content-box {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #fff;
+  border-left: 5px solid #36c37a;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  color: #333;
+  border-radius: 0 20px 20px 0;
+}
+.seo-content-box h2 {
+  color: #191C20;
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+.seo-content-box p {
+  color: #4b5563;
+  line-height: 1.8;
+  column-count: 2;
+  column-gap: 40px;
+  font-size: 15px;
+}
+@media (max-width: 900px) {
+  .seo-content-box p { column-count: 1; }
+}
+
 /* === FIX: mini-zoom (X'li beyaz şerit) === */
 .mini-zoom{
   position: fixed;
   inset: 0;
   display: none !important;
   z-index: 9999;
+  align-items: center;
+  justify-content: center;
 }
 .mini-zoom.is-open{
-  display: block !important;
+  display: flex !important;
+}
+.mini-zoom-backdrop{
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  cursor: pointer;
+}
+.mini-zoom-panel{
+  position: relative;
+  z-index: 1;
+  max-width: 95vw;
+  max-height: 95vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mini-zoom-close{
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background: #fff;
+  color: #333;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+.mini-zoom-close:hover{
+  background: #f0f0f0;
+}
+.mini-zoom-img{
+  max-width: 100%;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  display: block;
 }
 
 
@@ -9798,11 +9501,12 @@ body:not(.home-page) .footer-bottom .footer-copy{
 
 /* === DİĞER SAYFALAR: copyright renklerini kaldır === */
 body:not(.home-page) .footer-bottom,
-/* body.projects-page stilleri projects.css'de tanımlı */
+body.projects-page .footer-bottom,
 body.services-page .footer-bottom,
 body.contact-page .footer-bottom,
 body.corp-theme .footer-bottom,
 body:not(.home-page) .site-footer .copyright,
+body.projects-page .site-footer .copyright,
 body.services-page .site-footer .copyright,
 body.contact-page .site-footer .copyright,
 body.corp-theme .site-footer .copyright,
@@ -9817,7 +9521,7 @@ body.services-page .global-copyright,
 body.contact-page .global-copyright,
 body.corp-theme .global-copyright,
 body:not(.home-page) .footer-copyright,
-/* body.projects-page stilleri projects.css'de tanımlı */
+body.projects-page .footer-copyright,
 body.services-page .footer-copyright,
 body.contact-page .footer-copyright,
 body.corp-theme .footer-copyright{
@@ -9828,11 +9532,12 @@ body.corp-theme .footer-copyright{
 
 /* === DİĞER SAYFALAR: copyright tek çizgi (yükseklik düşür) === */
 body:not(.home-page) .footer-bottom,
-/* body.projects-page stilleri projects.css'de tanımlı */
+body.projects-page .footer-bottom,
 body.services-page .footer-bottom,
 body.contact-page .footer-bottom,
 body.corp-theme .footer-bottom,
 body:not(.home-page) .site-footer .footer-bottom,
+body.projects-page .site-footer .footer-bottom,
 body.services-page .site-footer .footer-bottom,
 body.contact-page .site-footer .footer-bottom,
 body.corp-theme .site-footer .footer-bottom{
@@ -9859,11 +9564,12 @@ body.corp-theme .site-footer .footer-bottom{
 }
 
 body:not(.home-page) .footer-bottom .footer-website,
-/* body.projects-page stilleri projects.css'de tanımlı */
+body.projects-page .footer-bottom .footer-website,
 body.services-page .footer-bottom .footer-website,
 body.contact-page .footer-bottom .footer-website,
 body.corp-theme .footer-bottom .footer-website,
 body:not(.home-page) .footer-bottom .footer-copy,
+body.projects-page .footer-bottom .footer-copy,
 body.services-page .footer-bottom .footer-copy,
 body.contact-page .footer-bottom .footer-copy,
 body.corp-theme .footer-bottom .footer-copy{
@@ -9876,7 +9582,7 @@ body.corp-theme .footer-bottom .footer-copy{
 }
 
 body:not(.home-page) .footer-bottom .footer-copy,
-/* body.projects-page stilleri projects.css'de tanımlı */
+body.projects-page .footer-bottom .footer-copy,
 body.services-page .footer-bottom .footer-copy,
 body.contact-page .footer-bottom .footer-copy,
 body.corp-theme .footer-bottom .footer-copy{
@@ -10402,19 +10108,20 @@ body.home-page{
 
 body:not(.home-page),
 
-/* Projeler sayfası için projects.css kullanılıyor, bu stiller çakışmaması için kaldırıldı */
+body.projects-page,
+
 body.services-page,
- 
+
 body.contact-page,
- 
+
 body.corp-theme{
- 
+
   background: #0f1115 !important;
- 
+
   background-color: #0f1115 !important;
- 
+
   background-image: none !important;
- 
+
 }
 
 /* Footer altındaki beyaz şeridi kaldır */
@@ -10423,7 +10130,9 @@ body:not(.home-page) footer,
 
 body:not(.home-page) .site-footer,
 
-/* body.projects-page footer stilleri projects.css'de tanımlı */
+body.projects-page footer,
+
+body.projects-page .site-footer,
 
 body.services-page footer,
 
@@ -10457,7 +10166,7 @@ body:not(.home-page) footer::before,
 
 body:not(.home-page) .site-footer::before,
 
-/* body.projects-page footer::after stilleri projects.css'de tanımlı */
+body.projects-page footer::after,
 
 body.services-page footer::after,
 
@@ -10477,7 +10186,7 @@ body.corp-theme footer::after{
 
 html:has(body:not(.home-page)),
 
-/* html:has(body.projects-page) stilleri projects.css'de tanımlı */
+html:has(body.projects-page),
 
 html:has(body.services-page),
 
@@ -10778,237 +10487,35 @@ body.home-page::before {
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
 }
 
-/* Ana sayfada mobil menü her şeyin üstünde olsun */
-
-@media (max-width: 991px){
-
-  .home-page .mobile-nav,
-
-  .home-page .mobile-menu,
-
-  .home-page .offcanvas,
-
-  .home-page .navbar-collapse,
-
-  .home-page .main-menu{
-
-    position: relative;
-
-    z-index: 9999 !important;
-
-  }
-
-
-
-  /* Dil dropdown/tuşu menünün üstüne binmesin */
-
-  .home-page .lang-switcher,
-
-  .home-page .language-switcher,
-
-  .home-page .language-dropdown,
-
-  .home-page .gtranslate_wrapper,
-
-  .home-page .gt_float_switcher{
-
-    position: relative;
-
-    z-index: 10 !important;
-
-  }
-
+/* Header ve Dil Butonunu Her Şeyin Üstüne Çıkar */
+.top-bar, .site-header {
+  z-index: 100000 !important;
+  position: sticky;
+  top: 0;
 }
 
-/* Ana sayfada dil butonu header'ın arkasında kalmasın */
-
-@media (max-width: 991px){
-
-  .home-page .gt_float_switcher,
-
-  .home-page .gtranslate_wrapper,
-
-  .home-page .lang-switcher,
-
-  .home-page .language-switcher{
-
-    position: relative !important;
-
-    z-index: 99999 !important;
-
-  }
-
-
-
-  .home-page header,
-
-  .home-page .site-header,
-
-  .home-page .navbar{
-
-    z-index: 1000 !important;
-
-  }
-
-}
-
-/* Desktop'ta ana sayfada header ve butonların slider'ın üstünde olmasını garanti et */
-@media (min-width: 769px) {
-  .home-page .site-header {
-    z-index: 100000 !important;
-  }
-  
-  .home-page .site-header .container {
-    z-index: 100001 !important;
-  }
-  
-  .home-page .lang-btn,
-  .home-page .language-selector {
-    z-index: 100003 !important;
-    position: relative !important;
-    pointer-events: auto !important;
-  }
-  
-  .home-page .lang-dropdown {
-    z-index: 100004 !important;
-  }
-  
-  .home-page .header-right {
-    z-index: 100002 !important;
-    pointer-events: auto !important;
-  }
-  
-  /* Hero slider'ın desktop'ta da header'ın altında kalmasını garanti et */
-  .home-page .hero-slider {
-    z-index: 1 !important;
-  }
-  
-  .home-page .hero-slide {
-    z-index: 1 !important;
-  }
-  
-  /* Mobil menü butonu desktop'ta görünmez ama z-index'i yüksek tut */
-  .home-page .mobile-menu-toggle {
-    z-index: 100003 !important;
-    pointer-events: auto !important;
-  }
-}
-
-/* Dil menüsü hover yerine tıkla ile çalışsın - sadece gtranslate için */
-.gtranslate_wrapper:hover .gt_float_switcher {
-  display: none;
-}
-
-.gtranslate_wrapper:focus-within .gt_float_switcher {
-  display: block !important;
-}
-
-/* Kendi dil butonumuz için hover'ı kaldır */
-.language-selector:hover .lang-dropdown {
-  display: none !important;
-}
-
-/* Tıklanınca açık kalsın - JavaScript ile yönetiliyor */
-.language-selector .lang-dropdown.active {
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  z-index: 100004 !important;
-  pointer-events: auto !important;
-}
-
-/* Mobil uyum */
-@media (max-width: 991px){
-  .language-selector,
-  .lang-btn {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    cursor: pointer !important;
-    pointer-events: auto !important;
-    z-index: 100003 !important;
-    position: relative !important;
-  }
-  
-  .lang-btn {
-    display: inline-flex !important;
-  }
-  
-  .lang-dropdown.active {
-    z-index: 100004 !important;
-    pointer-events: auto !important;
-  }
-}
-
-/* Desktop'ta da görünür olsun */
-@media (min-width: 992px){
-  .language-selector,
-  .lang-btn {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    pointer-events: auto !important;
-  }
-  
-  .lang-btn {
-    display: inline-flex !important;
-  }
-}
-
-/* DİL BUTONU ZORLA GÖRÜNÜR - TÜM EKRAN BOYUTLARI İÇİN */
 .language-selector {
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  pointer-events: auto !important;
-  position: relative !important;
-  z-index: 100003 !important;
+  position: relative;
+  z-index: 100010 !important;
 }
 
+/* Dil butonu veya dropdown kapsayıcısı - her şeyin üstünde */
+.dil-butonu-sinifi,
+.language-selector,
 #langBtn,
 .lang-btn {
-  display: inline-flex !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  pointer-events: auto !important;
-  position: relative !important;
-  z-index: 100003 !important;
-  cursor: pointer !important;
+  position: relative;
+  z-index: 9999 !important;
 }
 
-.header-right {
-  display: flex !important;
-  visibility: visible !important;
+.lang-dropdown.active {
+  display: block !important;
+  z-index: 100020 !important;
   opacity: 1 !important;
-  pointer-events: auto !important;
+  visibility: visible !important;
 }
 
-/* Mobilde de görünür */
-@media (max-width: 991px) {
-  .language-selector {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    pointer-events: auto !important;
-    position: relative !important;
-    z-index: 100003 !important;
-  }
-  
-  #langBtn,
-  .lang-btn {
-    display: inline-flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    pointer-events: auto !important;
-    position: relative !important;
-    z-index: 100003 !important;
-    cursor: pointer !important;
-  }
-  
-  .header-right {
-    display: flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    pointer-events: auto !important;
-  }
+/* Slider'ın katmanını düşür */
+.hero-slider {
+  z-index: 1 !important;
 }

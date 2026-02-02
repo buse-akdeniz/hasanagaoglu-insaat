@@ -111,3 +111,9 @@ public_html/
 - Yedek olarak kullanılabilir
 - Daha uzun sürer (46MB)
 
+
+
+
+
+
+
