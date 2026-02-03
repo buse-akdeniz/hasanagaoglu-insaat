@@ -219,7 +219,12 @@ const translations = {
     'contact.form.email.label': 'E-posta',
     'contact.form.message.label': 'Mesajınız',
     'contact.form.privacy': 'Bu formu göndererek <a href="#" target="_blank">Gizlilik Politikası</a>\'nı okuduğumu ve kabul ettiğimi onaylıyorum.',
-    'contact.form.submit': 'Gönder'
+    'contact.form.submit': 'Gönder',
+    // Slider captions
+    'hero.slide.turnkey': 'Fethiye Temelden Çatıya Anahtar Teslim',
+    'hero.slide.villa': 'Fethiye Villa Projeleri',
+    'hero.slide.housing': 'Fethiye Toplu Konut Projeleri',
+    'hero.slide.pool': 'Fethiye Havuz Projeleri'
   },
   en: {
     'nav.home': 'Home',
@@ -366,7 +371,12 @@ const translations = {
     'contact.form.email.label': 'Email',
     'contact.form.message.label': 'Your Message',
     'contact.form.privacy': 'By submitting this form, I confirm that I have read and accepted the <a href="#" target="_blank">Privacy Policy</a>.',
-    'contact.form.submit': 'Send'
+    'contact.form.submit': 'Send',
+    // Slider captions
+    'hero.slide.turnkey': 'Fethiye Turnkey from Foundation to Roof',
+    'hero.slide.villa': 'Fethiye Villa Projects',
+    'hero.slide.housing': 'Fethiye Mass Housing Projects',
+    'hero.slide.pool': 'Fethiye Pool Projects'
   },
   ru: {
     'nav.home': 'Главная',
@@ -548,7 +558,12 @@ const translations = {
     'contact.form.email.label': 'Электронная почта',
     'contact.form.message.label': 'Ваше сообщение',
     'contact.form.privacy': 'Отправляя эту форму, я подтверждаю, что прочитал и принял <a href="#" target="_blank">Политику Конфиденциальности</a>.',
-    'contact.form.submit': 'Отправить'
+    'contact.form.submit': 'Отправить',
+    // Slider captions
+    'hero.slide.turnkey': 'Фетхие Под Ключ от Фундамента до Крыши',
+    'hero.slide.villa': 'Проекты Вилл Фетхие',
+    'hero.slide.housing': 'Массовые Жилищные Проекты Фетхие',
+    'hero.slide.pool': 'Проекты Бассейнов Фетхие'
   },
   ar: {
     'nav.home': 'الرئيسية',
@@ -695,7 +710,12 @@ const translations = {
     'contact.form.email.label': 'البريد الإلكتروني',
     'contact.form.message.label': 'رسالتك',
     'contact.form.privacy': 'بإرسال هذا النموذج، أؤكد أنني قرأت ووافقت على <a href="#" target="_blank">سياسة الخصوصية</a>.',
-    'contact.form.submit': 'إرسال'
+    'contact.form.submit': 'إرسال',
+    // Slider captions
+    'hero.slide.turnkey': 'فتحية تسليم المفتاح من الأساس إلى السقف',
+    'hero.slide.villa': 'مشاريع الفيلات فتحية',
+    'hero.slide.housing': 'مشاريع الإسكان الجماعي فتحية',
+    'hero.slide.pool': 'مشاريع المسابح فتحية'
   }
 };
 
@@ -719,11 +739,17 @@ function translatePage(lang) {
   document.querySelectorAll('[data-key]').forEach(element => {
     const key = element.getAttribute('data-key');
     if (translations[lang] && translations[lang][key]) {
-      // Input ve textarea için placeholder, diğerleri için textContent
+      // Input ve textarea için placeholder, diğerleri için textContent veya innerHTML
       if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
         element.placeholder = translations[lang][key];
       } else {
-        element.textContent = translations[lang][key];
+        // HTML içeriği varsa innerHTML kullan (Gizlilik Politikası linki için)
+        const translation = translations[lang][key];
+        if (translation.includes('<a') || translation.includes('<span') || translation.includes('<strong')) {
+          element.innerHTML = translation;
+        } else {
+          element.textContent = translation;
+        }
       }
     }
   });
@@ -750,42 +776,58 @@ document.addEventListener('DOMContentLoaded', function() {
   // Mevcut dili yükle
   translatePage(currentLang);
   
-  // Dil dropdown açma/kapama
   const langBtn = document.getElementById('langBtn');
   const langDropdowns = document.querySelectorAll('.lang-dropdown');
   const languageSelectors = document.querySelectorAll('.language-selector');
   
-  // Dil butonuna tıklama
+  // Dil butonuna tıklama – aç/kapa
   if (langBtn) {
     langBtn.addEventListener('click', function(e) {
+      e.preventDefault();
       e.stopPropagation();
       languageSelectors.forEach(selector => {
         const dropdown = selector.querySelector('.lang-dropdown');
         if (dropdown) {
-          dropdown.classList.toggle('active');
+          const isOpen = dropdown.classList.contains('active') || dropdown.classList.contains('is-open');
+          if (isOpen) {
+            dropdown.classList.remove('active');
+            dropdown.classList.remove('is-open');
+          } else {
+            dropdown.classList.add('active');
+            dropdown.classList.add('is-open');
+            // Açıldıktan sonra dışarı tıklanınca kapat – gecikmeyle ekle (hemen kapanmasın)
+            setTimeout(function() {
+              var closeOnOutside = function(ev) {
+                if (!ev.target.closest('.language-selector')) {
+                  langDropdowns.forEach(function(d) {
+                    d.classList.remove('active');
+                    d.classList.remove('is-open');
+                  });
+                  document.removeEventListener('click', closeOnOutside);
+                  document.removeEventListener('touchstart', closeOnOutside);
+                }
+              };
+              document.addEventListener('click', closeOnOutside);
+              document.addEventListener('touchstart', closeOnOutside);
+            }, 100);
+          }
         }
       });
     });
   }
   
-  // Dışarı tıklandığında dropdown'ı kapat
-  document.addEventListener('click', function(e) {
-    if (!e.target.closest('.language-selector')) {
-      langDropdowns.forEach(dropdown => {
-        dropdown.classList.remove('active');
-      });
-    }
-  });
-  
-  // Dil dropdown linklerine tıklama eventi
-  document.querySelectorAll('[data-lang]').forEach(link => {
+  // Dil seçeneklerine tıklama – dil değiştir ve kapat
+  document.querySelectorAll('.lang-dropdown [data-lang]').forEach(link => {
     link.addEventListener('click', function(e) {
       e.preventDefault();
+      e.stopPropagation();
       const lang = this.getAttribute('data-lang');
-      translatePage(lang);
-      // Dropdown'ı kapat
+      if (lang) {
+        translatePage(lang);
+      }
       langDropdowns.forEach(dropdown => {
         dropdown.classList.remove('active');
+        dropdown.classList.remove('is-open');
       });
     });
   });
@@ -826,9 +868,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // URL'den parametreyi temizle
     window.history.replaceState({}, document.title, window.location.pathname);
     
-    // İletişim bölümüne kaydır
+    // Form bölümüne kaydır
     setTimeout(() => {
-      document.getElementById('iletisim')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const formSection = document.querySelector('.contact-form-section') || document.getElementById('contactForm');
+      if (formSection) {
+        formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     }, 100);
   } else if (error) {
     formMessage.className = 'form-message form-message-error';
@@ -845,7 +890,7 @@ document.addEventListener('DOMContentLoaded', function() {
         errorText = 'Mesajınız çok kısa. Lütfen daha detaylı bir mesaj yazın.';
         break;
       case 'send':
-        errorText = 'Mesaj gönderilirken bir hata oluştu. Lütfen daha sonra tekrar deneyin.';
+        errorText = 'Mesaj gönderilirken bir hata oluştu. Lütfen daha sonra tekrar deneyin veya WhatsApp üzerinden iletişime geçin.';
         break;
     }
     
@@ -855,9 +900,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // URL'den parametreyi temizle
     window.history.replaceState({}, document.title, window.location.pathname);
     
-    // İletişim bölümüne kaydır
+    // Form bölümüne kaydır
     setTimeout(() => {
-      document.getElementById('iletisim')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const formSection = document.querySelector('.contact-form-section') || document.getElementById('contactForm');
+      if (formSection) {
+        formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     }, 100);
   } else if (spam === '1') {
     formMessage.className = 'form-message form-message-error';
@@ -878,6 +926,140 @@ document.addEventListener('DOMContentLoaded', function() {
       }, 300);
     }, 5000);
   }
+});
+
+// İletişim Formu AJAX Gönderimi
+document.addEventListener('DOMContentLoaded', function() {
+  const contactForm = document.getElementById('contactForm');
+  if (!contactForm) return;
+
+  contactForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const formMessage = document.getElementById('form-message');
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+    const originalBtnText = submitBtn.innerHTML;
+    
+    // Form verilerini al
+    const formData = new FormData(contactForm);
+    
+    // Validasyon
+    const name = formData.get('name')?.trim() || '';
+    const email = formData.get('email')?.trim() || '';
+    const message = formData.get('message')?.trim() || '';
+    
+    if (!name || !email || !message) {
+      if (formMessage) {
+        formMessage.className = 'form-message form-message-error';
+        formMessage.innerHTML = '<strong>✗ Hata!</strong> Lütfen tüm zorunlu alanları doldurun.';
+        formMessage.style.display = 'block';
+      }
+      return;
+    }
+    
+    if (!email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+      if (formMessage) {
+        formMessage.className = 'form-message form-message-error';
+        formMessage.innerHTML = '<strong>✗ Hata!</strong> Geçerli bir e-posta adresi giriniz.';
+        formMessage.style.display = 'block';
+      }
+      return;
+    }
+    
+    if (message.length < 10) {
+      if (formMessage) {
+        formMessage.className = 'form-message form-message-error';
+        formMessage.innerHTML = '<strong>✗ Hata!</strong> Mesajınız çok kısa. Lütfen daha detaylı bir mesaj yazın.';
+        formMessage.style.display = 'block';
+      }
+      return;
+    }
+    
+    // Butonu devre dışı bırak
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = 'Gönderiliyor...';
+    
+    // Önceki mesajları temizle
+    if (formMessage) {
+      formMessage.style.display = 'none';
+      formMessage.className = '';
+      formMessage.innerHTML = '';
+    }
+    
+    // AJAX ile gönder
+    fetch('send-mail.php', {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'X-Requested-With': 'XMLHttpRequest'
+      }
+    })
+    .then(response => {
+      // Response tipini kontrol et
+      const contentType = response.headers.get('content-type') || '';
+      
+      // JSON yanıt bekliyoruz
+      if (contentType.includes('application/json')) {
+        return response.json();
+      }
+      
+      // Eğer HTML dönüyorsa (PHP çalışmıyor demektir)
+      if (contentType.includes('text/html')) {
+        return response.text().then(text => {
+          // PHP kodu görünüyorsa
+          if (text.includes('<?php') || text.includes('PHPMailer') || text.includes('use PHPMailer')) {
+            throw new Error('PHP çalışmıyor');
+          }
+          // Başarılı görünüyor (redirect olmuş olabilir)
+          return { success: true };
+        });
+      }
+      
+      // Diğer durumlar
+      if (response.ok || response.redirected) {
+        return { success: true };
+      }
+      
+      throw new Error('Mail gönderilemedi');
+    })
+    .then(data => {
+      // JSON yanıt geldi
+      if (data.success) {
+        // Başarılı - teşekkürler sayfasına yönlendir
+        window.location.href = 'tesekkurler.html';
+      } else {
+        // Hata mesajı göster
+        throw new Error(data.message || 'Bir hata oluştu');
+      }
+    })
+    .catch(error => {
+      // Hata durumunda
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalBtnText;
+      
+      if (formMessage) {
+        formMessage.className = 'form-message form-message-error';
+        let errorText = 'Mesaj gönderilirken bir hata oluştu. ';
+        
+        if (error.message === 'PHP çalışmıyor') {
+          errorText += 'Lütfen sunucu yöneticisi ile iletişime geçin veya WhatsApp üzerinden bize ulaşın.';
+        } else {
+          errorText += 'Lütfen daha sonra tekrar deneyin veya WhatsApp üzerinden iletişime geçin.';
+        }
+        
+        formMessage.innerHTML = '<strong>✗ Hata!</strong> ' + errorText;
+        formMessage.style.display = 'block';
+        
+        // Form bölümüne kaydır
+        setTimeout(() => {
+          const formSection = document.querySelector('.contact-form-section') || contactForm;
+          if (formSection) {
+            formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 100);
+      }
+    });
+  });
 });
 
 // Mobil Menü Toggle
@@ -1893,4 +2075,29 @@ document.addEventListener('keydown', function(e) {
       document.body.style.overflow = '';
     }
   }
+});
+
+// Sayfa yüklendiğinde pencereye odak ver ve kaydırmayı serbest bırak
+window.onload = function() {
+  try {
+    window.focus();
+  } catch (e) {}
+  document.body.style.overflow = 'auto';
+};
+
+// DOM yüklendiğinde odağı ve tıklanabilirliği garanti altına al
+document.addEventListener("DOMContentLoaded", function() {
+  // Sayfa yüklence odağı ana sayfaya ver
+  try {
+    window.focus();
+  } catch (e) {}
+
+  // Slider butonlarının veya katmanının ekranı kilitlemesini engelle
+  const slider = document.querySelector('.hero-slider');
+  if (slider) {
+    slider.style.zIndex = "1";
+  }
+
+  // Sayfanın tıklanabilir olduğunu garanti et
+  document.body.style.pointerEvents = "auto";
 });

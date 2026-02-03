@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/webp" href="assets/images/logo.webp" />
+  <link rel="apple-touch-icon" href="assets/images/logo.webp" />
   <title>İletişim | Hasanağaoğlu İnşaat Fethiye</title>
   <meta name="description" content="Hasanağaoğlu İnşaat Fethiye iletişim bilgileri, adres ve harita.">
   <meta name="keywords" content="fethiye havuz, fethiye deniz manzaralı arsa, fethiye anahtar teslim, fethiye temelden çatıya, fethiye toplu konut, fethiye otel, fethiye özel mülk, fethiye havuzlu villa, fethiye lüks villa, fethiye malikane, fethiye butik otel, fethiye takas arsa, fethiye yapı, fethiye bina, fethiye inşaat, fethiye özel hastane, fethiye konut, fethiye peyzaj, fethiye bahçe süslemeleri, fethiye mimari, hasanağaoğlu inşaat fethiye">
@@ -11,7 +13,7 @@
   <link rel="preconnect" href="https://maps.gstatic.com" />
   <link rel="dns-prefetch" href="https://maps.googleapis.com" />
   <link rel="canonical" href="https://www.hasanagaogluinsaat.com/iletisim.html" />
-  <link rel="stylesheet" href="assets/css/app.css?v=20260103-7" />
+  <link rel="stylesheet" href="assets/css/app.css?v=20260203_final" />
   
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
@@ -70,7 +72,7 @@
           src="assets/images/logo.webp?v=2"
           alt="Hasanağoğlu İnşaat Fethiye"
           class="brand__logo">
-        <span class="brand-text">Hasanağaoğlu Fethiye</span>
+        <span class="brand-text">Fethiye Hasanağaoğlu İnşaat</span>
       </a>
       <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menü">
         <span></span>
@@ -189,7 +191,8 @@
         </div>
         
         <div class="form-wrapper">
-          <form class="contact-form" action="send-mail.php" method="POST" id="contactForm">
+          <div id="form-message"></div>
+          <form class="contact-form" id="contactForm">
             <div class="form-group">
               <label for="fullname" data-key="contact.form.name.label">Ad Soyad</label>
               <input type="text" id="fullname" name="name" required>

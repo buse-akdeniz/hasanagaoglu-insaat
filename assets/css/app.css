@@ -327,6 +327,7 @@ header .brand-logo {
   border-radius: 14px;
   overflow:hidden;
   box-shadow: var(--shadow);
+  z-index: 100020 !important;
 }
 .language-selector:hover .lang-dropdown{ display:block; }
 .lang-dropdown a{
@@ -10487,35 +10488,239 @@ body.home-page::before {
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
 }
 
-/* Header ve Dil Butonunu Her Şeyin Üstüne Çıkar */
-.top-bar, .site-header {
-  z-index: 100000 !important;
-  position: sticky;
-  top: 0;
-}
-
-.language-selector {
-  position: relative;
-  z-index: 100010 !important;
-}
-
-/* Dil butonu veya dropdown kapsayıcısı - her şeyin üstünde */
-.dil-butonu-sinifi,
-.language-selector,
-#langBtn,
-.lang-btn {
-  position: relative;
-  z-index: 9999 !important;
-}
-
-.lang-dropdown.active {
+/* Slider Görsellerini Geri Getir ve Netleştir */
+.hero-slider, .hero-slide {
   display: block !important;
-  z-index: 100020 !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  z-index: 1 !important; /* Arka planda kalması yeterli */
+}
+
+/* Header ve Dil Butonunu Zirveye Taşı */
+.site-header {
+  z-index: 99999 !important;
+  position: sticky !important;
+  top: 0;
+  pointer-events: auto !important; /* Tıklanabilir yap */
+}
+
+/* Dil Butonu Kapsayıcısı */
+.language-selector {
+  position: relative !important;
+  z-index: 100000 !important;
+}
+
+/* Menü açıldığında her şeyin üstünde olsun */
+.lang-dropdown {
+  display: none;
+  position: absolute !important;
+  z-index: 100010 !important;
+  background: rgba(25, 28, 32, 0.98) !important; /* Görünür olması için koyu arka plan */
+}
+
+.language-selector:hover .lang-dropdown {
+  display: block !important;
+}
+
+/* JS ile açma/kapama için güvenli class */
+.lang-dropdown.active,
+.lang-dropdown.is-open {
+  display: block !important;
+}
+
+/* 1. Header'ı ve Dil Menüsünü Mutlak Galip Yap */
+.site-header {
+  z-index: 999999 !important; /* En yüksek değer */
+  position: sticky !important;
+  top: 0 !important;
+  background: rgba(25, 28, 32, 0.95) !important;
+}
+
+/* 2. Dil Menüsü Kapsayıcısını Öne Çıkar */
+.language-selector {
+  position: relative !important;
+  z-index: 1000000 !important;
+}
+
+/* 3. Dropdown Listesini Görünür ve Üstte Tut */
+.lang-dropdown {
+  z-index: 1000001 !important;
+  position: absolute !important;
+  pointer-events: auto !important; /* Tıklanabilirliği zorla */
+}
+
+/* 4. Slider'ı katman olarak aşağı çek – sadece container, slide'lar absolute kalsın */
+#heroSlider,
+.hero-slider {
+  z-index: 1 !important;
+  position: relative !important;
+}
+/* Slide'ları absolute bırak (görsel dolması için); sadece z-index düşük */
+.hero-slide {
+  z-index: 1 !important;
+}
+
+/* Mobilde logo ve yazı çakışmasını engelle */
+@media (max-width: 768px) {
+  .site-header .container {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+  }
+  .brand__logo {
+    height: 50px !important; /* Mobilde logoyu makul boyuta çek */
+    width: auto !important;
+  }
+  .brand-text {
+    font-size: 14px !important;
+    white-space: nowrap !important; /* Yazının loguya binmesini engeller */
+  }
+}
+
+/* Z-index hiyerarşisini netleştir */
+.hero-slider {
+  z-index: 1 !important; /* Arka planda kalmalı */
+  min-height: 400px !important;
+  height: 60vh !important;
+}
+.hero-slide {
+  position: absolute !important;
+  inset: 0 !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+.hero-slide:not(.active) {
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+.hero-slide.active {
   opacity: 1 !important;
   visibility: visible !important;
 }
+.site-header {
+  z-index: 99999 !important; /* Her zaman en üstte olmalı */
+}
 
-/* Slider'ın katmanını düşür */
-.hero-slider {
+/* Dil menüsü linklerinin tıklanabilir olması */
+.lang-dropdown,
+.lang-dropdown a {
+  pointer-events: auto !important;
+  cursor: pointer !important;
+}
+
+/* Anasayfada dil menüsü slider'ın üstünde kalsın (z-index galip) */
+body.home-page .site-header,
+body.home-page .language-selector,
+body.home-page .lang-dropdown {
+  z-index: 2147483647 !important;
+}
+body.home-page .hero-slider,
+body.home-page .hero-slide {
   z-index: 1 !important;
+}
+
+/* Slider yüksekliğini artırarak dikey alanı genişletin – görselin nefes alması */
+.hero-slider,
+#heroSlider {
+  height: 90vh !important;
+  max-height: 950px;
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box;
+  left: 0 !important;
+  right: 0 !important;
+}
+
+.hero-slide,
+.hero-slide.active {
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  inset: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  top: 0 !important;
+  bottom: 0 !important;
+}
+
+/* Slider içinde <img> kullanılıyorsa */
+.hero-slide img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center 50% !important;
+  image-rendering: auto;
+  transition: transform 0.5s ease;
+}
+
+/* Slider başlıkları – sol alt köşe, minimal ve sade */
+.hero-slide-caption {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  z-index: 2;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  padding: 6px 12px;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(6px);
+  border-radius: 3px;
+  border-left: 2px solid rgba(255, 255, 255, 0.5);
+  max-width: 85%;
+  line-height: 1.4;
+}
+@media (min-width: 769px) {
+  .hero-slide-caption {
+    left: 24px;
+    bottom: 24px;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    padding: 7px 14px;
+  }
+}
+@media (max-width: 480px) {
+  .hero-slide-caption {
+    left: 12px;
+    bottom: 12px;
+    font-size: 10px;
+    padding: 5px 10px;
+    letter-spacing: 0.04em;
+  }
+}
+
+/* Form Mesaj Stilleri */
+#form-message {
+  display: none;
+  margin-bottom: 20px;
+  padding: 15px 20px;
+  border-radius: 5px;
+  font-size: 14px;
+  line-height: 1.5;
+  transition: opacity 0.3s ease;
+}
+
+#form-message.form-message-success {
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+  color: #155724;
+}
+
+#form-message.form-message-error {
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  color: #721c24;
+}
+
+#form-message strong {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
 }
