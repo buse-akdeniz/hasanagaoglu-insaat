@@ -6,6 +6,18 @@ require __DIR__ . '/PHPMailer/src/Exception.php';
 require __DIR__ . '/PHPMailer/src/PHPMailer.php';
 require __DIR__ . '/PHPMailer/src/SMTP.php';
 
+// SMTP config (git'e gönderilmez)
+$mailConfigPath = __DIR__ . '/../config/mail.config.php';
+$mailConfig = null;
+if (file_exists($mailConfigPath)) {
+  $mailConfig = require $mailConfigPath;
+}
+
+if (!is_array($mailConfig)) {
+  http_response_code(500);
+  exit('MAIL_CONFIG_MISSING');
+}
+
 function clean($v){ return trim(htmlspecialchars($v ?? "", ENT_QUOTES, 'UTF-8')); }
 
 $name    = clean($_POST['name'] ?? '');
@@ -23,15 +35,19 @@ $mail = new PHPMailer(true);
 try {
   $mail->CharSet = 'UTF-8';
   $mail->isSMTP();
-  $mail->Host       = 'smtp.gmail.com';
+  $mail->Host       = $mailConfig['host'] ?? 'smtp.gmail.com';
   $mail->SMTPAuth   = true;
-  $mail->Username   = 'hasanagaogulariinsaat@gmail.com';
-  $mail->Password   = 'slmgorutupmiwddk';
-  $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-  $mail->Port       = 587;
+  $mail->Username   = $mailConfig['username'] ?? '';
+  $mail->Password   = $mailConfig['password'] ?? '';
+  $mail->SMTPSecure = $mailConfig['secure'] ?? PHPMailer::ENCRYPTION_STARTTLS;
+  $mail->Port       = (int)($mailConfig['port'] ?? 587);
 
-  $mail->setFrom('hasanagaogulariinsaat@gmail.com', 'Web Sitesi');
-  $mail->addAddress('hasanagaogulariinsaat@gmail.com');
+  $fromEmail = $mailConfig['from_email'] ?? ($mailConfig['username'] ?? '');
+  $fromName = $mailConfig['from_name'] ?? 'Web Sitesi';
+  $toEmail = $mailConfig['to_email'] ?? '';
+
+  $mail->setFrom($fromEmail, $fromName);
+  $mail->addAddress($toEmail);
   $mail->addReplyTo($email, $name);
 
   $mail->isHTML(true);

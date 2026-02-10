@@ -14,6 +14,30 @@ $isAjax = !empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
+// SMTP config (git'e gönderilmez)
+$mailConfigPath = __DIR__ . '/config/mail.config.php';
+$mailConfig = null;
+if (file_exists($mailConfigPath)) {
+  $mailConfig = require $mailConfigPath;
+}
+
+if (!is_array($mailConfig)) {
+  while (ob_get_level()) ob_end_clean();
+  if ($isAjax) {
+    header('Content-Type: application/json');
+    echo json_encode([
+      'success' => false,
+      'error' => 'config',
+      'message' => 'Mail yapılandırması eksik. Lütfen sunucuya config dosyasını ekleyin.'
+    ]);
+    exit;
+  }
+  if (!headers_sent()) {
+    header("Location: iletisim.html?error=send", true, 302);
+  }
+  exit;
+}
+
 // PHPMailer dosyalarını yükle
 $phpmailer_path = __DIR__ . '/PHPMailer/src/Exception.php';
 if (!file_exists($phpmailer_path)) {
@@ -87,12 +111,12 @@ try {
   // SMTP ayarları
   $mail->CharSet = 'UTF-8';
   $mail->isSMTP();
-  $mail->Host       = 'smtp.gmail.com';
+  $mail->Host       = $mailConfig['host'] ?? 'smtp.gmail.com';
   $mail->SMTPAuth   = true;
-  $mail->Username   = 'hasanagaogulariinsaat@gmail.com';
-  $mail->Password   = 'slmgorutupmiwddk';
-  $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-  $mail->Port       = 587;
+  $mail->Username   = $mailConfig['username'] ?? '';
+  $mail->Password   = $mailConfig['password'] ?? '';
+  $mail->SMTPSecure = $mailConfig['secure'] ?? PHPMailer::ENCRYPTION_STARTTLS;
+  $mail->Port       = (int)($mailConfig['port'] ?? 587);
   $mail->SMTPDebug  = 0; // Debug kapalı
   $mail->Debugoutput = function($str, $level) {
     // Hiçbir şey yapma - debug çıktısını tamamen engelle
@@ -103,8 +127,12 @@ try {
   $mail->SMTPKeepAlive = false;
   
   // Mail ayarları
-  $mail->setFrom('hasanagaogulariinsaat@gmail.com', 'Web Sitesi');
-  $mail->addAddress('info@hasanagaogluinsaat.com');
+  $fromEmail = $mailConfig['from_email'] ?? ($mailConfig['username'] ?? '');
+  $fromName = $mailConfig['from_name'] ?? 'Web Sitesi';
+  $toEmail = $mailConfig['to_email'] ?? '';
+
+  $mail->setFrom($fromEmail, $fromName);
+  $mail->addAddress($toEmail);
   $mail->addReplyTo($email, $name);
   
   $mail->isHTML(true);

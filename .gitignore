@@ -11,3 +11,6 @@ assets/css/*
 deploy-ftp.sh
 deploy-sftp.sh
 .env
+
+# Local secrets
+config/mail.config.php
