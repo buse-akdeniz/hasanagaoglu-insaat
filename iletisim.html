@@ -3,64 +3,166 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/webp" href="assets/images/logo.webp" />
+  <link rel="apple-touch-icon" href="assets/images/logo.webp" />
   <title>İletişim | Hasanağaoğlu İnşaat Fethiye</title>
   <meta name="description" content="Hasanağaoğlu İnşaat Fethiye iletişim bilgileri, adres ve harita.">
-  <link rel="stylesheet" href="assets/css/style.css" />
+  
+  <link rel="canonical" href="https://www.hasanagaogluinsaat.com/iletisim.html" />
+  <link rel="stylesheet" href="assets/css/app.css?v=20260203_final" />
+  
+  <script src="assets/js/main.js?v=20260105" defer></script>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17942299984">
+</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-17942299984');
+</script>
+<!-- Event snippet for İletişim conversion page -->
+<script>
+  gtag('event', 'conversion', {'send_to': 'AW-17942299984/6oz_CL-fwfUbENCKx-tC'});
+</script>
+
 </head>
-<body>
-  <header class="top-bar">
+<body class="corp-theme contact-page">
+  <header class="site-header">
     <div class="container">
-      <div class="logo">Hasanağaoğlu İnşaat Fethiye</div>
-      <nav class="nav-links">
-        <a href="index.html">Ana Sayfa</a>
-        <a href="hakkimizda.html">Hakkımızda</a>
-        <a href="hizmetler.html">Hizmetler</a>
-        <a href="projeler.html">Projeler</a>
-        <a href="iletisim.html" aria-current="page">İletişim</a>
+      <a href="index.html" class="brand" aria-label="Hasanağoğlu İnşaat Fethiye">
+        <img src="assets/images/logo.webp?v=2" alt="Hasanağoğlu İnşaat Fethiye" class="brand__logo">
+        <span class="brand-text">Fethiye Hasanağaoğlu İnşaat</span>
+      </a>
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menü">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html" data-key="nav.home">Ana Sayfa</a>
+        <a href="hakkimizda.html" data-key="nav.about">Kurumsal</a>
+        <a href="hizmetler.html" data-key="nav.services">Hizmetler</a>
+        <a href="projeler.html" data-key="nav.projects">Projeler</a>
+        <a href="iletisim.html" aria-current="page" data-key="nav.contact">İletişim</a>
       </nav>
-      <a href="tel:+905530141218" class="call-btn">Hemen Ara</a>
+      <div class="header-right">
+        <div class="language-selector">
+          <button class="lang-btn" type="button" id="langBtn">🌐 TR</button>
+          <div class="lang-dropdown">
+            <a href="#" data-lang="tr">🇹🇷 Türkçe</a>
+            <a href="#" data-lang="en">🇬🇧 English</a>
+            <a href="#" data-lang="ru">🇷🇺 Русский</a>
+            <a href="#" data-lang="ar">🇸🇦 العربية</a>
+          </div>
+        </div>
+        <a href="tel:+905530141218" class="call-btn" data-key="header.call">Hemen Ara</a>
+      </div>
     </div>
   </header>
 
-  <section class="contact" style="padding-top: 6rem;">
-    <div class="container">
-      <h2 data-key="contact.title">İletişim & Konum</h2>
-      <div class="contact-grid">
-        <div class="contact-info-box">
-          <h3 data-key="contact.officeInfo">Ofis Bilgilerimiz</h3>
-          <p><strong data-key="contact.company">Firma:</strong> Hasanağaoğlu İnşaat Fethiye</p>
-          <p><strong data-key="contact.phone">Telefon:</strong> <a href="tel:+905530141218">0553 014 12 18</a></p>
-          <p><strong data-key="contact.email">E-posta:</strong> <a href="mailto:hasanagaogulariinsaat@gmail.com">hasanagaogulariinsaat@gmail.com</a></p>
-          <p><strong data-key="contact.address">Adres:</strong> Fethiye / Muğla</p>
-          <a class="btn primary" href="https://wa.me/905530141218" target="_blank" rel="noopener" data-key="contact.whatsappQuick">WhatsApp ile Hızlı İletişim</a>
+  <main class="contact-page-main">
+    <section class="contacts-hero">
+      <div class="container">
+        <h1 class="contacts-title" data-key="contact.hero.title">İletişim</h1>
+        <p class="contacts-subtitle" data-key="contact.hero.subtitle">HASANAĞAOĞLU İNŞAAT OFİSLERİ</p>
+      </div>
+    </section>
+
+    <section class="offices-section">
+      <div class="container">
+        <div class="offices-grid">
+          <div class="offices-list">
+            <div class="office-region">
+              <h3 class="region-title" data-key="contact.region.turkey">TÜRKİYE</h3>
+              <ul class="office-cities">
+                <li class="office-item active" data-office="fethiye">
+                  <span class="city-name" data-key="contact.city.fethiye">Fethiye</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="map-area">
+            <div class="simple-map">
+              
+            </div>
+          </div>
+
+          <div class="office-details">
+            <div class="office-detail-card active" id="detail-fethiye">
+              <h4 class="detail-city" data-key="contact.city.fethiye">FETHIYE</h4>
+              <div class="detail-info">
+                <p class="detail-item">
+                  <strong data-key="contact.detail.address">ADRES:</strong><br>
+                  Fethiye, Muğla, Türkiye
+                </p>
+                <p class="detail-item">
+                  <strong data-key="contact.detail.phone">TELEFON:</strong><br>
+                  <a href="tel:+905530141218">+90 553 014 12 18</a>
+                </p>
+                <p class="detail-item">
+                  <strong data-key="contact.detail.email">E-POSTA:</strong><br>
+                  <a href="mailto:info@hasanagaogluinsaat.com">info@hasanagaogluinsaat.com</a>
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="contact-form-box">
-          <h3 data-key="contact.formTitle">Bilgi ve Teklif Formu</h3>
-          <form action="sendmail.php" method="POST" class="contact-form">
-            <input type="text" name="name" placeholder="Ad Soyad" required>
-            <input type="email" name="email" placeholder="Email" required>
-            <input type="tel" name="phone" placeholder="Telefon">
-            <textarea name="message" placeholder="Mesajınız" required></textarea>
-            <button type="submit" class="btn primary">Gönder</button>
+      </div>
+    </section>
+
+    <section class="contact-form-section">
+      <div class="container">
+        <div class="form-header">
+          <p class="form-label" data-key="contact.form.label">BİZE ULAŞIN</p>
+          <div class="form-intro">
+            <h2 class="form-question" data-key="contact.form.question">İnşaat projeniz için teklif almak veya danışmanlık hizmeti ister misiniz?</h2>
+          </div>
+        </div>
+        
+        <div class="form-wrapper">
+          <div id="form-message"></div>
+       <form class="contact-form" id="contactForm" action="https://formspree.io/f/mqedbbpb" method="POST">
+            <div class="form-group">
+              <label for="fullname" data-key="contact.form.name.label">Ad Soyad</label>
+              <input type="text" id="fullname" name="name" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email" data-key="contact.form.email.label">E-posta</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="message" data-key="contact.form.message.label">Mesajınız</label>
+              <textarea id="message" name="message" rows="6" required></textarea>
+            </div>
+            
+            <div class="form-group checkbox-group">
+              <label class="checkbox-label">
+                <input type="checkbox" name="privacy" required>
+                <span data-key="contact.form.privacy">Bu formu göndererek <a href="#" target="_blank">Gizlilik Politikası</a>'nı okuduğumu ve kabul ettiğimi onaylıyorum.</span>
+              </label>
+            </div>
+            
+            <button type="submit" class="submit-btn" data-key="contact.form.submit">
+              Gönder
+              <span class="arrow">→</span>
+            </button>
           </form>
         </div>
       </div>
-      <div class="contact-map-wrapper">
-        <h3 data-key="contact.mapTitle">Ofis Konumu</h3>
-        <div class="map-placeholder">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.1234567890!2d29.1234567!3d36.6543210!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzYuNjU0MzIxMCwgMjkuMTIzNDU2Nw!5e0!3m2!1str!2str!4v1234567890123!5m2!1str!2str" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <footer class="site-footer">
-    <div class="container">
-      <p>© 2025 Hasanağaoğlu İnşaat Fethiye | Tüm Hakları Saklıdır</p>
+    <div class="footer-bottom">
+      <div class="footer-website" data-key="footer.website">www.hasanagaogluinsaat.com</div>
+      <div class="footer-copy" data-key="footer.copyright">
+        © 2025 Hasanağaoğlu İnşaat Fethiye (1935'ten beri) | Tüm Hakları Saklıdır
+      </div>
     </div>
   </footer>
-
-  <script src="assets/js/main.js"></script>
 </body>
 </html>
 
