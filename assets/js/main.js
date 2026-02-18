@@ -1,3 +1,8 @@
+const cta = document.getElementById('ctaPopup');
+if (cta) { // CTA Popup güvenli kapatma
+  cta.remove();
+}
+
 // Dil çevirileri
 const translations = {
   tr: {
@@ -29,6 +34,41 @@ const translations = {
     'services.largeScale.title': 'Büyük Ölçekli Yapılar',
     'services.largeScale.desc': 'Özel hastane, kamu yapıları ve kompleks projelerde güçlü mühendislik.',
     'projects.title': 'Öne Çıkan Projeler',
+    'home.projects.title': 'Projelerimiz',
+    'home.projects.villa.title': 'Villa Projeleri',
+    'home.projects.villa.desc': 'Modern mimari, geniş yaşam alanları, yüksek kalite malzeme ve Fethiye\'ye uygun tasarımlar.',
+    'home.projects.pool.title': 'Havuz & Dış Mekan',
+    'home.projects.pool.desc': 'Modern havuz tasarımları, dayanıklı zemin çözümleri ve konfor odaklı dış mekan uygulamaları ile projelerimize estetik ve değer katıyoruz.',
+    'home.projects.housing.title': 'Toplu Konut Projeleri',
+    'home.projects.housing.desc': 'Planlı yerleşim, güçlü altyapı, modern cephe ve uzun ömürlü yapı standartları.',
+    'home.projects.landscape.title': 'Peyzaj & Çevre Düzenleme',
+    'home.projects.landscape.desc': 'Yeşil alan planlama, modern bahçe çizgileri ve bakımı kolay çevre çözümleri.',
+    'home.projects.hotel.title': 'Otel Projeleri',
+    'home.projects.hotel.desc': 'Prestijli cephe, güçlü aydınlatma dili ve konaklama odaklı fonksiyonel planlama.',
+    'home.projects.seaView.title': 'Deniz Manzaralı Arsa',
+    'home.projects.seaView.desc': 'Arsa analizi, proje fizibilitesi ve manzarayı maksimum kullanan yerleşim çözümleri.',
+    'home.projects.hospital.title': 'Özel Hastane Projeleri',
+    'home.projects.hospital.desc': 'Modern sağlık altyapısı, güçlü mühendislik çözümleri ve hasta odaklı tasarım ile özel hastane projelerinde uzman hizmet.',
+    'home.projects.viewProjects': 'Projeleri Gör →',
+    'footer.workingHours.title': 'Çalışma Saatleri',
+    'footer.workingHours.weekdays': 'Pazartesi - Cumartesi',
+    'footer.workingHours.weekdaysTime': '09:00 - 18:00',
+    'footer.workingHours.sunday': 'Pazar',
+    'footer.workingHours.closed': 'Kapalı',
+    'footer.location': 'Fethiye, Muğla, Türkiye',
+    'footer.navigation.title': 'Navigasyon',
+    'footer.quickLinks.title': 'Hızlı Bağlantılar',
+    'footer.services.title': 'Hizmetler',
+    'footer.services.villa': 'Villa İnşaatı',
+    'footer.services.housing': 'Toplu Konut',
+    'footer.services.turnkey': 'Anahtar Teslim',
+    'footer.services.landscape': 'Peyzaj & Havuz',
+    'footer.quickLinks.contact': 'İletişim',
+    'footer.quickLinks.projects': 'Projelerimiz',
+    'footer.quickLinks.services': 'Hizmetlerimiz',
+    'footer.quickLinks.quote': 'Teklif Al',
+    'footer.copyright': '© 2025 Hasanağaoğlu İnşaat Fethiye (1935\'ten beri) | Tüm Hakları Saklıdır',
+    'footer.website': 'www.hasanagaogluinsaat.com',
     'about.title': 'Hakkımızda',
     'about.description.p1': 'Hasanağaoğlu İnşaat, sektördeki köklü geçmişini Sakarya\'da attığı sağlam temeller üzerine inşa etmiş; günümüzde ise birikimini ve uzmanlığını Fethiye coğrafyasına taşıyarak hizmet kapsamını genişletmiştir.',
     'about.description.p2': 'Fethiye ve çevresinde faaliyet gösteren, bölgenin sosyo-ekonomik dinamiklerini ve pazar ihtiyaçlarını derinlemesine analiz eden bir kurum olarak; güvenilirlik, estetik değer ve sürdürülebilirlik odaklı projeler geliştirmeyi misyon edinmiş bulunmaktayız.',
@@ -63,7 +103,128 @@ const translations = {
     'contact.formMessagePlaceholder': 'Projeniz ya da araziniz ile ilgili kısaca bilgi verin',
     'contact.formSubmit': 'Gönder',
     'contact.mapTitle': 'Ofis Konumu',
-    'footer.rights': 'Tüm Hakları Saklıdır'
+    'footer.rights': 'Tüm Hakları Saklıdır',
+    'home.projects.title': 'Projelerimiz',
+    'home.projects.villa.title': 'Villa Projeleri',
+    'home.projects.villa.desc': 'Modern mimari, geniş yaşam alanları, yüksek kalite malzeme ve Fethiye\'ye uygun tasarımlar.',
+    'home.projects.pool.title': 'Havuz & Dış Mekan',
+    'home.projects.pool.desc': 'Modern havuz tasarımları, dayanıklı zemin çözümleri ve konfor odaklı dış mekan uygulamaları ile projelerimize estetik ve değer katıyoruz.',
+    'home.projects.housing.title': 'Toplu Konut Projeleri',
+    'home.projects.housing.desc': 'Planlı yerleşim, güçlü altyapı, modern cephe ve uzun ömürlü yapı standartları.',
+    'home.projects.landscape.title': 'Peyzaj & Çevre Düzenleme',
+    'home.projects.landscape.desc': 'Yeşil alan planlama, modern bahçe çizgileri ve bakımı kolay çevre çözümleri.',
+    'home.projects.hotel.title': 'Otel Projeleri',
+    'home.projects.hotel.desc': 'Prestijli cephe, güçlü aydınlatma dili ve konaklama odaklı fonksiyonel planlama.',
+    'home.projects.seaView.title': 'Deniz Manzaralı Arsa',
+    'home.projects.seaView.desc': 'Arsa analizi, proje fizibilitesi ve manzarayı maksimum kullanan yerleşim çözümleri.',
+    'home.projects.hospital.title': 'Özel Hastane Projeleri',
+    'home.projects.hospital.desc': 'Modern sağlık altyapısı, güçlü mühendislik çözümleri ve hasta odaklı tasarım ile özel hastane projelerinde uzman hizmet.',
+    'home.projects.viewProjects': 'Projeleri Gör →',
+    'footer.workingHours.title': 'Çalışma Saatleri',
+    'footer.workingHours.weekdays': 'Pazartesi - Cumartesi',
+    'footer.workingHours.weekdaysTime': '09:00 - 18:00',
+    'footer.workingHours.sunday': 'Pazar',
+    'footer.workingHours.closed': 'Kapalı',
+    'footer.location': 'Fethiye, Muğla, Türkiye',
+    'footer.navigation.title': 'Navigasyon',
+    'footer.quickLinks.title': 'Hızlı Bağlantılar',
+    'footer.services.title': 'Hizmetler',
+    'footer.services.villa': 'Villa İnşaatı',
+    'footer.services.housing': 'Toplu Konut',
+    'footer.services.turnkey': 'Anahtar Teslim',
+    'footer.services.landscape': 'Peyzaj & Havuz',
+    'footer.quickLinks.contact': 'İletişim',
+    'footer.quickLinks.projects': 'Projelerimiz',
+    'footer.quickLinks.services': 'Hizmetlerimiz',
+    'footer.quickLinks.quote': 'Teklif Al',
+    'footer.copyright': '© 2025 Hasanağaoğlu İnşaat Fethiye (1935\'ten beri) | Tüm Hakları Saklıdır',
+    'footer.website': 'www.hasanagaogluinsaat.com',
+    // About page
+    'about.title.split.left': 'İnşaat',
+    'about.title.split.right': 'Hizmetleri',
+    'about.copy.p1': 'Hasanağoğlu İnşaat, Fethiye ve çevresinde konut ve yapı projelerinde güvenilir, planlı ve uzun ömürlü çözümler üretir. Modern mimari anlayışını güçlü mühendislik, doğru iş planı ve şeffaf iletişimle birleştirir; her projede kaliteyi standart hâline getiririz.',
+    'about.copy.p2': 'Amacımız; teslim sonrası da değerini koruyan, konforlu ve sağlam yaşam alanları inşa etmektir. Mühendislik standartlarından ödün vermeden, doğru planlama ve şeffaf iletişimle müşterilerimizin beklentilerini güvenle hayata geçiriyoruz.',
+    'about.tag': 'Kalıcı Değer',
+    'about.vision.title.short': 'Vizyonumuz',
+    'about.vision.text.short': 'Yaşanabilir, estetik ve sürdürülebilir yapılar üreterek bulunduğumuz bölgede güven duyulan, uzun vadeli bir yapı markası olmak.',
+    'about.mission.title.short': 'Misyonumuz',
+    'about.mission.text.short': 'Mühendislik standartlarından ödün vermeden, doğru planlama ve şeffaf iletişimle müşterilerimizin beklentilerini güvenle hayata geçirmek.',
+    // Services page
+    'services.kicker': 'NE YAPIYORUZ',
+    'services.hero.title': 'Fethiye İnşaat Hizmetleri | Anahtar Teslim Projeler',
+    'services.hero.text.p1': 'Hasanağaoğlu İnşaat, Fethiye ve Muğla bölgesinde temelden çatıya anahtar teslim inşaat hizmetleri sunmaktadır. Modern mimari tasarım ve güçlü mühendislik altyapısı ile kaliteli, sürdürülebilir yapılar inşa ediyoruz.',
+    'services.hero.text.p2': 'Villa, toplu konut, ticari yapılar ve özel projelerde uzman ekibimizle hizmet veriyoruz. Müşteri memnuniyeti odaklı çalışma prensibi ile şeffaf iletişim ve profesyonel yaklaşım sergiliyoruz.',
+    'services.hero.btn': 'PROJELERİMİZ',
+    'services.section.kicker': 'HİZMETLER',
+    'services.card.planning.title': 'Proje Planlama',
+    'services.card.planning.desc': 'Araziden teslimata kadar tüm sürecin profesyonel planlaması ve koordinasyonu. Mimari tasarım, statik proje ve uygulama planlaması.',
+    'services.card.housing.title': 'Konut İnşaatı',
+    'services.card.housing.desc': 'Toplu konut projeleri ve özel konut inşaatı. Modern yaşam alanları, güvenli ve kaliteli yapılar.',
+    'services.card.villa.title': 'Villa İnşaatı',
+    'services.card.villa.desc': 'Özel tasarım villa projeleri. Havuzlu, peyzajlı ve lüks yaşam alanları. Anahtar teslim villa inşaatı.',
+    'services.card.commercial.title': 'Ticari Yapılar',
+    'services.card.commercial.desc': 'Ofis, mağaza, iş merkezi ve ticari yapılar. Modern iş alanları ve ticari projelerde uzman çözümler.',
+    'services.card.land.title': 'Arsa Değerleme',
+    'services.card.land.desc': 'Deniz manzaralı ve stratejik konumlu arsa değerleme. Yatırım potansiyeli analizi ve proje geliştirme.',
+    'services.card.turnkey.title': 'Anahtar Teslim',
+    'services.card.turnkey.desc': 'Temelden çatıya kadar tüm sürecin yönetildiği anahtar teslim projeler. Tek merkezden tüm hizmetler.',
+    'services.card.detail': '— DETAYLI BİLGİ',
+    'services.contact.title': 'Birlikte Bir Şeyler İnşa Edelim',
+    'services.contact.subtitle': 'Fethiye ve Muğla bölgesinde profesyonel inşaat hizmetleri için bizimle iletişime geçin.',
+    'services.contact.phone.title': 'Telefon',
+    'services.contact.phone.text': 'Hemen arayın, projeleriniz için detaylı bilgi alın. Uzman ekibimiz size yardımcı olmaya hazır.',
+    'services.contact.email.title': 'E-posta',
+    'services.contact.email.text': 'Projeleriniz hakkında detaylı bilgi almak için e-posta gönderin. En kısa sürede size dönüş yapacağız.',
+    // Projects page
+    'projects.hero.vertical': 'Hasanağaoğlu İnşaat\'ın teslim edilen ve planlanan projeleri.',
+    'projects.hero.title': 'Portfolio',
+    'projects.hero.details.title': 'Details :',
+    'projects.hero.details.item1': 'Modern mimari yaklaşım ve detay odaklı tasarım',
+    'projects.hero.details.item2': 'Sağlam mühendislik ve kaliteli malzeme kullanımı',
+    'projects.hero.details.item3': '1935\'te Sakarya\'da başlayıp Fethiye\'ye uzanan güvenilir inşaat hizmetleri',
+    'projects.hero.desc': 'Hasanağaoğlu İnşaat olarak, 1935\'te Sakarya\'da başlayıp Fethiye\'ye uzanan bir öykü ile kaliteli inşaat hizmetleri sunuyoruz. Modern mimari yaklaşımlar, sağlam mühendislik çözümleri ve özenli işçilik ile hayata geçirdiğimiz projelerimiz, müşterilerimize konforlu ve güvenli yaşam alanları sağlamaktadır. Villa, toplu konut, havuz ve malikane projelerimizde, her detayı titizlikle planlayarak, estetik ve fonksiyonelliği bir araya getiriyoruz. Sürdürülebilir mimari anlayışımız ve çevreye saygılı yaklaşımımız ile gelecek nesillere değer katacak eserler inşa ediyoruz.',
+    'projects.section.delivered': 'Teslim Edilen Projeler',
+    'projects.section.upcoming': 'Teslim Edilecek Projeler',
+    'projects.section.malikane': 'Malikane Projeleri',
+    'projects.subsection.villa': 'Villa',
+    'projects.subsection.pool': 'Havuz Projeleri',
+    'projects.subsection.housing': 'Toplu Konut',
+    'projects.kicker': 'ARCHITECTURE',
+    'projects.project01.title': 'Project_01',
+    'projects.project01.desc': 'Fethiye\'de modern mimari yaklaşım ile tasarlanan özel villa projesi. Malzeme, ışık ve oran odaklı.',
+    'projects.project02.title': 'Project_02',
+    'projects.project02.desc': 'Dış cephe oranları ve detay işçilik odaklı modern villa uygulaması. Malzeme sürekliliği ve ışık dengesi.',
+    'projects.project03.title': 'Project_03',
+    'projects.project03.desc': 'Fethiye havuz projelerimizde modern havuz uygulaması: çevre düzeni, kaplama detayları ve çizgisel mimari uyum. Fethiye\'de profesyonel havuz yapımı ve havuz tasarımı hizmetleri.',
+    'projects.project04.title': 'Project_04',
+    'projects.project04.desc': 'Toplu konut projelerinde planlama, ölçek ve sürdürülebilir mimari yaklaşım.',
+    'projects.project05.title': 'Project_05',
+    'projects.project05.desc': 'Devam eden villa projelerinde modern mimari ve detay odaklı yaklaşım.',
+    'projects.project06.title': 'Project_06',
+    'projects.project06.desc': 'Devam eden toplu konut projelerinde planlama, ölçek ve sürdürülebilir mimari yaklaşım.',
+    'projects.project07.title': 'Project_07',
+    'projects.project07.desc': 'Premium malikane projelerinde lüks detaylar, özel işçilik ve mimari mükemmellik.',
+    'projects.villa01.title': 'Villa_01',
+    // Contact page
+    'contact.hero.title': 'İletişim',
+    'contact.hero.subtitle': 'HASANAĞAOĞLU İNŞAAT OFİSLERİ',
+    'contact.region.turkey': 'TÜRKİYE',
+    'contact.city.fethiye': 'Fethiye',
+    'contact.detail.address': 'ADRES:',
+    'contact.detail.phone': 'TELEFON:',
+    'contact.detail.email': 'E-POSTA:',
+    'contact.form.label': 'BİZE ULAŞIN',
+    'contact.form.question': 'İnşaat projeniz için teklif almak veya danışmanlık hizmeti ister misiniz?',
+    'contact.form.name.label': 'Ad Soyad',
+    'contact.form.email.label': 'E-posta',
+    'contact.form.message.label': 'Mesajınız',
+    'contact.form.privacy': 'Bu formu göndererek <a href="#" target="_blank">Gizlilik Politikası</a>\'nı okuduğumu ve kabul ettiğimi onaylıyorum.',
+    'contact.form.submit': 'Gönder',
+    // Slider captions
+    'hero.slide.turnkey': 'Fethiye Temelden Çatıya Anahtar Teslim',
+    'hero.slide.villa': 'Fethiye Villa Projeleri',
+    'hero.slide.housing': 'Fethiye Toplu Konut Projeleri',
+    'hero.slide.pool': 'Fethiye Havuz Projeleri'
   },
   en: {
     'nav.home': 'Home',
@@ -129,7 +290,93 @@ const translations = {
     'contact.formMessagePlaceholder': 'Please provide brief information about your project or land',
     'contact.formSubmit': 'Send',
     'contact.mapTitle': 'Office Location',
-    'footer.rights': 'All Rights Reserved'
+    'footer.rights': 'All Rights Reserved',
+    // About page
+    'about.title.split.left': 'Construction',
+    'about.title.split.right': 'Services',
+    'about.copy.p1': 'Hasanağaoğlu Construction produces reliable, planned and durable solutions in residential and building projects in Fethiye and its surroundings. We combine modern architectural understanding with strong engineering, correct business plan and transparent communication; we make quality a standard in every project.',
+    'about.copy.p2': 'Our goal is to build comfortable and solid living spaces that maintain their value after delivery. Without compromising engineering standards, we safely realize our customers\' expectations with correct planning and transparent communication.',
+    'about.tag': 'Lasting Value',
+    'about.vision.title.short': 'Our Vision',
+    'about.vision.text.short': 'To be a trusted, long-term construction brand in our region by producing livable, aesthetic and sustainable structures.',
+    'about.mission.title.short': 'Our Mission',
+    'about.mission.text.short': 'To safely realize our customers\' expectations with correct planning and transparent communication without compromising engineering standards.',
+    // Services page
+    'services.kicker': 'WHAT WE DO',
+    'services.hero.title': 'Fethiye Construction Services | Turnkey Projects',
+    'services.hero.text.p1': 'Hasanağaoğlu Construction provides turnkey construction services from foundation to roof in Fethiye and Muğla region. We build quality, sustainable structures with modern architectural design and strong engineering infrastructure.',
+    'services.hero.text.p2': 'We serve with our expert team in villas, mass housing, commercial buildings and special projects. We demonstrate transparent communication and professional approach with our customer satisfaction-oriented working principle.',
+    'services.hero.btn': 'OUR PROJECTS',
+    'services.section.kicker': 'SERVICES',
+    'services.card.planning.title': 'Project Planning',
+    'services.card.planning.desc': 'Professional planning and coordination of the entire process from land to delivery. Architectural design, static project and application planning.',
+    'services.card.housing.title': 'Residential Construction',
+    'services.card.housing.desc': 'Mass housing projects and private residential construction. Modern living spaces, safe and quality structures.',
+    'services.card.villa.title': 'Villa Construction',
+    'services.card.villa.desc': 'Custom design villa projects. Pool, landscape and luxury living spaces. Turnkey villa construction.',
+    'services.card.commercial.title': 'Commercial Buildings',
+    'services.card.commercial.desc': 'Offices, stores, business centers and commercial buildings. Modern business spaces and expert solutions in commercial projects.',
+    'services.card.land.title': 'Land Valuation',
+    'services.card.land.desc': 'Sea view and strategically located land valuation. Investment potential analysis and project development.',
+    'services.card.turnkey.title': 'Turnkey',
+    'services.card.turnkey.desc': 'Turnkey projects where the entire process from foundation to roof is managed. All services from a single center.',
+    'services.card.detail': '— DETAILED INFO',
+    'services.contact.title': 'Let\'s Build Something Together',
+    'services.contact.subtitle': 'Contact us for professional construction services in Fethiye and Muğla region.',
+    'services.contact.phone.title': 'Phone',
+    'services.contact.phone.text': 'Call now, get detailed information about your projects. Our expert team is ready to help you.',
+    'services.contact.email.title': 'Email',
+    'services.contact.email.text': 'Send an email to get detailed information about your projects. We will get back to you as soon as possible.',
+    // Projects page
+    'projects.hero.vertical': 'Delivered and planned projects of Hasanağaoğlu Construction.',
+    'projects.hero.title': 'Portfolio',
+    'projects.hero.details.title': 'Details :',
+    'projects.hero.details.item1': 'Modern architectural approach and detail-oriented design',
+    'projects.hero.details.item2': 'Solid engineering and quality material usage',
+    'projects.hero.details.item3': 'Reliable construction services starting in Sakarya in 1935 and extending to Fethiye',
+    'projects.hero.desc': 'As Hasanağaoğlu Construction, we provide quality construction services with a story that started in Sakarya in 1935 and extends to Fethiye. Our projects, which we realize with modern architectural approaches, solid engineering solutions and meticulous workmanship, provide our customers with comfortable and safe living spaces. In our villa, mass housing, pool and mansion projects, we combine aesthetics and functionality by carefully planning every detail. We build works that will add value to future generations with our sustainable architectural understanding and environmentally respectful approach.',
+    'projects.section.delivered': 'Delivered Projects',
+    'projects.section.upcoming': 'Upcoming Projects',
+    'projects.section.malikane': 'Mansion Projects',
+    'projects.subsection.villa': 'Villa',
+    'projects.subsection.pool': 'Pool Projects',
+    'projects.subsection.housing': 'Mass Housing',
+    'projects.kicker': 'ARCHITECTURE',
+    'projects.project01.title': 'Project_01',
+    'projects.project01.desc': 'Special villa project designed with modern architectural approach in Fethiye. Material, light and proportion focused.',
+    'projects.project02.title': 'Project_02',
+    'projects.project02.desc': 'Modern villa application focused on facade proportions and detail workmanship. Material continuity and light balance.',
+    'projects.project03.title': 'Project_03',
+    'projects.project03.desc': 'Modern pool application in our Fethiye pool projects: environment arrangement, coating details and linear architectural harmony. Professional pool construction and pool design services in Fethiye.',
+    'projects.project04.title': 'Project_04',
+    'projects.project04.desc': 'Planning, scale and sustainable architectural approach in mass housing projects.',
+    'projects.project05.title': 'Project_05',
+    'projects.project05.desc': 'Modern architecture and detail-oriented approach in ongoing villa projects.',
+    'projects.project06.title': 'Project_06',
+    'projects.project06.desc': 'Planning, scale and sustainable architectural approach in ongoing mass housing projects.',
+    'projects.project07.title': 'Project_07',
+    'projects.project07.desc': 'Luxury details, special workmanship and architectural excellence in premium mansion projects.',
+    'projects.villa01.title': 'Villa_01',
+    // Contact page
+    'contact.hero.title': 'Contact',
+    'contact.hero.subtitle': 'HASANAĞAOĞLU CONSTRUCTION OFFICES',
+    'contact.region.turkey': 'TURKEY',
+    'contact.city.fethiye': 'Fethiye',
+    'contact.detail.address': 'ADDRESS:',
+    'contact.detail.phone': 'PHONE:',
+    'contact.detail.email': 'EMAIL:',
+    'contact.form.label': 'CONTACT US',
+    'contact.form.question': 'Would you like to get a quote or consulting service for your construction project?',
+    'contact.form.name.label': 'Full Name',
+    'contact.form.email.label': 'Email',
+    'contact.form.message.label': 'Your Message',
+    'contact.form.privacy': 'By submitting this form, I confirm that I have read and accepted the <a href="#" target="_blank">Privacy Policy</a>.',
+    'contact.form.submit': 'Send',
+    // Slider captions
+    'hero.slide.turnkey': 'Fethiye Turnkey from Foundation to Roof',
+    'hero.slide.villa': 'Fethiye Villa Projects',
+    'hero.slide.housing': 'Fethiye Mass Housing Projects',
+    'hero.slide.pool': 'Fethiye Pool Projects'
   },
   ru: {
     'nav.home': 'Главная',
@@ -195,7 +442,128 @@ const translations = {
     'contact.formMessagePlaceholder': 'Пожалуйста, предоставьте краткую информацию о вашем проекте или земле',
     'contact.formSubmit': 'Отправить',
     'contact.mapTitle': 'Местоположение офиса',
-    'footer.rights': 'Все Права Защищены'
+    'footer.rights': 'Все Права Защищены',
+    'home.projects.title': 'Наши Проекты',
+    'home.projects.villa.title': 'Проекты Вилл',
+    'home.projects.villa.desc': 'Современная архитектура, просторные жилые зоны, высококачественные материалы и дизайны, подходящие для Фетхие.',
+    'home.projects.pool.title': 'Бассейн и Открытые Пространства',
+    'home.projects.pool.desc': 'Мы добавляем эстетическую ценность нашим проектам с современными дизайнами бассейнов, долговечными решениями для полов и приложениями для открытых пространств, ориентированными на комфорт.',
+    'home.projects.housing.title': 'Массовые Жилищные Проекты',
+    'home.projects.housing.desc': 'Планируемое поселение, сильная инфраструктура, современный фасад и долговечные строительные стандарты.',
+    'home.projects.landscape.title': 'Ландшафт и Окружающая Среда',
+    'home.projects.landscape.desc': 'Планирование зеленых зон, современные линии сада и экологические решения, простые в обслуживании.',
+    'home.projects.hotel.title': 'Проекты Отелей',
+    'home.projects.hotel.desc': 'Престижный фасад, сильный язык освещения и функциональное планирование, ориентированное на размещение.',
+    'home.projects.seaView.title': 'Земли с Видом на Море',
+    'home.projects.seaView.desc': 'Анализ земли, осуществимость проекта и решения для поселения, максимально использующие вид.',
+    'home.projects.hospital.title': 'Проекты Частных Больниц',
+    'home.projects.hospital.desc': 'Экспертные услуги в проектах частных больниц с современной медицинской инфраструктурой, сильными инженерными решениями и дизайном, ориентированным на пациентов.',
+    'home.projects.viewProjects': 'Посмотреть Проекты →',
+    'footer.workingHours.title': 'Часы Работы',
+    'footer.workingHours.weekdays': 'Понедельник - Суббота',
+    'footer.workingHours.weekdaysTime': '09:00 - 18:00',
+    'footer.workingHours.sunday': 'Воскресенье',
+    'footer.workingHours.closed': 'Закрыто',
+    'footer.location': 'Фетхие, Мугла, Турция',
+    'footer.navigation.title': 'Навигация',
+    'footer.quickLinks.title': 'Быстрые Ссылки',
+    'footer.services.title': 'Услуги',
+    'footer.services.villa': 'Строительство Вилл',
+    'footer.services.housing': 'Массовое Жилище',
+    'footer.services.turnkey': 'Под Ключ',
+    'footer.services.landscape': 'Ландшафт и Бассейн',
+    'footer.quickLinks.contact': 'Контакты',
+    'footer.quickLinks.projects': 'Наши Проекты',
+    'footer.quickLinks.services': 'Наши Услуги',
+    'footer.quickLinks.quote': 'Получить Предложение',
+    'footer.copyright': '© 2025 Hasanağaoğlu Construction Фетхие (С 1935) | Все Права Защищены',
+    'footer.website': 'www.hasanagaogluinsaat.com',
+    // About page
+    'about.title.split.left': 'Строительство',
+    'about.title.split.right': 'Услуги',
+    'about.copy.p1': 'Hasanağaoğlu Construction производит надежные, спланированные и долговечные решения в жилищных и строительных проектах в Фетхие и его окрестностях. Мы сочетаем современное архитектурное понимание с сильной инженерией, правильным бизнес-планом и прозрачной коммуникацией; мы делаем качество стандартом в каждом проекте.',
+    'about.copy.p2': 'Наша цель - строить комфортные и прочные жилые пространства, которые сохраняют свою ценность после сдачи. Не идя на компромиссы в инженерных стандартах, мы безопасно реализуем ожидания наших клиентов с правильным планированием и прозрачной коммуникацией.',
+    'about.tag': 'Постоянная Ценность',
+    'about.vision.title.short': 'Наше Видение',
+    'about.vision.text.short': 'Быть доверенным, долгосрочным строительным брендом в нашем регионе, производя пригодные для жизни, эстетичные и устойчивые структуры.',
+    'about.mission.title.short': 'Наша Миссия',
+    'about.mission.text.short': 'Безопасно реализовать ожидания наших клиентов с правильным планированием и прозрачной коммуникацией, не идя на компромиссы в инженерных стандартах.',
+    // Services page
+    'services.kicker': 'ЧТО МЫ ДЕЛАЕМ',
+    'services.hero.title': 'Строительные Услуги Фетхие | Проекты Под Ключ',
+    'services.hero.text.p1': 'Hasanağaoğlu Construction предоставляет услуги строительства под ключ от фундамента до крыши в регионе Фетхие и Мугла. Мы строим качественные, устойчивые структуры с современным архитектурным дизайном и сильной инженерной инфраструктурой.',
+    'services.hero.text.p2': 'Мы обслуживаем с нашей экспертной командой виллы, массовое жилье, коммерческие здания и специальные проекты. Мы демонстрируем прозрачную коммуникацию и профессиональный подход с нашим принципом работы, ориентированным на удовлетворенность клиентов.',
+    'services.hero.btn': 'НАШИ ПРОЕКТЫ',
+    'services.section.kicker': 'УСЛУГИ',
+    'services.card.planning.title': 'Планирование Проекта',
+    'services.card.planning.desc': 'Профессиональное планирование и координация всего процесса от земли до сдачи. Архитектурный дизайн, статический проект и планирование применения.',
+    'services.card.housing.title': 'Жилищное Строительство',
+    'services.card.housing.desc': 'Проекты массового жилья и частное жилищное строительство. Современные жилые пространства, безопасные и качественные структуры.',
+    'services.card.villa.title': 'Строительство Вилл',
+    'services.card.villa.desc': 'Проекты вилл с индивидуальным дизайном. Бассейн, ландшафт и роскошные жилые пространства. Строительство вилл под ключ.',
+    'services.card.commercial.title': 'Коммерческие Здания',
+    'services.card.commercial.desc': 'Офисы, магазины, деловые центры и коммерческие здания. Современные деловые пространства и экспертные решения в коммерческих проектах.',
+    'services.card.land.title': 'Оценка Земли',
+    'services.card.land.desc': 'Оценка земли с видом на море и стратегически расположенной. Анализ инвестиционного потенциала и разработка проектов.',
+    'services.card.turnkey.title': 'Под Ключ',
+    'services.card.turnkey.desc': 'Проекты под ключ, где управляется весь процесс от фундамента до крыши. Все услуги из одного центра.',
+    'services.card.detail': '— ПОДРОБНАЯ ИНФОРМАЦИЯ',
+    'services.contact.title': 'Давайте Построим Что-то Вместе',
+    'services.contact.subtitle': 'Свяжитесь с нами для профессиональных строительных услуг в регионе Фетхие и Мугла.',
+    'services.contact.phone.title': 'Телефон',
+    'services.contact.phone.text': 'Позвоните сейчас, получите подробную информацию о ваших проектах. Наша экспертная команда готова помочь вам.',
+    'services.contact.email.title': 'Электронная почта',
+    'services.contact.email.text': 'Отправьте электронное письмо, чтобы получить подробную информацию о ваших проектах. Мы свяжемся с вами как можно скорее.',
+    // Projects page
+    'projects.hero.vertical': 'Сданные и запланированные проекты Hasanağaoğlu Construction.',
+    'projects.hero.title': 'Портфолио',
+    'projects.hero.details.title': 'Детали :',
+    'projects.hero.details.item1': 'Современный архитектурный подход и дизайн, ориентированный на детали',
+    'projects.hero.details.item2': 'Прочная инженерия и использование качественных материалов',
+    'projects.hero.details.item3': 'Надежные строительные услуги, начавшиеся в Сакарья в 1935 году и простирающиеся до Фетхие',
+    'projects.hero.desc': 'Как Hasanağaoğlu Construction, мы предоставляем качественные строительные услуги с историей, которая началась в Сакарья в 1935 году и простирается до Фетхие. Наши проекты, которые мы реализуем с современными архитектурными подходами, прочными инженерными решениями и тщательной работой, обеспечивают нашим клиентам комфортные и безопасные жилые пространства. В наших проектах вилл, массового жилья, бассейнов и особняков мы сочетаем эстетику и функциональность, тщательно планируя каждую деталь. Мы строим работы, которые добавят ценности будущим поколениям с нашим устойчивым архитектурным пониманием и экологически уважительным подходом.',
+    'projects.section.delivered': 'Сданные Проекты',
+    'projects.section.upcoming': 'Предстоящие Проекты',
+    'projects.section.malikane': 'Проекты Особняков',
+    'projects.subsection.villa': 'Вилла',
+    'projects.subsection.pool': 'Проекты Бассейнов',
+    'projects.subsection.housing': 'Массовое Жилье',
+    'projects.kicker': 'АРХИТЕКТУРА',
+    'projects.project01.title': 'Проект_01',
+    'projects.project01.desc': 'Специальный проект виллы, разработанный с современным архитектурным подходом в Фетхие. Материал, свет и пропорции в фокусе.',
+    'projects.project02.title': 'Проект_02',
+    'projects.project02.desc': 'Современное применение виллы, ориентированное на пропорции фасада и детальную работу. Непрерывность материала и баланс света.',
+    'projects.project03.title': 'Проект_03',
+    'projects.project03.desc': 'Современное применение бассейна в наших проектах бассейнов Фетхие: обустройство окружающей среды, детали покрытия и линейная архитектурная гармония. Профессиональное строительство бассейнов и услуги дизайна бассейнов в Фетхие.',
+    'projects.project04.title': 'Проект_04',
+    'projects.project04.desc': 'Планирование, масштаб и устойчивый архитектурный подход в проектах массового жилья.',
+    'projects.project05.title': 'Проект_05',
+    'projects.project05.desc': 'Современная архитектура и подход, ориентированный на детали, в текущих проектах вилл.',
+    'projects.project06.title': 'Проект_06',
+    'projects.project06.desc': 'Планирование, масштаб и устойчивый архитектурный подход в текущих проектах массового жилья.',
+    'projects.project07.title': 'Проект_07',
+    'projects.project07.desc': 'Роскошные детали, специальная работа и архитектурное совершенство в премиальных проектах особняков.',
+    'projects.villa01.title': 'Вилла_01',
+    // Contact page
+    'contact.hero.title': 'Контакты',
+    'contact.hero.subtitle': 'ОФИСЫ HASANAĞAOĞLU CONSTRUCTION',
+    'contact.region.turkey': 'ТУРЦИЯ',
+    'contact.city.fethiye': 'Фетхие',
+    'contact.detail.address': 'АДРЕС:',
+    'contact.detail.phone': 'ТЕЛЕФОН:',
+    'contact.detail.email': 'ЭЛЕКТРОННАЯ ПОЧТА:',
+    'contact.form.label': 'СВЯЖИТЕСЬ С НАМИ',
+    'contact.form.question': 'Хотели бы вы получить предложение или консультационную услугу для вашего строительного проекта?',
+    'contact.form.name.label': 'ФИО',
+    'contact.form.email.label': 'Электронная почта',
+    'contact.form.message.label': 'Ваше сообщение',
+    'contact.form.privacy': 'Отправляя эту форму, я подтверждаю, что прочитал и принял <a href="#" target="_blank">Политику Конфиденциальности</a>.',
+    'contact.form.submit': 'Отправить',
+    // Slider captions
+    'hero.slide.turnkey': 'Фетхие Под Ключ от Фундамента до Крыши',
+    'hero.slide.villa': 'Проекты Вилл Фетхие',
+    'hero.slide.housing': 'Массовые Жилищные Проекты Фетхие',
+    'hero.slide.pool': 'Проекты Бассейнов Фетхие'
   },
   ar: {
     'nav.home': 'الرئيسية',
@@ -261,7 +629,93 @@ const translations = {
     'contact.formMessagePlaceholder': 'يرجى تقديم معلومات موجزة عن مشروعك أو أرضك',
     'contact.formSubmit': 'إرسال',
     'contact.mapTitle': 'موقع المكتب',
-    'footer.rights': 'جميع الحقوق محفوظة'
+    'footer.rights': 'جميع الحقوق محفوظة',
+    // About page
+    'about.title.split.left': 'البناء',
+    'about.title.split.right': 'الخدمات',
+    'about.copy.p1': 'تنتج شركة حسن أغلو للإنشاءات حلولاً موثوقة ومخططة ودائمة في مشاريع الإسكان والبناء في فتحية والمناطق المحيطة بها. نجمع بين الفهم المعماري الحديث والهندسة القوية وخطة العمل الصحيحة والتواصل الشفاف؛ نجعل الجودة معياراً في كل مشروع.',
+    'about.copy.p2': 'هدفنا هو بناء مساحات معيشة مريحة وصلبة تحافظ على قيمتها بعد التسليم. دون المساس بمعايير الهندسة، نحقق بأمان توقعات عملائنا بالتخطيط الصحيح والتواصل الشفاف.',
+    'about.tag': 'القيمة الدائمة',
+    'about.vision.title.short': 'رؤيتنا',
+    'about.vision.text.short': 'أن نكون علامة بناء موثوقة وطويلة الأجل في منطقتنا من خلال إنتاج هياكل قابلة للعيش وجمالية ومستدامة.',
+    'about.mission.title.short': 'مهمتنا',
+    'about.mission.text.short': 'تحقيق توقعات عملائنا بأمان بالتخطيط الصحيح والتواصل الشفاف دون المساس بمعايير الهندسة.',
+    // Services page
+    'services.kicker': 'ماذا نفعل',
+    'services.hero.title': 'خدمات البناء في فتحية | مشاريع تسليم المفتاح',
+    'services.hero.text.p1': 'توفر شركة حسن أغلو للإنشاءات خدمات بناء تسليم المفتاح من الأساس إلى السقف في منطقة فتحية وموغلا. نبني هياكل عالية الجودة ومستدامة بتصميم معماري حديث وبنية تحتية هندسية قوية.',
+    'services.hero.text.p2': 'نخدم مع فريقنا الخبير في الفيلات والإسكان الجماعي والمباني التجارية والمشاريع الخاصة. نظهر التواصل الشفاف والنهج المهني مع مبدأ عملنا المتمحور حول رضا العملاء.',
+    'services.hero.btn': 'مشاريعنا',
+    'services.section.kicker': 'الخدمات',
+    'services.card.planning.title': 'تخطيط المشروع',
+    'services.card.planning.desc': 'التخطيط والتنسيق المهني للعملية بأكملها من الأرض إلى التسليم. التصميم المعماري ومشروع الثابت وتخطيط التطبيق.',
+    'services.card.housing.title': 'البناء السكني',
+    'services.card.housing.desc': 'مشاريع الإسكان الجماعي والبناء السكني الخاص. مساحات معيشة حديثة وهياكل آمنة وعالية الجودة.',
+    'services.card.villa.title': 'بناء الفيلات',
+    'services.card.villa.desc': 'مشاريع فيلات بتصميم مخصص. مسابح وتنسيق حدائق ومساحات معيشة فاخرة. بناء فيلات تسليم المفتاح.',
+    'services.card.commercial.title': 'المباني التجارية',
+    'services.card.commercial.desc': 'المكاتب والمتاجر ومراكز الأعمال والمباني التجارية. مساحات عمل حديثة وحلول خبيرة في المشاريع التجارية.',
+    'services.card.land.title': 'تقييم الأرض',
+    'services.card.land.desc': 'تقييم الأراضي المطلة على البحر والموجودة في مواقع استراتيجية. تحليل إمكانات الاستثمار وتطوير المشاريع.',
+    'services.card.turnkey.title': 'تسليم المفتاح',
+    'services.card.turnkey.desc': 'مشاريع تسليم المفتاح حيث يتم إدارة العملية بأكملها من الأساس إلى السقف. جميع الخدمات من مركز واحد.',
+    'services.card.detail': '— معلومات مفصلة',
+    'services.contact.title': 'دعونا نبني شيئاً معاً',
+    'services.contact.subtitle': 'اتصل بنا للحصول على خدمات بناء مهنية في منطقة فتحية وموغلا.',
+    'services.contact.phone.title': 'الهاتف',
+    'services.contact.phone.text': 'اتصل الآن، احصل على معلومات مفصلة حول مشاريعك. فريقنا الخبير جاهز لمساعدتك.',
+    'services.contact.email.title': 'البريد الإلكتروني',
+    'services.contact.email.text': 'أرسل بريداً إلكترونياً للحصول على معلومات مفصلة حول مشاريعك. سنعود إليك في أقرب وقت ممكن.',
+    // Projects page
+    'projects.hero.vertical': 'المشاريع المقدمة والمخططة لشركة حسن أغلو للإنشاءات.',
+    'projects.hero.title': 'المحفظة',
+    'projects.hero.details.title': 'التفاصيل :',
+    'projects.hero.details.item1': 'نهج معماري حديث وتصميم يركز على التفاصيل',
+    'projects.hero.details.item2': 'هندسة صلبة واستخدام مواد عالية الجودة',
+    'projects.hero.details.item3': 'خدمات بناء موثوقة بدأت في ساكاريا في عام 1935 وتمتد إلى فتحية',
+    'projects.hero.desc': 'كشركة حسن أغلو للإنشاءات، نقدم خدمات بناء عالية الجودة مع قصة بدأت في ساكاريا في عام 1935 وتمتد إلى فتحية. مشاريعنا، التي نحققها بأساليب معمارية حديثة وحلول هندسية صلبة وعمل دقيق، توفر لعملائنا مساحات معيشة مريحة وآمنة. في مشاريعنا للفيلات والإسكان الجماعي والمسابح والقصور، نجمع بين الجمال والوظيفية من خلال التخطيط بعناية لكل تفصيل. نبني أعمالاً ستضيف قيمة للأجيال القادمة مع فهمنا المعماري المستدام ونهجنا المحترم للبيئة.',
+    'projects.section.delivered': 'المشاريع المقدمة',
+    'projects.section.upcoming': 'المشاريع القادمة',
+    'projects.section.malikane': 'مشاريع القصور',
+    'projects.subsection.villa': 'فيلا',
+    'projects.subsection.pool': 'مشاريع المسابح',
+    'projects.subsection.housing': 'الإسكان الجماعي',
+    'projects.kicker': 'العمارة',
+    'projects.project01.title': 'المشروع_01',
+    'projects.project01.desc': 'مشروع فيلا خاص مصمم بنهج معماري حديث في فتحية. يركز على المواد والضوء والنسبة.',
+    'projects.project02.title': 'المشروع_02',
+    'projects.project02.desc': 'تطبيق فيلا حديث يركز على نسب الواجهة وعمل التفاصيل. استمرارية المواد وتوازن الضوء.',
+    'projects.project03.title': 'المشروع_03',
+    'projects.project03.desc': 'تطبيق مسبح حديث في مشاريع المسابح في فتحية: ترتيب البيئة وتفاصيل الطلاء والانسجام المعماري الخطي. خدمات بناء المسابح المهنية وتصميم المسابح في فتحية.',
+    'projects.project04.title': 'المشروع_04',
+    'projects.project04.desc': 'التخطيط والمقياس والنهج المعماري المستدام في مشاريع الإسكان الجماعي.',
+    'projects.project05.title': 'المشروع_05',
+    'projects.project05.desc': 'العمارة الحديثة والنهج المركّز على التفاصيل في مشاريع الفيلات الجارية.',
+    'projects.project06.title': 'المشروع_06',
+    'projects.project06.desc': 'التخطيط والمقياس والنهج المعماري المستدام في مشاريع الإسكان الجماعي الجارية.',
+    'projects.project07.title': 'المشروع_07',
+    'projects.project07.desc': 'تفاصيل فاخرة وعمل خاص والتميز المعماري في مشاريع القصور المميزة.',
+    'projects.villa01.title': 'فيلا_01',
+    // Contact page
+    'contact.hero.title': 'اتصل بنا',
+    'contact.hero.subtitle': 'مكاتب شركة حسن أغلو للإنشاءات',
+    'contact.region.turkey': 'تركيا',
+    'contact.city.fethiye': 'فتحية',
+    'contact.detail.address': 'العنوان:',
+    'contact.detail.phone': 'الهاتف:',
+    'contact.detail.email': 'البريد الإلكتروني:',
+    'contact.form.label': 'اتصل بنا',
+    'contact.form.question': 'هل ترغب في الحصول على عرض سعر أو خدمة استشارية لمشروع البناء الخاص بك؟',
+    'contact.form.name.label': 'الاسم الكامل',
+    'contact.form.email.label': 'البريد الإلكتروني',
+    'contact.form.message.label': 'رسالتك',
+    'contact.form.privacy': 'بإرسال هذا النموذج، أؤكد أنني قرأت ووافقت على <a href="#" target="_blank">سياسة الخصوصية</a>.',
+    'contact.form.submit': 'إرسال',
+    // Slider captions
+    'hero.slide.turnkey': 'فتحية تسليم المفتاح من الأساس إلى السقف',
+    'hero.slide.villa': 'مشاريع الفيلات فتحية',
+    'hero.slide.housing': 'مشاريع الإسكان الجماعي فتحية',
+    'hero.slide.pool': 'مشاريع المسابح فتحية'
   }
 };
 
@@ -285,11 +739,17 @@ function translatePage(lang) {
   document.querySelectorAll('[data-key]').forEach(element => {
     const key = element.getAttribute('data-key');
     if (translations[lang] && translations[lang][key]) {
-      // Input ve textarea için placeholder, diğerleri için textContent
+      // Input ve textarea için placeholder, diğerleri için textContent veya innerHTML
       if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
         element.placeholder = translations[lang][key];
       } else {
-        element.textContent = translations[lang][key];
+        // HTML içeriği varsa innerHTML kullan (Gizlilik Politikası linki için)
+        const translation = translations[lang][key];
+        if (translation.includes('<a') || translation.includes('<span') || translation.includes('<strong')) {
+          element.innerHTML = translation;
+        } else {
+          element.textContent = translation;
+        }
       }
     }
   });
@@ -316,12 +776,59 @@ document.addEventListener('DOMContentLoaded', function() {
   // Mevcut dili yükle
   translatePage(currentLang);
   
-  // Dil dropdown linklerine tıklama eventi
-  document.querySelectorAll('[data-lang]').forEach(link => {
+  const langBtn = document.getElementById('langBtn');
+  const langDropdowns = document.querySelectorAll('.lang-dropdown');
+  const languageSelectors = document.querySelectorAll('.language-selector');
+  
+  // Dil butonuna tıklama – aç/kapa
+  if (langBtn) {
+    langBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      languageSelectors.forEach(selector => {
+        const dropdown = selector.querySelector('.lang-dropdown');
+        if (dropdown) {
+          const isOpen = dropdown.classList.contains('active') || dropdown.classList.contains('is-open');
+          if (isOpen) {
+            dropdown.classList.remove('active');
+            dropdown.classList.remove('is-open');
+          } else {
+            dropdown.classList.add('active');
+            dropdown.classList.add('is-open');
+            // Açıldıktan sonra dışarı tıklanınca kapat – gecikmeyle ekle (hemen kapanmasın)
+            setTimeout(function() {
+              var closeOnOutside = function(ev) {
+                if (!ev.target.closest('.language-selector')) {
+                  langDropdowns.forEach(function(d) {
+                    d.classList.remove('active');
+                    d.classList.remove('is-open');
+                  });
+                  document.removeEventListener('click', closeOnOutside);
+                  document.removeEventListener('touchstart', closeOnOutside);
+                }
+              };
+              document.addEventListener('click', closeOnOutside);
+              document.addEventListener('touchstart', closeOnOutside);
+            }, 100);
+          }
+        }
+      });
+    });
+  }
+  
+  // Dil seçeneklerine tıklama – dil değiştir ve kapat
+  document.querySelectorAll('.lang-dropdown [data-lang]').forEach(link => {
     link.addEventListener('click', function(e) {
       e.preventDefault();
+      e.stopPropagation();
       const lang = this.getAttribute('data-lang');
-      translatePage(lang);
+      if (lang) {
+        translatePage(lang);
+      }
+      langDropdowns.forEach(dropdown => {
+        dropdown.classList.remove('active');
+        dropdown.classList.remove('is-open');
+      });
     });
   });
 });
@@ -361,9 +868,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // URL'den parametreyi temizle
     window.history.replaceState({}, document.title, window.location.pathname);
     
-    // İletişim bölümüne kaydır
+    // Form bölümüne kaydır
     setTimeout(() => {
-      document.getElementById('iletisim')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const formSection = document.querySelector('.contact-form-section') || document.getElementById('contactForm');
+      if (formSection) {
+        formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     }, 100);
   } else if (error) {
     formMessage.className = 'form-message form-message-error';
@@ -380,7 +890,7 @@ document.addEventListener('DOMContentLoaded', function() {
         errorText = 'Mesajınız çok kısa. Lütfen daha detaylı bir mesaj yazın.';
         break;
       case 'send':
-        errorText = 'Mesaj gönderilirken bir hata oluştu. Lütfen daha sonra tekrar deneyin.';
+        errorText = 'Mesaj gönderilirken bir hata oluştu. Lütfen daha sonra tekrar deneyin veya WhatsApp üzerinden iletişime geçin.';
         break;
     }
     
@@ -390,9 +900,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // URL'den parametreyi temizle
     window.history.replaceState({}, document.title, window.location.pathname);
     
-    // İletişim bölümüne kaydır
+    // Form bölümüne kaydır
     setTimeout(() => {
-      document.getElementById('iletisim')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const formSection = document.querySelector('.contact-form-section') || document.getElementById('contactForm');
+      if (formSection) {
+        formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     }, 100);
   } else if (spam === '1') {
     formMessage.className = 'form-message form-message-error';
@@ -413,6 +926,140 @@ document.addEventListener('DOMContentLoaded', function() {
       }, 300);
     }, 5000);
   }
+});
+
+// İletişim Formu AJAX Gönderimi
+document.addEventListener('DOMContentLoaded', function() {
+  const contactForm = document.getElementById('contactForm');
+  if (!contactForm) return;
+
+  contactForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const formMessage = document.getElementById('form-message');
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+    const originalBtnText = submitBtn.innerHTML;
+    
+    // Form verilerini al
+    const formData = new FormData(contactForm);
+    
+    // Validasyon
+    const name = formData.get('name')?.trim() || '';
+    const email = formData.get('email')?.trim() || '';
+    const message = formData.get('message')?.trim() || '';
+    
+    if (!name || !email || !message) {
+      if (formMessage) {
+        formMessage.className = 'form-message form-message-error';
+        formMessage.innerHTML = '<strong>✗ Hata!</strong> Lütfen tüm zorunlu alanları doldurun.';
+        formMessage.style.display = 'block';
+      }
+      return;
+    }
+    
+    if (!email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+      if (formMessage) {
+        formMessage.className = 'form-message form-message-error';
+        formMessage.innerHTML = '<strong>✗ Hata!</strong> Geçerli bir e-posta adresi giriniz.';
+        formMessage.style.display = 'block';
+      }
+      return;
+    }
+    
+    if (message.length < 10) {
+      if (formMessage) {
+        formMessage.className = 'form-message form-message-error';
+        formMessage.innerHTML = '<strong>✗ Hata!</strong> Mesajınız çok kısa. Lütfen daha detaylı bir mesaj yazın.';
+        formMessage.style.display = 'block';
+      }
+      return;
+    }
+    
+    // Butonu devre dışı bırak
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = 'Gönderiliyor...';
+    
+    // Önceki mesajları temizle
+    if (formMessage) {
+      formMessage.style.display = 'none';
+      formMessage.className = '';
+      formMessage.innerHTML = '';
+    }
+    
+    // AJAX ile gönder
+    fetch('send-mail.php', {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'X-Requested-With': 'XMLHttpRequest'
+      }
+    })
+    .then(response => {
+      // Response tipini kontrol et
+      const contentType = response.headers.get('content-type') || '';
+      
+      // JSON yanıt bekliyoruz
+      if (contentType.includes('application/json')) {
+        return response.json();
+      }
+      
+      // Eğer HTML dönüyorsa (PHP çalışmıyor demektir)
+      if (contentType.includes('text/html')) {
+        return response.text().then(text => {
+          // PHP kodu görünüyorsa
+          if (text.includes('<?php') || text.includes('PHPMailer') || text.includes('use PHPMailer')) {
+            throw new Error('PHP çalışmıyor');
+          }
+          // Başarılı görünüyor (redirect olmuş olabilir)
+          return { success: true };
+        });
+      }
+      
+      // Diğer durumlar
+      if (response.ok || response.redirected) {
+        return { success: true };
+      }
+      
+      throw new Error('Mail gönderilemedi');
+    })
+    .then(data => {
+      // JSON yanıt geldi
+      if (data.success) {
+        // Başarılı - teşekkürler sayfasına yönlendir
+        window.location.href = 'tesekkurler.html';
+      } else {
+        // Hata mesajı göster
+        throw new Error(data.message || 'Bir hata oluştu');
+      }
+    })
+    .catch(error => {
+      // Hata durumunda
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalBtnText;
+      
+      if (formMessage) {
+        formMessage.className = 'form-message form-message-error';
+        let errorText = 'Mesaj gönderilirken bir hata oluştu. ';
+        
+        if (error.message === 'PHP çalışmıyor') {
+          errorText += 'Lütfen sunucu yöneticisi ile iletişime geçin veya WhatsApp üzerinden bize ulaşın.';
+        } else {
+          errorText += 'Lütfen daha sonra tekrar deneyin veya WhatsApp üzerinden iletişime geçin.';
+        }
+        
+        formMessage.innerHTML = '<strong>✗ Hata!</strong> ' + errorText;
+        formMessage.style.display = 'block';
+        
+        // Form bölümüne kaydır
+        setTimeout(() => {
+          const formSection = document.querySelector('.contact-form-section') || contactForm;
+          if (formSection) {
+            formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 100);
+      }
+    });
+  });
 });
 
 // Mobil Menü Toggle
@@ -785,6 +1432,26 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
+  // Önceki/Sonraki butonları
+  const prevBtn = heroSlider.querySelector('.hero-slider-prev');
+  const nextBtn = heroSlider.querySelector('.hero-slider-next');
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', function() {
+      stopAutoSlide();
+      prevSlide();
+      startAutoSlide();
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', function() {
+      stopAutoSlide();
+      nextSlide();
+      startAutoSlide();
+    });
+  }
+
   // Dot'lara tıklama (Manuel kontrol)
   dots.forEach((dot, index) => {
     dot.addEventListener('click', function() {
@@ -801,7 +1468,11 @@ document.addEventListener('DOMContentLoaded', function() {
   // Touch/swipe desteği (mobil için)
   let touchStartX = 0;
   let touchEndX = 0;
+  let mouseStartX = 0;
+  let mouseEndX = 0;
+  let isDragging = false;
 
+  // Touch events (mobil)
   heroSlider.addEventListener('touchstart', function(e) {
     touchStartX = e.changedTouches[0].screenX;
     stopAutoSlide();
@@ -809,17 +1480,46 @@ document.addEventListener('DOMContentLoaded', function() {
 
   heroSlider.addEventListener('touchend', function(e) {
     touchEndX = e.changedTouches[0].screenX;
-    handleSwipe();
+    handleSwipe(touchStartX, touchEndX);
     startAutoSlide();
   });
 
-  function handleSwipe() {
+  // Mouse drag events (masaüstü)
+  heroSlider.addEventListener('mousedown', function(e) {
+    isDragging = true;
+    mouseStartX = e.clientX;
+    stopAutoSlide();
+    e.preventDefault();
+  });
+
+  heroSlider.addEventListener('mousemove', function(e) {
+    if (!isDragging) return;
+    mouseEndX = e.clientX;
+  });
+
+  heroSlider.addEventListener('mouseup', function(e) {
+    if (isDragging) {
+      handleSwipe(mouseStartX, mouseEndX);
+      isDragging = false;
+      startAutoSlide();
+    }
+  });
+
+  heroSlider.addEventListener('mouseleave', function(e) {
+    if (isDragging) {
+      handleSwipe(mouseStartX, mouseEndX);
+      isDragging = false;
+      startAutoSlide();
+    }
+  });
+
+  function handleSwipe(startX, endX) {
     const swipeThreshold = 50;
-    if (touchEndX < touchStartX - swipeThreshold) {
+    if (endX < startX - swipeThreshold) {
       // Sola kaydırma - sonraki
       nextSlide();
     }
-    if (touchEndX > touchStartX + swipeThreshold) {
+    if (endX > startX + swipeThreshold) {
       // Sağa kaydırma - önceki
       prevSlide();
     }
@@ -846,3 +1546,558 @@ document.addEventListener('DOMContentLoaded', function() {
   startAutoSlide();
 });
 
+
+// === SMOOTH SCROLL: Hızlı ve akıcı ===
+(function() {
+  let isScrolling = false;
+  let scrollTimeout = null;
+  
+  // Scroll fonksiyonu - hızlı ve akıcı
+  function smoothScrollTo(element) {
+    if (!element || isScrolling) return;
+    
+    isScrolling = true;
+    
+    // Önceki timeout'u temizle
+    if (scrollTimeout) {
+      clearTimeout(scrollTimeout);
+    }
+    
+    // Element pozisyonunu hesapla
+    const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+    const offset = 80; // Header yüksekliği için offset
+    const targetPosition = elementPosition - offset;
+    
+    // Smooth scroll animasyonu
+    const startPosition = window.pageYOffset;
+    const distance = targetPosition - startPosition;
+    const duration = Math.min(Math.abs(distance) * 0.5, 800); // Max 800ms
+    let startTime = null;
+    
+    function animation(currentTime) {
+      if (startTime === null) startTime = currentTime;
+      const timeElapsed = currentTime - startTime;
+      const progress = Math.min(timeElapsed / duration, 1);
+      
+      // Easing function (easeInOutCubic)
+      const ease = progress < 0.5 
+        ? 4 * progress * progress * progress 
+        : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+      
+      window.scrollTo(0, startPosition + distance * ease);
+      
+      if (timeElapsed < duration) {
+        requestAnimationFrame(animation);
+      } else {
+        isScrolling = false;
+        // Hash'i güncelle (URL'de görünsün)
+        const id = element.getAttribute('id');
+        if (id) {
+          history.replaceState(null, null, '#' + id);
+        }
+      }
+    }
+    
+    requestAnimationFrame(animation);
+  }
+  
+  // Sayfa içi # linkler için smooth scroll
+  document.addEventListener('click', function(e) {
+    const link = e.target.closest('a[href^="#"]');
+    if (!link) return;
+    
+    const href = link.getAttribute('href');
+    if (!href || href === '#') return;
+    
+    const target = document.querySelector(href);
+    if (!target) return;
+    
+    e.preventDefault();
+    e.stopPropagation();
+    smoothScrollTo(target);
+  }, true);
+  
+  // Hash değiştiğinde scroll yap (sadece manuel hash değişiklikleri için)
+  window.addEventListener('hashchange', function() {
+    const target = document.querySelector(window.location.hash);
+    if (target) {
+      // Kısa bir delay ile scroll yap (sayfa yüklenmesi için)
+      setTimeout(() => smoothScrollTo(target), 50);
+    }
+  });
+  
+  // Sayfa yüklendiğinde otomatik scroll
+  function autoScrollOnLoad() {
+    // Önce hash kontrolü yap
+    if (window.location.hash) {
+      const target = document.querySelector(window.location.hash);
+      if (target) {
+        setTimeout(() => smoothScrollTo(target), 200);
+        return;
+      }
+    }
+    
+    // Anasayfa ise hero bölümüne scroll yap
+    if (document.body.classList.contains('home-page')) {
+      const hero = document.querySelector('.hero-slider, .hero, .hero-section, .home-hero, .hero-slider-main');
+      if (hero) {
+        setTimeout(() => smoothScrollTo(hero), 300);
+        return;
+      }
+    }
+    
+    // Diğer sayfalarda ilk içerik bölümüne scroll yap
+    const firstContent = document.querySelector('main, .main-content, section:first-of-type, .page-content, .page-hero, .about-split, .services-hero-premium, .projects-hero, .contacts-hero');
+    if (firstContent) {
+      setTimeout(() => smoothScrollTo(firstContent), 300);
+    }
+  }
+  
+  // Sayfa yüklendiğinde otomatik scroll çalıştır
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+      setTimeout(autoScrollOnLoad, 100);
+    });
+  } else if (document.readyState === 'interactive') {
+    setTimeout(autoScrollOnLoad, 200);
+  } else {
+    // Sayfa zaten yüklenmiş
+    setTimeout(autoScrollOnLoad, 100);
+  }
+  
+  // Sayfa tamamen yüklendiğinde de kontrol et (resimler vs. yüklendikten sonra)
+  window.addEventListener('load', function() {
+    // Sadece daha önce scroll yapılmadıysa
+    if (!isScrolling && window.pageYOffset === 0) {
+      setTimeout(autoScrollOnLoad, 100);
+    }
+  });
+})();
+
+// Footer Quote Form Handler
+document.addEventListener('DOMContentLoaded', function() {
+  const footerQuoteForm = document.getElementById('footerQuoteForm');
+  if (footerQuoteForm) {
+    footerQuoteForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const name = footerQuoteForm.querySelector('input[name="name"]').value;
+      const phone = footerQuoteForm.querySelector('input[name="phone"]').value;
+      const email = footerQuoteForm.querySelector('input[name="email"]').value;
+      const message = footerQuoteForm.querySelector('textarea[name="message"]').value;
+      
+      // Gmail compose URL oluştur
+      const gmailSubject = encodeURIComponent('Teklif Talebi');
+      const gmailBody = encodeURIComponent(
+        `Ad Soyad: ${name}\nTelefon: ${phone}\nE-posta: ${email}\n\nProje Bilgisi:\n${message}`
+      );
+      const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=info@hasanagaogluinsaat.com&su=${gmailSubject}&body=${gmailBody}`;
+      
+      // Gmail'i yeni sekmede aç
+      window.open(gmailUrl, '_blank');
+      
+      // Formu temizle
+      footerQuoteForm.reset();
+      
+      // Başarı mesajı
+      alert('Gmail açılıyor... Teklif talebinizi gönderebilirsiniz.');
+    });
+  }
+});
+
+// Projects Page Tab Switcher
+document.addEventListener('DOMContentLoaded', function() {
+  const tabs = document.querySelectorAll('.tab[data-tab]');
+  const panels = document.querySelectorAll('.panel[id^="tab-"]');
+  
+  if (tabs.length === 0 || panels.length === 0) return;
+  
+  tabs.forEach(tab => {
+    tab.addEventListener('click', function() {
+      const targetTab = this.getAttribute('data-tab');
+      
+      // Tüm tab'ları deaktif et
+      tabs.forEach(t => {
+        t.classList.remove('is-active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      
+      // Tüm panel'leri gizle
+      panels.forEach(p => {
+        p.classList.remove('is-active');
+        p.setAttribute('hidden', '');
+      });
+      
+      // Aktif tab'ı işaretle
+      this.classList.add('is-active');
+      this.setAttribute('aria-selected', 'true');
+      
+      // İlgili panel'i göster
+      const targetPanel = document.getElementById(targetTab);
+      if (targetPanel) {
+        targetPanel.classList.add('is-active');
+        targetPanel.removeAttribute('hidden');
+      }
+    });
+  });
+});
+
+// Contact Page Office Selector
+document.addEventListener('DOMContentLoaded', function() {
+  const officeItems = document.querySelectorAll('.office-item[data-office]');
+  const officeDetailCards = document.querySelectorAll('.office-detail-card');
+  
+  if (officeItems.length === 0) return;
+  
+  officeItems.forEach(item => {
+    item.addEventListener('click', function() {
+      const officeId = this.getAttribute('data-office');
+      
+      // Tüm office item'ları deaktif et
+      officeItems.forEach(i => {
+        i.classList.remove('active');
+      });
+      
+      // Tüm detail card'ları gizle
+      officeDetailCards.forEach(card => {
+        card.classList.remove('active');
+      });
+      
+      // Aktif office item'ı işaretle
+      this.classList.add('active');
+      
+      // İlgili detail card'ı göster
+      const targetCard = document.getElementById('detail-' + officeId);
+      if (targetCard) {
+        targetCard.classList.add('active');
+      }
+    });
+  });
+});
+
+// ===== Teslim Villa mini zoom =====
+document.addEventListener('DOMContentLoaded', function() {
+  const mini = document.getElementById('teslim-villa-mini');
+  if (!mini) return;
+
+  let modal = document.querySelector('.mini-zoom');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.className = 'mini-zoom';
+    modal.innerHTML = `
+      <div class="mini-zoom-backdrop"></div>
+      <div class="mini-zoom-panel" role="dialog" aria-modal="true">
+        <button class="mini-zoom-close" aria-label="Kapat">✕</button>
+        <img class="mini-zoom-img" alt="">
+      </div>
+    `;
+    document.body.appendChild(modal);
+  }
+
+  const imgEl = modal.querySelector('.mini-zoom-img');
+  const closeBtn = modal.querySelector('.mini-zoom-close');
+
+  const open = (src, alt) => {
+    imgEl.src = src;
+    imgEl.alt = alt || '';
+    modal.classList.add('is-open');
+    document.body.style.overflow = 'hidden'; // Scroll'u engelle
+  };
+  const close = () => {
+    modal.classList.remove('is-open');
+    imgEl.src = '';
+    document.body.style.overflow = ''; // Scroll'u geri aç
+  };
+
+  mini.addEventListener('click', (e) => {
+    const a = e.target.closest('a.zoomable');
+    if (!a) return;
+    e.preventDefault();
+    e.stopPropagation();
+    const img = a.querySelector('img');
+    open(a.getAttribute('href'), img ? img.alt : '');
+  });
+
+  closeBtn.addEventListener('click', close);
+  modal.addEventListener('click', (e) => {
+    if (e.target.classList.contains('mini-zoom-backdrop')) close();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('is-open')) close();
+  });
+});
+
+// ===== Havuz mini zoom (only #havuz-mini) =====
+document.addEventListener('DOMContentLoaded', function() {
+  const mini = document.getElementById('havuz-mini');
+  if (!mini) return;
+
+  let modal = document.querySelector('.mini-zoom');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.className = 'mini-zoom';
+    modal.innerHTML = `
+      <div class="mini-zoom-backdrop"></div>
+      <div class="mini-zoom-panel" role="dialog" aria-modal="true">
+        <button class="mini-zoom-close" aria-label="Kapat">✕</button>
+        <img class="mini-zoom-img" alt="">
+      </div>
+    `;
+    document.body.appendChild(modal);
+  }
+
+  const imgEl = modal.querySelector('.mini-zoom-img');
+  const closeBtn = modal.querySelector('.mini-zoom-close');
+
+  const open = (src, alt) => {
+    imgEl.src = src;
+    imgEl.alt = alt || '';
+    modal.classList.add('is-open');
+    document.body.style.overflow = 'hidden'; // Scroll'u engelle
+  };
+  const close = () => {
+    modal.classList.remove('is-open');
+    imgEl.src = '';
+    document.body.style.overflow = ''; // Scroll'u geri aç
+  };
+
+  mini.addEventListener('click', (e) => {
+    const a = e.target.closest('a.zoomable');
+    if (!a) return;
+    e.preventDefault();
+    e.stopPropagation();
+    const img = a.querySelector('img');
+    open(a.getAttribute('href'), img ? img.alt : '');
+  });
+
+  closeBtn.addEventListener('click', close);
+  modal.addEventListener('click', (e) => {
+    if (e.target.classList.contains('mini-zoom-backdrop')) close();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('is-open')) close();
+  });
+});
+
+// ===== Gelecek Villa mini zoom =====
+document.addEventListener('DOMContentLoaded', function() {
+  const mini = document.getElementById('gelecek-villa-mini');
+  if (!mini) return;
+
+  let modal = document.querySelector('.mini-zoom');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.className = 'mini-zoom';
+    modal.innerHTML = `
+      <div class="mini-zoom-backdrop"></div>
+      <div class="mini-zoom-panel" role="dialog" aria-modal="true">
+        <button class="mini-zoom-close" aria-label="Kapat">✕</button>
+        <img class="mini-zoom-img" alt="">
+      </div>
+    `;
+    document.body.appendChild(modal);
+  }
+
+  const imgEl = modal.querySelector('.mini-zoom-img');
+  const closeBtn = modal.querySelector('.mini-zoom-close');
+
+  const open = (src, alt) => {
+    imgEl.src = src;
+    imgEl.alt = alt || '';
+    modal.classList.add('is-open');
+    document.body.style.overflow = 'hidden'; // Scroll'u engelle
+  };
+  const close = () => {
+    modal.classList.remove('is-open');
+    imgEl.src = '';
+    document.body.style.overflow = ''; // Scroll'u geri aç
+  };
+
+  mini.addEventListener('click', (e) => {
+    const a = e.target.closest('a.zoomable');
+    if (!a) return;
+    e.preventDefault();
+    e.stopPropagation();
+    const img = a.querySelector('img');
+    open(a.getAttribute('href'), img ? img.alt : '');
+  });
+
+  closeBtn.addEventListener('click', close);
+  modal.addEventListener('click', (e) => {
+    if (e.target.classList.contains('mini-zoom-backdrop')) close();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('is-open')) close();
+  });
+});
+
+// ===== Genel Project Thumbs Zoom (Tüm hero card thumbnails için) =====
+document.addEventListener('DOMContentLoaded', function() {
+  // Modal zaten varsa onu kullan, yoksa oluştur
+  let modal = document.querySelector('.mini-zoom');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.className = 'mini-zoom';
+    modal.innerHTML = `
+      <div class="mini-zoom-backdrop"></div>
+      <div class="mini-zoom-panel" role="dialog" aria-modal="true">
+        <button class="mini-zoom-close" aria-label="Kapat">✕</button>
+        <img class="mini-zoom-img" alt="">
+      </div>
+    `;
+    document.body.appendChild(modal);
+  }
+
+  const imgEl = modal.querySelector('.mini-zoom-img');
+  const closeBtn = modal.querySelector('.mini-zoom-close');
+
+  const open = (src, alt) => {
+    imgEl.src = src;
+    imgEl.alt = alt || '';
+    modal.classList.add('is-open');
+    document.body.style.overflow = 'hidden'; // Scroll'u engelle
+  };
+  const close = () => {
+    modal.classList.remove('is-open');
+    imgEl.src = '';
+    document.body.style.overflow = ''; // Scroll'u geri aç
+  };
+
+  // Tüm project-thumbs, project-image ve mini grid içindeki zoomable linkler için event listener
+  // Hem event delegation hem de direkt listener ekle (daha güvenilir)
+  function attachZoomListeners() {
+    // Project-image içindeki linkler (hero card'lardaki büyük görseller)
+    document.querySelectorAll('.project-image a.zoomable').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        const img = this.querySelector('img');
+        open(this.getAttribute('href'), img ? img.alt : '');
+      });
+    });
+    
+    // Project-thumbs içindeki linkler (thumbnail'ler)
+    document.querySelectorAll('.project-thumbs a.zoomable').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        const img = this.querySelector('img');
+        open(this.getAttribute('href'), img ? img.alt : '');
+      });
+    });
+    
+    // Mini grid içindeki linkler (projects-mini-grid içindeki zoomable linkler)
+    // Bu linkler .project-image'in parent'ı, child'ı değil
+    document.querySelectorAll('.projects-mini-grid a.zoomable').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        const img = this.querySelector('img');
+        open(this.getAttribute('href'), img ? img.alt : '');
+      });
+    });
+  }
+  
+  // İlk yüklemede ekle
+  attachZoomListeners();
+  
+  // Event delegation de ekle (dinamik içerik için)
+  // Mini grid'lerdeki linkler için de çalışsın
+  // Capture phase'de çalıştır ki mini grid handler'larından önce çalışsın
+  document.addEventListener('click', function(e) {
+    // Sadece a.zoomable linklerine veya içindeki img'lere tıklanmışsa
+    const target = e.target;
+    let zoomableLink = null;
+    
+    // Eğer direkt link'e tıklandıysa
+    if (target.tagName === 'A' && target.classList.contains('zoomable')) {
+      zoomableLink = target;
+    }
+    // Eğer img'e tıklandıysa, parent'ındaki a.zoomable'ı bul
+    else if (target.tagName === 'IMG') {
+      zoomableLink = target.closest('a.zoomable');
+    }
+    // Eğer başka bir element'e tıklandıysa
+    else {
+      zoomableLink = target.closest('a.zoomable');
+    }
+    
+    if (zoomableLink) {
+      // Project-image içindeki linkler (hero card büyük görseller)
+      const isInProjectImage = zoomableLink.closest('.project-image');
+      // Project-thumbs içindeki linkler (thumbnail'ler)
+      const isInProjectThumbs = zoomableLink.closest('.project-thumbs');
+      // Projects-mini-grid içindeki linkler (mini grid görselleri)
+      const isInMiniGrid = zoomableLink.closest('.projects-mini-grid');
+      // Mini grid'deki linkler .project-image içinde değil, parent'ı
+      const hasProjectImageChild = zoomableLink.querySelector('.project-image');
+      
+      if (isInProjectImage || isInProjectThumbs || isInMiniGrid || hasProjectImageChild) {
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation(); // Diğer handler'ları durdur
+        const img = zoomableLink.querySelector('img');
+        open(zoomableLink.getAttribute('href'), img ? img.alt : '');
+      }
+    }
+  }, true); // Capture phase kullan
+
+  // Close butonu ve backdrop için event listener (sadece bir kez ekle)
+  if (!closeBtn.hasAttribute('data-listener-added')) {
+    closeBtn.setAttribute('data-listener-added', 'true');
+    closeBtn.addEventListener('click', close);
+    modal.addEventListener('click', (e) => {
+      if (e.target.classList.contains('mini-zoom-backdrop')) close();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('is-open')) close();
+    });
+  }
+});
+
+// Görsel büyütüldüğünde (lightbox) kapatma işlevi
+document.addEventListener('click', function(e) {
+  var modal = document.querySelector('.mini-zoom');
+  if (modal && modal.classList.contains('is-open')) {
+    if (e.target.classList.contains('mini-zoom-backdrop') || e.target.classList.contains('mini-zoom-close')) {
+      modal.classList.remove('is-open');
+      document.body.style.overflow = ''; // Scroll'u geri aç
+    }
+  }
+});
+
+// ESC tuşu ile kapatma
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    var modal = document.querySelector('.mini-zoom');
+    if (modal) {
+      modal.classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+  }
+});
+
+// Sayfa yüklendiğinde pencereye odak ver ve kaydırmayı serbest bırak
+window.onload = function() {
+  try {
+    window.focus();
+  } catch (e) {}
+  document.body.style.overflow = 'auto';
+};
+
+// DOM yüklendiğinde odağı ve tıklanabilirliği garanti altına al
+document.addEventListener("DOMContentLoaded", function() {
+  // Sayfa yüklence odağı ana sayfaya ver
+  try {
+    window.focus();
+  } catch (e) {}
+
+  // Slider butonlarının veya katmanının ekranı kilitlemesini engelle
+  const slider = document.querySelector('.hero-slider');
+  if (slider) {
+    slider.style.zIndex = "1";
+  }
+
+  // Sayfanın tıklanabilir olduğunu garanti et
+  document.body.style.pointerEvents = "auto";
+});
