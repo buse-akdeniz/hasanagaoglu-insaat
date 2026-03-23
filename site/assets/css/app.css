@@ -1662,6 +1662,86 @@ body.theme-dark.home-page::after{
   overflow: hidden;
 }
 
+/* Hero YouTube Background (tek slayt) */
+.hero-slider.hero-youtube{
+  height: 100svh;
+  min-height: 100svh;
+  max-height: none;
+}
+
+.hero-slider.hero-youtube .hero-youtube-bg{
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.hero-slider.hero-youtube .hero-youtube-bg::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35); /* Yazıyı okunur yap */
+  z-index: 1;
+}
+
+.hero-slider.hero-youtube .hero-youtube-iframe{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 177.78vh; /* 16:9 cover */
+  height: 56.25vw; /* 16:9 cover */
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
+  border: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-slider.hero-youtube .hero-local-video,
+.hero-slider.hero-youtube .hero-local-fallback-image{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-slider.hero-youtube .hero-local-video{
+  z-index: 0;
+}
+
+.hero-slider.hero-youtube .hero-local-fallback-image{
+  z-index: -1;
+}
+
+.hero-slider.hero-youtube .hero-youtube-content{
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px;
+  gap: 18px;
+}
+
+.hero-slider.hero-youtube .hero-youtube-title{
+  margin: 0;
+  font-size: clamp(32px, 4.8vw, 68px);
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+  text-shadow: 0 10px 35px rgba(0,0,0,0.35);
+}
+
+.hero-slider.hero-youtube .hero-youtube-cta{
+  margin-top: 6px;
+  padding: 14px 26px;
+}
+
 /* Slider görselleri – tam görünüm (eski stil - yeni stil en altta) */
 .hero-slide{
   position: absolute;
@@ -1676,6 +1756,17 @@ body.theme-dark.home-page::after{
 .hero-slider img,
 .hero-slide[style*="background-image"] {
   filter: none !important;
+}
+
+/* Hero videoları – slayt arka plan gibi doldur */
+.hero-slide .hero-video{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none;
 }
 
 .hero-slide.active{
@@ -7568,7 +7659,7 @@ body.corp-theme.contact-page .footer-inner {
   display: block;
   opacity: 0.95;
   filter: contrast(1.08) saturate(1.05);
-  transform: scale(1.1) !important;
+  transform: none !important; /* Raster görsellerde ölçek blur yapmasın */
 }
 
 .home-footer .footer-brand {
@@ -8527,7 +8618,7 @@ footer img.footer-logo,
   object-fit: contain !important;
   opacity: 0.95 !important;
   filter: contrast(1.08) saturate(1.05) !important;
-  transform: scale(1.1) !important; /* daha fazla vurgu */
+  transform: none !important; /* daha fazla vurgu: ölçekleme kaldırıldı */
 }
 
 /* Header logo - EN GÜÇLÜ KURAL */
@@ -10250,7 +10341,7 @@ body .footer-bottom,
   max-height: none !important;     /* kesilmesin */
   object-fit: contain !important;
   opacity: 0.95 !important;
-  transform: scale(1.1) !important; /* daha fazla vurgu */
+  transform: none !important; /* raster blur azalt */
 }
 
 /* ============================================
@@ -10303,7 +10394,7 @@ img.footer-logo{
   max-height: none !important;
   width: auto !important;
   min-height: 180px !important;
-  transform: scale(1.1) !important;
+  transform: none !important; /* raster görselde ölçekleme blur yapmasın */
 }
 
 /* === FOOTER: Logo ile Çalışma Saatleri arası mesafe azalt === */

@@ -15,6 +15,8 @@ const translations = {
     'hero.description': 'Köklü Şirketimizin hizmetleriyle sizlere temelden çatıya konut, villa, özel hastane, peyzaj, havuz ve daha birçok yapı projelerimiz ile anahtar teslim fırsatları sunuyoruz.',
     'hero.viewProjects': 'Projeleri Gör',
     'hero.getQuote': 'Teklif Al',
+    'hero.youtube.title': 'Modern Yaşamın Adresi',
+    'hero.youtube.cta': 'İletişim',
     'services.title': 'Hizmetlerimiz',
     'services.housing.title': 'Toplu Konut Projeleri',
     'services.housing.desc': 'Yaşam kalitesi yüksek, modern toplu konut projelerinin planlanması ve inşası.',
@@ -237,6 +239,8 @@ const translations = {
     'hero.description': 'With our established company\'s services, we offer you turnkey opportunities with our residential, villa, private hospital, landscaping, pool, and many other structure projects from foundation to roof.',
     'hero.viewProjects': 'View Projects',
     'hero.getQuote': 'Get Quote',
+    'hero.youtube.title': 'The Address of Modern Living',
+    'hero.youtube.cta': 'Contact',
     'services.title': 'Our Services',
     'services.housing.title': 'Mass Housing Projects',
     'services.housing.desc': 'Planning and construction of modern mass housing projects with high quality of life.',
@@ -425,6 +429,8 @@ const translations = {
     'hero.description': 'С услугами нашей устоявшейся компании мы предлагаем вам возможности под ключ с нашими проектами жилых домов, вилл, частных больниц, ландшафтного дизайна, бассейнов и многих других структур от фундамента до крыши.',
     'hero.viewProjects': 'Посмотреть Проекты',
     'hero.getQuote': 'Получить Предложение',
+    'hero.youtube.title': 'Адрес современного образа жизни',
+    'hero.youtube.cta': 'Связаться',
     'services.title': 'Наши Услуги',
     'services.housing.title': 'Массовое Жилищное Строительство',
     'services.housing.desc': 'Планирование и строительство современных массовых жилых проектов с высоким качеством жизни.',
@@ -613,6 +619,8 @@ const translations = {
     'hero.description': 'مع خدمات شركتنا الراسخة، نقدم لكم فرص تسليم المفتاح مع مشاريعنا السكنية والفيلات والمستشفيات الخاصة وتنسيق الحدائق والمسابح والعديد من الهياكل الأخرى من الأساس إلى السقف.',
     'hero.viewProjects': 'عرض المشاريع',
     'hero.getQuote': 'احصل على عرض سعر',
+    'hero.youtube.title': 'عنوان الحياة العصرية',
+    'hero.youtube.cta': 'تواصل معنا',
     'services.title': 'خدماتنا',
     'services.housing.title': 'مشاريع الإسكان الجماعي',
     'services.housing.desc': 'تخطيط وبناء مشاريع الإسكان الجماعي الحديثة ذات جودة الحياة العالية.',
@@ -1326,11 +1334,15 @@ document.addEventListener('DOMContentLoaded', function() {
       currentSlide = index;
     }
 
-    // Tüm slide'ları gizle ve aktif olanı göster
+    // Tüm slide'ları gizle ve aktif olanı göster (+ video oynatma)
     slides.forEach((slide, i) => {
+      const video = slide.querySelector('video.hero-video');
       slide.classList.remove('active');
       if (i === currentSlide) {
         slide.classList.add('active');
+        if (video) video.play().catch(() => {});
+      } else {
+        if (video) video.pause();
       }
     });
 
