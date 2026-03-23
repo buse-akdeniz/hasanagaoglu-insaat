@@ -33,6 +33,12 @@ const translations = {
     'services.largeScale.title': 'Büyük Ölçekli Yapılar',
     'services.largeScale.desc': 'Özel hastane, kamu yapıları ve kompleks projelerde güçlü mühendislik.',
     'projects.title': 'Öne Çıkan Projeler',
+    'home.section.title': 'Fethiye İnşaat & Lüks Villa Projeleri',
+    'home.seo.title': 'Fethiye\'de Modern & Lüks Villa Projeleri ve İnşaat Süreçlerimiz',
+    'home.seo_text': 'Fethiye\'de Modern & Lüks Villa Projeleri ve İnşaat Süreçlerimiz',
+    'home.seo.p1': 'Hasanağaoğlu İnşaat olarak Fethiye\'nin eşsiz doğasına uyumlu, modern mimari ve güçlü mühendislik altyapısıyla lüks villa, toplu konut, havuz ve ticari projeler geliştiriyoruz. 1935 yılından bu yana edindiğimiz tecrübeyi Fethiye\'ye taşıyarak, sahil şeridinde ve deniz manzaralı bölgelerde konumlanan projelerimizle güven ve konforu bir araya getiriyoruz.',
+    'home.seo.p2': 'Fethiye villa ve lüks villa projelerinde, geniş yaşam alanları, akıllı ev sistemleri, enerji verimliliği ve estetik mimariyi bir arada sunuyoruz. Toplu konut, özel hastane, otel ve ticari yapı projelerinde ise planlı yerleşim, güçlü altyapı, deprem yönetmeliğine tam uyum ve uzun ömürlü yapı standartlarını esas alıyoruz.',
+    'home.seo.p3': 'Her projemizi zemin etüdünden anahtar teslim sürecine kadar kendi ekibimizle yönetiyor; Fethiye\'de kaliteli, sürdürülebilir ve değer kazanan yapılar inşa ediyoruz. Fethiye havuz yapımı, özel mülk geliştirme ve deniz manzaralı arsa projeleriyle, yatırımcılar ve bölge sakinleri için uzun vadeli kazanç sağlayan çözümler üretiyoruz.',
     'home.projects.title': 'Projelerimiz',
     'home.projects.villa.title': 'Villa Projeleri',
     'home.projects.villa.desc': 'Modern mimari, geniş yaşam alanları, yüksek kalite malzeme ve Fethiye\'ye uygun tasarımlar.',
@@ -249,6 +255,28 @@ const translations = {
     'services.largeScale.title': 'Large-Scale Structures',
     'services.largeScale.desc': 'Strong engineering in private hospitals, public buildings, and complex projects.',
     'projects.title': 'Featured Projects',
+    'home.section.title': 'Fethiye Construction & Luxury Villa Projects',
+    'home.seo.title': 'Our Modern & Luxury Villa Projects and Construction Processes in Fethiye',
+    'home.seo_text': 'Our Modern & Luxury Villa Projects and Construction Processes in Fethiye',
+    'home.seo.p1': 'As Hasanağaoğlu Construction, we develop luxury villa, mass housing, pool and commercial projects aligned with Fethiye\'s unique nature, supported by modern architecture and strong engineering infrastructure. Bringing our experience since 1935 to Fethiye, we combine trust and comfort through projects located along the coastline and in sea-view areas.',
+    'home.seo.p2': 'In Fethiye villa and luxury villa projects, we offer spacious living areas, smart home systems, energy efficiency, and aesthetic architecture together. In mass housing, private hospital, hotel, and commercial building projects, we base our work on planned settlements, strong infrastructure, full compliance with earthquake regulations, and long-lasting building standards.',
+    'home.seo.p3': 'We manage every project with our own team from soil survey to turnkey delivery; we build quality, sustainable, value-appreciating structures in Fethiye. With Fethiye pool construction, private property development, and sea-view land projects, we produce solutions that deliver long-term gains for investors and local residents.',
+    'home.projects.title': 'Our Projects',
+    'home.projects.villa.title': 'Villa Projects',
+    'home.projects.villa.desc': 'Modern architecture, spacious living areas, high-quality materials, and designs suited to Fethiye.',
+    'home.projects.pool.title': 'Pool & Outdoor',
+    'home.projects.pool.desc': 'We add aesthetic value to our projects with modern pool designs, durable ground solutions, and comfort-focused outdoor applications.',
+    'home.projects.housing.title': 'Mass Housing Projects',
+    'home.projects.housing.desc': 'Planned settlement, strong infrastructure, modern facades, and long-lasting building standards.',
+    'home.projects.landscape.title': 'Landscape & Environmental Design',
+    'home.projects.landscape.desc': 'Green area planning, modern garden lines, and low-maintenance environmental solutions.',
+    'home.projects.hotel.title': 'Hotel Projects',
+    'home.projects.hotel.desc': 'Prestigious facade, strong lighting language, and accommodation-focused functional planning.',
+    'home.projects.seaView.title': 'Sea View Land',
+    'home.projects.seaView.desc': 'Land analysis, project feasibility, and settlement solutions that maximize the view.',
+    'home.projects.hospital.title': 'Private Hospital Projects',
+    'home.projects.hospital.desc': 'Expert service in private hospital projects with modern healthcare infrastructure, strong engineering solutions, and patient-focused design.',
+    'home.projects.viewProjects': 'View Projects →',
     'about.title': 'About Us',
     'about.description.p1': 'Hasanağaoğlu Construction has built its established history in the sector with solid foundations laid in Sakarya; today, it has expanded its service area by bringing its experience and expertise to Fethiye.',
     'about.description.p2': 'As a company operating in Fethiye and its surroundings, closely familiar with the dynamics and needs of the region, we aim to produce projects that inspire trust, are aesthetic and long-lasting.',
@@ -284,6 +312,25 @@ const translations = {
     'contact.formMessagePlaceholder': 'Please provide brief information about your project or land',
     'contact.formSubmit': 'Send',
     'contact.mapTitle': 'Office Location',
+    'footer.workingHours.title': 'Working Hours',
+    'footer.workingHours.weekdays': 'Monday - Saturday',
+    'footer.workingHours.weekdaysTime': '09:00 - 18:00',
+    'footer.workingHours.sunday': 'Sunday',
+    'footer.workingHours.closed': 'Closed',
+    'footer.location': 'Fethiye, Muğla, Türkiye',
+    'footer.navigation.title': 'Navigation',
+    'footer.quickLinks.title': 'Quick Links',
+    'footer.quickLinks.contact': 'Contact',
+    'footer.quickLinks.projects': 'Our Projects',
+    'footer.quickLinks.services': 'Our Services',
+    'footer.quickLinks.quote': 'Get Quote',
+    'footer.services.title': 'Services',
+    'footer.services.villa': 'Villa Construction',
+    'footer.services.housing': 'Mass Housing',
+    'footer.services.turnkey': 'Turnkey',
+    'footer.services.landscape': 'Landscape & Pool',
+    'footer.copyright': '© 2025 Hasanağaoğlu Construction Fethiye (Since 1935) | All Rights Reserved',
+    'footer.website': 'www.hasanagaogluinsaat.com',
     'footer.rights': 'All Rights Reserved',
     // About page
     'about.title.split.left': 'Construction',
@@ -396,6 +443,12 @@ const translations = {
     'services.largeScale.title': 'Крупномасштабные Структуры',
     'services.largeScale.desc': 'Сильная инженерия в частных больницах, общественных зданиях и сложных проектах.',
     'projects.title': 'Избранные Проекты',
+    'home.section.title': 'Проекты строительства и люксовых вилл в Фетхие',
+    'home.seo.title': 'Наши современные и люксовые виллы и строительные процессы в Фетхие',
+    'home.seo_text': 'Наши современные и люксовые виллы и строительные процессы в Фетхие',
+    'home.seo.p1': 'Как Hasanağaoğlu Construction, мы развиваем проекты люксовых вилл, массового жилья, бассейнов и коммерческих объектов, соответствующие уникальной природе Фетхие, опираясь на современную архитектуру и сильную инженерную базу. Перенося наш опыт с 1935 года в Фетхие, мы объединяем надежность и комфорт в проектах, расположенных вдоль побережья и в районах с видом на море.',
+    'home.seo.p2': 'В проектах вилл и люксовых вилл в Фетхие мы предлагаем просторные жилые пространства, системы умного дома, энергоэффективность и эстетичную архитектуру. В проектах массового жилья, частных больниц, отелей и коммерческих зданий мы опираемся на планированную застройку, сильную инфраструктуру, полное соответствие сейсмическим нормам и долговечные стандарты строительства.',
+    'home.seo.p3': 'Мы управляем каждым проектом собственной командой от инженерно-геологических изысканий до передачи «под ключ»; строим в Фетхие качественные, устойчивые и растущие в цене объекты. С проектами строительства бассейнов в Фетхие, развитием частной недвижимости и участками с видом на море мы создаем решения, обеспечивающие долгосрочную выгоду для инвесторов и жителей региона.',
     'about.title': 'О нас',
     'about.description.p1': 'Hasanağaoğlu Construction создала свою устоявшуюся историю в секторе с прочными основами, заложенными в Сакарья; сегодня она расширила свою область услуг, принеся свой опыт и экспертизу в Фетхие.',
     'about.description.p2': 'Как компания, работающая в Фетхие и его окрестностях, тесно знакомая с динамикой и потребностями региона, мы стремимся создавать проекты, которые внушают доверие, эстетичны и долговечны.',
@@ -578,6 +631,28 @@ const translations = {
     'services.largeScale.title': 'الهياكل واسعة النطاق',
     'services.largeScale.desc': 'هندسة قوية في المستشفيات الخاصة والمباني العامة والمشاريع المعقدة.',
     'projects.title': 'المشاريع المميزة',
+    'home.section.title': 'مشاريع البناء والفلل الفاخرة في فتحية',
+    'home.seo.title': 'مشاريعنا للفلل الحديثة والفاخرة وعمليات البناء في فتحية',
+    'home.seo_text': 'مشاريعنا للفلل الحديثة والفاخرة وعمليات البناء في فتحية',
+    'home.seo.p1': 'نحن في حسن أغلو للإنشاءات نطوّر مشاريع الفلل الفاخرة والإسكان الجماعي والمسابح والمشاريع التجارية المتوافقة مع طبيعة فتحية الفريدة، بالاعتماد على العمارة الحديثة وبنية هندسية قوية. وبنقل خبرتنا منذ عام 1935 إلى فتحية، نجمع بين الثقة والراحة في مشاريع تقع على الساحل وفي مناطق ذات إطلالة بحرية.',
+    'home.seo.p2': 'في مشاريع فلل فتحية والفلل الفاخرة، نقدم مساحات معيشة واسعة وأنظمة منزل ذكي وكفاءة طاقة وعمارة جمالية معًا. وفي مشاريع الإسكان الجماعي والمستشفيات الخاصة والفنادق والمباني التجارية نعتمد على تخطيط عمراني منظم وبنية تحتية قوية والالتزام الكامل بأنظمة الزلازل ومعايير بناء طويلة العمر.',
+    'home.seo.p3': 'ندير كل مشروع بفريقنا الخاص من دراسة التربة حتى التسليم المفتاحي؛ ونبني في فتحية مباني عالية الجودة ومستدامة وتزداد قيمتها. ومع مشاريع إنشاء المسابح في فتحية وتطوير الملكيات الخاصة والأراضي ذات الإطلالة البحرية، نقدّم حلولًا تحقق عوائد طويلة الأمد للمستثمرين وسكان المنطقة.',
+    'home.projects.title': 'مشاريعنا',
+    'home.projects.villa.title': 'مشاريع الفلل',
+    'home.projects.villa.desc': 'عمارة حديثة ومساحات معيشة واسعة ومواد عالية الجودة وتصاميم تناسب فتحية.',
+    'home.projects.pool.title': 'المسبح والمساحات الخارجية',
+    'home.projects.pool.desc': 'نضيف قيمة جمالية لمشاريعنا عبر تصاميم المسابح الحديثة وحلول الأرضيات المتينة وتطبيقات خارجية تركز على الراحة.',
+    'home.projects.housing.title': 'مشاريع الإسكان الجماعي',
+    'home.projects.housing.desc': 'تخطيط سكني منظم وبنية تحتية قوية وواجهات حديثة ومعايير بناء طويلة العمر.',
+    'home.projects.landscape.title': 'تنسيق الحدائق والبيئة',
+    'home.projects.landscape.desc': 'تخطيط المساحات الخضراء وخطوط حدائق حديثة وحلول بيئية سهلة الصيانة.',
+    'home.projects.hotel.title': 'مشاريع الفنادق',
+    'home.projects.hotel.desc': 'واجهة مرموقة ولغة إضاءة قوية وتخطيط وظيفي يركز على الإقامة.',
+    'home.projects.seaView.title': 'أراضٍ مطلة على البحر',
+    'home.projects.seaView.desc': 'تحليل الأرض ودراسة الجدوى وحلول توطين تستفيد من الإطلالة بأقصى حد.',
+    'home.projects.hospital.title': 'مشاريع المستشفيات الخاصة',
+    'home.projects.hospital.desc': 'خدمة متخصصة في مشاريع المستشفيات الخاصة ببنية صحية حديثة وحلول هندسية قوية وتصميم يركز على المرضى.',
+    'home.projects.viewProjects': 'عرض المشاريع →',
     'about.title': 'من نحن',
     'about.description.p1': 'أنشأت شركة حسن أغلو للإنشاءات تاريخها الراسخ في القطاع بأساسات قوية وضعت في ساكاريا؛ اليوم، وسعت منطقة خدماتها من خلال نقل خبرتها وخبرتها إلى فتحية.',
     'about.description.p2': 'كشركة تعمل في فتحية والمناطق المحيطة بها، وتتعرف عن كثب على ديناميكيات واحتياجات المنطقة، نهدف إلى إنتاج مشاريع تبعث على الثقة وجمالية وطويلة الأمد.',
@@ -613,6 +688,25 @@ const translations = {
     'contact.formMessagePlaceholder': 'يرجى تقديم معلومات موجزة عن مشروعك أو أرضك',
     'contact.formSubmit': 'إرسال',
     'contact.mapTitle': 'موقع المكتب',
+    'footer.workingHours.title': 'ساعات العمل',
+    'footer.workingHours.weekdays': 'الاثنين - السبت',
+    'footer.workingHours.weekdaysTime': '09:00 - 18:00',
+    'footer.workingHours.sunday': 'الأحد',
+    'footer.workingHours.closed': 'مغلق',
+    'footer.location': 'فتحية، موغلا، تركيا',
+    'footer.navigation.title': 'التنقل',
+    'footer.quickLinks.title': 'روابط سريعة',
+    'footer.quickLinks.contact': 'اتصل بنا',
+    'footer.quickLinks.projects': 'مشاريعنا',
+    'footer.quickLinks.services': 'خدماتنا',
+    'footer.quickLinks.quote': 'احصل على عرض سعر',
+    'footer.services.title': 'الخدمات',
+    'footer.services.villa': 'إنشاء الفلل',
+    'footer.services.housing': 'الإسكان الجماعي',
+    'footer.services.turnkey': 'تسليم المفتاح',
+    'footer.services.landscape': 'تنسيق الحدائق والمسبح',
+    'footer.copyright': '© 2025 Hasanağaoğlu İnşaat فتحية (منذ 1935) | جميع الحقوق محفوظة',
+    'footer.website': 'www.hasanagaogluinsaat.com',
     'footer.rights': 'جميع الحقوق محفوظة',
     // About page
     'about.title.split.left': 'البناء',
@@ -699,7 +793,12 @@ const translations = {
 };
 
 // Mevcut dili al veya varsayılan olarak Türkçe kullan
-let currentLang = localStorage.getItem('language') || 'tr';
+let currentLang = 'tr';
+try {
+  currentLang = localStorage.getItem('language') || 'tr';
+} catch (e) {
+  currentLang = 'tr';
+}
 
 // Dil kodlarını buton metinlerine çevir
 const langNames = {
@@ -712,17 +811,36 @@ const langNames = {
 // Sayfayı çevir
 function translatePage(lang) {
   currentLang = lang;
-  localStorage.setItem('language', lang);
+  try {
+    localStorage.setItem('language', lang);
+  } catch (e) {
+    // localStorage erişilemiyorsa sessizce devam et
+  }
   
   // Tüm data-key özellikli elementleri bul ve çevir
   document.querySelectorAll('[data-key]').forEach(element => {
     const key = element.getAttribute('data-key');
     if (translations[lang] && translations[lang][key]) {
-      // Input ve textarea için placeholder, diğerleri için textContent
+      // Input ve textarea için placeholder, diğerleri için text/HTML
       if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
         element.placeholder = translations[lang][key];
       } else {
-        element.textContent = translations[lang][key];
+        const translation = translations[lang][key];
+        if (translation.includes('<a') || translation.includes('<span') || translation.includes('<strong')) {
+          element.innerHTML = translation;
+        } else if (element.children.length > 0) {
+          // Çocuk elementleri (ikon/ok) koru, sadece metni değiştir
+          const textNode = Array.from(element.childNodes).find(
+            node => node.nodeType === Node.TEXT_NODE && node.textContent.trim() !== ''
+          );
+          if (textNode) {
+            textNode.textContent = translation;
+          } else {
+            element.insertBefore(document.createTextNode(translation), element.firstChild);
+          }
+        } else {
+          element.textContent = translation;
+        }
       }
     }
   });
