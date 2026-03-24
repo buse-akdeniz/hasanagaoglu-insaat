@@ -3,6 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="assets/images/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="48x48" href="assets/images/favicon-48x48.png" />
+  <link rel="icon" type="image/png" sizes="96x96" href="assets/images/favicon-96x96.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/images/android-chrome-192x192.png" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <title>Hasanağaoğlu İnşaat Fethiye | Fethiye Havuz, Villa, İnşaat Firması</title>
   <meta name="description" content="Hasanağaoğlu İnşaat Fethiye - Fethiye havuz, villa, konut ve ticari projelerde anahtar teslim, güvenilir ve kaliteli inşaat hizmetleri. Fethiye havuz yapımı, fethiye havuz tasarımı.">
@@ -17,6 +22,7 @@
   <link rel="preconnect" href="https://maps.googleapis.com">
   <link rel="dns-prefetch" href="https://maps.googleapis.com">
   <link rel="stylesheet" href="assets/css/app.css?v=20260203_final" />
+  <link rel="preload" as="video" href="assets/videos/hero-temp.mp4" type="video/mp4" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -47,7 +53,7 @@
     <div class="container">
       <a href="index.html" class="brand" aria-label="Hasanağoğlu İnşaat">
         <img
-          src="assets/images/logo.png"
+          src="assets/images/logo.png?v=3"
           alt="Hasanağoğlu İnşaat"
           class="brand__logo">
       </a>
@@ -81,7 +87,8 @@
   <section class="hero-slider hero-youtube">
     <div class="hero-youtube-bg" aria-hidden="true">
       <video class="hero-local-video" autoplay muted loop playsinline preload="auto" poster="assets/images/fethiye-tamamlanan-villa-1.webp">
-        <source src="assets/videos/hero-fallback.mp4" type="video/mp4">
+        <source src="assets/videos/hero-temp.mp4" type="video/mp4">
+        <source src="assets/videos/hero-temp.mov" type="video/quicktime">
       </video>
       <img class="hero-local-fallback-image" src="assets/images/fethiye-tamamlanan-villa-1.webp" alt="" loading="eager">
     </div>
@@ -89,6 +96,7 @@
     <div class="hero-youtube-content">
       <h1 class="hero-youtube-title" data-key="hero.youtube.title">Modern Yaşamın Adresi</h1>
       <a href="iletisim.html" class="btn primary hero-youtube-cta" data-key="hero.youtube.cta">İletişim</a>
+      <button type="button" class="hero-sound-toggle" id="heroSoundToggle" aria-label="Sesi aç">Sesi Aç</button>
     </div>
   </section>
 
@@ -191,7 +199,7 @@
           <div class="footer-brand">
             <a href="index.html" aria-label="Hasanağoğlu İnşaat">
               <img
-                src="assets/images/logo.png"
+                src="assets/images/logo.png?v=3"
                 alt="Hasan Ağaoğlu İnşaat"
                 class="footer-logo">
             </a>
@@ -295,6 +303,6 @@
   });
 })();
 </script>
-<script src="assets/js/main.js" defer></script>
+<script src="assets/js/main.js?v=20260324_soundfix" defer></script>
 </body>
 </html>

@@ -916,6 +916,42 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
+// Hero arkaplan videosu için ses aç/kapat
+document.addEventListener('DOMContentLoaded', function() {
+  const heroVideo = document.querySelector('.hero-local-video');
+  const soundToggle = document.getElementById('heroSoundToggle');
+  const heroSection = document.querySelector('.hero-slider.hero-youtube');
+  if (!heroVideo || !soundToggle) return;
+
+  heroVideo.addEventListener('error', function() {
+    if (heroSection) heroSection.classList.add('video-unavailable');
+  });
+
+  function syncLabel() {
+    const muted = heroVideo.muted || heroVideo.volume === 0;
+    soundToggle.textContent = muted ? 'Sesi Aç' : 'Sesi Kapat';
+    soundToggle.setAttribute('aria-label', muted ? 'Sesi aç' : 'Sesi kapat');
+  }
+
+  syncLabel();
+
+  soundToggle.addEventListener('click', function() {
+    if (heroVideo.muted || heroVideo.volume === 0) {
+      heroVideo.defaultMuted = false;
+      heroVideo.removeAttribute('muted');
+      heroVideo.muted = false;
+      heroVideo.volume = 1;
+      // iOS/Safari için kullanıcı etkileşiminde tekrar play tetikle
+      heroVideo.play().catch(() => {});
+    } else {
+      heroVideo.muted = true;
+      heroVideo.defaultMuted = true;
+      heroVideo.setAttribute('muted', 'muted');
+    }
+    syncLabel();
+  });
+});
+
 function openPopup() {
   document.getElementById("ctaPopup").classList.add("show");
 }
