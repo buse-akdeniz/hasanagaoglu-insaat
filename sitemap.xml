@@ -1,43 +1,129 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.hasanagaogluinsaat.com/index.html</loc>
-    <lastmod>2026-02-02</lastmod>
+    <loc>https://www.hasanagaogluinsaat.com/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.hasanagaogluinsaat.com/hizmetler.html</loc>
-    <lastmod>2026-02-02</lastmod>
-    <priority>0.9</priority>
+    <loc>https://www.hasanagaogluinsaat.com/index.html</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.hasanagaogluinsaat.com/havuz-yapimi.html</loc>
-    <lastmod>2026-02-02</lastmod>
+    <loc>https://www.hasanagaogluinsaat.com/bolgeler.html</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://www.hasanagaogluinsaat.com/sss.html</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.hasanagaogluinsaat.com/hizmetler.html</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.hasanagaogluinsaat.com/villa-projeleri.html</loc>
-    <lastmod>2026-02-02</lastmod>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.hasanagaogluinsaat.com/havuz-yapimi.html</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.hasanagaogluinsaat.com/toplu-konut.html</loc>
-    <lastmod>2026-02-02</lastmod>
-    <priority>0.8</priority>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.hasanagaogluinsaat.com/projeler.html</loc>
-    <lastmod>2026-02-02</lastmod>
-    <priority>0.8</priority>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.hasanagaogluinsaat.com/hakkimizda.html</loc>
-    <lastmod>2026-02-02</lastmod>
-    <priority>0.7</priority>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.hasanagaogluinsaat.com/iletisim.html</loc>
-    <lastmod>2026-02-02</lastmod>
-    <priority>0.7</priority>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.hasanagaogluinsaat.com/en/index.html</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://www.hasanagaogluinsaat.com/fethiye-insaat.html</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.hasanagaogluinsaat.com/oludeniz-villa-insaat.html</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.hasanagaogluinsaat.com/calis-villa-insaat.html</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.hasanagaogluinsaat.com/gocek-insaat.html</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.hasanagaogluinsaat.com/hisaronu-ovacik-insaat.html</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.hasanagaogluinsaat.com/kayakoy-insaat.html</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.hasanagaogluinsaat.com/seydikemer-insaat.html</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.hasanagaogluinsaat.com/dalaman-insaat.html</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.hasanagaogluinsaat.com/karaculha-ciftlik-insaat.html</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
 </urlset>

@@ -1,6 +1,37 @@
-// CTA Popup güvenli kapatma
 const cta = document.getElementById('ctaPopup');
-if (cta) cta.remove();
+if (cta) { // CTA Popup güvenli kapatma
+  cta.remove();
+}
+
+// Google Ads dönüşüm etiketleri (AW-17942299984)
+const GOOGLE_ADS_FORM = 'AW-17942299984/EDg8CMexm7YcENCKx-tC';
+// E-posta & WhatsApp tıklamaları: Kişi dönüşümü
+const GOOGLE_ADS_CONTACT = 'AW-17942299984/z04XCLrTvqMcENCKx-tC';
+
+function fireGoogleAdsConversion(sendTo, onDone) {
+  if (typeof window.gtag !== 'function') {
+    if (onDone) onDone();
+    return;
+  }
+  let done = false;
+  const finish = () => {
+    if (done) return;
+    done = true;
+    if (onDone) onDone();
+  };
+  window.gtag('event', 'conversion', { send_to: sendTo, event_callback: finish });
+  setTimeout(finish, 1200);
+}
+
+function initGoogleAdsContactClickTracking() {
+  document.addEventListener('click', function(e) {
+    const link = e.target.closest('a[href^="mailto:"], a[href*="wa.me/"], a[href*="api.whatsapp.com/"]');
+    if (!link) return;
+    fireGoogleAdsConversion(GOOGLE_ADS_CONTACT);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', initGoogleAdsContactClickTracking);
 
 // Dil çevirileri
 const translations = {
@@ -37,7 +68,6 @@ const translations = {
     'projects.title': 'Öne Çıkan Projeler',
     'home.section.title': 'Fethiye İnşaat & Lüks Villa Projeleri',
     'home.seo.title': 'Fethiye\'de Modern & Lüks Villa Projeleri ve İnşaat Süreçlerimiz',
-    'home.seo_text': 'Fethiye\'de Modern & Lüks Villa Projeleri ve İnşaat Süreçlerimiz',
     'home.seo.p1': 'Hasanağaoğlu İnşaat olarak Fethiye\'nin eşsiz doğasına uyumlu, modern mimari ve güçlü mühendislik altyapısıyla lüks villa, toplu konut, havuz ve ticari projeler geliştiriyoruz. 1935 yılından bu yana edindiğimiz tecrübeyi Fethiye\'ye taşıyarak, sahil şeridinde ve deniz manzaralı bölgelerde konumlanan projelerimizle güven ve konforu bir araya getiriyoruz.',
     'home.seo.p2': 'Fethiye villa ve lüks villa projelerinde, geniş yaşam alanları, akıllı ev sistemleri, enerji verimliliği ve estetik mimariyi bir arada sunuyoruz. Toplu konut, özel hastane, otel ve ticari yapı projelerinde ise planlı yerleşim, güçlü altyapı, deprem yönetmeliğine tam uyum ve uzun ömürlü yapı standartlarını esas alıyoruz.',
     'home.seo.p3': 'Her projemizi zemin etüdünden anahtar teslim sürecine kadar kendi ekibimizle yönetiyor; Fethiye\'de kaliteli, sürdürülebilir ve değer kazanan yapılar inşa ediyoruz. Fethiye havuz yapımı, özel mülk geliştirme ve deniz manzaralı arsa projeleriyle, yatırımcılar ve bölge sakinleri için uzun vadeli kazanç sağlayan çözümler üretiyoruz.',
@@ -161,7 +191,6 @@ const translations = {
     'services.hero.title': 'Fethiye İnşaat Hizmetleri | Anahtar Teslim Projeler',
     'services.hero.text.p1': 'Hasanağaoğlu İnşaat, Fethiye ve Muğla bölgesinde temelden çatıya anahtar teslim inşaat hizmetleri sunmaktadır. Modern mimari tasarım ve güçlü mühendislik altyapısı ile kaliteli, sürdürülebilir yapılar inşa ediyoruz.',
     'services.hero.text.p2': 'Villa, toplu konut, ticari yapılar ve özel projelerde uzman ekibimizle hizmet veriyoruz. Müşteri memnuniyeti odaklı çalışma prensibi ile şeffaf iletişim ve profesyonel yaklaşım sergiliyoruz.',
-    'services.hero.text.p3': 'Düzce ve Sakarya’da fabrika inşaatı, sanayi inşaatı, depo ve endüstriyel tesis projelerinde de çözüm üretiyor; keşiften uygulamaya tek ekip ile süreci yönetiyoruz.',
     'services.hero.btn': 'PROJELERİMİZ',
     'services.section.kicker': 'HİZMETLER',
     'services.card.planning.title': 'Proje Planlama',
@@ -172,8 +201,6 @@ const translations = {
     'services.card.villa.desc': 'Özel tasarım villa projeleri. Havuzlu, peyzajlı ve lüks yaşam alanları. Anahtar teslim villa inşaatı.',
     'services.card.commercial.title': 'Ticari Yapılar',
     'services.card.commercial.desc': 'Ofis, mağaza, iş merkezi ve ticari yapılar. Modern iş alanları ve ticari projelerde uzman çözümler.',
-    'services.card.industrial.title': 'Fabrika & Sanayi İnşaatı',
-    'services.card.industrial.desc': 'Düzce ve Sakarya’da fabrika, depo ve sanayi yapıları için proje ve uygulama hizmetleri.',
     'services.card.land.title': 'Arsa Değerleme',
     'services.card.land.desc': 'Deniz manzaralı ve stratejik konumlu arsa değerleme. Yatırım potansiyeli analizi ve proje geliştirme.',
     'services.card.turnkey.title': 'Anahtar Teslim',
@@ -215,6 +242,13 @@ const translations = {
     'projects.project07.title': 'Project_07',
     'projects.project07.desc': 'Premium malikane projelerinde lüks detaylar, özel işçilik ve mimari mükemmellik.',
     'projects.villa01.title': 'Villa_01',
+    'projects.sale.title': 'Satılık Villa',
+    'projects.sale.kicker': 'SATILIK PROJE',
+    'projects.sale.projectTitle': 'Aralık 2026 Teslim - Havuzlu Villa',
+    'projects.sale.projectDesc': 'Teslim tarihi Aralık 2026. 180 m² kullanım alanı, havuzlu, 2.5 kat ve 485 m² arsa paylı özel villa satış projesi.',
+    'projects.sale.offerBtn': 'Teklif Al: +90 553 014 12 18',
+    'projects.sale.miniKicker': 'SATILIK',
+    'projects.sale.miniTitle': '180 m² - Havuzlu',
     // Contact page
     'contact.hero.title': 'İletişim',
     'contact.hero.subtitle': 'HASANAĞAOĞLU İNŞAAT OFİSLERİ',
@@ -229,7 +263,18 @@ const translations = {
     'contact.form.email.label': 'E-posta',
     'contact.form.message.label': 'Mesajınız',
     'contact.form.privacy': 'Bu formu göndererek <a href="#" target="_blank">Gizlilik Politikası</a>\'nı okuduğumu ve kabul ettiğimi onaylıyorum.',
-    'contact.form.submit': 'Gönder'
+    'contact.form.submit': 'Gönder',
+    // Slider captions
+    'hero.slide.turnkey': 'Fethiye Temelden Çatıya Anahtar Teslim',
+    'hero.slide.villa': 'Fethiye Villa Projeleri',
+    'hero.slide.housing': 'Fethiye Toplu Konut Projeleri',
+    'hero.slide.pool': 'Fethiye Havuz Projeleri',
+    'about.page.lead': '<strong>Hasanağaoğlu İnşaat Fethiye</strong> — 1935\'ten beri Türkiye\'de güvenilir inşaat firması. Fethiye\'de villa, havuz ve anahtar teslim projelerde yerli ve yabancı müşterilere hizmet veriyoruz.',
+    'hizmetler.hero.titleFull': 'Fethiye Villa İnşaatı & Havuz Yapımı Hizmetleri',
+    'hizmetler.hero.lead': '<strong>Fethiye inşaat hizmetleri</strong> — Türkiye\'de anahtar teslim villa, havuz, konut ve ticari yapı. İngilizce, Almanca, Rusça ve Arapça hizmet veriyoruz. <a href="iletisim.html">Teklif alın</a>.',
+    'services.hero.text.p3': 'Düzce ve Sakarya\'da fabrika inşaatı, sanayi inşaatı, depo ve endüstriyel tesis projelerinde de çözüm üretiyor; keşiften uygulamaya tek ekip ile süreci yönetiyoruz.',
+    'services.card.industrial.title': 'Fabrika & Sanayi İnşaatı',
+    'services.card.industrial.desc': 'Düzce ve Sakarya\'da fabrika, depo ve sanayi yapıları için proje ve uygulama hizmetleri.',
   },
   en: {
     'nav.home': 'Home',
@@ -264,7 +309,6 @@ const translations = {
     'projects.title': 'Featured Projects',
     'home.section.title': 'Fethiye Construction & Luxury Villa Projects',
     'home.seo.title': 'Our Modern & Luxury Villa Projects and Construction Processes in Fethiye',
-    'home.seo_text': 'Our Modern & Luxury Villa Projects and Construction Processes in Fethiye',
     'home.seo.p1': 'As Hasanağaoğlu Construction, we develop luxury villa, mass housing, pool and commercial projects aligned with Fethiye\'s unique nature, supported by modern architecture and strong engineering infrastructure. Bringing our experience since 1935 to Fethiye, we combine trust and comfort through projects located along the coastline and in sea-view areas.',
     'home.seo.p2': 'In Fethiye villa and luxury villa projects, we offer spacious living areas, smart home systems, energy efficiency, and aesthetic architecture together. In mass housing, private hospital, hotel, and commercial building projects, we base our work on planned settlements, strong infrastructure, full compliance with earthquake regulations, and long-lasting building standards.',
     'home.seo.p3': 'We manage every project with our own team from soil survey to turnkey delivery; we build quality, sustainable, value-appreciating structures in Fethiye. With Fethiye pool construction, private property development, and sea-view land projects, we produce solutions that deliver long-term gains for investors and local residents.',
@@ -354,7 +398,6 @@ const translations = {
     'services.hero.title': 'Fethiye Construction Services | Turnkey Projects',
     'services.hero.text.p1': 'Hasanağaoğlu Construction provides turnkey construction services from foundation to roof in Fethiye and Muğla region. We build quality, sustainable structures with modern architectural design and strong engineering infrastructure.',
     'services.hero.text.p2': 'We serve with our expert team in villas, mass housing, commercial buildings and special projects. We demonstrate transparent communication and professional approach with our customer satisfaction-oriented working principle.',
-    'services.hero.text.p3': 'We also deliver factory and industrial construction in Düzce and Sakarya, managing the process end-to-end with a single team.',
     'services.hero.btn': 'OUR PROJECTS',
     'services.section.kicker': 'SERVICES',
     'services.card.planning.title': 'Project Planning',
@@ -365,8 +408,6 @@ const translations = {
     'services.card.villa.desc': 'Custom design villa projects. Pool, landscape and luxury living spaces. Turnkey villa construction.',
     'services.card.commercial.title': 'Commercial Buildings',
     'services.card.commercial.desc': 'Offices, stores, business centers and commercial buildings. Modern business spaces and expert solutions in commercial projects.',
-    'services.card.industrial.title': 'Factory & Industrial Construction',
-    'services.card.industrial.desc': 'Project and construction services for factories, warehouses, and industrial buildings in Düzce and Sakarya.',
     'services.card.land.title': 'Land Valuation',
     'services.card.land.desc': 'Sea view and strategically located land valuation. Investment potential analysis and project development.',
     'services.card.turnkey.title': 'Turnkey',
@@ -408,6 +449,13 @@ const translations = {
     'projects.project07.title': 'Project_07',
     'projects.project07.desc': 'Luxury details, special workmanship and architectural excellence in premium mansion projects.',
     'projects.villa01.title': 'Villa_01',
+    'projects.sale.title': 'Villa for Sale',
+    'projects.sale.kicker': 'FOR SALE',
+    'projects.sale.projectTitle': 'Delivery December 2026 - Villa with Pool',
+    'projects.sale.projectDesc': 'Delivery date December 2026. 180 m² living area, with pool, 2.5 floors and 485 m² land share private villa sales project.',
+    'projects.sale.offerBtn': 'Get Quote: +90 553 014 12 18',
+    'projects.sale.miniKicker': 'FOR SALE',
+    'projects.sale.miniTitle': '180 m² - With Pool',
     // Contact page
     'contact.hero.title': 'Contact',
     'contact.hero.subtitle': 'HASANAĞAOĞLU CONSTRUCTION OFFICES',
@@ -422,7 +470,18 @@ const translations = {
     'contact.form.email.label': 'Email',
     'contact.form.message.label': 'Your Message',
     'contact.form.privacy': 'By submitting this form, I confirm that I have read and accepted the <a href="#" target="_blank">Privacy Policy</a>.',
-    'contact.form.submit': 'Send'
+    'contact.form.submit': 'Send',
+    // Slider captions
+    'hero.slide.turnkey': 'Fethiye Turnkey from Foundation to Roof',
+    'hero.slide.villa': 'Fethiye Villa Projects',
+    'hero.slide.housing': 'Fethiye Mass Housing Projects',
+    'hero.slide.pool': 'Fethiye Pool Projects',
+    'about.page.lead': '<strong>Hasanağaoğlu Construction Fethiye</strong> — trusted builder in Turkey since 1935. We work with local and international clients on villas, pools and turnkey projects in Fethiye.',
+    'hizmetler.hero.titleFull': 'Fethiye Villa Construction & Pool Building Services',
+    'hizmetler.hero.lead': '<strong>Fethiye construction services</strong> — turnkey villa, pool, housing and commercial building in Turkey. We serve international clients in English, German, Russian and Arabic. <a href="iletisim.html">Request a quote</a>.',
+    'services.hero.text.p3': 'We also deliver factory, industrial and warehouse projects in Düzce and Sakarya, managing the process from survey to completion with a single team.',
+    'services.card.industrial.title': 'Factory & Industrial Construction',
+    'services.card.industrial.desc': 'Planning and construction services for factories, warehouses and industrial facilities in Düzce and Sakarya.',
   },
   ru: {
     'nav.home': 'Главная',
@@ -457,7 +516,6 @@ const translations = {
     'projects.title': 'Избранные Проекты',
     'home.section.title': 'Проекты строительства и люксовых вилл в Фетхие',
     'home.seo.title': 'Наши современные и люксовые виллы и строительные процессы в Фетхие',
-    'home.seo_text': 'Наши современные и люксовые виллы и строительные процессы в Фетхие',
     'home.seo.p1': 'Как Hasanağaoğlu Construction, мы развиваем проекты люксовых вилл, массового жилья, бассейнов и коммерческих объектов, соответствующие уникальной природе Фетхие, опираясь на современную архитектуру и сильную инженерную базу. Перенося наш опыт с 1935 года в Фетхие, мы объединяем надежность и комфорт в проектах, расположенных вдоль побережья и в районах с видом на море.',
     'home.seo.p2': 'В проектах вилл и люксовых вилл в Фетхие мы предлагаем просторные жилые пространства, системы умного дома, энергоэффективность и эстетичную архитектуру. В проектах массового жилья, частных больниц, отелей и коммерческих зданий мы опираемся на планированную застройку, сильную инфраструктуру, полное соответствие сейсмическим нормам и долговечные стандарты строительства.',
     'home.seo.p3': 'Мы управляем каждым проектом собственной командой от инженерно-геологических изысканий до передачи «под ключ»; строим в Фетхие качественные, устойчивые и растущие в цене объекты. С проектами строительства бассейнов в Фетхие, развитием частной недвижимости и участками с видом на море мы создаем решения, обеспечивающие долгосрочную выгоду для инвесторов и жителей региона.',
@@ -547,7 +605,6 @@ const translations = {
     'services.hero.title': 'Строительные Услуги Фетхие | Проекты Под Ключ',
     'services.hero.text.p1': 'Hasanağaoğlu Construction предоставляет услуги строительства под ключ от фундамента до крыши в регионе Фетхие и Мугла. Мы строим качественные, устойчивые структуры с современным архитектурным дизайном и сильной инженерной инфраструктурой.',
     'services.hero.text.p2': 'Мы обслуживаем с нашей экспертной командой виллы, массовое жилье, коммерческие здания и специальные проекты. Мы демонстрируем прозрачную коммуникацию и профессиональный подход с нашим принципом работы, ориентированным на удовлетворенность клиентов.',
-    'services.hero.text.p3': 'Также выполняем строительство заводов и промышленных объектов в Дюздже и Сакарье, ведя процесс «под ключ» одной командой.',
     'services.hero.btn': 'НАШИ ПРОЕКТЫ',
     'services.section.kicker': 'УСЛУГИ',
     'services.card.planning.title': 'Планирование Проекта',
@@ -558,8 +615,6 @@ const translations = {
     'services.card.villa.desc': 'Проекты вилл с индивидуальным дизайном. Бассейн, ландшафт и роскошные жилые пространства. Строительство вилл под ключ.',
     'services.card.commercial.title': 'Коммерческие Здания',
     'services.card.commercial.desc': 'Офисы, магазины, деловые центры и коммерческие здания. Современные деловые пространства и экспертные решения в коммерческих проектах.',
-    'services.card.industrial.title': 'Заводы и Промышленные Объекты',
-    'services.card.industrial.desc': 'Проектирование и строительство заводов, складов и промышленных зданий в Дюздже и Сакарье.',
     'services.card.land.title': 'Оценка Земли',
     'services.card.land.desc': 'Оценка земли с видом на море и стратегически расположенной. Анализ инвестиционного потенциала и разработка проектов.',
     'services.card.turnkey.title': 'Под Ключ',
@@ -601,6 +656,13 @@ const translations = {
     'projects.project07.title': 'Проект_07',
     'projects.project07.desc': 'Роскошные детали, специальная работа и архитектурное совершенство в премиальных проектах особняков.',
     'projects.villa01.title': 'Вилла_01',
+    'projects.sale.title': 'Вилла на продажу',
+    'projects.sale.kicker': 'В ПРОДАЖЕ',
+    'projects.sale.projectTitle': 'Сдача в декабре 2026 — вилла с бассейном',
+    'projects.sale.projectDesc': 'Срок сдачи — декабрь 2026. 180 м² жилой площади, бассейн, 2,5 этажа и 485 м² земельной доли.',
+    'projects.sale.offerBtn': 'Запросить предложение: +90 553 014 12 18',
+    'projects.sale.miniKicker': 'ПРОДАЖА',
+    'projects.sale.miniTitle': '180 м² — с бассейном',
     // Contact page
     'contact.hero.title': 'Контакты',
     'contact.hero.subtitle': 'ОФИСЫ HASANAĞAOĞLU CONSTRUCTION',
@@ -615,7 +677,18 @@ const translations = {
     'contact.form.email.label': 'Электронная почта',
     'contact.form.message.label': 'Ваше сообщение',
     'contact.form.privacy': 'Отправляя эту форму, я подтверждаю, что прочитал и принял <a href="#" target="_blank">Политику Конфиденциальности</a>.',
-    'contact.form.submit': 'Отправить'
+    'contact.form.submit': 'Отправить',
+    // Slider captions
+    'hero.slide.turnkey': 'Фетхие Под Ключ от Фундамента до Крыши',
+    'hero.slide.villa': 'Проекты Вилл Фетхие',
+    'hero.slide.housing': 'Массовые Жилищные Проекты Фетхие',
+    'hero.slide.pool': 'Проекты Бассейнов Фетхие',
+    'about.page.lead': '<strong>Hasanağaoğlu Construction Фетхие</strong> — надёжный застройщик в Турции с 1935 года. Работаем с местными и зарубежными клиентами над виллами, бассейнами и проектами под ключ в Фетхие.',
+    'hizmetler.hero.titleFull': 'Строительство вилл и бассейнов в Фетхие',
+    'hizmetler.hero.lead': '<strong>Строительные услуги в Фетхие</strong> — виллы, бассейны, жильё и коммерческие объекты под ключ в Турции. Обслуживаем клиентов на английском, немецком, русском и арабском. <a href="iletisim.html">Запросить предложение</a>.',
+    'services.hero.text.p3': 'Также реализуем проекты фабрик, складов и промышленных объектов в Дюздже и Сакарье — от обследования до сдачи одной командой.',
+    'services.card.industrial.title': 'Промышленное и фабричное строительство',
+    'services.card.industrial.desc': 'Проектирование и строительство фабрик, складов и промышленных зданий в Дюздже и Сакарье.',
   },
   ar: {
     'nav.home': 'الرئيسية',
@@ -650,7 +723,6 @@ const translations = {
     'projects.title': 'المشاريع المميزة',
     'home.section.title': 'مشاريع البناء والفلل الفاخرة في فتحية',
     'home.seo.title': 'مشاريعنا للفلل الحديثة والفاخرة وعمليات البناء في فتحية',
-    'home.seo_text': 'مشاريعنا للفلل الحديثة والفاخرة وعمليات البناء في فتحية',
     'home.seo.p1': 'نحن في حسن أغلو للإنشاءات نطوّر مشاريع الفلل الفاخرة والإسكان الجماعي والمسابح والمشاريع التجارية المتوافقة مع طبيعة فتحية الفريدة، بالاعتماد على العمارة الحديثة وبنية هندسية قوية. وبنقل خبرتنا منذ عام 1935 إلى فتحية، نجمع بين الثقة والراحة في مشاريع تقع على الساحل وفي مناطق ذات إطلالة بحرية.',
     'home.seo.p2': 'في مشاريع فلل فتحية والفلل الفاخرة، نقدم مساحات معيشة واسعة وأنظمة منزل ذكي وكفاءة طاقة وعمارة جمالية معًا. وفي مشاريع الإسكان الجماعي والمستشفيات الخاصة والفنادق والمباني التجارية نعتمد على تخطيط عمراني منظم وبنية تحتية قوية والالتزام الكامل بأنظمة الزلازل ومعايير بناء طويلة العمر.',
     'home.seo.p3': 'ندير كل مشروع بفريقنا الخاص من دراسة التربة حتى التسليم المفتاحي؛ ونبني في فتحية مباني عالية الجودة ومستدامة وتزداد قيمتها. ومع مشاريع إنشاء المسابح في فتحية وتطوير الملكيات الخاصة والأراضي ذات الإطلالة البحرية، نقدّم حلولًا تحقق عوائد طويلة الأمد للمستثمرين وسكان المنطقة.',
@@ -740,7 +812,6 @@ const translations = {
     'services.hero.title': 'خدمات البناء في فتحية | مشاريع تسليم المفتاح',
     'services.hero.text.p1': 'توفر شركة حسن أغلو للإنشاءات خدمات بناء تسليم المفتاح من الأساس إلى السقف في منطقة فتحية وموغلا. نبني هياكل عالية الجودة ومستدامة بتصميم معماري حديث وبنية تحتية هندسية قوية.',
     'services.hero.text.p2': 'نخدم مع فريقنا الخبير في الفيلات والإسكان الجماعي والمباني التجارية والمشاريع الخاصة. نظهر التواصل الشفاف والنهج المهني مع مبدأ عملنا المتمحور حول رضا العملاء.',
-    'services.hero.text.p3': 'كما نقدم بناء المصانع والمنشآت الصناعية في دوزجه وساكاريا وندير العملية بالكامل بفريق واحد.',
     'services.hero.btn': 'مشاريعنا',
     'services.section.kicker': 'الخدمات',
     'services.card.planning.title': 'تخطيط المشروع',
@@ -751,8 +822,6 @@ const translations = {
     'services.card.villa.desc': 'مشاريع فيلات بتصميم مخصص. مسابح وتنسيق حدائق ومساحات معيشة فاخرة. بناء فيلات تسليم المفتاح.',
     'services.card.commercial.title': 'المباني التجارية',
     'services.card.commercial.desc': 'المكاتب والمتاجر ومراكز الأعمال والمباني التجارية. مساحات عمل حديثة وحلول خبيرة في المشاريع التجارية.',
-    'services.card.industrial.title': 'بناء المصانع والمنشآت الصناعية',
-    'services.card.industrial.desc': 'خدمات التصميم والتنفيذ للمصانع والمستودعات والمنشآت الصناعية في دوزجه وساكاريا.',
     'services.card.land.title': 'تقييم الأرض',
     'services.card.land.desc': 'تقييم الأراضي المطلة على البحر والموجودة في مواقع استراتيجية. تحليل إمكانات الاستثمار وتطوير المشاريع.',
     'services.card.turnkey.title': 'تسليم المفتاح',
@@ -794,6 +863,13 @@ const translations = {
     'projects.project07.title': 'المشروع_07',
     'projects.project07.desc': 'تفاصيل فاخرة وعمل خاص والتميز المعماري في مشاريع القصور المميزة.',
     'projects.villa01.title': 'فيلا_01',
+    'projects.sale.title': 'فيلا للبيع',
+    'projects.sale.kicker': 'للبيع',
+    'projects.sale.projectTitle': 'التسليم ديسمبر 2026 - فيلا مع مسبح',
+    'projects.sale.projectDesc': 'موعد التسليم ديسمبر 2026. مساحة معيشة 180 م²، مع مسبح، 2.5 طابق وحصة أرض 485 م².',
+    'projects.sale.offerBtn': 'اطلب عرض سعر: +90 553 014 12 18',
+    'projects.sale.miniKicker': 'للبيع',
+    'projects.sale.miniTitle': '180 م² - مع مسبح',
     // Contact page
     'contact.hero.title': 'اتصل بنا',
     'contact.hero.subtitle': 'مكاتب شركة حسن أغلو للإنشاءات',
@@ -808,7 +884,220 @@ const translations = {
     'contact.form.email.label': 'البريد الإلكتروني',
     'contact.form.message.label': 'رسالتك',
     'contact.form.privacy': 'بإرسال هذا النموذج، أؤكد أنني قرأت ووافقت على <a href="#" target="_blank">سياسة الخصوصية</a>.',
-    'contact.form.submit': 'إرسال'
+    'contact.form.submit': 'إرسال',
+    // Slider captions
+    'hero.slide.turnkey': 'فتحية تسليم المفتاح من الأساس إلى السقف',
+    'hero.slide.villa': 'مشاريع الفيلات فتحية',
+    'hero.slide.housing': 'مشاريع الإسكان الجماعي فتحية',
+    'hero.slide.pool': 'مشاريع المسابح فتحية',
+    'about.page.lead': '<strong>حسن أغلو للإنشاءات فتحية</strong> — شركة بناء موثوقة في تركيا منذ 1935. نخدم العملاء المحليين والدوليين في مشاريع الفلل والمسابح وتسليم المفتاح في فتحية.',
+    'hizmetler.hero.titleFull': 'بناء الفلل وإنشاء المسابح في فتحية',
+    'hizmetler.hero.lead': '<strong>خدمات البناء في فتحية</strong> — فيلات ومسابح وإسكان ومباني تجارية تسليم المفتاح في تركيا. نخدم العملاء بالإنجليزية والألمانية والروسية والعربية. <a href="iletisim.html">اطلب عرض سعر</a>.',
+    'services.hero.text.p3': 'ننفذ أيضاً مشاريع المصانع والمستودعات والمنشآت الصناعية في دوزجة وسكاريا، وندير العملية من المعاينة حتى التسليم بفريق واحد.',
+    'services.card.industrial.title': 'بناء المصانع والمنشآت الصناعية',
+    'services.card.industrial.desc': 'خدمات التخطيط والتنفيذ للمصانع والمستودعات والمنشآت الصناعية في دوزجة وسكاريا.'
+  },
+  de: {
+    'nav.home': 'Startseite',
+    'nav.about': 'Unternehmen',
+    'nav.services': 'Leistungen',
+    'nav.projects': 'Projekte',
+    'nav.contact': 'Kontakt',
+    'header.call': 'Jetzt anrufen',
+    'hero.title': 'Schlüsselfertig von Fundament bis Dach in der Region Fethiye',
+    'hero.description': 'Mit den Leistungen unseres etablierten Unternehmens bieten wir Ihnen schlüsselfertige Lösungen für Wohn-, Villa-, Privatklinik-, Landschafts-, Pool- und viele weitere Bauprojekte von der Bodenplatte bis zum Dach.',
+    'hero.viewProjects': 'Projekte ansehen',
+    'hero.getQuote': 'Angebot anfordern',
+    'hero.youtube.title': 'Die Adresse für modernes Wohnen',
+    'hero.youtube.cta': 'Kontakt',
+    'services.title': 'Unsere Leistungen',
+    'services.housing.title': 'Wohnanlagen',
+    'services.housing.desc': 'Planung und Bau moderner Wohnanlagen mit hoher Lebensqualität.',
+    'services.floorExchange.title': 'Geschossbau auf Anteil',
+    'services.floorExchange.desc': 'Transparente und verlässliche Vertragsprozesse mit Grundstückseigentümern.',
+    'services.seaViewLand.title': 'Meerblick-Grundstücke',
+    'services.seaViewLand.desc': 'Barankauf und Projektentwicklung von Grundstücken mit Meerblick oder Nähe zum Meer.',
+    'services.villa.title': 'Villa-Design & Bau',
+    'services.villa.desc': 'Individuelle Premium-Villen mit Pool und Landschaftsgestaltung.',
+    'services.poolLandscape.title': 'Pool & Landschaft',
+    'services.poolLandscape.desc': 'Ästhetische und funktionale Außenbereichslösungen für Wohnräume.',
+    'services.commercial.title': 'Gewerbebauten',
+    'services.commercial.desc': 'Architektur- und Ingenieurlösungen für Büros, Geschäfte und Business-Center.',
+    'services.turnkey.title': 'Schlüsselfertiger Bau',
+    'services.turnkey.desc': 'Schlüsselfertige Projekte mit Management des gesamten Prozesses.',
+    'services.largeScale.title': 'Großprojekte',
+    'services.largeScale.desc': 'Starke Ingenieurleistung für Privatkliniken, öffentliche und komplexe Bauten.',
+    'projects.title': 'Ausgewählte Projekte',
+    'home.section.title': 'Bau- & Luxusvillenprojekte in Fethiye',
+    'home.seo.title': 'Moderne & luxuriöse Villenprojekte und Bauabläufe in Fethiye',
+    'home.seo.p1': 'Als Hasanağaoğlu Bau entwickeln wir Luxusvillen, Wohnanlagen, Pool- und Gewerbeprojekte in Einklang mit der einzigartigen Natur Fethiyes – mit moderner Architektur und starker Ingenieurbasis. Seit 1935 bringen wir Erfahrung nach Fethiye und verbinden Vertrauen mit Komfort an Küste und mit Meerblick.',
+    'home.seo.p2': 'Bei Villen in Fethiye bieten wir großzügige Wohnflächen, Smart-Home, Energieeffizienz und ästhetische Architektur. Bei Wohnanlagen, Privatkliniken, Hotels und Gewerbebauten setzen wir auf geplante Siedlungen, starke Infrastruktur, Erdbebennormen und langlebige Standards.',
+    'home.seo.p3': 'Jedes Projekt steuern wir mit eigenem Team vom Bodengutachten bis zur Schlüsselübergabe – qualitativ, nachhaltig und wertsteigernd in Fethiye. Poolbau, Immobilienentwicklung und Meerblick-Grundstücke schaffen langfristigen Nutzen für Investoren und Anwohner.',
+    'home.projects.title': 'Unsere Projekte',
+    'home.projects.villa.title': 'Villenprojekte',
+    'home.projects.villa.desc': 'Moderne Architektur, großzügige Wohnflächen, hochwertige Materialien und Designs für Fethiye.',
+    'home.projects.pool.title': 'Pool & Außenbereich',
+    'home.projects.pool.desc': 'Moderne Pooldesigns, langlebige Bodenlösungen und komfortorientierte Außenanlagen.',
+    'home.projects.housing.title': 'Wohnanlagen',
+    'home.projects.housing.desc': 'Geplante Siedlung, starke Infrastruktur, moderne Fassaden und langlebige Standards.',
+    'home.projects.landscape.title': 'Landschaft & Umgebung',
+    'home.projects.landscape.desc': 'Grünflächenplanung, moderne Gartenlinien und pflegeleichte Lösungen.',
+    'home.projects.hotel.title': 'Hotelprojekte',
+    'home.projects.hotel.desc': 'Prestigeträchtige Fassade, starke Beleuchtung und funktionale Hotelplanung.',
+    'home.projects.seaView.title': 'Meerblick-Grundstücke',
+    'home.projects.seaView.desc': 'Grundstückanalyse, Machbarkeit und Bebauung mit maximaler Aussicht.',
+    'home.projects.hospital.title': 'Privatklinikprojekte',
+    'home.projects.hospital.desc': 'Moderne Gesundheitsinfrastruktur, starke Technik und patientenorientiertes Design.',
+    'home.projects.viewProjects': 'Projekte ansehen →',
+    'about.title': 'Über uns',
+    'about.description.p1': 'Hasanağaoğlu Bau baut auf soliden Wurzeln in Sakarya und hat Erfahrung und Expertise nach Fethiye gebracht.',
+    'about.description.p2': 'Als Unternehmen in Fethiye und Umgebung entwickeln wir vertrauenswürdige, ästhetische und langlebige Projekte.',
+    'about.description.p3': 'Von Wohnanlagen über Wohnungsbau auf Anteil bis zu Meerblick-Wohnungen und Gewerbe – breites Leistungsspektrum.',
+    'about.description.p4': 'Geeignete Grundstücke werden bar oder projektbezogen erworben.',
+    'about.description.p5': 'Nicht nur Gebäude: Pools, Landschaft, Villendesign und gemeinsame Flächen aus einer Hand.',
+    'about.description.p6': 'Auch Großprojekte wie Privatkliniken und Business-Center von Fundament bis Dach.',
+    'about.description.p7': 'In jedem Projekt:',
+    'about.list.item1': 'Schlüsselfertig von Fundament bis Dach,',
+    'about.list.item2': 'Statik, Architektur und Haustechnik,',
+    'about.list.item3': 'Pool- und Gartengestaltung,',
+    'about.list.item4': 'Vertrauen und Transparenz',
+    'about.description.p8': 'handeln wir danach.',
+    'about.description.p9': 'Mit Fokus auf richtigen Standort und richtiges Konzept schaffen wir Mehrwert in Fethiye.',
+    'about.vision.title': 'Unsere Vision',
+    'about.vision.text': 'Führendes Bauunternehmen in Fethiye und Mehrwert für kommende Generationen.',
+    'about.mission.title': 'Unsere Mission',
+    'about.mission.text': 'Verlässliche, moderne und ästhetische Bauwerke in höchster Qualität für unsere Kunden.',
+    'contact.title': 'Kontakt & Standort',
+    'contact.phone': 'Telefon',
+    'contact.address': 'Adresse',
+    'contact.location': 'Standort',
+    'contact.officeInfo': 'Büroinformationen',
+    'contact.company': 'Unternehmen',
+    'contact.email': 'E-Mail',
+    'contact.whatsappQuick': 'Schnellkontakt per WhatsApp',
+    'contact.formTitle': 'Informations- und Angebotsformular',
+    'contact.formName': 'Vor- und Nachname',
+    'contact.formNamePlaceholder': 'Ihren Namen eingeben',
+    'contact.formPhone': 'Telefon',
+    'contact.formPhonePlaceholder': '+90 ___ ___ __ __',
+    'contact.formMessage': 'Ihre Nachricht',
+    'contact.formMessagePlaceholder': 'Kurze Information zu Projekt oder Grundstück',
+    'contact.formSubmit': 'Senden',
+    'contact.mapTitle': 'Bürostandort',
+    'footer.workingHours.title': 'Öffnungszeiten',
+    'footer.workingHours.weekdays': 'Montag - Samstag',
+    'footer.workingHours.weekdaysTime': '09:00 - 18:00',
+    'footer.workingHours.sunday': 'Sonntag',
+    'footer.workingHours.closed': 'Geschlossen',
+    'footer.location': 'Fethiye, Muğla, Türkei',
+    'footer.navigation.title': 'Navigation',
+    'footer.quickLinks.title': 'Schnelllinks',
+    'footer.quickLinks.contact': 'Kontakt',
+    'footer.quickLinks.projects': 'Unsere Projekte',
+    'footer.quickLinks.services': 'Unsere Leistungen',
+    'footer.quickLinks.quote': 'Angebot anfordern',
+    'footer.services.title': 'Leistungen',
+    'footer.services.villa': 'Villenbau',
+    'footer.services.housing': 'Wohnanlagen',
+    'footer.services.turnkey': 'Schlüsselfertig',
+    'footer.services.landscape': 'Landschaft & Pool',
+    'footer.copyright': '© 2025 Hasanağaoğlu Bau Fethiye (seit 1935) | Alle Rechte vorbehalten',
+    'footer.website': 'www.hasanagaogluinsaat.com',
+    'footer.rights': 'Alle Rechte vorbehalten',
+    'about.title.split.left': 'Bau',
+    'about.title.split.right': 'Leistungen',
+    'about.copy.p1': 'Hasanağaoğlu Bau liefert verlässliche, geplante und langlebige Lösungen in Fethiye – moderne Architektur, starke Technik, transparente Kommunikation.',
+    'about.copy.p2': 'Wir bauen komfortable, solide Wohnräume mit bleibendem Wert nach der Übergabe.',
+    'about.tag': 'Bleibender Wert',
+    'about.vision.title.short': 'Unsere Vision',
+    'about.vision.text.short': 'Vertrauenswürdige, langfristige Baumarke mit lebenswerten, ästhetischen und nachhaltigen Bauwerken.',
+    'about.mission.title.short': 'Unsere Mission',
+    'about.mission.text.short': 'Erwartungen unserer Kunden mit Planung und Transparenz sicher erfüllen.',
+    'about.page.lead': '<strong>Hasanağaoğlu Bau Fethiye</strong> — verlässlicher Bauträger in der Türkei seit 1935. Wir betreuen lokale und internationale Kunden bei Villen, Pools und schlüsselfertigen Projekten in Fethiye.',
+    'services.kicker': 'WAS WIR TUN',
+    'services.hero.title': 'Bauleistungen Fethiye | Schlüsselfertige Projekte',
+    'hizmetler.hero.titleFull': 'Villenbau & Poolbau in Fethiye',
+    'hizmetler.hero.lead': '<strong>Bauleistungen in Fethiye</strong> — schlüsselfertige Villen, Pools, Wohn- und Gewerbebauten in der Türkei. Beratung auf Deutsch, Englisch, Russisch und Arabisch. <a href="iletisim.html">Angebot anfordern</a>.',
+    'services.hero.text.p1': 'Hasanağaoğlu Bau bietet schlüsselfertige Bauleistungen von Fundament bis Dach in Fethiye und Muğla.',
+    'services.hero.text.p2': 'Expertenteam für Villen, Wohnanlagen, Gewerbe und Sonderprojekte – transparent und professionell.',
+    'services.hero.text.p3': 'Auch Fabrik-, Industrie- und Lagerhallenprojekte in Düzce und Sakarya – eine Mannschaft von der Bestandsaufnahme bis zur Fertigstellung.',
+    'services.hero.btn': 'UNSERE PROJEKTE',
+    'services.section.kicker': 'LEISTUNGEN',
+    'services.card.planning.title': 'Projektplanung',
+    'services.card.planning.desc': 'Professionelle Planung und Koordination vom Grundstück bis zur Übergabe.',
+    'services.card.housing.title': 'Wohnungsbau',
+    'services.card.housing.desc': 'Wohnanlagen und Einzelwohnungen – modern, sicher und hochwertig.',
+    'services.card.villa.title': 'Villenbau',
+    'services.card.villa.desc': 'Individuelle Villen mit Pool, Landschaft und Luxus – schlüsselfertig.',
+    'services.card.commercial.title': 'Gewerbebauten',
+    'services.card.commercial.desc': 'Büros, Geschäfte und Business-Center – moderne Arbeitswelten.',
+    'services.card.industrial.title': 'Fabrik- & Industriebau',
+    'services.card.industrial.desc': 'Planung und Bau von Fabriken, Lagern und Industrieanlagen in Düzce und Sakarya.',
+    'services.card.land.title': 'Grundstücksbewertung',
+    'services.card.land.desc': 'Meerblick und strategische Lagen – Investitionsanalyse und Projektentwicklung.',
+    'services.card.turnkey.title': 'Schlüsselfertig',
+    'services.card.turnkey.desc': 'Gesamter Prozess von Fundament bis Dach aus einer Hand.',
+    'services.card.detail': '— DETAILINFO',
+    'services.contact.title': 'Lassen Sie uns gemeinsam bauen',
+    'services.contact.subtitle': 'Kontaktieren Sie uns für professionelle Bauleistungen in Fethiye und Muğla.',
+    'services.contact.phone.title': 'Telefon',
+    'services.contact.phone.text': 'Rufen Sie an – unser Expertenteam hilft Ihnen gern.',
+    'services.contact.email.title': 'E-Mail',
+    'services.contact.email.text': 'Schreiben Sie uns – wir melden uns schnellstmöglich.',
+    'projects.hero.vertical': 'Abgeschlossene und geplante Projekte von Hasanağaoğlu Bau.',
+    'projects.hero.title': 'Portfolio',
+    'projects.hero.details.title': 'Details:',
+    'projects.hero.details.item1': 'Moderne Architektur und detailorientiertes Design',
+    'projects.hero.details.item2': 'Solide Technik und hochwertige Materialien',
+    'projects.hero.details.item3': 'Verlässlicher Bau seit 1935 – von Sakarya bis Fethiye',
+    'projects.hero.desc': 'Qualitätsbau mit Geschichte seit 1935: moderne Architektur, solide Technik und sorgfältige Ausführung für komfortable, sichere Wohnräume – Villen, Wohnanlagen, Pools und Residenzen.',
+    'projects.section.delivered': 'Abgeschlossene Projekte',
+    'projects.section.upcoming': 'Geplante Projekte',
+    'projects.section.malikane': 'Residenzprojekte',
+    'projects.subsection.villa': 'Villa',
+    'projects.subsection.pool': 'Poolprojekte',
+    'projects.subsection.housing': 'Wohnanlagen',
+    'projects.kicker': 'ARCHITEKTUR',
+    'projects.project01.title': 'Projekt_01',
+    'projects.project01.desc': 'Villa in Fethiye – moderne Architektur, Material, Licht und Proportion.',
+    'projects.project02.title': 'Projekt_02',
+    'projects.project02.desc': 'Moderne Villa – Fassadenproportionen und Detailqualität.',
+    'projects.project03.title': 'Projekt_03',
+    'projects.project03.desc': 'Moderner Pool in Fethiye – Umgebung, Beläge und architektonische Linie.',
+    'projects.project04.title': 'Projekt_04',
+    'projects.project04.desc': 'Wohnanlage – Planung, Maßstab und nachhaltige Architektur.',
+    'projects.project05.title': 'Projekt_05',
+    'projects.project05.desc': 'Laufende Villen – moderne Architektur und Details.',
+    'projects.project06.title': 'Projekt_06',
+    'projects.project06.desc': 'Laufende Wohnanlagen – Planung und Nachhaltigkeit.',
+    'projects.project07.title': 'Projekt_07',
+    'projects.project07.desc': 'Premium-Residenzen – Luxusdetails und handwerkliche Qualität.',
+    'projects.villa01.title': 'Villa_01',
+    'projects.sale.title': 'Villa zum Verkauf',
+    'projects.sale.kicker': 'VERKAUFSPROJEKT',
+    'projects.sale.projectTitle': 'Übergabe Dezember 2026 – Villa mit Pool',
+    'projects.sale.projectDesc': 'Übergabetermin Dezember 2026. 180 m² Wohnfläche, mit Pool, 2,5 Etagen und 485 m² Grundstücksanteil.',
+    'projects.sale.offerBtn': 'Angebot anfordern: +90 553 014 12 18',
+    'projects.sale.miniKicker': 'VERKAUF',
+    'projects.sale.miniTitle': '180 m² – mit Pool',
+    'contact.hero.title': 'Kontakt',
+    'contact.hero.subtitle': 'BÜROS HASANAĞAOĞLU BAU',
+    'contact.region.turkey': 'TÜRKEI',
+    'contact.city.fethiye': 'Fethiye',
+    'contact.detail.address': 'ADRESSE:',
+    'contact.detail.phone': 'TELEFON:',
+    'contact.detail.email': 'E-MAIL:',
+    'contact.form.label': 'KONTAKTIEREN SIE UNS',
+    'contact.form.question': 'Möchten Sie ein Angebot oder eine Beratung für Ihr Bauprojekt?',
+    'contact.form.name.label': 'Vor- und Nachname',
+    'contact.form.email.label': 'E-Mail',
+    'contact.form.message.label': 'Ihre Nachricht',
+    'contact.form.privacy': 'Mit dem Absenden bestätige ich die <a href="#" target="_blank">Datenschutzerklärung</a>.',
+    'contact.form.submit': 'Senden',
+    'hero.slide.turnkey': 'Fethiye schlüsselfertig von Fundament bis Dach',
+    'hero.slide.villa': 'Villenprojekte Fethiye',
+    'hero.slide.housing': 'Wohnanlagen Fethiye',
+    'hero.slide.pool': 'Poolprojekte Fethiye',
   }
 };
 
@@ -824,6 +1113,7 @@ try {
 const langNames = {
   'tr': 'TR',
   'en': 'EN',
+  'de': 'DE',
   'ru': 'RU',
   'ar': 'AR'
 };
@@ -841,10 +1131,11 @@ function translatePage(lang) {
   document.querySelectorAll('[data-key]').forEach(element => {
     const key = element.getAttribute('data-key');
     if (translations[lang] && translations[lang][key]) {
-      // Input ve textarea için placeholder, diğerleri için text/HTML
+      // Input ve textarea için placeholder, diğerleri için textContent veya innerHTML
       if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
         element.placeholder = translations[lang][key];
       } else {
+        // HTML içeriği varsa innerHTML kullan (Gizlilik Politikası linki için)
         const translation = translations[lang][key];
         if (translation.includes('<a') || translation.includes('<span') || translation.includes('<strong')) {
           element.innerHTML = translation;
@@ -887,80 +1178,60 @@ document.addEventListener('DOMContentLoaded', function() {
   // Mevcut dili yükle
   translatePage(currentLang);
   
-  // Dil dropdown açma/kapama
   const langBtn = document.getElementById('langBtn');
   const langDropdowns = document.querySelectorAll('.lang-dropdown');
   const languageSelectors = document.querySelectorAll('.language-selector');
   
-  // Dil butonuna tıklama
+  // Dil butonuna tıklama – aç/kapa
   if (langBtn) {
     langBtn.addEventListener('click', function(e) {
+      e.preventDefault();
       e.stopPropagation();
       languageSelectors.forEach(selector => {
         const dropdown = selector.querySelector('.lang-dropdown');
         if (dropdown) {
-          dropdown.classList.toggle('active');
+          const isOpen = dropdown.classList.contains('active') || dropdown.classList.contains('is-open');
+          if (isOpen) {
+            dropdown.classList.remove('active');
+            dropdown.classList.remove('is-open');
+          } else {
+            dropdown.classList.add('active');
+            dropdown.classList.add('is-open');
+            // Açıldıktan sonra dışarı tıklanınca kapat – gecikmeyle ekle (hemen kapanmasın)
+            setTimeout(function() {
+              var closeOnOutside = function(ev) {
+                if (!ev.target.closest('.language-selector')) {
+                  langDropdowns.forEach(function(d) {
+                    d.classList.remove('active');
+                    d.classList.remove('is-open');
+                  });
+                  document.removeEventListener('click', closeOnOutside);
+                  document.removeEventListener('touchstart', closeOnOutside);
+                }
+              };
+              document.addEventListener('click', closeOnOutside);
+              document.addEventListener('touchstart', closeOnOutside);
+            }, 100);
+          }
         }
       });
     });
   }
   
-  // Dışarı tıklandığında dropdown'ı kapat
-  document.addEventListener('click', function(e) {
-    if (!e.target.closest('.language-selector')) {
-      langDropdowns.forEach(dropdown => {
-        dropdown.classList.remove('active');
-      });
-    }
-  });
-  
-  // Dil dropdown linklerine tıklama eventi
-  document.querySelectorAll('[data-lang]').forEach(link => {
+  // Dil seçeneklerine tıklama – dil değiştir ve kapat
+  document.querySelectorAll('.lang-dropdown [data-lang]').forEach(link => {
     link.addEventListener('click', function(e) {
       e.preventDefault();
+      e.stopPropagation();
       const lang = this.getAttribute('data-lang');
-      translatePage(lang);
-      // Dropdown'ı kapat
+      if (lang) {
+        translatePage(lang);
+      }
       langDropdowns.forEach(dropdown => {
         dropdown.classList.remove('active');
+        dropdown.classList.remove('is-open');
       });
     });
-  });
-});
-
-// Hero arkaplan videosu için ses aç/kapat
-document.addEventListener('DOMContentLoaded', function() {
-  const heroVideo = document.querySelector('.hero-local-video');
-  const soundToggle = document.getElementById('heroSoundToggle');
-  const heroSection = document.querySelector('.hero-slider.hero-youtube');
-  if (!heroVideo || !soundToggle) return;
-
-  heroVideo.addEventListener('error', function() {
-    if (heroSection) heroSection.classList.add('video-unavailable');
-  });
-
-  function syncLabel() {
-    const muted = heroVideo.muted || heroVideo.volume === 0;
-    soundToggle.textContent = muted ? 'Sesi Aç' : 'Sesi Kapat';
-    soundToggle.setAttribute('aria-label', muted ? 'Sesi aç' : 'Sesi kapat');
-  }
-
-  syncLabel();
-
-  soundToggle.addEventListener('click', function() {
-    if (heroVideo.muted || heroVideo.volume === 0) {
-      heroVideo.defaultMuted = false;
-      heroVideo.removeAttribute('muted');
-      heroVideo.muted = false;
-      heroVideo.volume = 1;
-      // iOS/Safari için kullanıcı etkileşiminde tekrar play tetikle
-      heroVideo.play().catch(() => {});
-    } else {
-      heroVideo.muted = true;
-      heroVideo.defaultMuted = true;
-      heroVideo.setAttribute('muted', 'muted');
-    }
-    syncLabel();
   });
 });
 
@@ -999,9 +1270,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // URL'den parametreyi temizle
     window.history.replaceState({}, document.title, window.location.pathname);
     
-    // İletişim bölümüne kaydır
+    // Form bölümüne kaydır
     setTimeout(() => {
-      document.getElementById('iletisim')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const formSection = document.querySelector('.contact-form-section') || document.getElementById('contactForm');
+      if (formSection) {
+        formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     }, 100);
   } else if (error) {
     formMessage.className = 'form-message form-message-error';
@@ -1018,7 +1292,7 @@ document.addEventListener('DOMContentLoaded', function() {
         errorText = 'Mesajınız çok kısa. Lütfen daha detaylı bir mesaj yazın.';
         break;
       case 'send':
-        errorText = 'Mesaj gönderilirken bir hata oluştu. Lütfen daha sonra tekrar deneyin.';
+        errorText = 'Mesaj gönderilirken bir hata oluştu. Lütfen daha sonra tekrar deneyin veya WhatsApp üzerinden iletişime geçin.';
         break;
     }
     
@@ -1028,9 +1302,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // URL'den parametreyi temizle
     window.history.replaceState({}, document.title, window.location.pathname);
     
-    // İletişim bölümüne kaydır
+    // Form bölümüne kaydır
     setTimeout(() => {
-      document.getElementById('iletisim')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const formSection = document.querySelector('.contact-form-section') || document.getElementById('contactForm');
+      if (formSection) {
+        formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     }, 100);
   } else if (spam === '1') {
     formMessage.className = 'form-message form-message-error';
@@ -1051,6 +1328,119 @@ document.addEventListener('DOMContentLoaded', function() {
       }, 300);
     }, 5000);
   }
+});
+
+// İletişim Formu AJAX Gönderimi
+document.addEventListener('DOMContentLoaded', function() {
+  const contactForm = document.getElementById('contactForm');
+  if (!contactForm) return;
+
+  contactForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const formMessage = document.getElementById('form-message');
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+    const originalBtnText = submitBtn.innerHTML;
+    
+    // Form verilerini al
+    const formData = new FormData(contactForm);
+    
+    // Validasyon
+    const name = formData.get('name')?.trim() || '';
+    const email = formData.get('email')?.trim() || '';
+    const message = formData.get('message')?.trim() || '';
+    
+    if (!name || !email || !message) {
+      if (formMessage) {
+        formMessage.className = 'form-message form-message-error';
+        formMessage.innerHTML = '<strong>✗ Hata!</strong> Lütfen tüm zorunlu alanları doldurun.';
+        formMessage.style.display = 'block';
+      }
+      return;
+    }
+    
+    if (!email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+      if (formMessage) {
+        formMessage.className = 'form-message form-message-error';
+        formMessage.innerHTML = '<strong>✗ Hata!</strong> Geçerli bir e-posta adresi giriniz.';
+        formMessage.style.display = 'block';
+      }
+      return;
+    }
+    
+    if (message.length < 10) {
+      if (formMessage) {
+        formMessage.className = 'form-message form-message-error';
+        formMessage.innerHTML = '<strong>✗ Hata!</strong> Mesajınız çok kısa. Lütfen daha detaylı bir mesaj yazın.';
+        formMessage.style.display = 'block';
+      }
+      return;
+    }
+    
+    // Butonu devre dışı bırak
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = 'Gönderiliyor...';
+    
+    // Önceki mesajları temizle
+    if (formMessage) {
+      formMessage.style.display = 'none';
+      formMessage.className = '';
+      formMessage.innerHTML = '';
+    }
+    
+    const formspreeUrl = contactForm.getAttribute('action');
+    if (!formspreeUrl || !formspreeUrl.includes('formspree.io')) {
+      if (formMessage) {
+        formMessage.className = 'form-message form-message-error';
+        formMessage.innerHTML = '<strong>✗ Hata!</strong> Form yapılandırması eksik. Lütfen WhatsApp üzerinden iletişime geçin.';
+        formMessage.style.display = 'block';
+      }
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalBtnText;
+      return;
+    }
+
+    fetch(formspreeUrl, {
+      method: 'POST',
+      body: formData,
+      headers: {
+        Accept: 'application/json'
+      }
+    })
+    .then(response => response.json().then(data => ({ ok: response.ok, data })))
+    .then(({ ok, data }) => {
+      if (ok) {
+        fireGoogleAdsConversion(GOOGLE_ADS_FORM, () => {
+          window.location.href = 'tesekkurler.html';
+        });
+        return;
+      }
+      throw new Error(data.error || data.message || 'Bir hata oluştu');
+    })
+    .catch(error => {
+      // Hata durumunda
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalBtnText;
+      
+      if (formMessage) {
+        formMessage.className = 'form-message form-message-error';
+        let errorText = 'Mesaj gönderilirken bir hata oluştu. ';
+        
+        errorText += 'Lütfen daha sonra tekrar deneyin veya WhatsApp üzerinden iletişime geçin.';
+        
+        formMessage.innerHTML = '<strong>✗ Hata!</strong> ' + errorText;
+        formMessage.style.display = 'block';
+        
+        // Form bölümüne kaydır
+        setTimeout(() => {
+          const formSection = document.querySelector('.contact-form-section') || contactForm;
+          if (formSection) {
+            formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 100);
+      }
+    });
+  });
 });
 
 // Mobil Menü Toggle
@@ -1382,15 +1772,11 @@ document.addEventListener('DOMContentLoaded', function() {
       currentSlide = index;
     }
 
-    // Tüm slide'ları gizle ve aktif olanı göster (+ video oynatma)
+    // Tüm slide'ları gizle ve aktif olanı göster
     slides.forEach((slide, i) => {
-      const video = slide.querySelector('video.hero-video');
       slide.classList.remove('active');
       if (i === currentSlide) {
         slide.classList.add('active');
-        if (video) video.play().catch(() => {});
-      } else {
-        if (video) video.pause();
       }
     });
 
@@ -2050,3 +2436,93 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
+// Görsel büyütüldüğünde (lightbox) kapatma işlevi
+document.addEventListener('click', function(e) {
+  var modal = document.querySelector('.mini-zoom');
+  if (modal && modal.classList.contains('is-open')) {
+    if (e.target.classList.contains('mini-zoom-backdrop') || e.target.classList.contains('mini-zoom-close')) {
+      modal.classList.remove('is-open');
+      document.body.style.overflow = ''; // Scroll'u geri aç
+    }
+  }
+});
+
+// ESC tuşu ile kapatma
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    var modal = document.querySelector('.mini-zoom');
+    if (modal) {
+      modal.classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+  }
+});
+
+// Sayfa yüklendiğinde pencereye odak ver ve kaydırmayı serbest bırak
+window.onload = function() {
+  try {
+    window.focus();
+  } catch (e) {}
+  document.body.style.overflow = 'auto';
+};
+
+// DOM yüklendiğinde odağı ve tıklanabilirliği garanti altına al
+document.addEventListener("DOMContentLoaded", function() {
+  // Sayfa yüklence odağı ana sayfaya ver
+  try {
+    window.focus();
+  } catch (e) {}
+
+  // Slider butonlarının veya katmanının ekranı kilitlemesini engelle
+  const slider = document.querySelector('.hero-slider');
+  if (slider) {
+    slider.style.zIndex = "1";
+  }
+
+  // Sayfanın tıklanabilir olduğunu garanti et
+  document.body.style.pointerEvents = "auto";
+});
+
+// Hero arkaplan videosu: hata durumunda poster, ses aç/kapat
+document.addEventListener('DOMContentLoaded', function() {
+  const heroVideo = document.querySelector('.hero-local-video');
+  const soundToggle = document.getElementById('heroSoundToggle');
+  const heroSection = document.querySelector('.hero-slider.hero-youtube');
+  if (!heroVideo) return;
+
+  heroVideo.addEventListener('error', function() {
+    if (heroSection) heroSection.classList.add('video-unavailable');
+  });
+
+  const playPromise = heroVideo.play();
+  if (playPromise && typeof playPromise.catch === 'function') {
+    playPromise.catch(function() {
+      if (heroSection) heroSection.classList.add('video-unavailable');
+    });
+  }
+
+  if (!soundToggle) return;
+
+  function syncLabel() {
+    const muted = heroVideo.muted || heroVideo.volume === 0;
+    soundToggle.textContent = muted ? 'Sesi Aç' : 'Sesi Kapat';
+    soundToggle.setAttribute('aria-label', muted ? 'Sesi aç' : 'Sesi kapat');
+  }
+
+  syncLabel();
+
+  soundToggle.addEventListener('click', function() {
+    if (heroVideo.muted || heroVideo.volume === 0) {
+      heroVideo.defaultMuted = false;
+      heroVideo.removeAttribute('muted');
+      heroVideo.muted = false;
+      heroVideo.volume = 1;
+      heroVideo.play().catch(function() {});
+    } else {
+      heroVideo.muted = true;
+      heroVideo.defaultMuted = true;
+      heroVideo.setAttribute('muted', 'muted');
+    }
+    syncLabel();
+  });
+});

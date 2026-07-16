@@ -1,10 +1,26 @@
 <!doctype html>
 <html lang="tr">
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17942299984"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-17942299984');
+    window.addEventListener('load', function() {
+      gtag('event', 'conversion', {
+        'send_to': 'AW-17942299984/EDg8CMexm7YcENCKx-tC',
+        'value': 1.0,
+        'currency': 'TRY'
+      });
+    });
+  </script>
+
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Teşekkürler</title>
-  <link rel="stylesheet" href="assets/css/app.css?v=20260203_final" />
+  <link rel="stylesheet" href="assets/css/app.css?v=20260518_neutral" />
   <style>
     .ty-card{
       background:#fff;
@@ -40,28 +56,22 @@
       border-color: rgba(0,0,0,.22);
     }
   </style>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17942299984"></script>
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'AW-17942299984');
+    try {
+      var _lang = localStorage.getItem('language') || (document.cookie.match(/(?:^|;\s*)language=([^;]+)/) || [])[1];
+      if (_lang && _lang !== 'tr') document.documentElement.lang = _lang;
+    } catch (e) {}
   </script>
 </head>
 <body>
   <main style="min-height:70vh;display:flex;align-items:center;justify-content:center;padding:48px 16px;">
-    <div style="max-width:560px;text-align:center;">
-      <h1 style="margin:0 0 10px;">Mesajınız alındı</h1>
-      <p style="margin:0 0 22px;line-height:1.6;">
-        En kısa sürede size dönüş yapacağız.
-      </p>
-      <a href="index.html" style="display:inline-block;padding:12px 18px;border-radius:999px;border:1px solid rgba(0,0,0,.12);text-decoration:none;">
-        Anasayfaya dön
-      </a>
+    <div class="ty-card" style="max-width:560px;text-align:center;">
+      <h1 class="ty-title" data-key="thanks.title">Mesajınız alındı</h1>
+      <p class="ty-text" data-key="thanks.text">En kısa sürede size dönüş yapacağız.</p>
+      <a href="index.html" class="ty-btn" data-key="thanks.home">Anasayfaya dön</a>
     </div>
   </main>
+  <script src="assets/js/main.js?v=20260704_form_fix" defer></script>
 </body>
 </html>
 

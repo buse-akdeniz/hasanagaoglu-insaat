@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17942299984"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-17942299984');
+  </script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="assets/images/favicon.ico" sizes="any" />
@@ -9,27 +18,26 @@
   <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png" />
   <link rel="icon" type="image/png" sizes="192x192" href="assets/images/android-chrome-192x192.png" />
 <title>Proje Detayı | Hasanağaoğlu İnşaat Fethiye</title>
-  <meta name="description" content="Hasanağaoğlu İnşaat Fethiye proje detayları ve görselleri.">
+  <meta name="description" content="Hasanağaoğlu İnşaat proje detayları ve yüksek çözünürlüklü görseller.">
   <link rel="preconnect" href="https://www.google.com">
   <link rel="dns-prefetch" href="https://www.google.com">
-  <link rel="stylesheet" href="assets/css/app.css?v=20260203_final" />
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17942299984"></script>
+  <link rel="stylesheet" href="assets/css/app.css?v=20260716full" />
+  <link rel="stylesheet" href="assets/css/luxury.css?v=20260714hdr" />
+  <link rel="stylesheet" href="assets/css/site-museum.css?v=20260716full" />
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'AW-17942299984');
+    try {
+      var _lang = localStorage.getItem('language') || (document.cookie.match(/(?:^|;\s*)language=([^;]+)/) || [])[1];
+      if (_lang && _lang !== 'tr') document.documentElement.lang = _lang;
+    } catch (e) {}
   </script>
 </head>
-<body>
+<body class="lux-site" >
 
   <header class="site-header">
     <div class="container">
       <a href="index.html" class="brand" aria-label="Hasanağoğlu İnşaat">
-        <img
-          src="assets/images/logo.png?v=3"
+        <img decoding="async"
+          src="assets/images/logo-header.png?v=20260716sharp"
           alt="Hasanağoğlu İnşaat"
           class="brand__logo">
       </a>
@@ -42,6 +50,7 @@
         <a href="index.html" data-key="nav.home">Ana Sayfa</a>
         <a href="hakkimizda.html" data-key="nav.about">Kurumsal</a>
         <a href="hizmetler.html" data-key="nav.services">Hizmetler</a>
+        <a href="bolgeler.html">Bölgeler</a>
         <a href="projeler.html" data-key="nav.projects">Projeler</a>
         <a href="iletisim.html" data-key="nav.contact">İletişim</a>
       </nav>
@@ -53,6 +62,7 @@
             <a href="#" data-lang="en">🇬🇧 English</a>
             <a href="#" data-lang="ru">🇷🇺 Русский</a>
             <a href="#" data-lang="ar">🇸🇦 العربية</a>
+            <a href="#" data-lang="de">🇩🇪 Deutsch</a>
           </div>
         </div>
         <a href="tel:+905530141218" class="call-btn" data-key="header.call">Hemen Ara</a>
@@ -62,7 +72,7 @@
 
   <!-- HERO -->
   <section class="project-hero">
-    <img src="assets/img/proje-villa-1.jpg" alt="Proje Görseli">
+    <img decoding="async" src="assets/img/proje-villa-1.jpg" alt="Proje Görseli">
     <div class="hero-overlay">
       <div class="hero-left">
         <h1>Özel Villa Projesi</h1>
@@ -86,12 +96,12 @@
 
   <!-- GALLERY -->
   <section class="project-gallery">
-    <img src="img/projects/villa/villa-1.jpg" alt="Modern Villa Dış Cephe">
-    <img src="img/projects/villa/villa-2.jpg" alt="Modern Villa Akşam Görünümü">
-    <img src="img/projects/villa/villa-3.jpg" alt="Modern Villa Teras">
-    <img src="img/projects/villa/villa-4.jpg" alt="Modern Villa Bahçe">
-    <img src="img/projects/villa/villa-5.jpg" alt="Modern Villa Cephe Detayı">
-    <img src="img/projects/villa/proje-villa-2.jpg" alt="Modern Tek Katlı Villa">
+    <img decoding="async" src="img/projects/villa/villa-1.jpg" alt="Modern Villa Dış Cephe">
+    <img decoding="async" src="img/projects/villa/villa-2.jpg" alt="Modern Villa Akşam Görünümü">
+    <img decoding="async" src="img/projects/villa/villa-3.jpg" alt="Modern Villa Teras">
+    <img decoding="async" src="img/projects/villa/villa-4.jpg" alt="Modern Villa Bahçe">
+    <img decoding="async" src="img/projects/villa/villa-5.jpg" alt="Modern Villa Cephe Detayı">
+    <img decoding="async" src="img/projects/villa/proje-villa-2.jpg" alt="Modern Tek Katlı Villa">
   </section>
 
   <!-- FOOTER SIGN -->
@@ -107,7 +117,8 @@
     </svg>
   </a>
 
-  <script src="assets/js/main.js?v=20260105" defer></script>
+  <script src="assets/js/main.js?v=20260716i18n2" defer></script>
+  <script src="assets/js/i18n-site.js?v=20260716i18n2" defer></script>
 </body>
 </html>
 

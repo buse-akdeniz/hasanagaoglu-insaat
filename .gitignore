@@ -2,8 +2,15 @@ backups/
 !assets/css/
 assets/css/*
 !assets/css/app.css
+!assets/css/luxury.css
+!assets/css/site-museum.css
+!assets/css/services-data.css
+!assets/css/projects-museum.css
+!assets/css/projects.css
+!assets/css/style.css
 *.bak_*
 *.before-*
+*.bak2
 .DS_Store
 **/.DS_Store
 
@@ -14,3 +21,12 @@ deploy-sftp.sh
 
 # Local secrets
 config/mail.config.php
+
+# Local clutter / bulk not needed in repo
+ads-fix-upload.zip
+catalog/
+assets/videos/hero-temp.mp4
+assets/images/logo kopyası.png
+assets/css/app.csses
+assets/css/app.cssto files
+assets/css/app.cssyes
